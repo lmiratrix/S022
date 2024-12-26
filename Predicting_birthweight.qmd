@@ -1,0 +1,406 @@
+---
+title: "A demonstration of different machine learning methods all fit to the same data"
+output:
+  pdf_document: default
+  html_document: default
+editor_options: 
+  chunk_output_type: console
+---
+
+# Overview
+
+This document showcases a bunch of different machine learning tools, all used on the same data set. At the end we compare the different rmse on the validation set.
+
+For context, we will use a classic data set (e.g., Almond et al., 2005) on child birthweight. This data set was originally constructed to estimate the causal effect of maternal smoking on child birthweight; that is not what we are up to now. Our goal is to instead *predict* child birthweight directly based on observable characteristics prior to birth.
+
+The target of interest is the child's birthweight, stored as `child_birthwt`. This is a continuous outcome. All other variables are fair game as predictors.
+
+While this is obviously a simplified data set, the prediction problem is very real -- many medical insurers and providers target services based on algorithms similar to what you will put together.
+
+**Note:** For the purposes of illustration we are going to use a proportionally small training set of 10,000 observations (so we need to regularize and use fancy stuff) and a very large validation set (so we see the real comparison of our different choices). In practice we would try to use as much of our data as possible for training.
+
+# Setup
+
+Load our libraries, set our random seed for reproducability:
+
+```{r message = FALSE, warning=FALSE}
+library( MASS )
+library( rattle )
+library( glmnet )
+library( tidyverse )
+library( modelr )
+library( broom )
+library( caret )
+library( ranger )
+set.seed(8675309)
+
+knitr::opts_chunk$set(echo = TRUE, 
+                      fig.width = 5,
+                      out.width = "5in", 
+                      fig.align = "center")
+options(list(dplyr.summarise.inform = FALSE))
+theme_set( theme_classic() )
+
+```
+
+### Load in the birthweight data.
+
+We have two files: training and holdout. We keep our holdout set for our final validation after we pick our final models. This allows a fair comparison of all the methods at the end as we do not use the holdout set AT ALL for building our models.
+
+```{r}
+# Load the data
+ca_training = read.csv( "data/lbw_training.csv" )
+ca_holdout = read.csv( "data/lbw_holdout.csv" )
+```
+
+Let's peek at our list of variables:
+
+```{r}
+names( ca_training )
+```
+
+\newpage
+
+# Baseline linear model (OLS)
+
+How do we do with simple linear regression models? We try two versions, one with just the main effects and one with all the pairwise interactions.
+
+```{r, warning=FALSE, cache=TRUE }
+model_linear <- lm(child_birthwt ~ ., data = ca_training)
+
+model_linear_int <- lm(child_birthwt ~ .^2, data = ca_training)
+
+rmse( model_linear, ca_holdout )
+rmse( model_linear_int, ca_holdout )
+```
+
+Note the worse performance of the linear regression with interactions. We are likely overfitting.
+
+\newpage
+
+# Forward stepwise selection
+
+Here we search for a good linear model by iteratively adding the "best" covariate until we are not improving on our model performance measure.
+
+```{r}
+library(MASS)
+
+# set up simplest and most complex to consider:
+# `~ 1` is the "intercept only" model.  Our max model 
+# has everything (but no interactions).
+mod_simple <- lm(child_birthwt ~ 1, data = ca_training)
+mod_max <- lm(child_birthwt ~ ., data = ca_training)
+
+# use forward stepwise selection to pick an optimal model (in terms of AIC)
+# `trace=0` makes it not print out a lot of stuff to the screen about what it 
+# is doing.
+mod_forward <- stepAIC(mod_simple,
+                       scope = list(lower = formula(mod_simple),
+                                    upper = formula(mod_max)),
+                       direction = "forward",
+                       trace = 0 )
+
+
+summary(mod_forward)
+coef( mod_forward )
+```
+
+We can examine how many coefficients we zeroed out with this approach:
+
+```{r}
+# Total number of coefficients (remember to subtract off intercept)
+length( coef( model_linear ) ) - 1
+length(coef(mod_forward)) - 1
+```
+
+We have dropped several covariates.
+
+Finally, how well do we do in terms of predictive performance?
+
+```{r}
+rmse(mod_forward, ca_holdout)
+```
+
+\newpage
+
+# Ridge Regression
+
+How do we do with ridge? To use `glmnet` we need to make our data into a matrix with no categorical covariates (i.e., we need to convert those to dummy variables). This "design matrix" or "model matrix" is used by those ML packages (in particular glmnet) that do not like formulae. We make this as follows:
+
+```{r}
+x <- model.matrix(child_birthwt ~ ., ca_training)[,-1]
+y <- as.numeric(ca_training$child_birthwt)
+
+# how many covariates do we have now that we fleshed out our categorical
+# ones?
+dim( x )
+```
+
+We are going to cross validate to pick the best tuning parameter.
+
+```{r}
+model_ridge <- cv.glmnet(x = x, y = y, alpha = 0)
+
+# Plot to see how our CV estimate of performane changes as our tuning parameter changes.
+plot(model_ridge)
+```
+
+Now let's look at the model corresponding to the "1 SE" rule.
+
+```{r}
+# Calculate coefficients at optimal lambda
+predict(model_ridge, "coefficients", newx = x, s = "lambda.1se")[,1]
+
+# Re-fit model at optimal
+model_ridge_optimal <- glmnet(x = x, y = y, alpha = 0, lambda = model_ridge$lambda.1se)
+```
+
+**RMSE on holdout:**
+
+We first make our holdout data into a matrix just like the training data:
+
+```{r}
+# Do the same for holdout.
+x_holdout <- model.matrix(child_birthwt ~ ., ca_holdout)[,-1]
+y_holdout <- as.numeric(ca_holdout$child_birthwt)
+```
+
+Unfortunately, `glmnet` doesn't work with the `rmse()` method, so we have to write our own `rmse`. Sad!
+
+```{r ridge_RMSE, cache=TRUE}
+# Function to calculate RMSE given our design matrix rather
+# than original data.
+rmse_by_hand <- function(this_model, x_holdout, y_holdout ){
+  this_pred <- predict(this_model, newx = x_holdout)
+  
+  sqrt( mean( (this_pred - y_holdout)^2 ) )
+}
+
+# Calculate RMSE
+rmse_by_hand(model_ridge_optimal, x_holdout, y_holdout)
+```
+
+We can also use the helper function in `caret` that we saw in the random forest case study that takes observed and actual outcomes:
+
+```{r}
+preds = as.numeric( predict( model_ridge_optimal, x_holdout ) )
+rs = data.frame( obs = y_holdout,
+                 pred = preds )
+caret::defaultSummary( rs )
+```
+
+**Note:** The `predict()` method for `glmnet` gives back a matrix, not a vector of numbers. Annoying. We have to use `as.numeric` to get it to change to a list of numbers.
+
+\newpage
+
+# Lasso Regression
+
+How do we do with Lasso? It is the same as ridge, except we need to set `alpha=1`.
+
+```{r lasso_example, cache=TRUE}
+model_lasso <- cv.glmnet(x = x, y = y, alpha = 1)
+
+# Plot output
+plot(model_lasso)
+
+# Calculate coefficients at optimal lambda.  We only look at the non-zero ones.
+coef <- predict(model_lasso, "coefficients", newx = x, s = "lambda.1se")[,1]
+
+coef[ coef != 0 ]
+
+# Re-fit model at optimal
+model_lasso_optimal <- glmnet(x = x, y = y, alpha = 1, lambda = model_lasso$lambda.1se)
+
+# Calculate RMSE for Lasso
+rmse_by_hand(model_lasso_optimal, x_holdout, y_holdout)
+```
+
+\newpage
+
+# Single Tree (a CART)
+
+We first do a single tree and prune it, and then we will do random forests later on.
+
+To fit a single tree we use `rpart` (Recursive Partition).
+
+```{r cart_block}
+library(rpart)
+
+model_tree <- rpart(child_birthwt ~ ., data = ca_training )
+```
+
+We can then plot it:
+
+```{r}
+library( rattle )
+fancyRpartPlot(model_tree)
+```
+
+Our RMSE:
+
+```{r}
+# How well do we do on the test set?
+rmse(model_tree, ca_holdout)
+```
+
+Let's use cross validation to pick our `cp` tuning parameter (which controls the depth and complexity of our tree):
+
+```{r cart_pruning, cache=TRUE}
+train_control <-
+    trainControl(method = "cv",
+                 number = 10)
+
+tune_grid <- data.frame(
+    cp = exp( seq( log( 0.001 ), log( 0.5 ), length.out=100 ) ) )
+
+rpart_cv <-
+    train(child_birthwt ~ ., data = ca_training,
+          method = "rpart",
+          na.action = "na.omit",
+          tuneGrid = tune_grid,
+          trControl = train_control)
+
+
+# Plot the final model (fit using the best chosen tuning parameter automatically)
+fancyRpartPlot(rpart_cv$finalModel)
+```
+
+Now let's look at the RMSE of our final model. We use predict on the entire `rpart_cv` object since it will automatically give a tree refit to the entire training data using the best selected tuning parameter:
+
+```{r rmse_rpart_cv, cache=TRUE}
+rmse(rpart_cv, ca_holdout)
+```
+
+To get the predictions themselves we would use `predict`, handing over `rpart_cv` *not* `rpart_cv$finalModel`:
+
+```{r predictions_rpart_cv}
+preds = predict( rpart_cv, ca_holdout )
+summary( preds )
+```
+
+\newpage
+
+# Random Forests
+
+We fit a random forest with the `ranger` package as so:
+
+```{r random_forest, cache=TRUE}
+# fit a random forest model
+model_rf <- ranger( child_birthwt ~ ., data = ca_training,
+                    importance = "permutation" ) 
+
+model_rf
+
+# Table of variable importance
+importance(model_rf)
+```
+
+Annoyingly, with the `ranger` package we have to make a variable importance plot by hand. (We could instead use the `randomForest` package, which has some default importance plot code. See prior scripts illustrating this if desired.) The following code makes our plot:
+
+```{r importance_plot, cache=TRUE}
+imps = importance(model_rf)
+imps = tibble( var = names(imps),
+               importance = imps )
+imps = imps %>% arrange( importance )
+ggplot( imps, aes(x = reorder( var, importance ), y = importance)) +
+  geom_col(fill = "blue") +
+  coord_flip() +
+  labs( x = "" )
+```
+
+**Note:** The `reorder()` line in ggplot sets the order of our x variable so we get our variables from least to most important. The `coord_flip` makes our x-axis our y-axis and vice-versa, so we get nice horizontal bars.
+
+The `ranger` package gets fancy with it's `predict` which makes it a bit harder to calculate out of sample RMSE. We do it like so:
+
+```{r rf_predictions, cache=TRUE}
+rf_preds = predict( model_rf, data=ca_holdout )
+rf_preds
+head( predictions( rf_preds ) )
+
+RMSE( predictions( rf_preds ), ca_holdout$child_birthwt )
+```
+
+Note how we get a package of predictions from `predict` and then need to get the actual predictions out of the package with `predictions()`. Also note the capital `RMSE` method in `caret` is different from the `rmse` from the `modelr` package.
+
+Different packages are all slightly different. Keep reference code like this to easily remember how to do basic coding tasks.
+
+## Tuning the random forest
+
+We should tune our random forest, to figure out which specification is best. We use `caret`'s `train()` to do this (borrowing code from the case-study walk-through from the Data Science in Education textbook):
+
+```{r tune_rf, cache=TRUE}
+# setting a seed for reproducibility
+set.seed(2020)
+
+# Create a grid of different values of mtry, splitrule, and min.node.size,
+# the three tuning parameters for our random forest.
+tune_grid <-
+    expand.grid(
+        mtry = c(2, 3, 7, 10),
+        splitrule = c("variance"),        
+        min.node.size = c(10, 20, 50)
+    )
+
+# Fit a new model, using the tuning grid we created above.  This will take
+# awhile to run.
+rf_tuned <-
+    train(child_birthwt ~ ., data = ca_training,
+          method = "ranger",
+          tuneGrid = tune_grid)
+
+rf_tuned
+```
+
+We then take our final random forest, fit to all of our training data and using the winning tuning parameters, by simply using predict from the result of our `train()` call:
+
+```{r rmse_tuned_rf}
+rmse( rf_tuned, ca_holdout )
+```
+
+\newpage
+
+# Comparing our machines
+
+Now let's compare the RMSE for everyone! We add in a null model of predicting the grand mean to give a reference of how well we do when we do nothing. We can even compare all the RMSEs to the one of the mean as a point of reference:
+
+```{r compare_machines, cache=TRUE}
+
+model_null = lm( child_birthwt ~ 1, data=ca_training )
+rmse_mean = rmse( model_null, ca_holdout )
+
+RMSEs = c( mean = rmse_mean,
+            OLS = rmse(model_linear, ca_holdout),
+            OLS.quad = rmse( model_linear_int, ca_holdout ),
+            forward = rmse(mod_forward, ca_holdout),
+            ridge = rmse_by_hand(model_ridge_optimal, x_holdout, y_holdout),
+            lasso = rmse_by_hand(model_lasso_optimal, x_holdout, y_holdout),
+            CART = rmse(model_tree, ca_holdout),
+            CART.prune = rmse(rpart_cv, ca_holdout),
+            RF = RMSE( predictions( rf_preds ), ca_holdout$child_birthwt ),
+            RF_tuned = rmse( rf_tuned, ca_holdout ) )
+          
+results = tibble( model = names( RMSEs ),
+                  RMSE = RMSEs,
+                  perDecr = 100 * RMSE / rmse_mean )
+knitr::kable( results, digits=1 )
+```
+
+None of them are spectacular, but of them all, random forest wins, with a reduction of 6.5% in the RMSE over doing nothing. Interestingly, the tuned random forest was a tiny bit worse than the out-of-box random forest. The difference is small, so this is likely just due to instability in the tuning.
+
+A plot of the comparisons follows. Note how the bars are similar heights, indicating that nothing is a slam dunk over, even, just predicting the mean. The interacted OLS model is so overfit it does *worse* than the mean!
+
+```{r compare_machines_plot, fig.width = 3, fig.height=4}
+results = rownames_to_column(results, var="method" )
+results$method = reorder( results$method, 1:nrow(results) )
+ggplot( results, aes(x = method, y = RMSE)) +
+    geom_col(fill = "blue") +
+    coord_flip()
+```
+
+A different way of thinking about the RMSE is that it is a measure of baseline variation:
+
+```{r}
+sd( ca_holdout$child_birthwt )
+```
+
+This motivates why it is a reassonable baseline RMSE to compare the other RMSEs to.

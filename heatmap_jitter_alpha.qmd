@@ -1,0 +1,103 @@
+---
+title: "Jitter and heatmap examples"
+author: "Miratrix"
+date: "2023-04-19"
+output: pdf_document
+---
+
+```{r, include=FALSE}
+library(tidyverse)
+
+Schooldata <- read.csv("data/Clean data set.csv")
+
+head(Schooldata)
+```
+
+# Jitter examples
+
+```{r}
+# Histogram of ouput variable (INTEG)
+hist(Schooldata$INTEG)
+
+# Histogram of predictor variable (PER_FSM)
+hist(Schooldata$PER_FSM)
+
+# Scatterplot of ouput variable (INTEG) on predictor (FSM)
+ggplot(Schooldata, aes(x = PER_FSM, y = INTEG)) +
+  geom_point() +
+  labs(title= "Model 1 - using the variance from perfect represenation vs Free School Meals",
+       x = "Percentage of student in the school on Free School Meals (FSM)",
+       y = "Percentage deviance from perfectly reflective of ethnic groups in local area")
+
+fit1 <- lm(INTEG ~ PER_FSM, data=Schooldata)
+summary(fit1)
+```
+
+We can try jittering more (jittering here is not a good choice, by the way). The width and height control how much jitter to do both left-right and up-down.
+
+```{r}
+
+ggplot(Schooldata, aes(x = PER_FSM, y = INTEG)) +
+  geom_jitter(width = 5, height=5) +
+  labs(title= "Model 1 - using the variance from perfect represenation vs Free School Meals",
+       x = "Percentage of student in the school on Free School Meals (FSM)",
+       y = "Percentage deviance from perfectly reflective of ethnic groups in local area")
+
+ggplot(Schooldata, aes(x = PER_FSM, y = INTEG)) +
+  geom_jitter(width = 20, height=20) +
+  labs(title= "Model 1 - using the variance from perfect represenation vs Free School Meals",
+       x = "Percentage of student in the school on Free School Meals (FSM)",
+       y = "Percentage deviance from perfectly reflective of ethnic groups in local area")
+
+ggplot(Schooldata, aes(x = PER_FSM, y = INTEG)) +
+  geom_jitter(width = 100, height=100) +
+  labs(title= "Model 1 - using the variance from perfect represenation vs Free School Meals",
+       x = "Percentage of student in the school on Free School Meals (FSM)",
+       y = "Percentage deviance from perfectly reflective of ethnic groups in local area")
+
+```
+
+You can also generate jittered data with `jitter()`:
+
+```{r}
+
+a = 1:10
+a
+jitter( a )
+jitter( a, factor = 0.5 )
+jitter( a, factor = 0.0005 )
+
+
+## Try alpha
+
+ggplot(Schooldata, aes(x = PER_FSM, y = INTEG)) +
+  geom_point(alpha = 0.5) +
+  labs(title= "Model 1 - using the variance from perfect represenation vs Free School Meals",
+       x = "Percentage of student in the school on Free School Meals (FSM)",
+       y = "Percentage deviance from perfectly reflective of ethnic groups in local area")
+
+ggplot(Schooldata, aes(x = PER_FSM, y = INTEG)) +
+  geom_point(alpha = 0.25) +
+  labs(title= "Model 1 - using the variance from perfect represenation vs Free School Meals",
+       x = "Percentage of student in the school on Free School Meals (FSM)",
+       y = "Percentage deviance from perfectly reflective of ethnic groups in local area")
+
+ggplot(Schooldata, aes(x = PER_FSM, y = INTEG)) +
+  geom_point(alpha = 0.05) +
+  labs(title= "Model 1 - using the variance from perfect represenation vs Free School Meals",
+       x = "Percentage of student in the school on Free School Meals (FSM)",
+       y = "Percentage deviance from perfectly reflective of ethnic groups in local area")
+```
+
+# Making a heat map
+
+```{r}
+ggplot(Schooldata,aes(x = PER_FSM, y = INTEG))+
+  stat_density2d(aes(alpha=..level..), geom="polygon") +
+  labs(title= "Model 1 - using the variance from perfect represenation vs Free School Meals",
+       x = "Percentage of student in the school on Free School Meals (FSM)",
+       y = "Percentage deviance from perfectly reflective of ethnic groups in local area") +
+  geom_point(colour="red",alpha=0.05)+
+  theme_bw()
+
+```

@@ -1,0 +1,88 @@
+---
+title: "Basic Data Manipulation (tidyverse)"
+author: "Miratrix"
+date: "2/7/2017"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, out.width="0.5\\linewidth", fig.align="center")
+library( tidyverse )
+
+```
+
+# R for DS Chapter 5 Core Commands
+
+Let's use this simple table and run through the commands from Chapter 5. This is not a complete reference! See the text for further details.
+
+```{r}
+library( tidyverse )
+table1
+```
+
+## `filter()` (Grab the rows you want, 5.1)
+
+```{r}
+filter( table1, year > 1999 )
+```
+
+Remember, if you want to save the results of your command, you need to put it in a new variable, like so:
+
+```{r}
+my.table <- filter( table1, year > 1999 )
+my.table
+```
+
+When you do something like this, you should see it appear in your workplace.
+
+## `arrange()` (Sort your rows the way you want, 5.2)
+
+```{r}
+arrange( table1, cases )
+arrange( table1, desc( country ), population )
+```
+
+## `select()` (Grab the columns you want, 5.3)
+
+```{r}
+select( table1, country, population )
+```
+
+## `mutate()` (Make new variables out of your old ones, 5.4)
+
+```{r}
+table1 <- mutate( table1, case.per.1000 = 1000 * cases / population )
+table1
+```
+
+(We will use this new variable later, so I am saving it in our table)
+
+## `group_by()` and `summarize` (Summarize your data by subgroup, 5.6)
+
+```{r}
+tbl <- group_by( table1, country )
+summarize( tbl, av.pop = mean( population ), av.cases = mean( cases ) )
+```
+
+Same thing, with the pipe!
+
+```{r}
+table1 %>% group_by( country ) %>%
+    summarize( av.pop = mean( population ), av.cases = mean( cases ) )
+```
+
+## Special: grouped mutates (Making new variables within subgroups, 5.6)
+
+This combo is for doing things like group mean centering your data:
+
+```{r}
+table1 %>% group_by( year ) %>% mutate( case.per.1000.cent = case.per.1000 - mean( case.per.1000 ) )
+```
+
+And a plot
+
+```{r}
+ggplot( table1, aes( x=year, y=case.per.1000, col=country ) ) + geom_line() + geom_point()
+```

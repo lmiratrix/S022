@@ -1,0 +1,48 @@
+project:
+  type: book
+
+book:
+  title: "Handouts for S022 (Data Science in Education)"
+  author: "Luke Miratrix (with some others for some parts)"
+  date: "4/19/2023"
+  chapters:
+    - index.qmd
+    - part: "On markdown"
+      chapters:
+      - using_quarto.qmd
+      - code_chunks_demo.qmd
+    - part: "On Plotting"
+      chapters:
+      - simple_plotting_tips.qmd
+      - hist_and_bar_with_aggregated_data.qmd
+      - heatmap_jitter_alpha.qmd
+    - part: "On Coding"
+      chapters:
+      - manipulation_examples.qmd
+      - doing_things_over_and_over.qmd
+      - demo_cluster_boot.qmd
+    - part: "On Machine Learning"
+      chapters:
+      - Predicting_birthweight.qmd
+      - test_train_and_CV.qmd
+      - interpreting_lasso_models.qmd
+    - part: "Extra Stuff"
+      chapters:
+      - interactions_discussion.qmd
+      - ipeds_data.qmd
+      - predictive_papers.qmd
+      
+      
+highlight-style: pygments
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

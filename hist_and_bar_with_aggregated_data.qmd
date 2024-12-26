@@ -1,0 +1,95 @@
+---
+title: "Plotting aggregate data with ggPlot"
+author: "Zach Himmelsbach"
+format: pdf
+editor: visual
+---
+
+This handout demonstrates how to create histograms with ggplot when the data have already been aggregated or tallied.
+
+### Preface
+
+Before we get started, let's load the packages we'll need.
+
+```{r}
+#| echo: TRUE
+#| output: FALSE
+library(tidyverse)
+library(ggplot2)
+```
+
+# The Situation
+
+Typically, we create histograms from individual data points. Suppose we have data on students. The data include a student ID number, a course identifier, the grade the student got in the course, and their final exam score (out of 100 points). Here's some example data.
+
+```{r}
+num_students <- 200
+df <- data.frame(sid=rep(1:num_students, 2),
+                 course=c(rep('math', num_students), rep('ela', num_students)),
+                 grade=sample(c('A', 'B', 'C', 'D', 'F'), 
+                              2*num_students, 
+                              replace=TRUE),
+                 exam_score=sample(0:100, 2*num_students, replace=TRUE,
+                                   prob=dnorm(0:100, mean=80, sd=7)))
+```
+
+Let's make a histogram of the exam score data for math. This should be familiar.
+
+```{r}
+ggplot(df %>% filter(course=='math'), aes(x=exam_score)) + 
+  geom_histogram(binwidth=1)
+```
+
+There's a lot we could do to make this a publication-ready graphic - label the axes, add a title, etc. - but our focus here is on the core plotting, so we'll skip it.
+
+But what if the data were already aggregated by exam score? Let me show you what I mean in code.
+
+```{r}
+exam_agg <- df %>% 
+  filter(course=='math') %>% 
+  group_by(exam_score) %>%
+  summarize(n=n())
+exam_agg
+```
+
+The dataset `exam_agg` contains only two variables: the exam score and the number of students who received that score. Sometimes, this is the way we receive data. How can we make a histogram out of this? Let's try it the old way:
+
+```{r}
+ggplot(exam_agg, aes(x=exam_score)) +
+  geom_histogram()
+```
+
+Whoa! That doesn't look right. The problem is that `geom_histogram()` counts how many times each score appears in the data, but after we aggregated, each score only appears once. We need to tell R that the counts are stored in the `n` column of the dataset. Here's how we do it:
+
+```{r}
+ggplot(exam_agg, aes(x=exam_score, y=n)) +
+  geom_bar(stat='identity', width=1)
+```
+
+We've switched from `geom_histogram()` to `geom_bar()`. This allows us to specify a separate variable for the y-axis. Inside the `geom_bar()` call, we need to specify that `stat='identity'`. This tells ggplot that it should just use the raw value of the y-variable we gave it. If we don't make this explicit, R doesn't know what to do with the second variable.
+
+## Categorical data and bar charts
+
+We can do the same thing with a categorical variable, course grades. First we'll plot using the raw data, and then we'll switch to the aggregated version. For the aggregated case, we'll again rely on the `stat` argument of the `geom_bar()` function.
+
+```{r}
+# Plot from raw data
+# For a categorical variable, we use geom_bar
+df %>% filter(course=='ela') %>%
+  ggplot(aes(x=grade)) +
+  geom_bar()
+
+# Now let's aggregate the data
+grade_agg <- df %>% filter(course=='ela') %>% 
+  group_by(grade) %>%
+  summarize(n=n())
+
+# Now reproduce the bar plot from the aggregated data
+ggplot(grade_agg, aes(x=grade, y=n)) + geom_bar(stat='identity')
+```
+
+Looks exactly the same! (Except for the y-axis label.)
+
+## A Closing Thought
+
+Sometimes the data we get have already been aggregated. In this case, we might still want to visualize distributions of the variables that have been grouped. The above guide introduces the `stat` argument of `geom_bar()` as a way to get this done.

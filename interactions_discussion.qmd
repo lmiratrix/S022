@@ -1,0 +1,209 @@
+---
+title: "Main effects, interactions in linear models, and prediction"
+author: "Luke Miratrix"
+date: "`r Sys.time()`"
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+knitr::opts_chunk$set(echo = TRUE,
+          fig.width = 5,
+          fig.height = 3,
+          out.width = "75%",
+           message = FALSE,
+          fig.align = "center")
+options(list(dplyr.summarise.inform = FALSE))
+theme_set( theme_classic() )
+
+```
+
+This document is designed to address a problem that I have seen several times in the final projects. In particular, people will fit a sequence of models, and noticed that the main effect changes massively when they include an interaction term. This document shows a possible solution for this "problem," a solution where you fit a model, and predict two outcomes for each observation, one with a dummy variable of interest and one without. By then looking at the average difference between these predictions, we can recover what we should think of as a main effect.
+
+## Getting the data ready
+
+We use a data set of a bunch of behavioral outcomes measured for how a mother interacts with a child. One question of interest is whether mothers systematically interact with girls differently than they do with boys.
+
+We first load tidyverse and load the data.
+
+```{r}
+qm = read.table( "data/KONG.txt" )
+names( qm ) = c( "wealth", "age", "fed", "med", "bookread", "hwhelp", "talkchld", "female", "sibling" )
+head( qm )
+nrow( qm )
+```
+
+We make an aggregate measure of interaction by adding our three interview questions together. There are better ways of doing this, but this will work for now.
+
+```{r}
+qm = mutate( qm, lwealth = log(wealth),
+             interact = bookread + hwhelp + talkchld,
+             sex = factor( female, levels=c(0,1), labels=c("boy","girl" ) ) )
+```
+
+To simplify things, we are going to take the middle 80% of the data based on wealth. (There is odd tail behavior that clouds the trends that I want to avoid for pedagogical purposes.) qm = filter( qm, wealth \>= quantile( wealth, 0.1 ), wealth \<= quantile( wealth, 0.9 ) ) nrow( qm )
+
+Lets see what we have:
+
+```{r out.height="3in", fig.align="center"}
+ggplot( qm, aes( x=lwealth, y=interact, col=sex ) ) +
+    geom_point( alpha=0.5 ) +
+    stat_smooth( aes( group=sex ), method="loess", se=FALSE )
+```
+
+Lets look at a simple main effect of sex
+
+```{r}
+M0 = lm( interact ~ sex + lwealth + sibling, data=qm )
+summary( M0 )
+```
+
+## Fitting an interacted model
+
+Now let's fit a model where we interact sex and wealth. The plot does not look particularly linear, but we will proceed for illustrative purposes.
+
+```{r}
+M1 = lm( interact ~ sex * lwealth + sibling, data=qm )
+summary( M1 )
+```
+
+Notice the coefficient for sex changes a lot. This is because this is the estimated difference of girls and boys *for those with a lwealth of 0*.
+
+To recover our "main effect" estimate we need to see what the average predicted difference would be for all the individuals in our dataset. We do this by doing the following steps:
+
+(1) Copy our dataset to make two new ones
+
+```{r}
+qm.g = qm.b = qm
+```
+
+(2) Now make all the folks in the `qm.g` dataset girls, and all folks in the other boys.
+
+```{r}
+qm.g$sex = "girl"
+qm.b$sex = "boy"
+```
+
+(3) Predict interaction assuming *everyone* is a girl and *everyone* is a boy:
+
+```{r}
+pred.g = predict( M1, qm.g )
+pred.b = predict( M1, qm.b )
+```
+
+(4) Then the difference of the predictions is our predicted difference in interaction for two kids with the same covariates except sex:
+
+```{r}
+deltas = pred.g - pred.b
+sex.diff = mean( deltas )
+sex.diff
+```
+
+See? Now it matches more closely with the main effect estimate of M0. The core idea here is that the real interpretation of the main effect is a difference in average outcomes (when looking at a dummy varaible) between two groups, when holding all else equal. When you have interactions, the main effect is the predicted difference *for those with zeros for the interaction terms*, which might not be very sensible. We can get back to the difference between the two groups by predicting for everyone and comparing the averages.
+
+## Plotting
+
+As a reminder, we can plot with our predictions in a nice way. The cleanest would be to put all our predictions into a dataframe, convert to long form, and plot.
+
+(Note we use 'gender' as our key, in the following, to avoid colliding with the 'sex' variable name.) 
+
+```{r}
+qm$girl = pred.g
+qm$boy = pred.b
+qml = qm %>%
+  pivot_longer( cols = c(girl, boy),
+                names_to = "gender",
+                values_to = "pred" )
+```
+
+```{r out.height="3in", fig.align="center"}
+ggplot( qml, aes( x=lwealth, y= pred, col=gender ) ) +
+    geom_point()
+```
+
+We see different stripes for the different numbers of siblings.
+
+As a better way, we can get fancier with the data grid stuff.
+
+```{r}
+library( modelr )
+grid = data_grid( qm, lwealth = seq_range( lwealth, 30 ), sex, .model = M1 )
+head( grid )
+
+grid = add_predictions( grid, M1, "pred" )
+```
+
+```{r out.height="3in", fig.align="center"}
+ggplot( grid, aes( x=lwealth, y= pred, col=sex ) ) +
+    geom_point()
+```
+
+I used `geom_point()` to show the individual predictions. Normally we would use `geom_line()`
+
+## Centering, an alternative approach
+
+You can also center your continuous variable, which means your coefficient for your main effect on your dummy variable will correspond to the average value of the continuous. Much more interpretable!
+
+```{r}
+qm = mutate( qm, lwealth.cent = lwealth - mean(lwealth) )
+M1b = lm( interact ~ sex * lwealth.cent + sibling, data=qm )
+
+coef( M0 )
+coef( M1b )
+```
+
+See? Much more interpretable!
+
+## Confidence intervals for the gap?
+
+A bootstrap is the easiest here.
+
+```{r cache=TRUE}
+reps = replicate( 1000, {
+    qm.star = mosaic::sample( qm, replace=TRUE )
+
+    # refit the original model with the bootstrap data
+    M1.star = update( M1, data=qm.star )
+
+    pred.g = predict( M1.star, qm.g )
+    pred.b = predict( M1.star, qm.b )
+
+    deltas = pred.g - pred.b
+    mean( deltas )
+} )
+```
+
+Our bootstrap confidence interval: quantile( reps, c( 0.025, 0.975 ) )
+
+```{r out.height="3in", fig.align="center"}
+hist( reps, breaks=30, col="grey" )
+abline( v=sex.diff, col="red", lwd=3 )
+```
+
+## A final investigation
+
+I don't like the linear relationship. Better to have, perhaps a cubic for both girl and boy?
+
+```{r}
+M3 = lm( interact ~ ( lwealth + I((lwealth-mean(lwealth))^2) +
+                          I((lwealth-mean(lwealth))^3) ) * sex + sibling,
+         data=qm )
+coef( M3 )
+
+grid = add_predictions( grid, M3, "pred" )
+ggplot( grid, aes( x=lwealth, y= pred, col=sex ) ) +
+    geom_line()
+```
+
+In truth, splines would be the best. A topic for another day (or prior handout).
+
+## Disclaimer
+
+The coefficients of the above are not significant, and we are not finding a real difference between girls and boys in this case. But the code is designed to illustrate the core concept of using predict to get access to a real estimate of a main effect when you are fitting a model with an interaction term.
+
+To check if a complex model is an improvement, use anova()
+
+```{r}
+anova( M0, M1, M3 )
+```
+
+Nope, the interactions (or the more flexible cubic) are not helping us (other than helping our understanding of how to model interactions).

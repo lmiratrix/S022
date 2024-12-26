@@ -1,0 +1,86 @@
+---
+title: "Applied Prediction Papers"
+author: "S022 teaching team"
+format: pdf
+editor: visual
+---
+
+Below is a list of papers related to predictive data science and machine learning in public policy (including education). These are organized into: (1) surveys and reviews and (2) original applications. You may find many of these papers helpful as you are working on your final project and interpreting results - please peruse them with this use case in mind as well as for your general understanding of how these methods are used in the real world.
+
+# *Surveys and reviews*
+
+The following list includes review articles, textbooks, and textbook chapters that provide an overview of the application of machine learning in various fields related to public policy. These fields include education, public health, urban planning, economics, and urban planning, among many others. Many of these works discuss or cite specific applications of these methods within these fields as well (including some of the references that follow after this section).
+
+#### Athey, Susan. "Beyond Prediction." *Science* (American Association for the Advancement of Science), vol. 355, no. 6324, 2017, pp. 483--85, https://doi.org/10.1126/science.aal4321.
+
+Discussion of the challenges of using machine learning predictions to improve public policies. Includes many references to real-world uses of predictive data science.
+
+#### Athey, Susan. The Impact of Machine Learning on Economics. In: The Economics of Artificial Intelligence: An Agenda \[Internet\]. University of Chicago Press; 2018 \[cited 2023 Mar 31\]. p. 507--47. Available from: https://www.nber.org/books-and-chapters/economics-artificial-intelligence-agenda/impact-machine-learning-economics
+
+This chapter discusses use of machine learning in economics and includes a discussion of "prediction policy" applications for informing economic decision-making.
+
+#### Casali, Ylenia, et al. Machine learning for spatial analyses in urban areas: a scoping review. *Sustainable Cities and Society*. 2022 Oct 1;85:104050.
+
+Authors review the use of machine learning in city/urban planning. Specific attention is given to machine learning applications involving spatial data.
+
+#### Hu, Xindi C., et al. "The Utility of Machine Learning Models for Predicting Chemical Contaminants in Drinking Water: Promise, Challenges, and Opportunities." *Current Environmental Health Reports*. 2023 Mar;10(1):45--60.
+
+Review of the use and challenges of machine learning models for predicting chemical contaminants in drinking water. Also discusses their frequent use to guide sampling efforts by prioritizing at-risk areas.
+
+#### Payedimarri, Anil Babu, et al. Prediction Models for Public Health Containment Measures on COVID-19 Using Artificial Intelligence and Machine Learning: A Systematic Review. *International Journal of Environmental Research and Public Health*. 2021 Jan;18(9):4499.
+
+A brief review of the use of machine learning (and artificial intelligence) methods to evaluate public health interventions to contain the spread of SARS-CoV-2.
+
+#### Perry, Walt L. 2013. Predictive Policing: The Role of Crime Forecasting in Law Enforcement Operations. Rand Corporation.
+
+Open access book gives an overview of common predictive policing practices.
+
+#### Williamson, Ben. 2016. "Digital education governance: data visualization, predictive analytics, and 'real-time' policy instruments." Journal of Education Policy 31(2):123-141.
+
+Broad overview of uses of modern education data. Includes a section on predictive analytics. See first full paragraph on p. 136.
+
+#### Baker, R. S., Martin, T., & Rossi, L. M. (2016). Educational Data Mining and Learning Analytics. In *The Wiley Handbook of Cognition and Assessment* (pp. 379--396). John Wiley & Sons, Ltd. https://doi.org/10.1002/9781118956588.ch16
+
+This chapter written by experts in the field provides a nice overview of educational data mining and learning analytics. Data obtained through naturally occurring log data (e.g., from learning management systems) or specifically procured sources (e.g., eyetracking) can be used to both make inferences and predictions on learning behavior and outcomes.
+
+\newpage
+
+# *Original applications*
+
+The following list includes papers that apply machine learning methods to specific research questions. All are related to prediction and public policy, but span a similarly wide range of disciplines. While reading these, focus on the descriptions of the methods and results. This may be useful for your final project (and, of course, more generally!).
+
+#### Bansak, Kirk, et al. "Improving Refugee Integration through Data-Driven Algorithmic Assignment." *Science* (American Association for the Advancement of Science), vol. 359, no. 6373, 2018, pp. 325--29.
+
+In this paper, the authors propose a model that aims to predict where refugees will integrate best. They suggest governments take up their approach to make their refugee programs more efficient.
+
+#### Goel S, Rao JM, Shroff R. Precinct or prejudice? Understanding racial disparities in New York City's stop-and-frisk policy. *The Annals of Applied Statistics.* 2016 Mar;10(1):365--94.
+
+The authors of this paper used machine learning to estimate the probability that a detained individual truly has a weapon for stops related to suspicion of criminal weapon possession in New York City. Disproportionate stops by racial/ethnic groups, and the factors resulting in these disparities, are also discussed.
+
+#### Hino, M, et al. Machine learning for environmental monitoring. *Nature Sustainability*. 2018 Oct;1(10):583--8.
+
+Demonstration of how machine learning methods can help allocate resources to more efficiently conduct inspections for violations of the Clean Water Act.
+
+#### Kelly, Sean, et al. "Automatically Measuring Question Authenticity in Real-World Classrooms." *Educational Researcher*, vol. 47, no. 7, 2018, pp. 451--64, Available from: https://doi.org/10.3102/0013189X18785613.
+
+This team uses regression trees to predict which teacher questions are "authentic".
+
+#### Lee Kwang-Sig, et al. Association of Preterm Birth with Depression and Particulate Matter: Machine Learning Analysis Using National Health Insurance Data. *Diagnostics*. 2021 Mar;11(3):555.
+
+Demonstrates a use of machine learning to predict and identify the majors determinants of preterm birth in South Korea. Authors discuss that strategies to reduce air pollution could be an effective intervention based on these findings.
+
+#### Yoo, Sanglim. Investigating important urban characteristics in the formation of urban heat islands: a machine learning approach. *Journal of Big Data*. 2018 Jan 24;5(1):2.
+
+The author presents and discusses use of random forest to predict the formation of urban heat islands in Indianapolis, Indiana.
+
+#### https://chicago.github.io/food-inspections-evaluation/
+
+The city of Chicago uses a predictive model to decide which food establishments are inspected first.
+
+#### Romero, C., López, M. I., Luna, J. M., & Ventura, S. (2013). Predicting students' final performance from participation in on-line discussion forums. *Computers & Education*, *68*, 458-472.
+
+The researchers used classification and clustering to predict student performance based on a collection of features from an online discussion forum. This paper is a good example of the complicated data cleaning and feature pre-processing usually required for learning analytics (LA) work. It also demonstrates the various models that can be used in the process; plus, the paper actually explains what the models are and how they work before going into the results. Overall, it is a good entry paper into the field.
+
+#### Bozick, Robert and Dalton, Benjamin. Balancing Career and Technical Education With Academic Coursework: The Consequences for Mathematics Achievement in High School. *Educational Evaluation and Policy Analysis.* 2013 Jun 1;35(2):123-38.
+
+These researchers assessed the ability of career and technical education courses to improve student learning. Their work provides an example of the use of bootstrapping methods to calculate standard errors of regression coefficients.

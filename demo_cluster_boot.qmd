@@ -1,0 +1,174 @@
+---
+title: "Demonstration of the Cluster Bootstrap"
+author: "Miratrix"
+date: "2023-04-19"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library( tidyverse )
+library( lme4 )
+library( lmerTest ) ## only need this if you want p-values from your lmer models
+library( broom )
+
+```
+
+# The Cluster Bootstrap
+
+The cluster bootstrap is a resampling technique commonly used in statistics and machine learning for estimating the variability of statistical estimators, such as mean, variance, or regression coefficients. It is especially useful when the underlying data have a complex dependence structure.
+
+The main idea of the cluster bootstrap is to resample clusters of data points rather than individual data points. A cluster is a group of data points that are correlated with each other, for example, spatially adjacent data points or data points within the same experimental unit.
+
+To perform the cluster bootstrap, we follow these steps:
+
+1.  Divide the original data set by the clustering variable, with each cluster containing correlated data points.
+
+2.  Randomly select clusters from the original data set with replacement, forming a bootstrap sample with the same number of clusters (but not necessarily the same number of individuals, if cluster sizes vary). If a cluster gets resampled twice, each time would be given a different, new, cluster id, so the data still has the right number of clusters and so clusters don't end up larger than in the original data.
+
+3.  Compute the statistical estimator of interest on the bootstrap sample.
+
+4.  Repeat steps 2 and 3 a large number of times, say 1000 times, to obtain a distribution of the estimator.
+
+5.  Use the distribution of the estimator to construct confidence intervals or calculate standard errors.
+
+The cluster bootstrap is particularly useful when the underlying data have a complex correlation structure that cannot be easily accounted for using standard resampling methods, such as the simple random sampling bootstrap.
+
+The following script is used to explore data from the Tenn Star education randomized controlled trial (RCT). It loads student-level and teacher-level data, merges them by the class ID variable, deletes observations with missing data, and creates an indicator variable for whether the student was in a small class (this is the treatment). The script then fits a linear regression model to estimate the impact of being in a small class on math scores after kindergarten, using small class status, student birth quarter, teacher education level, and teacher experience as predictors.
+
+However, the model is not adjusted for clustering at the class level, so the standard errors may be wrong. To correct for this, we offer two solutions. First, the sandwich package is used to calculate cluster-robust standard errors. This is the classic econometric solution for clustering in a regression. Second, we demonstrate cluster bootstrapping for estimating the standard errors of the model coefficients.
+
+## The Tenn Star Data
+
+The Tennessee Star Experiment was a large-scale randomized controlled trial (RCT) conducted in Tennessee, USA, in the mid-1980s. The experiment aimed to evaluate the effectiveness of class size reduction on student outcome. Students and teachers were randomized to different class sizes, making the treatment assignment effectively assigned at the cluster level when looking at student outcomes.
+
+We load and prepare the data as so:
+
+```{r}
+stud <- read.csv('data/tenn_stud_dat.csv') ## student-level data
+teach <- read.csv('data/tenn_teach_dat.csv') ## teacher-level data
+dat <- merge(stud, teach, by="clid")
+dat <- na.omit(dat) ## for simplicity, we'll delete everyone missing any variables
+
+## create an indicator for being in a small class
+dat$small_class <- ifelse( dat$cltypek == 'small class', "yes", "no" )
+
+# Drop some extra variables
+dat <- dplyr::select( dat, -id, -cltypek, -sesk )
+
+head( dat )
+
+length(unique(dat$clid)) ## 196 classes
+nrow(dat) ## 3219 students
+```
+
+Our research question is whether student math achievment was higher for kids in small classrooms vs. large ones.
+
+## The Wrong Method
+
+If we use simple regression we are not taking the correlation of students within a given teacher into account. I.e., say a teacher happened to be effective. Then this teacher being assigned to a small class would have a positive impact on a bunch of treated students due to the single teacher. The student outcomes are correlated with each other by the single teacher. We would need to take this into account when calculating uncertainty: the students are not independent.
+
+```{r}
+mod <- lm(tmathssk ~ small_class + sbirthq + hdegk + totexpk, 
+          data = dat)
+res_OLS <- tidy( mod )
+knitr::kable( res_OLS, digits = 2 )
+```
+
+To be clear, the above regression gives a reasonable *estimate* of the *impact* of small class size, but the standard errors, and therefore p-values, etc., are wrong.
+
+## Cluster robust standard errors
+
+One statistical way of handling this is with the `lm_robust` package that uses the `sandwich` package that does cluster robust standard errors:
+
+```{r}
+library( estimatr )
+mod_CRVE <- lm_robust(tmathssk ~ small_class + sbirthq + hdegk + totexpk, 
+                 clusters = dat$clid,
+                 data = dat) ## another way to get the same result (more or less)
+res_CRVE <- tidy(mod_CRVE) %>%
+  dplyr::select( term, estimate, std.error, p.value )
+knitr::kable( res_CRVE, digits = 2 )
+```
+
+## Cluster Bootstrap
+
+Another way is to use the cluster bootstrap. It is a versitile method for getting standard errors on data that is clustered, as it keeps clusters intact.
+
+We write an analysis function as follows:
+
+```{r}
+my_analysis <- function( the_dat ) {
+    mod <- lm(tmathssk ~  small_class + sbirthq + hdegk + totexpk,
+              data = the_dat)
+    broom::tidy(mod)
+}
+
+my_analysis( dat )
+```
+
+We then nest our data so each row is an entire cluster:
+
+```{r}
+dat_nst <- dat %>%
+    group_by( clid ) %>%
+    nest() %>%
+    ungroup()
+dat_nst
+```
+
+We can then boostrap our data as so:
+
+```{r}
+one_cluster_boot <- function( ) {
+    
+    dat_nst_star = slice_sample( dat_nst, n = nrow(dat_nst), replace=TRUE )
+    dat_nst_star$clid = 1:nrow(dat_nst_star)
+    
+    dat_star <- unnest( dat_nst_star, cols="data" )
+    
+    my_analysis( dat_star )
+}
+```
+
+Note we are regenerating the cluster ID so if we have the same cluster multiple times, each time gets a new ID.
+
+We bootstrap and analyze a bunch of times and get standard errors:
+
+```{r do_boot, cache=TRUE}
+boots = map_df( 1:1000, ~ one_cluster_boot(), .id = "boot" )
+
+res_boot <- boots %>% group_by( term ) %>%
+    summarise( SE = sd( estimate ) )
+res_boot
+```
+
+We can compare to the original (WRONG) OLS estimates, the CRVE standard errors, and the bootstrap standard errors:
+
+```{r}
+CRVE_sub <- res_CRVE %>%
+  dplyr::select( -estimate, -p.value ) %>%
+  rename( SE_CRVE = std.error )
+OLS_sub <- res_OLS %>%
+  dplyr::select( -estimate, -p.value ) %>%
+  rename( SE_OLS = std.error )
+
+# Make the table
+tbl <- left_join( res_boot, OLS_sub, 
+                  by = "term" ) %>%
+  left_join( CRVE_sub, by = "term" ) %>%
+  relocate( term, statistic ) %>% 
+  mutate( boot_v_OLS = SE / SE_OLS,
+          boot_v_CRVE = SE / SE_CRVE )
+
+knitr::kable( tbl, digits=2 )
+```
+
+A ratio of 1 means the estimated SEs are about the same. More than 1 means the bootstrap is returning larger SEs.
+
+Generally, we see that the bootstrap is increasing the SEs for the level-2 coefficients (those that are talking about how clusters are different). This is good: the OLS SEs are way too small since they are not taking clustering into account.
+
+The CRVE is basically the same as the bootstrap here, with some mild differences. All these methods are for estimating standard errors; they do not change the estimated coefficents themselves.
+
+Bootstrapping is a simple way of getting uncertainty when you don't know how to do that with math or a package. When we can do a mathematical approximation, the bootstrapping might not be worth it, due to the extra computation. But bootstrapping, by direct simulation, can also account for things like heteroskedasticity, outliers, or other weirdness that the mathmatical approximations cannot. It is worth using in many cases due to this general applicability, versitility, and robustness.
