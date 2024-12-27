@@ -58,11 +58,11 @@ On the IPEDS page, there's a link to their [data explorer](https://nces.ed.gov/i
 
 To *get* the survey data, look for this section of the landing page:
 
-![](images/ipeds_images/survey_download.png)
+![](image/ipeds_image/survey_download.png)
 
 In the dropdown menu, select "Complete Data Files". This will take you to a page with download links for each survey component. The files we want are found in the "Data File" column. Let's download this admissions and test scores file,
 
-![](images/ipeds_images/admissions_and_test_scores.png)
+![](image/ipeds_image/admissions_and_test_scores.png)
 
 When we download the file, we should put it in a folder on our computer that's dedicated to this project. That'll make things easier once we start writing code. On my laptop, I've made a folder called "ipeds_handout". Inside *that* folder, I made another folder called "data". I put the downloaded file into that "data" folder. When I start writing code, I'll store it in the parent folder ("ipeds_handout").
 
@@ -70,13 +70,13 @@ The downloaded file is a zipped csv. We know how to work with a csv in R, but be
 
 While we're at it, let's grab one more file, data on instructional staff salaries,
 
-![](images/ipeds_images/instructional_salaries.png)
+![](image/ipeds_image/instructional_salaries.png)
 
 Like before, unzip the file and put the csv in a project-specific folder.[^ipeds_data-2] You should also download and unzip the dictionary files for both datasets.
 
 [^ipeds_data-2]: To be clear, this should be the same folder as the first dataset. Also, if you're working with many datasets for a project, it's a good idea to rename them at this stage. Give the datasets clear, descriptive names so you know what they contain. This will make it easier to write and read code later.
 
-![](images/ipeds_images/dictionary_download.png)
+![](image/ipeds_image/dictionary_download.png)
 
 The dictionaries contain codebooks that explain what each variable and value in the dataset means. These usually aren't big files, so we can open and browse them directly in Excel. I'm going to use them soon to figure out how to find the information I'm interested in.
 

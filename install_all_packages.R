@@ -38,16 +38,16 @@ pacakges = c( packages, "mosaic" )
 
 
 for(p in packages) {
-  tryCatch(test <- require(p,character.only=TRUE), 
-           warning=function(w) return())
-  if(!test)
-  {
-    print(paste("Package", p, "not found. Installing Package!"))
+  test <- library(p, character.only = TRUE, logical.return = TRUE)
+  
+  if(!test) {
+    message(paste("Package", p, "not found. Installing Package!"))
     install.packages(p)
-    require(p)
+    require(p, character.only = TRUE)
+  } else {
+    message(paste("Package", p, "found."))
   }
 }
-
 
 if ( FALSE ) {
   

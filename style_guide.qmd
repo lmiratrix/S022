@@ -1,0 +1,404 @@
+---
+title: "An R Code Style Guide (Miratrix version)"
+author: "Luke Miratrix, adapted from Peter Ganong via Avi Feller"
+date: '`r Sys.Date()`'
+output:
+  pdf_document: default
+  html_document: default
+  beamer_presentation:
+    toc: true
+    fig_width: 6
+    fig_height: 4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(nycflights13)
+options(width = 50, tibble.print_min = 4, tibble.print_max = 12, digits = 3)
+#knitr::knit_hooks$set(mysize = function(before, options, envir) {
+#  if (before) {
+#    return(options$size)
+#  }
+#})
+```
+
+```{r, echo = FALSE, out.width = "100%"}
+knitr::include_graphics("image/code_quality.png")
+```
+
+## Why have coding style?
+
+-   Many style decisions are arbitrary.
+-   Why bother?
+    1.  it makes your code readable
+    2.  it means you can focus on writing good code
+    3.  you will be looked down on if you use bad style
+
+Much of this is from the Tidyverse style guide at <http://style.tidyverse.org>; we are primarily focusing on Chapters 2 and 4. Cartoon is [xkcd](https://xkcd.com/); read those if you want to be an awesome nerd.
+
+## names (style guide rule 2.1)
+
+### Rule 2.1: Naming
+
+> **"There are only two hard things in Computer Science: [cache invalidation](https://en.wikipedia.org/wiki/Cache_invalidation) and naming things."** ---Phil Karlton
+
+-   Variable and function names should be lowercase.
+-   Use an underscore to separate words within a name.
+-   Generally, variable names should be nouns and function names should be verbs.
+
+```{r,  eval = FALSE}
+# Good
+day_one
+first_day
+
+# Bad
+first_day_of_the_month
+DayOne
+dayone
+djm1
+```
+
+### Rule 2.2: Don't use common names
+
+```{r, eval = FALSE}
+# Bad
+TRUE <- FALSE
+pi <- 10
+mean <- function(x) sum(x)
+```
+
+### Example: winsorization
+
+```{r,  eval = FALSE, mysize=TRUE, size = '\\scriptsize'}
+# Good
+winsor_upper <- 0.99
+winsor_lower <- 0.01
+diamonds <-
+  diamonds %>%
+  mutate(y_winsor = winsorize(y, probs = c(winsor_lower, winsor_upper)))
+
+# Mediocre
+diamonds_clean <-
+  diamonds %>%
+  mutate(y = winsorize(y, probs = c(0.01, 0.99)))
+```
+
+### Naming summary
+
+-   Principle: Ideally, your names should be self-explanatory and your code should be "self-documenting."
+-   A few specific tips:
+    -   Never use numbers to store versions of a data frame
+    -   By default, names for variables, functions, files, etc. should consist of complete words. (`dest_short` is an exception since it explicitly builds on source var `dest`) *Source: [Code and Data for the Social Sciences: A Practitioner's Guide](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf), Gentzkow and Shapiro*
+-   This is hard. more art than science.
+
+## Syntax
+
+### syntax: roadmap
+
+-   naming
+-   spaces
+-   argument names
+-   line length
+-   assignment
+-   quotes
+-   comments
+
+### Rule 2.2: Spaces (I)
+
+-   Put a space before and after `=` when naming arguments in function calls.
+-   Always put a space after a comma, and never before (just like in regular English).
+
+```{r  eval = FALSE}
+# Good
+average <- mean(x, na.rm = TRUE)
+
+# Also good
+average <- mean( x, na.rm = TRUE )
+
+# Bad
+average<-mean(x, na.rm = TRUE)
+average <- mean(x ,na.rm = TRUE)
+```
+
+### Rule 2.2: Spaces (II)
+
+-   Most infix operators (`==`, `+`, `-`, `<-`, etc.) should be surrounded by spaces.
+-   The exception are those with relatively [high precedence](http://stat.ethz.ch/R-manual/R-patched/library/base/html/Syntax.html): `^`, `:`, `::`, and `:::`. ("High precedence" means that these operators are evaluated first, like multiplication goes before addition.)
+
+```{r, eval = FALSE}
+# Good
+height <- (feet * 12) + inches
+sqrt(x^2 + y^2)
+x <- 1:10
+base::get
+
+# Bad
+height<-feet*12 + inches
+sqrt(x ^ 2 + y ^ 2)
+x <- 1 : 10
+base :: get
+```
+
+### Rule 2.2: Spaces (III)
+
+Extra spacing (i.e., more than one space in a row) is ok if it improves alignment of equal signs or assignments (\<-).
+
+```{r  eval = FALSE}
+# Good
+list(
+  total = a + b + c,
+  mean  = (a + b + c) / n
+)
+
+# Less good, but livable
+list(
+  total = a + b + c,
+  mean = (a + b + c) / n
+)
+```
+
+### Rule 2.3: Argument names
+
+Function arguments: **data** to compute on and **details** of computation.
+
+Omit names of common arguments (e.g. `data`, `aes`)
+
+If you override the default value of an argument, use the full name:
+
+```{r, eval = FALSE}
+# Good
+mean(1:10, na.rm = TRUE)
+
+# Bad
+mean(x = 1:10, , FALSE)
+mean(, TRUE, x = c(1:10, NA))
+```
+
+### Rule 2.5: Line length: 80 characters
+
+-   use one line each for the function name, each argument, and the closing `)`
+
+```{r, eval = FALSE, mysize = TRUE, size = '\\scriptsize'}
+# Good
+do_something_very_complicated(
+  something = "that",
+  requires = many,
+  arguments = "some of which may be long"
+)
+
+# Very bad
+do_something_very_complicated("that", requires, many, arguments, "some of which may be long")
+
+# Still bad
+do_something_very_complicated(
+  "that", requires, many,
+  arguments,
+  "some of which may be long"
+)
+
+# Yup, still bad
+do_something_very_complicated(
+  "that", requires, many, arguments,
+  "some of which may be long"
+)
+```
+
+### Rule 2.5: Line length
+
+Exception: short unnamed arguments can also go on the same line as the function name, even if the whole function call spans multiple lines.
+
+```{r, eval = FALSE}
+map(x, f,
+  extra_argument_a = 10,
+  extra_argument_b = c(1, 43, 390, 210209)
+)
+```
+
+### Rule 2.6: Assignment (if you are prissy)
+
+Use `<-`, not `=`, for assignment.
+
+```{r echo = TRUE}
+# Good
+x <- 5
+
+# Bad
+x = 5
+```
+
+### Rule 2.8: Quotes
+
+Use `"`, not `'`, for quoting text. The only exception is when the text already contains double quotes and no single quotes.
+
+```{r, eval=FALSE}
+# Good
+"Text"
+'Text with "quotes"'
+'<a href="http://style.tidyverse.org">A link</a>'
+
+# Bad
+"Text"
+'Text with "double" and \'single\' quotes'
+```
+
+### Rule 2.9: Comments
+
+If you need comments to explain what your code is doing, rewrite your code.
+
+Remarks
+
+1.  This is counter-intuitive! The problem with comments is that you can change your code without changing the comments. So when you go back and make a change to the code (as is very often necessary), then your comment becomes a source of confusion rather than clarity.
+
+2.  30535: You can use text in the markdown document to explain what your code is doing in plain English. Use complete sentences. But it is better if you just write the code well.
+
+3.  Life post 30535: There are times when comments are useful, but I try to use them sparingly.
+
+### Syntax summary
+
+-   use whitespace
+-   arguments: data before details
+-   line length: 80 characters
+-   assignment: `<-`
+-   use double quotes
+-   avoid comments
+-   I skipped 2.4 and 2.7 because they relate to material we haven't learned yet
+
+## Pipes with `magrittr`
+
+### pipes `%>%`: roadmap
+
+1.  intro
+2.  whitespace
+3.  long lines
+4.  short pipes
+5.  no arguments
+6.  assignment
+
+### Rule 4.1: intro
+
+Use `%>%` (or `|>`, if you are modern) to emphasise a sequence of actions, rather than the object that the actions are being performed on.
+
+Avoid using the pipe when:
+
+-   You need to manipulate more than one object at a time. Reserve pipes for a sequence of steps applied to one primary object.
+
+-   There are meaningful intermediate objects that could be given informative names (cf rule 2.9).
+
+### Rule 4.2: whitespace
+
+`%>%` should always have a space before it, and should usually be followed by a new line. After the first step, each line should be indented by two spaces. This structure makes it easier to add new steps (or rearrange existing steps) and harder to overlook a step.
+
+```{r, eval = FALSE}
+# Good
+iris %>%
+  group_by(Species) %>%
+  summarize_if(is.numeric, mean) %>%
+  ungroup() %>%
+  gather(measure, value, -Species) %>%
+  arrange(value)
+
+# Bad
+iris %>% group_by(Species) %>% summarize_all(mean) %>% 
+ungroup() %>% gather(measure, value, -Species) %>%
+arrange(value)
+```
+
+### Rule 4.4: short pipes I
+
+It is ok to keep a one-step pipe in one line:
+
+```{r, eval = FALSE}
+# Good
+iris %>% arrange(Species)
+
+# Mediocre
+iris %>%
+  arrange(Species)
+
+arrange(iris, Species)
+```
+
+### Rule 4.4: short pipes II
+
+```{r, eval = FALSE, mysize=TRUE, size = '\\small'}
+# Bad
+x %>%
+  select(a, b, w) %>%
+  left_join(
+    y %>% filter(!u) %>% gather(a, v, -b) %>% select(a, b, v),
+    by = c("a", "b")
+  )
+```
+
+### Rule 4.4: short pipes III
+
+```{r, eval = FALSE}
+# Good
+x %>%
+  select(a, b, w) %>%
+  left_join(y %>% select(a, b, v), by = c("a", "b"))
+
+x_join <-
+  x %>%
+  select(a, b, w)
+y_join <-
+  y %>%
+  filter(!u) %>%
+  gather(a, v, -b) %>%
+  select(a, b, v)
+left_join(x_join, y_join, by = c("a", "b"))
+```
+
+### Rule 4.5: No arguments
+
+magrittr allows you to omit `()` on functions that don't have arguments. Avoid this. This way data objects never have parentheses and functions always do.
+
+```{r, eval = FALSE}
+# Good
+x %>%
+  unique() %>%
+  sort()
+
+# Bad
+x %>%
+  unique %>%
+  sort
+```
+
+### Rule 4.6: Assignment
+
+Use a separate line for the target of the assignment followed by `<-`.
+
+```{r, eval = FALSE}
+# Good
+iris_long <-
+  iris %>%
+  gather(measure, value, -Species) %>%
+  arrange(-value)
+
+# Bad
+iris_long <- iris %>%
+  gather(measure, value, -Species) %>%
+  arrange(-value)
+```
+
+### Pipes `%>%` summary
+
+1.  pipes are awesome
+2.  use whitespace
+3.  short pipes can be on one line
+4.  use parentheses even if there are no arguments
+5.  assignment on a separate line
+
+Skipped rule 4.3 since redundant to prior chapter
+
+## Code style summary
+
+-   Style is awesome. Save a future researcher from spending two months trying to disentangle your spaghetti!
+-   You don't need to memorize these rules! Just as you have spell check and grammarly on your computer for prose, there is a package `styler` to help you follow the code style guide.
+-   Just as you still need to learn to spell (since spell checker doesn't capture everything), you need to learn these rules as well.
+
+In closing:
+
+> *"Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread."* --Hadley Wickham

@@ -1,0 +1,144 @@
+# Making tables in Markdown {#sec-make-tables}
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library( stargazer )
+knitr::opts_chunk$set(echo = TRUE, 
+                      fig.width = 5,
+                      fig.height = 3,
+                      out.width = "75%", 
+                      fig.align = "center")
+options(list(dplyr.summarise.inform = FALSE))
+theme_set( theme_classic() )
+```
+
+When writing reports you may, from time to time, need to include a table. You should probably make a chart instead, but every so often a table actually is a nice thing to have. This chapter focuses on two key aspects: creating the table itself, and formatting it for a report or presentation. We here cover only generic tables; for guidance on creating regression tables (where you show a bunch of different regression models together), see @sec-make-regression-tables.
+
+Many table-making packages and functions in R produce basic tables that display nicely in a monospace font on the screen. This is a good starting point, but you’ll often need additional formatting to make the table publication-ready. R offers several excellent packages to help with this, catering to different needs. Some are particularly suited for HTML documents (such as websites), while others are better for PDF documents (such as reports and papers). Finding the right package for your specific use case can take some trial and error.
+
+To illustrate these concepts, let’s start with some fake data.
+
+```{r}
+library( tidyverse )
+dat = tibble( G = sample( LETTERS[1:5], 100, replace=TRUE ),
+              X = rnorm( 100 ),
+              rp = sample( letters[1:3], 100, replace=TRUE ),
+              Z = sample( c("tx","co"), 100, replace=TRUE ),
+              Y = rnorm( 100 ) )
+```
+
+We can make summery of it by our grouping variable:
+
+```{r}
+sdat <- dat %>% group_by( G) %>%
+    summarise( EY = mean( Y ),
+               pT = mean( Z == "tx" ),
+               sdY = sd( Y ) )
+```
+
+Our intermediate results:
+
+```{r}
+sdat
+```
+
+We can print this out in a much cleaner form using the `kable()` method from the `knitr` package:
+
+```{r}
+knitr::kable( sdat, digits = 2 )
+```
+
+Say our grouping variable is a set of codes for something more special. We can merge in better names by first making a small "cross-walk" of the ID codes to the full names, and then merging them to our results:
+
+```{r}
+names = tribble( ~ G, ~ name,
+                 "A", "fred",
+                 "B", "doug",
+                 "C", "xiao",
+                 "D", "lily",
+                 "E", "unknown" )
+names
+
+sdat = left_join( sdat, names ) %>%
+    relocate( name)
+```
+
+Again, the easiest way to make a nice clean table is with the `kable` command.
+
+```{r}
+knitr::kable( sdat, digits=2 )
+```
+
+This is a great workhorse table-making tool! There are expansion R packages as well, e.g. `kableExtra`, which can do lots of fancy customization stuff.
+
+## Making a "table one"
+
+The "table one" is the first table in a lot of papers that show general means of different variables for different groups. Perhaps not surprisingly, the `tableone` package is useful for making such tables:
+
+```{r}
+library(tableone)
+
+# sample mean  
+CreateTableOne(data = dat,
+               vars = c("G", "Z", "X"))
+
+# you can also stratify by a variables of interest
+tb <- CreateTableOne(data = dat,
+                     vars = c("X", "G", "Y"), 
+                     strata = c("Z"))
+tb
+```
+
+You can then use `kable` on your table as so:
+
+```{r}
+print(tb$ContTable, printToggle = FALSE) %>%
+    knitr::kable()
+```
+
+## The stargazer package
+
+You can easily make pretty tables using the `stargazer` package. You need to ensure the data is a data.frame, not tibble, because `stargazer` is old school. It appears to only do continuous variables. Stargazer is probably best known for making regression tables (see next chapter), but it can make other kinds of tables as well, such as data summaries.
+
+When using `stargazer` to summarize a dataset, you can specify that it should include only some of the variables and you can omit stats that are not of interest:
+
+```{r,  messages=FALSE}
+# to include only variables of interest
+stargazer(as.data.frame(dat), header=FALSE, 
+          omit.summary.stat = c("p25", "p75", "min", "max"), 
+          # to omit percentiles
+          title = "Table 1: Descriptive statistics",
+          type = "text")
+
+```
+
+See the `stargazer` help file for how to set/change more of the options: https://cran.r-project.org/web/packages/stargazer/stargazer.pdf
+
+**Warning**: `stargazer` does not work well with tibbles (the data frames you get from tidyverse commands), so you need to convert your data to a data.frame before using it. In particular, you have to "cast" your data to a `data.frame` to make it work:
+
+```{r, eval=FALSE, messages=FALSE}
+  library(stargazer)
+  
+  # to include all variables
+  stargazer( as.data.frame(dat), header = FALSE, type="text")
+```
+
+To use `stargazer` in a PDF or HTML report, you will want the report to format the table so it doesn't look like raw output. To do so, you would not set `type="text"` but rather `type="latex"` or `type="html"`, and then in the markdown chunk header (the thing that encloses all your R code) you would say "results='asis'" in your code chunk header like so:
+
+```{r, results="asis", messages=FALSE}
+```
+
+This will ensure the output of stargazer gets formatted properly in your R Markdown.
+
+Unfortunately, it is hard to dynamically make a report that can render to either html or a pdf, so you will have to choose one or the other. If you are making a PDF, you will want to use `type="latex"` and if you are making an HTML report, you will want to use `type="html"`.
+
+## The `xtable` package
+
+The `xtable` package is another great package for making tables. It is particularly good for LaTeX documents. It is a bit more complicated to use than `stargazer`, but it is very powerful. Here is an example of how to use it:
+
+```{r, eval=FALSE}
+library(xtable)
+xtable(sdat, caption = "A table of fake data" )
+```
+
+Here you would again use the "results='asis'" in the chunk header to get the table to render properly in your R Markdown document.

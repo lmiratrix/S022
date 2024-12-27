@@ -1,0 +1,33 @@
+# Getting Started with R  {.unnumbered}
+
+To get started with R, first download and install R and RStudio (the IDE, or integrated development environment, that makes using R much, much more pleasant).  See links at [this HGSE software support page.](https://its.gse.harvard.edu/research-software-support)
+
+## Some Resources and Directions
+
+The following are ways of getting help with R.
+
+### Handouts {.unnumbered}
+
+This textbook has many handouts written by the teaching team that illustrates how to use R for a variety of tasks. Also see the Resources page on Canvas for further commentary and organization.
+
+### Class Code {.unnumbered}
+
+Each class has a R script that shows how to do the stuff from that class. See the Packets on Canvas for this code.
+
+### A Very Important Online Textbook {.unnumbered}
+
+See [R for Data Science.](http://r4ds.had.co.nz/). This textbook provides important information on wrangling data, making plots, and doing statistical programming. It is full of examples and code snippets you can steal.
+
+### Class Sections {.unnumbered}
+
+Sections will typically have a hands-on component which will give you a chance to try things out yourself. These sections will also publish the final R code for future reference. See the section pages on Canvas to get this information.
+
+### Office Hours {.unnumbered}
+
+Office hours are fine time to get help troubleshooting a specific or script you are working on.
+
+### GSE Stat Help Desk {.unnumbered}
+
+Education students can write to [stathelp\@gse.harvard.edu](mailto:stathelp@gse.harvard.edu) to get help getting started with R. If groups of 3 or more want some tutorials, they can ask for them as well.
+
+The Help Desk sometimes has Intro to R workshops. For example, grab some old workshop materials here: <http://its.gse.harvard.edu/gentle-introduction-r>

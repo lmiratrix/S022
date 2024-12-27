@@ -1,0 +1,104 @@
+---
+title: "Configuring Rmarkdown chunks"
+author: "Jonathan Seiden"
+date: "3/13/2022"
+output:
+  pdf_document: default
+editor_options:
+  chunk_output_type: console
+---
+
+When you write R Markdown (or Quarto) reports, you are going to have a lot of "chunks" of code. These are the things that start with "\`\`\`{r chunk_name, blah}" or "\`\`\`{r, blah}."
+When you render your report, these are run and the output is then taken and put in your report depending on how the chunk is configured.
+
+This file gives some options for how to control these chunks.
+
+## Options for including/suppressing code and output
+
+`include`: Should chunk be included in knit file? Defaults to `TRUE`. If `FALSE`, code chunk is run, but chunk and any output is not included in the knit file.
+
+`eval`: Should chunk be evaluated by R? Defaults to `TRUE`. If `FALSE`, code chunk is included in the knit file, but not run.
+
+`echo`: Should the code from this chunk be included in knit file along with output? Defaults to `TRUE`. If `FALSE`, the output from the chunk is included, but the code that created it is not. Most useful for plots.
+
+```{r setup, include = FALSE}
+library(nycflights13)
+library(tidyverse)
+
+dat <- nycflights13::flights
+```
+
+## Options for including/suppressing R messages
+
+R has "errors" meaning it could not run your code, "warnings" meaning that the code was wrong, but there are some potential issues with it, and "messages" which are simply information about what your code ran. You can include or suppress each of these types of message.
+
+`error`: Should R continue knitting if code produces an error? Defaults to `FALSE`. Generally don't want to change this because it means you can miss serious issues with your code.
+
+`warning`: Should R include warnings in knit file? Defaults to `TRUE`.
+
+`message`: Should R include informational messages in knit file? Defaults to `TRUE`. Easy way to clean up your markdowns.
+
+```{r errors_warnings_messages, error = TRUE, warning=FALSE, message=FALSE}
+#This code produces an error
+dat %>%
+  filter(dest = 1)
+
+#Example warning
+parse_number(c("1", "$3432", "tomato"))
+
+#Example message
+library(gridExtra)
+
+```
+
+## Options for modifying figure outputs
+
+You can control figure size and shape (see more in @sec-plot-tips).
+
+In particular, consider these:
+
+`out.width`: What percentage of the page width should output take?
+
+`fig.height`: What should be the height of figures?
+
+`fig.width`: What should be the width of figures?
+
+`fig.asp`: What should be the aspect ratio of figures?
+
+`fig.align`: How should figures be aligned?
+
+We might want a bigger plot for this:
+
+```{r plot1, fig.height=10, echo = FALSE, warning=FALSE}
+dat %>% 
+  group_by(dest) %>% 
+  summarize(delay = mean(arr_delay, na.rm = TRUE)) %>%  
+  ggplot(aes(x = delay, y = reorder(dest, delay))) +
+  geom_bar(stat = "identity") +
+  labs(x = "Mean delay (minutes)", y = "Destinations")
+```
+
+And a smaller plot for this:
+
+```{r plot2, out.width="30%", echo = FALSE, warning=FALSE, fig.align="left"}
+dat %>% 
+  group_by(dest) %>% 
+  summarize(delay = mean(arr_delay, na.rm = TRUE)) %>%  
+  ggplot(aes(x = delay)) +
+  geom_histogram()
+  labs(x = "Minutes of delay", y = "Destimations")
+```
+
+## Changing your defaults
+
+At the beginning of your code, you can set custom defaults so all your chunks will render the same way (unless you override by specifically adding arguments to a chunk itself). This is handy in that you will then not need to repeat the custom arguments in each code chunk. For example, you can set a default figure size.
+
+Here is an example:
+
+```{r defaults, eval=FALSE}
+ knitr::opts_chunk$set(echo = TRUE, 
+                       fig.width = 5,
+                       fig.height = 3,
+                       out.width = "5in", 
+                       out.height = "3in", fig.align = "center")
+```

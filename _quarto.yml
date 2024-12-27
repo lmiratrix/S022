@@ -7,18 +7,31 @@ book:
   date: "4/19/2023"
   chapters:
     - index.qmd
+    - self_assess.qmd
+    - assignment_guidelines.qmd
+    - self_grading.qmd
+    - part: "Getting Started"
+      chapters:
+      - getting_started.qmd
+      - style_guide.qmd
     - part: "On markdown"
       chapters:
+      - intro_markdown.qmd
       - using_quarto.qmd
       - code_chunks_demo.qmd
+      - configuring_code_chunks.qmd
+      - making_tables.qmd
     - part: "On Plotting"
       chapters:
+      - intro_ggplot.qmd
       - simple_plotting_tips.qmd
+      - double_plot.qmd
       - hist_and_bar_with_aggregated_data.qmd
       - heatmap_jitter_alpha.qmd
     - part: "On Coding"
       chapters:
       - manipulation_examples.qmd
+      - intro_linear_regression.qmd
       - doing_things_over_and_over.qmd
       - demo_cluster_boot.qmd
     - part: "On Machine Learning"

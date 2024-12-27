@@ -5,3 +5,7 @@ This "book" is basically a set of handouts generated for a Data Science in Educa
 The handouts were generated in response to student questions, and aim to short-circuit staring at the possibly confusing world of Stack Overflow. They are curated in the sense that these activities tend to come up over and over in the course of fundamental data science work.
 
 I hope you find this resource useful. Please send feedback to `lmiratrix@g.harvard.edu`.
+
+## A note on duplicated material
+
+Some of this material is taken from a sister "textbook" for my MLM course (S043/Stat151). That textbook is [here](https://lmiratrix.github.io/MLM/). In particular, you will find entire chapters of that textbook replicated here.

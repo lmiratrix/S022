@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; A demonstration of different machine learning methods all fit to the same data – Handouts for S022 (Data Science in Education)</title>
+<title>16&nbsp; A demonstration of different machine learning methods all fit to the same data – Handouts for S022 (Data Science in Education)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Predicting_birthweight.html">On Machine Learning</a></li><li class="breadcrumb-item"><a href="./Predicting_birthweight.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Predicting_birthweight.html">On Machine Learning</a></li><li class="breadcrumb-item"><a href="./Predicting_birthweight.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -146,10 +146,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./self_assess.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Do I take S-022? A self-assessment</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment_guidelines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment Formatting Guidelines</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./self_grading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Self Grading Instructions</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">On markdown</span></a>
+ <span class="menu-text">Getting Started</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -157,14 +175,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./using_quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">How to Quarto</span></span></a>
+  <a href="./getting_started.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Getting Started with R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./code_chunks_demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with Rmarkdown chunks</span></span></a>
+  <a href="./style_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">An R Code Style Guide (Miratrix version)</span></span></a>
   </div>
 </li>
       </ul>
@@ -172,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">On Plotting</span></a>
+ <span class="menu-text">On markdown</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -180,20 +198,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./simple_plotting_tips.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Simple plotting tips</span></span></a>
+  <a href="./intro_markdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro to R Markdown</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hist_and_bar_with_aggregated_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></span></a>
+  <a href="./using_quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Quarto</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./heatmap_jitter_alpha.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span></a>
+  <a href="./code_chunks_demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Working with Rmarkdown chunks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./configuring_code_chunks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Configuring Rmarkdown chunks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./making_tables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Making tables in Markdown</span></span></a>
   </div>
 </li>
       </ul>
@@ -201,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">On Coding</span></a>
+ <span class="menu-text">On Plotting</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -209,20 +239,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./manipulation_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></span></a>
+  <a href="./intro_ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Intro to <code>ggplot</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./doing_things_over_and_over.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
+  <a href="./simple_plotting_tips.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">chunk_output_type: console</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./demo_cluster_boot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
+  <a href="./double_plot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Plotting Two Datasets at Once</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hist_and_bar_with_aggregated_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./heatmap_jitter_alpha.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span></a>
   </div>
 </li>
       </ul>
@@ -230,7 +272,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">On Machine Learning</span></a>
+ <span class="menu-text">On Coding</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -238,20 +280,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Predicting_birthweight.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
+  <a href="./manipulation_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./test_train_and_CV.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
+  <a href="./intro_linear_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./interpreting_lasso_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
+  <a href="./doing_things_over_and_over.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./demo_cluster_boot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
   </div>
 </li>
       </ul>
@@ -259,7 +307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Extra Stuff</span></a>
+ <span class="menu-text">On Machine Learning</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -267,20 +315,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Predicting_birthweight.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./test_train_and_CV.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./interpreting_lasso_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Extra Stuff</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./interactions_discussion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ipeds_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./predictive_papers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
   </div>
 </li>
       </ul>
@@ -295,30 +372,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">10</span> Overview</a></li>
-  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">11</span> Setup</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">17</span> Overview</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">18</span> Setup</a>
   <ul class="collapse">
-  <li><a href="#load-in-the-birthweight-data." id="toc-load-in-the-birthweight-data." class="nav-link" data-scroll-target="#load-in-the-birthweight-data."><span class="header-section-number">11.0.1</span> Load in the birthweight data.</a></li>
+  <li><a href="#load-in-the-birthweight-data." id="toc-load-in-the-birthweight-data." class="nav-link" data-scroll-target="#load-in-the-birthweight-data."><span class="header-section-number">18.0.1</span> Load in the birthweight data.</a></li>
   </ul></li>
-  <li><a href="#baseline-linear-model-ols" id="toc-baseline-linear-model-ols" class="nav-link" data-scroll-target="#baseline-linear-model-ols"><span class="header-section-number">12</span> Baseline linear model (OLS)</a></li>
-  <li><a href="#forward-stepwise-selection" id="toc-forward-stepwise-selection" class="nav-link" data-scroll-target="#forward-stepwise-selection"><span class="header-section-number">13</span> Forward stepwise selection</a></li>
-  <li><a href="#ridge-regression" id="toc-ridge-regression" class="nav-link" data-scroll-target="#ridge-regression"><span class="header-section-number">14</span> Ridge Regression</a></li>
-  <li><a href="#lasso-regression" id="toc-lasso-regression" class="nav-link" data-scroll-target="#lasso-regression"><span class="header-section-number">15</span> Lasso Regression</a></li>
-  <li><a href="#single-tree-a-cart" id="toc-single-tree-a-cart" class="nav-link" data-scroll-target="#single-tree-a-cart"><span class="header-section-number">16</span> Single Tree (a CART)</a></li>
-  <li><a href="#random-forests" id="toc-random-forests" class="nav-link" data-scroll-target="#random-forests"><span class="header-section-number">17</span> Random Forests</a>
+  <li><a href="#baseline-linear-model-ols" id="toc-baseline-linear-model-ols" class="nav-link" data-scroll-target="#baseline-linear-model-ols"><span class="header-section-number">19</span> Baseline linear model (OLS)</a></li>
+  <li><a href="#forward-stepwise-selection" id="toc-forward-stepwise-selection" class="nav-link" data-scroll-target="#forward-stepwise-selection"><span class="header-section-number">20</span> Forward stepwise selection</a></li>
+  <li><a href="#ridge-regression" id="toc-ridge-regression" class="nav-link" data-scroll-target="#ridge-regression"><span class="header-section-number">21</span> Ridge Regression</a></li>
+  <li><a href="#lasso-regression" id="toc-lasso-regression" class="nav-link" data-scroll-target="#lasso-regression"><span class="header-section-number">22</span> Lasso Regression</a></li>
+  <li><a href="#single-tree-a-cart" id="toc-single-tree-a-cart" class="nav-link" data-scroll-target="#single-tree-a-cart"><span class="header-section-number">23</span> Single Tree (a CART)</a></li>
+  <li><a href="#random-forests" id="toc-random-forests" class="nav-link" data-scroll-target="#random-forests"><span class="header-section-number">24</span> Random Forests</a>
   <ul class="collapse">
-  <li><a href="#tuning-the-random-forest" id="toc-tuning-the-random-forest" class="nav-link" data-scroll-target="#tuning-the-random-forest"><span class="header-section-number">17.1</span> Tuning the random forest</a></li>
+  <li><a href="#tuning-the-random-forest" id="toc-tuning-the-random-forest" class="nav-link" data-scroll-target="#tuning-the-random-forest"><span class="header-section-number">24.1</span> Tuning the random forest</a></li>
   </ul></li>
-  <li><a href="#comparing-our-machines" id="toc-comparing-our-machines" class="nav-link" data-scroll-target="#comparing-our-machines"><span class="header-section-number">18</span> Comparing our machines</a></li>
+  <li><a href="#comparing-our-machines" id="toc-comparing-our-machines" class="nav-link" data-scroll-target="#comparing-our-machines"><span class="header-section-number">25</span> Comparing our machines</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Predicting_birthweight.html">On Machine Learning</a></li><li class="breadcrumb-item"><a href="./Predicting_birthweight.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Predicting_birthweight.html">On Machine Learning</a></li><li class="breadcrumb-item"><a href="./Predicting_birthweight.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></h1>
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></h1>
 </div>
 
 
@@ -335,16 +412,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="overview" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> Overview</h1>
+<section id="overview" class="level1" data-number="17">
+<h1 data-number="17"><span class="header-section-number">17</span> Overview</h1>
 <p>This document showcases a bunch of different machine learning tools, all used on the same data set. At the end we compare the different rmse on the validation set.</p>
 <p>For context, we will use a classic data set (e.g., Almond et al., 2005) on child birthweight. This data set was originally constructed to estimate the causal effect of maternal smoking on child birthweight; that is not what we are up to now. Our goal is to instead <em>predict</em> child birthweight directly based on observable characteristics prior to birth.</p>
 <p>The target of interest is the child’s birthweight, stored as <code>child_birthwt</code>. This is a continuous outcome. All other variables are fair game as predictors.</p>
 <p>While this is obviously a simplified data set, the prediction problem is very real – many medical insurers and providers target services based on algorithms similar to what you will put together.</p>
 <p><strong>Note:</strong> For the purposes of illustration we are going to use a proportionally small training set of 10,000 observations (so we need to regularize and use fancy stuff) and a very large validation set (so we see the real comparison of our different choices). In practice we would try to use as much of our data as possible for training.</p>
 </section>
-<section id="setup" class="level1" data-number="11">
-<h1 data-number="11"><span class="header-section-number">11</span> Setup</h1>
+<section id="setup" class="level1" data-number="18">
+<h1 data-number="18"><span class="header-section-number">18</span> Setup</h1>
 <p>Load our libraries, set our random seed for reproducability:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>( MASS )</span>
@@ -364,8 +441,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="fu">list</span>(<span class="at">dplyr.summarise.inform =</span> <span class="cn">FALSE</span>))</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>( <span class="fu">theme_classic</span>() )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="load-in-the-birthweight-data." class="level3" data-number="11.0.1">
-<h3 data-number="11.0.1" class="anchored" data-anchor-id="load-in-the-birthweight-data."><span class="header-section-number">11.0.1</span> Load in the birthweight data.</h3>
+<section id="load-in-the-birthweight-data." class="level3" data-number="18.0.1">
+<h3 data-number="18.0.1" class="anchored" data-anchor-id="load-in-the-birthweight-data."><span class="header-section-number">18.0.1</span> Load in the birthweight data.</h3>
 <p>We have two files: training and holdout. We keep our holdout set for our final validation after we pick our final models. This allows a fair comparison of all the methods at the end as we do not use the holdout set AT ALL for building our models.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
@@ -394,8 +471,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div style="page-break-after: always;"></div>
 </section>
 </section>
-<section id="baseline-linear-model-ols" class="level1" data-number="12">
-<h1 data-number="12"><span class="header-section-number">12</span> Baseline linear model (OLS)</h1>
+<section id="baseline-linear-model-ols" class="level1" data-number="19">
+<h1 data-number="19"><span class="header-section-number">19</span> Baseline linear model (OLS)</h1>
 <p>How do we do with simple linear regression models? We try two versions, one with just the main effects and one with all the pairwise interactions.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>model_linear <span class="ot">&lt;-</span> <span class="fu">lm</span>(child_birthwt <span class="sc">~</span> ., <span class="at">data =</span> ca_training)</span>
@@ -414,8 +491,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Note the worse performance of the linear regression with interactions. We are likely overfitting.</p>
 <div style="page-break-after: always;"></div>
 </section>
-<section id="forward-stepwise-selection" class="level1" data-number="13">
-<h1 data-number="13"><span class="header-section-number">13</span> Forward stepwise selection</h1>
+<section id="forward-stepwise-selection" class="level1" data-number="20">
+<h1 data-number="20"><span class="header-section-number">20</span> Forward stepwise selection</h1>
 <p>Here we search for a good linear model by iteratively adding the “best” covariate until we are not improving on our model performance measure.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
@@ -513,8 +590,8 @@ adequate_careIntermediate                mother_age          born_in_hospital
 </div>
 <div style="page-break-after: always;"></div>
 </section>
-<section id="ridge-regression" class="level1" data-number="14">
-<h1 data-number="14"><span class="header-section-number">14</span> Ridge Regression</h1>
+<section id="ridge-regression" class="level1" data-number="21">
+<h1 data-number="21"><span class="header-section-number">21</span> Ridge Regression</h1>
 <p>How do we do with ridge? To use <code>glmnet</code> we need to make our data into a matrix with no categorical covariates (i.e., we need to convert those to dummy variables). This “design matrix” or “model matrix” is used by those ML packages (in particular glmnet) that do not like formulae. We make this as follows:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(child_birthwt <span class="sc">~</span> ., ca_training)[,<span class="sc">-</span><span class="dv">1</span>]</span>
@@ -615,8 +692,8 @@ adequate_careIntermediate            birth_monthM10            birth_monthM11
 <p><strong>Note:</strong> The <code>predict()</code> method for <code>glmnet</code> gives back a matrix, not a vector of numbers. Annoying. We have to use <code>as.numeric</code> to get it to change to a list of numbers.</p>
 <div style="page-break-after: always;"></div>
 </section>
-<section id="lasso-regression" class="level1" data-number="15">
-<h1 data-number="15"><span class="header-section-number">15</span> Lasso Regression</h1>
+<section id="lasso-regression" class="level1" data-number="22">
+<h1 data-number="22"><span class="header-section-number">22</span> Lasso Regression</h1>
 <p>How do we do with Lasso? It is the same as ridge, except we need to set <code>alpha=1</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>model_lasso <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">alpha =</span> <span class="dv">1</span>)</span>
@@ -651,8 +728,8 @@ num_prenatal_visits        mother_black        father_black        child_female
 </div>
 <div style="page-break-after: always;"></div>
 </section>
-<section id="single-tree-a-cart" class="level1" data-number="16">
-<h1 data-number="16"><span class="header-section-number">16</span> Single Tree (a CART)</h1>
+<section id="single-tree-a-cart" class="level1" data-number="23">
+<h1 data-number="23"><span class="header-section-number">23</span> Single Tree (a CART)</h1>
 <p>We first do a single tree and prune it, and then we will do random forests later on.</p>
 <p>To fit a single tree we use <code>rpart</code> (Recursive Partition).</p>
 <div class="cell" data-layout-align="center">
@@ -727,8 +804,8 @@ num_prenatal_visits        mother_black        father_black        child_female
 </div>
 <div style="page-break-after: always;"></div>
 </section>
-<section id="random-forests" class="level1" data-number="17">
-<h1 data-number="17"><span class="header-section-number">17</span> Random Forests</h1>
+<section id="random-forests" class="level1" data-number="24">
+<h1 data-number="24"><span class="header-section-number">24</span> Random Forests</h1>
 <p>We fit a random forest with the <code>ranger</code> package as so:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fit a random forest model</span></span>
@@ -817,8 +894,8 @@ Number of independent variables:  25 </code></pre>
 </div>
 <p>Note how we get a package of predictions from <code>predict</code> and then need to get the actual predictions out of the package with <code>predictions()</code>. Also note the capital <code>RMSE</code> method in <code>caret</code> is different from the <code>rmse</code> from the <code>modelr</code> package.</p>
 <p>Different packages are all slightly different. Keep reference code like this to easily remember how to do basic coding tasks.</p>
-<section id="tuning-the-random-forest" class="level2" data-number="17.1">
-<h2 data-number="17.1" class="anchored" data-anchor-id="tuning-the-random-forest"><span class="header-section-number">17.1</span> Tuning the random forest</h2>
+<section id="tuning-the-random-forest" class="level2" data-number="24.1">
+<h2 data-number="24.1" class="anchored" data-anchor-id="tuning-the-random-forest"><span class="header-section-number">24.1</span> Tuning the random forest</h2>
 <p>We should tune our random forest, to figure out which specification is best. We use <code>caret</code>’s <code>train()</code> to do this (borrowing code from the case-study walk-through from the Data Science in Education textbook):</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># setting a seed for reproducibility</span></span>
@@ -882,8 +959,8 @@ The final values used for the model were mtry = 10, splitrule = variance
 <div style="page-break-after: always;"></div>
 </section>
 </section>
-<section id="comparing-our-machines" class="level1" data-number="18">
-<h1 data-number="18"><span class="header-section-number">18</span> Comparing our machines</h1>
+<section id="comparing-our-machines" class="level1" data-number="25">
+<h1 data-number="25"><span class="header-section-number">25</span> Comparing our machines</h1>
 <p>Now let’s compare the RMSE for everyone! We add in a null model of predicting the grand mean to give a reference of how well we do when we do nothing. We can even compare all the RMSEs to the one of the mean as a point of reference:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>model_null <span class="ot">=</span> <span class="fu">lm</span>( child_birthwt <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data=</span>ca_training )</span>
@@ -1423,12 +1500,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./demo_cluster_boot.html" class="pagination-link" aria-label="Demonstration of the Cluster Bootstrap">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./test_train_and_CV.html" class="pagination-link" aria-label="Reflections on using machine learning (for final projects)">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

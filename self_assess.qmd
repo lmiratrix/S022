@@ -1,0 +1,107 @@
+# Do I take S-022? A self-assessment {.unnumbered}
+
+I received numerous inquiries as to whether a given background is enough to take this course. Let me elaborate at length. The stated prerequisite to this course is S040 or equivalent. Ideally, you would have taken S052 as well, but enrolling in it concurrently is just as good. Technically, if you have *just* taken S040 or equivalent, you could take this course. Having gone a bit beyond means this course is a bit more manageable with more of these foundational skills. More specifically, we greatly prefer you to have the following skills as a prerequisite for this course:
+
+-   You can calculate summary statistics and visualizations for data (the mean, standard deviation, scatterplots, histograms) using some sort of statistical software.
+
+-   You can load data into some sort of statistical software, use that software to fit a regression model, and then interpret the results of the model.
+
+-   You know how to include categorical covariates in a linear regression.
+
+-   You know what an interaction term in a linear regression model is, and ideally can add one to a model you are fitting.
+
+-   You can interpret confidence intervals and $p$-values.
+
+-   You can write down a regression equation and identify what the covariates and parameters are in a presented regression equation.
+
+You will have an easier time if you have some of the following skills and experiences as well:
+
+-   You have some experience with doing things in R (even a little helps here).
+
+-   You know what logistic regression is, and know how to fit a logistic regression model using some sort of statistical software.
+
+-   You have some experience doing quantitative research with real data in almost any capacity.
+
+If you have a strong mathematical background, or strong comfort with math, or if you have a strong computer programming background, or strong comfort with that, then you can likely get a lot out of this course even if you do not have some of the above skills and knowledge.
+
+People from many, many different backgrounds take S022. In general, the more background experience you have, the easier the course. Even if you don't have as solid a background, you can still get a lot out of this course if you are willing to sign on for an intense experience. But *please* don't be surprised if you sign up for an intense experience... and it is really intense!
+
+To get a very rough sense of what it might feel like, take the quiz below.
+
+## A self-assessment quiz {.unnumbered}
+
+Trying to figure out how S022 will be for you? ​Add up the points across the following categories:
+
+### **Work Experience** {.unnumbered}
+
++0        I have no work experience with quantitative data, or
+
++1        I have some work experience with quantitative data, or
+
++2        I have substantial work experience with quantitative data
+
+### **Stat Courses** {.unnumbered}
+
+-2        I have no prior stat experience under my belt, or
+
++1        I have taken a very intro stat course (e.g., S12) or have at least a little stat knowledge, or
+
++3        I have taken a linear regression course (e.g., S30, S40), or
+
++5        I have taken an intermediate or advanced stats course (e.g., S52 or beyond)
+
++1 bonus if concurrently enrolling in S052
+
++1 bonus if prior quantatative classes were comfortable for you
+
+### **Programming** {.unnumbered}
+
++0        I have basically no experience doing computer programming, or
+
++1        I have some experience doing computer programming, or
+
++2        I have a lot of experience doing computer programming
+
+### **R Skills** {.unnumbered}
+
++0        I have no real experience with R, or
+
++1        I have a small bit of experience with R (e.g., ran scripts of it in S040), or
+
++2        I have some experience with R (e.g., played around with scripts a bit in S040), or
+
++3        I have substantial experience with R (e.g., write my own R code for my work)
+
++1 bonus if learning R has been comfortable for you
+
++1 bonus if you are comfortable with something like STATA
+
+### **Math** {.unnumbered}
+
++0        I don't recall much math from my past education, or
+
++1        I have taken (and somewhat remember) Calculus, or
+
++2        I have taken classes beyond Calculus
+
++1 bonus if classes were comfortable for you
+
+### **Other** {.unnumbered}
+
++2        I am content with getting a B or taking the class SAT/UNSAT
+
+## Total the above
+
+**A VERY ROUGH recommendation is:**
+
+\< 4:      **Danger**! Please email the instructor to talk about how this might go for you.
+
+4-6:      **It will be really hard**! You could take this course, but will likely find it will take much more time than a typical course. We would support you through this, but be warned that this could feel like a lot to take on.
+
+7-8:      **It will be hard**! There are lots of folks like you who are taking this course. The course will likely be a fair bit of work and could feel confusing/overwhelming at times. We would support you through this. At the end you will have learned a lot if you stick with it.
+
+9+:     **It will probably feel like a normal course**. No reservations. You can either work a reasonable amount and learn a lot about data science, or dig deeper to really go far with the skills we cover.
+
+13+:     **It will probably be a cake-walk.** You will learn some concepts but not have to work particularly hard in this course. We would still love to have you!
+
+**Students have historically said this course teaches you a lot; the question is just whether you have the time to allocate for the course. This quiz helps assess the time.**

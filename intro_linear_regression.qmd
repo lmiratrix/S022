@@ -1,0 +1,370 @@
+---
+title: "Intro to Regression"
+author: "Luke Miratrix"
+editor: 
+  markdown: 
+    wrap: sentence
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(Lock5Data)
+library(knitr)
+library(broom)
+library(ggeffects)
+library(sjPlot)
+library(effects)
+
+knitr::opts_chunk$set(echo = TRUE)
+options( digits = 3 )
+opts_knit$set(progress = TRUE)
+opts_chunk$set(progress = TRUE, verbose = TRUE, prompt=FALSE,echo=TRUE,
+               fig.align="center", fig.width=8, fig.height=5, 
+               out.width="0.7\\linewidth", size="scriptsize")
+
+# clear memory
+rm(list = ls())
+
+# set ggplot theme
+theme_set(theme_bw())
+```
+
+This walkthrough shows how to fit simple linear regression models in R.
+Linear regression is the main way researchers tend to examine the relationships between multiple variables.
+This document runs through some code without too much discussion, with the assumption that you are already familiar with interpretation of such models.
+
+## Simple Regression
+
+We are going to use an example dataset, `RestaurantTips`, that records tip amounts for a series of bills.
+Let's first regress `Tip` on `Bill`.
+Before doing regression, we should plot the data to make sure using simple linear regression is reasonable.
+For kicks, we add in an automatic regression line as well by taking advantage of ggplot's `geom_smooth()` method:
+
+```{r RegressionCheck,echo=TRUE, warning=FALSE, message=FALSE }
+# load the data into memory
+data(RestaurantTips)
+
+# plot Tip on Bill
+ggplot( RestaurantTips, aes(x = Bill, y = Tip) ) +
+    geom_point() +
+    geom_smooth( method="lm", se=FALSE ) +
+    geom_smooth( method="loess", se=FALSE, col="orange" ) +
+    labs(title = "Tip given Bill")
+```
+
+That looks pretty darn linear!
+There are a few unusually large tips, but no extreme outliers, and variability appears to be constant at all levels of `Bill` , so we proceed:
+
+```{r}
+# fit the linear model
+mod <- lm(Tip ~ Bill, data = RestaurantTips)
+summary(mod)
+```
+
+The first line tells R to fit the regression.
+The thing on the left of the `~` is our outcome, the things on the right are our covariates or predictors.
+R then saves the results of all that work under the name `mod` (short for model - you can call it anything you want).
+Once we fit the model, we used `summary()` command to print the output to the screen.
+
+Results relevant to the intercept are in the `(Intercept)` row and results relevant to the slope are in the `Bill` row (`Bill` is the explanatory variable).
+The `Estimate` column gives the estimated coefficients, the `Std. Error` column gives the standard error for these estimates, the `t value` is simply estimate/SE, and the p-value is the result of a hypothesis test testing whether that coefficient is significantly different from 0.
+
+We also see the RMSE as `Residual standard error` and $R^2$ as `Multiple R-squared`.
+The last line of the regression output gives details relevant to an ANOVA table for testing our model against no model.
+It has the F-statistic, degrees of freedom, and p-value.
+
+You can pull the coefficients of your model out with the `coef()` command:
+
+```{r GettingLmStuff,echo=TRUE }
+coef(mod)
+coef(mod)[1] # intercept
+coef(mod)[2] # slope
+coef(mod)["Bill"] # alternate way.
+```
+
+Alternatively, you can use the `tidy()` function from `broom` to turn the regression results into a tidy data frame, which makes it easier to work with:
+
+```{r}
+tidy(mod)
+tidy(mod)[[2,2]] # slope
+```
+
+We can plot our regression line on top of the scatterplot manually using the `geom_abline()` layer in ggplot:
+
+```{r LinearRegressionPlot, echo=TRUE }
+ggplot( RestaurantTips, aes( Bill, Tip ) ) +
+  geom_point() +
+  geom_abline( intercept = -0.292, slope =  0.182, col="red" )
+```
+
+## Multiple Regression
+
+We now include the additional explanatory variables of number in party (`Guests`) and whether or not they pay with a credit card (`Credit`):
+
+```{r RegressionMultiple, echo=TRUE }
+tip.mod <- lm(Tip ~ Bill + Guests + Credit, data=RestaurantTips )
+summary(tip.mod)
+```
+
+This output should look very similar to the output for one variable, except now there is a row corresponding to each explanatory variable.
+Our two-category (y, n) `Credit` variable was automatically converted to a 0-1 dummy variable (with "y" being 1 and "n" our baseline).
+
+You can make plots and tables of your fit models.
+For one easy kind of regression graph, try `ggeffects`:
+
+```{r}
+# graph model 2, with Bill on X, Credit as color, and Guests held constant at the mean
+ggeffect(tip.mod, terms = c("Bill", "Credit")) |> 
+  plot(show_data = TRUE, show_ci = FALSE)
+```
+
+For making tables, @sec-make-regression-tables.
+
+## Categorical Variables (and Factors)
+
+You can include any explanatory categorical variable in a multiple regression model, and R will automatically create corresponding 0/1 variables.
+For example, if you were to include gender coded as male/female, R would create a variable GenderMale that is 1 for males and 0 for females.
+
+### Numbers Coding Categories.
+
+If you have multiple levels of a category, but your levels are coded with numbers you have to be a bit careful because R can treat this as a quantitative (continuous) variable by mistake in some cases.
+You will know it did this if you only see the single variable on one line of your output.
+For categorical variables with $k$ categories, you should see $k-1$ lines.
+
+To make a variable categorical, even if the levels are numbers, convert the variable to a factor with `as.factor` or `factor`:
+
+```{r MakeFactor, echo=TRUE, fig.keep='none' }
+# load the US states data
+data( USStates )
+
+# convert Region to a factor
+USStates <- USStates |> 
+  mutate(Region = factor(Region))
+```
+
+### Setting new baselines.
+
+We can reorder the levels if desired (the first is our baseline).
+
+```{r ReorderFactor, echo=TRUE, fig.keep='none' }
+levels( USStates$Region )
+USStates$Region = relevel(USStates$Region, "S" )
+levels( USStates$Region )
+```
+
+Now any regression will use the south as baseline.
+
+### Testing for significance of a categorical variable.
+
+When deciding whether to keep a categorical variable, we need to test how important all the dummy variables for that category are to the model all at once.
+We do this with ANOVA.
+Here we examine whether region is useful for predicting the percent vote for Clinton in 2016:
+
+```{r CatCheck, echo=TRUE, fig.keep='none'}
+mlm = lm( ClintonVote ~ Region, data=USStates)
+anova( mlm )
+```
+
+It is quite important.
+
+We can also compare for region beyond some other variable:
+
+```{r CatCheck2, echo=TRUE}
+mlm2 = lm( ClintonVote ~ HouseholdIncome + HouseholdIncome + HighSchool + 
+               EighthGradeMath, data=USStates)
+
+mlm3 = lm( ClintonVote ~ HouseholdIncome + HouseholdIncome + HighSchool + 
+               EighthGradeMath + Region, data=USStates)
+anova( mlm2, mlm3 )
+```
+
+Region is still important, beyond including some further controls.
+Interpreting this mess of a regression is not part of this document; this document shows you how to run regressions but it doesn't discuss whether you should or not.
+
+### Missing levels in a factor
+
+R often treats categorical variables as factors.
+This is often useful, but sometimes annoying.
+A factor has different **levels** which are the different values it can be.
+For example:
+
+```{r CatLevels, echo=TRUE }
+data(FishGills3)
+levels(FishGills3$Calcium)
+table(FishGills3$Calcium)
+```
+
+Note the weird nameless level; it also has no actual observations in it.
+Nevertheless, if you make a boxplot, you will get an empty plot in addition to the other three.
+This error was likely due to some past data entry issue.
+You can drop the unused level:
+
+```{r DropCatLevels, echo=TRUE }
+FishGills3$Calcium = droplevels(FishGills3$Calcium)
+```
+
+You can also turn a categorical variable into a numeric one like so:
+
+```{r CatToNum, echo=TRUE }
+summary( FishGills3$Calcium )
+asnum = as.numeric( FishGills3$Calcium )
+asnum
+```
+
+Regression on only a categorical variable is fine:
+
+```{r CatLevelsLM, echo=TRUE }
+mylm = lm( GillRate ~ Calcium, data=FishGills3 )
+mylm
+```
+
+R has made you a bunch of dummy variables automatically.
+Here "high" is the baseline, selected automatically.
+We can also force it so there is no baseline by removing the intercept, in which case the coefficients are the means of each group.
+
+```{r CatLevelsLM2, echo=TRUE }
+mymm = lm( GillRate ~ 0 + Calcium, data=FishGills3 )
+mymm
+```
+
+## Some extensions (optional)
+
+### Confidence Intervals
+
+To get confidence intervals around each parameter in your model, try this:
+
+```{r RegrConfInt}
+confint(tip.mod)
+```
+
+You can also create them easily using `tidy` and `mutate`:
+
+```{r}
+tip.mod |> 
+  tidy() |> 
+  mutate(upper = estimate + 1.96*std.error,
+         lower = estimate - 1.96*std.error)
+```
+
+### Prediction
+
+Suppose a server at this bistro is about to deliver a \$20 bill, and wants to predict their tip.
+They can get a predicted value and 95% (this is the default level, change with level) prediction interval with
+
+```{r RegrPrediction}
+new.dat = data.frame( Bill = c(20) )
+predict(mod,new.dat,interval = "prediction")
+```
+
+They should expect a tip somewhere between \$1.41 and \$5.30.
+
+If we know a bit more we can use our more complex model called `tip.mod` from above:
+
+```{r RegrPrediction2}
+new.dat = data.frame( Bill = c(20), Guests=c(1), Credit=c("n") )
+predict(tip.mod,new.dat,interval = "prediction")
+```
+
+This is the predicted tip for one guest paying with cash for a \$20 tip.
+It is wider than our original interval because our model is a bit more unstable (it turns out guest number and credit card aren't that relevant or helpful).
+
+Compare the prediction interval to the confidence interval
+
+```{r RegrPredictionCI}
+new.dat = data.frame( Bill = c(20), Guests=c(1), Credit=c("n") )
+predict(tip.mod, new.dat, interval = "confidence")
+```
+
+This predicts the mean tip for all single guests who pay a \$20 bill with cash.
+Our interval is smaller because we are generating a confidence interval for where the mean is, and are ignoring that individuals will vary around that mean.
+Confidence intervals are different from prediction intervals.
+
+### Removing Outliers
+
+If you can identify which rows the outliers are on, you can do this by hand (say the rows are 5, 10, 12).
+
+```{r eval=FALSE }
+new.data = old.data[ -c(5,10,12), ]
+lm( Y ~ X, data=new.data )
+```
+
+Some technical details: The `c(5,10,12)` is a list of 3 numbers.
+The `c()` is the concatenation function that takes things makes lists out of them.
+The "-list" notation means give me my old data, but without rows 5, 10, and 12.
+Note the comma after the list.
+This is because we identify elements in a dataframe with row, column notation.
+So `old.data[1,3]` would be row 1, column 3.
+
+If you notice your points all have X bigger than some value, say 20.5, you could use filtering to keep everything less than some value:
+
+```{r eval=FALSE }
+new.data = filter( old.data, X <= 20.5 )
+```
+
+### Missing data
+
+If you have missing data, `lm` will automatically drop those cases because it doesn't know what else to do.
+It will tell you this, however, with the `summary` command.
+
+```{r echo=TRUE }
+data(AllCountries)
+dev.lm = lm( BirthRate ~ Rural + Health + ElderlyPop, data=AllCountries )
+summary( dev.lm  )
+```
+
+### Residual plots and model fit
+
+If we throw out model into the `plot` function, we get some nice regression diagnostics.
+
+```{r}
+plot(tip.mod)
+```
+
+To generate classic model fit diagnostics with more control, we need to calculate residuals, make a residual versus fitted values plot, and make a histogram of the residuals.
+We can make some quick and dirty plots with `qplot` (standing for "quick plot") like so:
+
+```{r ConditionsForRegression, echo=TRUE}
+qplot(tip.mod$fit, tip.mod$residuals )
+```
+
+and
+
+```{r}
+qplot(tip.mod$residuals, bins=30)
+```
+
+We see no real pattern other than some extreme outliers.
+The residual histogram suggests we are not really normally distributed, so we should treat our SEs and $p$-values with caution.
+These plots are the canonical "model-checking'' plots you might use.
+
+Another is the "fitted outcomes vs. actual outcomes'' plot of:
+
+```{r ConditionsForRegression2, echo=TRUE }
+predicted = predict( dev.lm )
+actual = dev.lm$model$BirthRate
+qplot( actual, predicted, main="Fit vs. actual Birth Rate" )
+```
+
+Note the `dev.lm` variable has a `model` variable inside it.
+This is a data frame of the **used** data for the model (i.e., if cases were dropped due to missingness, they will not be in the model).
+We then grab the birth rates from this, and make a scatterplot.
+If we tried to skip this, and use the original data, we would get an error because our original data set has some observations that were dropped.
+
+Note we can't just add our predictions to `AllCountries` since we would get an error due to this dropped data issue:
+
+```{r, eval=FALSE}
+AllCountries$predicted = predict( dev.lm )
+```
+
+```         
+Error in `$<-.data.frame`(`*tmp*`, predicted, value = c(`1` = 31.630301617421,  : 
+  replacement has 179 rows, data has 217
+```
+
+We can, however, predict like this:
+
+```{r}
+AllCountries$predicted = predict( dev.lm, newdata=AllCountries )
+```
+
+The `newdata` tells predict to generate a prediction for each row in AllCountries rather than each row in the left over data after `lm` dropped cases with missing values.

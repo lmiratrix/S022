@@ -1,0 +1,23 @@
+# Self Grading Instructions {.unnumbered}
+
+To self-grade an assignment, go through the solutions and compare the answer to your own work.
+
+Grade each piece as following
+
+-   "+" - 1 point, basically nailed it.
+-   "check" - Half point, did at least part of it, but had some problems.
+-   "X" - zero points, didn't get it.
+
+A "piece" is each item of a problem. So if you had 1(a), 1(b), and 1(c), that would be three pieces for a maximum total of three points.
+
+As you go through the solutions, see if you can figure out where you went wrong, if you did so. If you still don't understand a problem, make a note as to problem number.
+
+Then, for the next ready-for-class check-in you will be asked to enter your score (this score just helps me understand how folks are doing with these mini assignments), how you feel about it, and some further commentary. In your commentary please include a sentence or two on what was tripping you up (list the items), if you got things wrong. Also note whether things are not making sense, even with the solutions.
+
+For reporting your score, **report total number of points, not percent correct.** For example, if there are two questions, with the first having 3 points and the second 2, you would report a score between 0 and 5.
+
+We grade miniassignments on completion, meaning you will get full credit if you (1) do the mini-assignment and (2) self-grade the miniassignment (regardless of the score you give yourself as long as your work shows reasonable effort).
+
+## Acknowledgement:
+
+This idea of self-grading was inspired by Cora Wigger. She used to have some stuff on twitter, but she appears to have removed her account. <!--See [her twitter post](https://twitter.com/cjlwig/status/1450925261831168008).-->

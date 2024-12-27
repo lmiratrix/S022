@@ -9,7 +9,7 @@
 <meta name="author" content="Miratrix">
 <meta name="dcterms.date" content="2017-02-07">
 
-<title>6&nbsp; Basic Data Manipulation (tidyverse) – Handouts for S022 (Data Science in Education)</title>
+<title>12&nbsp; Basic Data Manipulation (tidyverse) – Handouts for S022 (Data Science in Education)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./doing_things_over_and_over.html" rel="next">
+<link href="./intro_linear_regression.html" rel="next">
 <link href="./heatmap_jitter_alpha.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./manipulation_examples.html">On Coding</a></li><li class="breadcrumb-item"><a href="./manipulation_examples.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./manipulation_examples.html">On Coding</a></li><li class="breadcrumb-item"><a href="./manipulation_examples.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -148,10 +148,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./self_assess.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Do I take S-022? A self-assessment</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment_guidelines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment Formatting Guidelines</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./self_grading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Self Grading Instructions</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">On markdown</span></a>
+ <span class="menu-text">Getting Started</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -159,14 +177,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./using_quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">How to Quarto</span></span></a>
+  <a href="./getting_started.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Getting Started with R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./code_chunks_demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with Rmarkdown chunks</span></span></a>
+  <a href="./style_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">An R Code Style Guide (Miratrix version)</span></span></a>
   </div>
 </li>
       </ul>
@@ -174,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">On Plotting</span></a>
+ <span class="menu-text">On markdown</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -182,20 +200,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./simple_plotting_tips.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Simple plotting tips</span></span></a>
+  <a href="./intro_markdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro to R Markdown</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hist_and_bar_with_aggregated_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></span></a>
+  <a href="./using_quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Quarto</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./heatmap_jitter_alpha.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span></a>
+  <a href="./code_chunks_demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Working with Rmarkdown chunks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./configuring_code_chunks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Configuring Rmarkdown chunks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./making_tables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Making tables in Markdown</span></span></a>
   </div>
 </li>
       </ul>
@@ -203,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">On Coding</span></a>
+ <span class="menu-text">On Plotting</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -211,20 +241,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./manipulation_examples.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></span></a>
+  <a href="./intro_ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Intro to <code>ggplot</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./doing_things_over_and_over.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
+  <a href="./simple_plotting_tips.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">chunk_output_type: console</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./demo_cluster_boot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
+  <a href="./double_plot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Plotting Two Datasets at Once</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hist_and_bar_with_aggregated_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./heatmap_jitter_alpha.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span></a>
   </div>
 </li>
       </ul>
@@ -232,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">On Machine Learning</span></a>
+ <span class="menu-text">On Coding</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -240,20 +282,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Predicting_birthweight.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
+  <a href="./manipulation_examples.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./test_train_and_CV.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
+  <a href="./intro_linear_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./interpreting_lasso_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
+  <a href="./doing_things_over_and_over.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./demo_cluster_boot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
   </div>
 </li>
       </ul>
@@ -261,7 +309,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Extra Stuff</span></a>
+ <span class="menu-text">On Machine Learning</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -269,20 +317,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Predicting_birthweight.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./test_train_and_CV.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./interpreting_lasso_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Extra Stuff</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./interactions_discussion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ipeds_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./predictive_papers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
   </div>
 </li>
       </ul>
@@ -297,14 +374,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#r-for-ds-chapter-5-core-commands" id="toc-r-for-ds-chapter-5-core-commands" class="nav-link active" data-scroll-target="#r-for-ds-chapter-5-core-commands"><span class="header-section-number">7</span> R for DS Chapter 5 Core Commands</a>
+  <li><a href="#r-for-ds-chapter-5-core-commands" id="toc-r-for-ds-chapter-5-core-commands" class="nav-link active" data-scroll-target="#r-for-ds-chapter-5-core-commands"><span class="header-section-number">13</span> R for DS Chapter 5 Core Commands</a>
   <ul class="collapse">
-  <li><a href="#filter-grab-the-rows-you-want-5.1" id="toc-filter-grab-the-rows-you-want-5.1" class="nav-link" data-scroll-target="#filter-grab-the-rows-you-want-5.1"><span class="header-section-number">7.1</span> <code>filter()</code> (Grab the rows you want, 5.1)</a></li>
-  <li><a href="#arrange-sort-your-rows-the-way-you-want-5.2" id="toc-arrange-sort-your-rows-the-way-you-want-5.2" class="nav-link" data-scroll-target="#arrange-sort-your-rows-the-way-you-want-5.2"><span class="header-section-number">7.2</span> <code>arrange()</code> (Sort your rows the way you want, 5.2)</a></li>
-  <li><a href="#select-grab-the-columns-you-want-5.3" id="toc-select-grab-the-columns-you-want-5.3" class="nav-link" data-scroll-target="#select-grab-the-columns-you-want-5.3"><span class="header-section-number">7.3</span> <code>select()</code> (Grab the columns you want, 5.3)</a></li>
-  <li><a href="#mutate-make-new-variables-out-of-your-old-ones-5.4" id="toc-mutate-make-new-variables-out-of-your-old-ones-5.4" class="nav-link" data-scroll-target="#mutate-make-new-variables-out-of-your-old-ones-5.4"><span class="header-section-number">7.4</span> <code>mutate()</code> (Make new variables out of your old ones, 5.4)</a></li>
-  <li><a href="#group_by-and-summarize-summarize-your-data-by-subgroup-5.6" id="toc-group_by-and-summarize-summarize-your-data-by-subgroup-5.6" class="nav-link" data-scroll-target="#group_by-and-summarize-summarize-your-data-by-subgroup-5.6"><span class="header-section-number">7.5</span> <code>group_by()</code> and <code>summarize</code> (Summarize your data by subgroup, 5.6)</a></li>
-  <li><a href="#special-grouped-mutates-making-new-variables-within-subgroups-5.6" id="toc-special-grouped-mutates-making-new-variables-within-subgroups-5.6" class="nav-link" data-scroll-target="#special-grouped-mutates-making-new-variables-within-subgroups-5.6"><span class="header-section-number">7.6</span> Special: grouped mutates (Making new variables within subgroups, 5.6)</a></li>
+  <li><a href="#filter-grab-the-rows-you-want-5.1" id="toc-filter-grab-the-rows-you-want-5.1" class="nav-link" data-scroll-target="#filter-grab-the-rows-you-want-5.1"><span class="header-section-number">13.1</span> <code>filter()</code> (Grab the rows you want, 5.1)</a></li>
+  <li><a href="#arrange-sort-your-rows-the-way-you-want-5.2" id="toc-arrange-sort-your-rows-the-way-you-want-5.2" class="nav-link" data-scroll-target="#arrange-sort-your-rows-the-way-you-want-5.2"><span class="header-section-number">13.2</span> <code>arrange()</code> (Sort your rows the way you want, 5.2)</a></li>
+  <li><a href="#select-grab-the-columns-you-want-5.3" id="toc-select-grab-the-columns-you-want-5.3" class="nav-link" data-scroll-target="#select-grab-the-columns-you-want-5.3"><span class="header-section-number">13.3</span> <code>select()</code> (Grab the columns you want, 5.3)</a></li>
+  <li><a href="#mutate-make-new-variables-out-of-your-old-ones-5.4" id="toc-mutate-make-new-variables-out-of-your-old-ones-5.4" class="nav-link" data-scroll-target="#mutate-make-new-variables-out-of-your-old-ones-5.4"><span class="header-section-number">13.4</span> <code>mutate()</code> (Make new variables out of your old ones, 5.4)</a></li>
+  <li><a href="#group_by-and-summarize-summarize-your-data-by-subgroup-5.6" id="toc-group_by-and-summarize-summarize-your-data-by-subgroup-5.6" class="nav-link" data-scroll-target="#group_by-and-summarize-summarize-your-data-by-subgroup-5.6"><span class="header-section-number">13.5</span> <code>group_by()</code> and <code>summarize</code> (Summarize your data by subgroup, 5.6)</a></li>
+  <li><a href="#special-grouped-mutates-making-new-variables-within-subgroups-5.6" id="toc-special-grouped-mutates-making-new-variables-within-subgroups-5.6" class="nav-link" data-scroll-target="#special-grouped-mutates-making-new-variables-within-subgroups-5.6"><span class="header-section-number">13.6</span> Special: grouped mutates (Making new variables within subgroups, 5.6)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -312,9 +389,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./manipulation_examples.html">On Coding</a></li><li class="breadcrumb-item"><a href="./manipulation_examples.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./manipulation_examples.html">On Coding</a></li><li class="breadcrumb-item"><a href="./manipulation_examples.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></h1>
 </div>
 
 
@@ -343,8 +420,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="r-for-ds-chapter-5-core-commands" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> R for DS Chapter 5 Core Commands</h1>
+<section id="r-for-ds-chapter-5-core-commands" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> R for DS Chapter 5 Core Commands</h1>
 <p>Let’s use this simple table and run through the commands from Chapter 5. This is not a complete reference! See the text for further details.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>( tidyverse )</span>
@@ -361,8 +438,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6 China        2000 213766 1280428583</code></pre>
 </div>
 </div>
-<section id="filter-grab-the-rows-you-want-5.1" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="filter-grab-the-rows-you-want-5.1"><span class="header-section-number">7.1</span> <code>filter()</code> (Grab the rows you want, 5.1)</h2>
+<section id="filter-grab-the-rows-you-want-5.1" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="filter-grab-the-rows-you-want-5.1"><span class="header-section-number">13.1</span> <code>filter()</code> (Grab the rows you want, 5.1)</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>( table1, year <span class="sc">&gt;</span> <span class="dv">1999</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -389,8 +466,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>When you do something like this, you should see it appear in your workplace.</p>
 </section>
-<section id="arrange-sort-your-rows-the-way-you-want-5.2" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="arrange-sort-your-rows-the-way-you-want-5.2"><span class="header-section-number">7.2</span> <code>arrange()</code> (Sort your rows the way you want, 5.2)</h2>
+<section id="arrange-sort-your-rows-the-way-you-want-5.2" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="arrange-sort-your-rows-the-way-you-want-5.2"><span class="header-section-number">13.2</span> <code>arrange()</code> (Sort your rows the way you want, 5.2)</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>( table1, cases )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -418,8 +495,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="select-grab-the-columns-you-want-5.3" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="select-grab-the-columns-you-want-5.3"><span class="header-section-number">7.3</span> <code>select()</code> (Grab the columns you want, 5.3)</h2>
+<section id="select-grab-the-columns-you-want-5.3" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="select-grab-the-columns-you-want-5.3"><span class="header-section-number">13.3</span> <code>select()</code> (Grab the columns you want, 5.3)</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>( table1, country, population )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -435,8 +512,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="mutate-make-new-variables-out-of-your-old-ones-5.4" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="mutate-make-new-variables-out-of-your-old-ones-5.4"><span class="header-section-number">7.4</span> <code>mutate()</code> (Make new variables out of your old ones, 5.4)</h2>
+<section id="mutate-make-new-variables-out-of-your-old-ones-5.4" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="mutate-make-new-variables-out-of-your-old-ones-5.4"><span class="header-section-number">13.4</span> <code>mutate()</code> (Make new variables out of your old ones, 5.4)</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>table1 <span class="ot">&lt;-</span> <span class="fu">mutate</span>( table1, <span class="at">case.per.1000 =</span> <span class="dv">1000</span> <span class="sc">*</span> cases <span class="sc">/</span> population )</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>table1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -454,8 +531,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>(We will use this new variable later, so I am saving it in our table)</p>
 </section>
-<section id="group_by-and-summarize-summarize-your-data-by-subgroup-5.6" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="group_by-and-summarize-summarize-your-data-by-subgroup-5.6"><span class="header-section-number">7.5</span> <code>group_by()</code> and <code>summarize</code> (Summarize your data by subgroup, 5.6)</h2>
+<section id="group_by-and-summarize-summarize-your-data-by-subgroup-5.6" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="group_by-and-summarize-summarize-your-data-by-subgroup-5.6"><span class="header-section-number">13.5</span> <code>group_by()</code> and <code>summarize</code> (Summarize your data by subgroup, 5.6)</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">group_by</span>( table1, country )</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>( tbl, <span class="at">av.pop =</span> <span class="fu">mean</span>( population ), <span class="at">av.cases =</span> <span class="fu">mean</span>( cases ) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -482,8 +559,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="special-grouped-mutates-making-new-variables-within-subgroups-5.6" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="special-grouped-mutates-making-new-variables-within-subgroups-5.6"><span class="header-section-number">7.6</span> Special: grouped mutates (Making new variables within subgroups, 5.6)</h2>
+<section id="special-grouped-mutates-making-new-variables-within-subgroups-5.6" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="special-grouped-mutates-making-new-variables-within-subgroups-5.6"><span class="header-section-number">13.6</span> Special: grouped mutates (Making new variables within subgroups, 5.6)</h2>
 <p>This combo is for doing things like group mean centering your data:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>table1 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>( year ) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>( <span class="at">case.per.1000.cent =</span> case.per<span class="fl">.1000</span> <span class="sc">-</span> <span class="fu">mean</span>( case.per<span class="fl">.1000</span> ) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -940,12 +1017,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./heatmap_jitter_alpha.html" class="pagination-link" aria-label="Jitter and heatmap examples">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./doing_things_over_and_over.html" class="pagination-link" aria-label="Doing things over and over again">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./intro_linear_regression.html" class="pagination-link" aria-label="Intro to Regression">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

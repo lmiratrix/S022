@@ -1,4 +1,3 @@
----
 title: "Simple plotting tips"
 author: "Luke Miratrix"
 date: "4/29/2021"

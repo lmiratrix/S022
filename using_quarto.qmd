@@ -16,19 +16,19 @@ Once you're familiar with RMarkdown, the tricks you know will almost always work
 
 ## Using Visual Editor with Rmd
 
-An obvious, cool thing about Quarto is the fancy visual editor, but you can turn this feature on for regular old RMarkdown files, too. Just click on this ![](images/paste-30ECD09B.png), and click "use visual editor." You can also add `editor: visual` to the yaml (top-matter) of an rmd file and it'll open in the visual editor by default.
+An obvious, cool thing about Quarto is the fancy visual editor, but you can turn this feature on for regular old RMarkdown files, too. Just click on this ![](image/paste-30ECD09B.png), and click "use visual editor." You can also add `editor: visual` to the yaml (top-matter) of an rmd file and it'll open in the visual editor by default.
 
 ## Creating a Quarto Report
 
-In RStudio, click this icon in the upper left: ![](images/paste-957CADD7.png)
+In RStudio, click this icon in the upper left: ![](image/paste-957CADD7.png)
 
 That'll give you the following drop-down menu, where you can select "Quarto Document":
 
-![](images/paste-65189F8D.png)
+![](image/paste-65189F8D.png)
 
 When you click on "Quarto Document..." RStudio might take a few seconds to load. Then you'll see this pop-up:\
 \
-![](images/paste-F6967128.png)
+![](image/paste-F6967128.png)
 
 Fill out the document title and author (just like for RMarkdown). You can always change the title and author later. You'll want to render your reports as PDFs, so select that option. Finally, hit the "Create" button at the bottom.
 
@@ -45,7 +45,7 @@ Down by your console, there's a tab called "Terminal." Click on it to open the t
 
 I recommend restarting your computer after this.
 
-Now you should be able to click ![](images/paste-5DE6FBD9.png) and get a pdf version of your report. By default, a copy of the pdf will be saved in the same folder as your Quarto document.
+Now you should be able to click ![](image/paste-5DE6FBD9.png) and get a pdf version of your report. By default, a copy of the pdf will be saved in the same folder as your Quarto document.
 
 ## A Couple Quick Tricks
 
