@@ -46,4 +46,5 @@ book-output/
 *_files/
 *_cache/
 /.quarto/
+/_book/
 book-output
