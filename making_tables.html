@@ -425,11 +425,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 5 × 4
   G          EY    pT   sdY
   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 A      0.131  0.643 1.08 
-2 B     -0.157  0.5   1.09 
-3 C      0.0239 0.688 0.958
-4 D     -0.0609 0.45  1.20 
-5 E     -0.0287 0.467 1.13 </code></pre>
+1 A      0.0322 0.412 1.02 
+2 B     -0.109  0.625 1.01 
+3 C     -0.271  0.526 0.912
+4 D      0.0851 0.517 1.02 
+5 E      0.149  0.421 0.725</code></pre>
 </div>
 </div>
 <p>We can print this out in a much cleaner form using the <code>kable()</code> method from the <code>knitr</code> package:</p>
@@ -448,33 +448,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">A</td>
-<td style="text-align: right;">0.13</td>
-<td style="text-align: right;">0.64</td>
-<td style="text-align: right;">1.08</td>
+<td style="text-align: right;">0.03</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">1.02</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">B</td>
-<td style="text-align: right;">-0.16</td>
-<td style="text-align: right;">0.50</td>
-<td style="text-align: right;">1.09</td>
+<td style="text-align: right;">-0.11</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">1.01</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">C</td>
-<td style="text-align: right;">0.02</td>
-<td style="text-align: right;">0.69</td>
-<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">-0.27</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">0.91</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">D</td>
-<td style="text-align: right;">-0.06</td>
-<td style="text-align: right;">0.45</td>
-<td style="text-align: right;">1.20</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">1.02</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">E</td>
-<td style="text-align: right;">-0.03</td>
-<td style="text-align: right;">0.47</td>
-<td style="text-align: right;">1.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.42</td>
+<td style="text-align: right;">0.72</td>
 </tr>
 </tbody>
 </table>
@@ -523,37 +523,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td style="text-align: left;">fred</td>
 <td style="text-align: left;">A</td>
-<td style="text-align: right;">0.13</td>
-<td style="text-align: right;">0.64</td>
-<td style="text-align: right;">1.08</td>
+<td style="text-align: right;">0.03</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">1.02</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">doug</td>
 <td style="text-align: left;">B</td>
-<td style="text-align: right;">-0.16</td>
-<td style="text-align: right;">0.50</td>
-<td style="text-align: right;">1.09</td>
+<td style="text-align: right;">-0.11</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">1.01</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">xiao</td>
 <td style="text-align: left;">C</td>
-<td style="text-align: right;">0.02</td>
-<td style="text-align: right;">0.69</td>
-<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">-0.27</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">0.91</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">lily</td>
 <td style="text-align: left;">D</td>
-<td style="text-align: right;">-0.06</td>
-<td style="text-align: right;">0.45</td>
-<td style="text-align: right;">1.20</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">1.02</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">unknown</td>
 <td style="text-align: left;">E</td>
-<td style="text-align: right;">-0.03</td>
-<td style="text-align: right;">0.47</td>
-<td style="text-align: right;">1.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.42</td>
+<td style="text-align: right;">0.72</td>
 </tr>
 </tbody>
 </table>
@@ -574,13 +574,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                 Overall     
   n              100        
   G (%)                     
-     A            14 (14.0) 
-     B            20 (20.0) 
-     C            16 (16.0) 
-     D            20 (20.0) 
-     E            30 (30.0) 
-  Z = tx (%)      53 (53.0) 
-  X (mean (SD)) 0.03 (1.02) </code></pre>
+     A            17 (17.0) 
+     B            16 (16.0) 
+     C            19 (19.0) 
+     D            29 (29.0) 
+     E            19 (19.0) 
+  Z = tx (%)      50 (50.0) 
+  X (mean (SD)) 0.08 (1.07) </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you can also stratify by a variables of interest</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">CreateTableOne</span>(<span class="at">data =</span> dat,</span>
@@ -589,16 +589,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>tb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               Stratified by Z
-                co            tx            p      test
-  n                47            53                    
-  X (mean (SD))  0.23 (1.05)  -0.15 (0.97)   0.066     
-  G (%)                                      0.497     
-     A              5 (10.6)      9 (17.0)             
-     B             10 (21.3)     10 (18.9)             
-     C              5 (10.6)     11 (20.8)             
-     D             11 (23.4)      9 (17.0)             
-     E             16 (34.0)     14 (26.4)             
-  Y (mean (SD)) -0.10 (1.28)   0.03 (0.88)   0.534     </code></pre>
+                co            tx           p      test
+  n                50           50                    
+  X (mean (SD))  0.01 (1.04)  0.16 (1.10)   0.478     
+  G (%)                                     0.719     
+     A             10 (20.0)     7 (14.0)             
+     B              6 (12.0)    10 (20.0)             
+     C              9 (18.0)    10 (20.0)             
+     D             14 (28.0)    15 (30.0)             
+     E             11 (22.0)     8 (16.0)             
+  Y (mean (SD)) -0.14 (0.99)  0.12 (0.88)   0.162     </code></pre>
 </div>
 </div>
 <p>You can then use <code>kable</code> on your table as so:</p>
@@ -619,23 +619,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">n</td>
-<td style="text-align: left;">47</td>
-<td style="text-align: left;">53</td>
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">50</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">X (mean (SD))</td>
-<td style="text-align: left;">0.23 (1.05)</td>
-<td style="text-align: left;">-0.15 (0.97)</td>
-<td style="text-align: left;">0.066</td>
+<td style="text-align: left;">0.01 (1.04)</td>
+<td style="text-align: left;">0.16 (1.10)</td>
+<td style="text-align: left;">0.478</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Y (mean (SD))</td>
-<td style="text-align: left;">-0.10 (1.28)</td>
-<td style="text-align: left;">0.03 (0.88)</td>
-<td style="text-align: left;">0.534</td>
+<td style="text-align: left;">-0.14 (0.99)</td>
+<td style="text-align: left;">0.12 (0.88)</td>
+<td style="text-align: left;">0.162</td>
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
@@ -660,8 +660,8 @@ Table 1: Descriptive statistics
 =============================
 Statistic  N   Mean  St. Dev.
 -----------------------------
-X         100 0.030   1.022  
-Y         100 -0.030  1.085  
+X         100 0.084   1.068  
+Y         100 -0.011  0.942  
 -----------------------------</code></pre>
 </div>
 </div>
