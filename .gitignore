@@ -49,3 +49,6 @@ junk/
 test_train_and_CV_files/
 /.quarto/
 update_book.sh
+/.quarto/
+/_site/
+/_book/
