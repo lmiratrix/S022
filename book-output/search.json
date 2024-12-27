@@ -1,0 +1,628 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Handouts for S022 (Data Science in Education)",
+    "section": "",
+    "text": "Preface\nThis “book” is basically a set of handouts generated for a Data Science in Education course taught at the Harvard Graduate School of Education by Luke Miratrix. They are loosely organized, but the primary purpose is to make all the handouts easy to access and find.\nThe handouts were generated in response to student questions, and aim to short-circuit staring at the possibly confusing world of Stack Overflow. They are curated in the sense that these activities tend to come up over and over in the course of fundamental data science work.\nI hope you find this resource useful. Please send feedback to lmiratrix@g.harvard.edu.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "using_quarto.html",
+    "href": "using_quarto.html",
+    "title": "1  How to Quarto",
+    "section": "",
+    "text": "2 Creating Reports in Quarto",
+    "crumbs": [
+      "On markdown",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>How to Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "using_quarto.html#what-is-quarto",
+    "href": "using_quarto.html#what-is-quarto",
+    "title": "1  How to Quarto",
+    "section": "2.1 What is Quarto?",
+    "text": "2.1 What is Quarto?\nQuarto is the “next-generation” of RMarkdown. Most tutorials on Quarto are intended for people who have experience with RMarkdown, so a great place to start is to watch Luke’s video on RMarkdown. You can find it on this page, under the “Do it for Lab” tab.\nOnce you’re familiar with RMarkdown, the tricks you know will almost always work in Quarto. The major difference is that Quarto will render inside RStudio, as you write your document, which makes it a little nicer to work with. There are other new (and very cool) features, but they aren’t essential for anything in this course.",
+    "crumbs": [
+      "On markdown",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>How to Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "using_quarto.html#using-visual-editor-with-rmd",
+    "href": "using_quarto.html#using-visual-editor-with-rmd",
+    "title": "1  How to Quarto",
+    "section": "2.2 Using Visual Editor with Rmd",
+    "text": "2.2 Using Visual Editor with Rmd\nAn obvious, cool thing about Quarto is the fancy visual editor, but you can turn this feature on for regular old RMarkdown files, too. Just click on this , and click “use visual editor.” You can also add editor: visual to the yaml (top-matter) of an rmd file and it’ll open in the visual editor by default.",
+    "crumbs": [
+      "On markdown",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>How to Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "using_quarto.html#creating-a-quarto-report",
+    "href": "using_quarto.html#creating-a-quarto-report",
+    "title": "1  How to Quarto",
+    "section": "2.3 Creating a Quarto Report",
+    "text": "2.3 Creating a Quarto Report\nIn RStudio, click this icon in the upper left: \nThat’ll give you the following drop-down menu, where you can select “Quarto Document”:\n\nWhen you click on “Quarto Document…” RStudio might take a few seconds to load. Then you’ll see this pop-up:\n\n\nFill out the document title and author (just like for RMarkdown). You can always change the title and author later. You’ll want to render your reports as PDFs, so select that option. Finally, hit the “Create” button at the bottom.\nRStudio will load up a new Quarto doc (with some boilerplate markdown in it). From here, you can treat it like an RMarkdown file.\nIf you want a more thorough introduction to Quarto, check out this tutorial.",
+    "crumbs": [
+      "On markdown",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>How to Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "using_quarto.html#rendering-to-pdf",
+    "href": "using_quarto.html#rendering-to-pdf",
+    "title": "1  How to Quarto",
+    "section": "2.4 Rendering to PDF",
+    "text": "2.4 Rendering to PDF\nTo render your report to PDF, you’ll need to have an installation of LaTex. You can set this up from within RStudio.\nDown by your console, there’s a tab called “Terminal.” Click on it to open the terminal. Inside the terminal type the following:\nquarto install tool tinytex\nI recommend restarting your computer after this.\nNow you should be able to click  and get a pdf version of your report. By default, a copy of the pdf will be saved in the same folder as your Quarto document.",
+    "crumbs": [
+      "On markdown",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>How to Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "using_quarto.html#a-couple-quick-tricks",
+    "href": "using_quarto.html#a-couple-quick-tricks",
+    "title": "1  How to Quarto",
+    "section": "2.5 A Couple Quick Tricks",
+    "text": "2.5 A Couple Quick Tricks\n\n2.5.0.1 Making Code Chunks\nUse the keyboard shortcut ctrl+alt+i or command + option + i to create a new R code chunk.\n\n\n2.5.0.2 Adding Images\nYou can copy-paste or drag-and-drop images into a Quarto doc. That’s how I put the above screenshots into this document.",
+    "crumbs": [
+      "On markdown",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>How to Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "using_quarto.html#additional-quarto-resources",
+    "href": "using_quarto.html#additional-quarto-resources",
+    "title": "1  How to Quarto",
+    "section": "2.6 Additional Quarto Resources",
+    "text": "2.6 Additional Quarto Resources\nHere are a couple more links if you’d like to learn more:\n\nGrab the RMarkdown Cheatsheet (lots of other great cheatsheets there, too). Most things that work in RMarkdown work in Quarto.\nQuarto Intro Video This video walks through using Quarto for the first time.\nIn Depth Quarto Intro This covers the amazing new features (like making interactive html reports).",
+    "crumbs": [
+      "On markdown",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>How to Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "code_chunks_demo.html",
+    "href": "code_chunks_demo.html",
+    "title": "2  Working with Rmarkdown chunks",
+    "section": "",
+    "text": "2.1 Markdown chunks",
+    "crumbs": [
+      "On markdown",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Working with Rmarkdown chunks</span>"
+    ]
+  },
+  {
+    "objectID": "code_chunks_demo.html#markdown-chunks",
+    "href": "code_chunks_demo.html#markdown-chunks",
+    "title": "2  Working with Rmarkdown chunks",
+    "section": "",
+    "text": "2.1.1 Options for including/suppressing code and output\ninclude: Should chunk be included in knit file? Defaults to TRUE. If FALSE, code chunk is run, but chunk and any output is not included in the knit file.\neval: Should chunk be evaluated by R? Defaults to TRUE. If FALSE, code chunk is included in the knit file, but not run.\necho: Should the code from this chunk be included in knit file along with output? Defaults to TRUE. If FALSE, the output from the chunk is included, but the code that created it is not. Most useful for plots.\n\n\n2.1.2 Options for including/suppressing R messages\nR has “errors” meaning it could not run your code, “warnings” meaning that the code was wrong, but there are some potential issues with it, and “messages” which are simply information about what your code ran. You can include or suppress each of these types of message.\nerror: Should R continue knitting if code produces an error? Defaults to FALSE. Generally don’t want to change this because it means you can miss serious issues with your code.\nwarning: Should R include warnings in knit file? Defaults to TRUE.\nmessage: Should R include informational messages in knit file? Defaults to TRUE. Easy way to clean up your markdowns.\n\n#This code produces an error\ndat %&gt;%\n  filter(dest = 1)\n\nError in `filter()`:\n! We detected a named input.\nℹ This usually means that you've used `=` instead of `==`.\nℹ Did you mean `dest == 1`?\n\n#Example warning\nparse_number(c(\"1\", \"$3432\", \"tomato\"))\n\n[1]    1 3432   NA\nattr(,\"problems\")\n# A tibble: 1 × 4\n    row   col expected actual\n  &lt;int&gt; &lt;int&gt; &lt;chr&gt;    &lt;chr&gt; \n1     3    NA a number tomato\n\n#Example message\nlibrary(gridExtra)\n\n\n\n2.1.3 Options for modifying figure outputs\nout.width: What percentage of the page width should output take?\nfig.height: What should be the height of figures?\nfig.width: What should be the width of figures?\nfig.asp: What should be the aspect ratio of figures?\nfig.align: How should figures be aligned?\nWe might want a bigger plot for this:\n\n\n\n\n\n\n\n\n\nAnd a smaller plot for this:\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n$x\n[1] \"Minutes of delay\"\n\n$y\n[1] \"Destimations\"\n\nattr(,\"class\")\n[1] \"labels\"\n\n\n\n\n2.1.4 Change your defaults\nAt the beginning of your code, you can set custom defaults. This is handy and means you don’t need to repeat the custom arguments in each code chunk.\n\n knitr::opts_chunk$set(echo = TRUE, \n                       fig.width = 5,\n                       fig.height = 3,\n                       out.width = \"5in\", \n                       out.height = \"3in\", fig.align = \"center\")",
+    "crumbs": [
+      "On markdown",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Working with Rmarkdown chunks</span>"
+    ]
+  },
+  {
+    "objectID": "simple_plotting_tips.html",
+    "href": "simple_plotting_tips.html",
+    "title": "3  Simple plotting tips",
+    "section": "",
+    "text": "This document provides several simple plotting tips for using RStudio to make plots (primarily using the ggplot2 package in tidyverse). These are all very simple tricks that can radically enhance the legibility of a plot. This document also covers how to save your plots so you can use them in presentations and other documents, and how to control the size of your plot in a R Markdown document.\n\n4 Setting a theme\nThemes in ggplot give you a bunch of default options for plotting. For example, you can get rid of the grey background of plots with the theme_minimal() command.\n\nairquality$day_cntr = 1:nrow(airquality)\nggplot( airquality, aes( day_cntr, Ozone ) ) +\n    geom_point(na.rm=TRUE) + geom_line()\n\n\n\n\n\n\n\nggplot( airquality, aes( day_cntr, Ozone ) ) +\n    geom_point(na.rm=TRUE) + geom_line() +\n    theme_minimal()\n\n\n\n\n\n\n\n\nI also quite like Tufte theme in the ggthemes bonus library (this library is a library of various themes with styles good and bad):\n\nggplot( airquality, aes( day_cntr, Ozone ) ) +\n    geom_point(na.rm=TRUE) + geom_line() +\n    ggthemes::theme_tufte()\n\n\n\n\n\n\n\n\nYou can also set the theme globally:\n\ntheme_set( theme_minimal() )\n\n\n\n5 Formatting axes and making labels\nThe labs() command is critical for getting labels for your plot. The scale_x_continuous() (or y) allow you to control the scales on each axis. Also, there is a nice package, scales that will format your x and y-axes. Witness!\n\nlibrary( scales ) # for label_dollar(), below\nggplot( sat93, aes( expend, tot_sat ) ) +\n  geom_point() +\n  scale_x_continuous( labels = label_dollar() ) +\n  labs( title = \"Cost per pupil vs. Average SAT of state\",\n        y = \"Average SAT\",\n        x = \"Expend / Pupil\" ) +\n  theme_minimal() +\n  scale_y_continuous( limits = c( 750, 1250), \n                      breaks = c( 750, 1000, 1250 ) )\n\n\n\n\n\n\n\n\n\n\n6 Making legends using aes()\nIf you are making a bunch of lines and want to color them, you can do so by giving them all names and then letting R pick the colors for you. This also lets you have a nice legend telling you which color is which. Also note how you can put a name for your legend inside labs(). Witness!\n\nlibrary( scales ) # for label_dollar(), below\nggplot( sat93, aes( expend, tot_sat ) ) +\n  geom_point() +\n  scale_x_continuous( labels = label_dollar() ) +\n  labs( title = \"Cost per pupil vs. Average SAT of state\",\n        y = \"Average SAT\",\n        x = \"Expend / Pupil\",\n        color = \"smoother\") +\n  geom_smooth( aes( col = \"linear\" ), method=\"lm\", se=FALSE ) +\n  geom_smooth( aes( col = \"loess\" ), se=FALSE ) +\n  theme_minimal() +\n  theme(legend.position = \"bottom\" )\n\n\n\n\n\n\n\n\n\n\n7 Cropping vs. zooming in\nIf you set the scale of your plot via scale_x_continuous() you will drop data from your analysis. If you use coord_cartesian() you will zoom in on the specified window, but it will be using all the data for smoothers, etc. This can be an important difference:\n\nggplot( sat93, aes( expend, tot_sat ) ) +\n  geom_point() +\n  geom_smooth( se=FALSE ) +\n  coord_cartesian( xlim=c(4000, 5000 ) )\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\nggplot( sat93, aes( expend, tot_sat ) ) +\n  geom_point() +\n  geom_smooth( se=FALSE ) +\n  scale_x_continuous( limits = c(4000, 5000 ) )\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\nWarning: Removed 36 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 36 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n8 Controlling size in markdown files\nYou can add fig.height=2, fig.width=7 into the header of a chunk. For example, the chunk above had:\n\n{r,r my_figure, fig.height=2, fig.width=7}\n\nYou can also set overall size in your setup chunk via\n\nknitr::opts_chunk$set(echo = TRUE, \n                      fig.width = 5,\n                      fig.height = 3,\n                      out.width = \"75%\", \n                      fig.align = \"center\")\n\nThe fig.width controls how big the figure is when plotting. The figure is then rescaled to fit into the area dictated by out.width. The “75%” can be replaced with, e.g., “4in” for 4 inches. The percent is the percent of text width of the page.\n\n\n9 Making the fonts of labels, etc., larger\nIf you make the figure smaller, the axes labels and line thicknesses and everything get larger, relatively speaking. Compare the following, with the header chunks printed out for clarity:\n\n{r,r, fig.height=2, fig.width=7, out.width=“100%”, out.height=“100%”}\nggplot( airquality, aes( day_cntr, Ozone ) ) +\n    geom_point(na.rm=TRUE) + geom_line(na.rm=TRUE)\n\n\n\n\n\n\n\n\n\n{r,r, fig.height=2, fig.width=16}\nggplot( airquality, aes( day_cntr, Ozone ) ) +\n    geom_point(na.rm=TRUE) + geom_line()\n\n\n\n\n\n\n\n\nSee how the second figure is a bigger figure rescaled to fit into a smaller space (width-wise). Everything thus looks tiny. The other plots in this document are fig.height=2, fig.width=7.\nIf the plot is small, but out.width is large, it will not scale up but instead keep to the desired size. The out.width only ensures plots are no larger than given. E.g. fig.width=3, fig.height=2, out.width=\"100%\" gives:\n\n{r,r, warning = FALSE, fig.width=3, fig.height=2, out.width=“100%”}\nggplot( airquality, aes( day_cntr, Ozone ) ) +\n    geom_point(na.rm=TRUE) + geom_line()\n\n\n\n\n\n\n\n\n\n\n10 Saving high resolution plots\nThere are three ways to export plots from RStudio. You can click on the export button on RStudio. If you say “Copy to Clipboard” you will get a bitmap plot (basically a digital photo of your plot), which will be fuzzy if you blow it up in your report. One way around that is specify a larger width and height in the dialog box before you save. “Save as Image” has the same concern.\nThe “Save to PDF” will save a vector image of your plot. Vector images remember the dots and lines used for your plot, and will be crisp if you make them large or small.\nYou can also use ggsave as follows:\n\nggplot( airquality, aes( day_cntr, Ozone ) ) +\n    geom_point(na.rm=TRUE) + geom_line()\nggsave( \"my_ac_plot.pdf\", width = 8, height=2 )\n\nThis allows you to specify the width and height and then, if you want to re-make your plot, it will save the exact same size. This is also good if you have a series of plots you want to make the same size.\nI recommend saving to PDF. The image bitmap plots always look a bit lousy.\n\n\n\n11 Think about the height of a plot.\nVery often, making your plot shorter will make it better. Big vertical distance amplifies variation and makes it hard to follow trends.\nCompare\n\n{r,r, fig.height=1.5, fig.width=7, out.width=“100%”, out.height=“100%”}\nggplot( airquality, aes( day_cntr, Ozone ) ) +\n    geom_point(na.rm=TRUE) + geom_line(na.rm=TRUE)\n\n\n\n\n\n\n\n\n\n{r,r, fig.height=5, fig.width=7, out.width=“100%”, out.height=“100%”}\nggplot( airquality, aes( day_cntr, Ozone ) ) +\n    geom_point(na.rm=TRUE) + geom_line(na.rm=TRUE)\n\n\n\n\n\n\n\n\n\n\n\n12 Think about the x and y axis of your plot\nSimilarly, swapping the x and y axes of a plot can make labels a lot easier to read.\nConsider the following two plots:\n\nggplot( dat, aes( x = Category, y=per_students ) ) +\n    geom_bar(stat=\"identity\") +\n    theme(axis.text.x = element_text(angle = 90))  +\n    scale_y_continuous( limits = c(0,60), breaks = c(0,10,20,30,40,50,60) ) +\n    labs( y = \"Percent Student Population\", x=\"\" )\n\n\n\n\n\n\n\n\n\n{r,r, fig.height=2, fig.width = 6, out.width=“100%”}\nggplot( dat, aes( x = Category, y=per_students ) ) +\n    geom_bar(stat=\"identity\") +\n    theme(axis.text.x = element_text(angle = 90))  +\n    labs( y = \"Percent Student Population\", x=\"\" ) +\n    scale_y_continuous( limits = c(0,60), breaks = c(0,10,20,30,40,50,60) ) +\n    coord_flip() +\n    theme(axis.text.x = element_text(angle = 0))  \n\n\n\n\n\n\n\n\nFlipping is easy to do. Just add coord_flip() to your ggplot command! The choice of vertical height of the plot also matters here. Make your bars not too thick, but still a nice amount thick so your labels are well spaced.\nFor the first plot, we had to rotate the labels so they didn’t overlap. Other choices are likely possible.\nAlso notice the rotating of the axes labels. With coord_flip be careful as to what element you are controlling. Usually fiddling around will get it right in no time!\nNote: these data are from the Massachusetts Department of Elementary and Secondary Education, school year 2019-20, for the state.\n\n\n13 Controlling colors, etc\nFor this, read the “Graphics for Communication” chapter of R for DS: https://r4ds.had.co.nz/graphics-for-communication.html",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Simple plotting tips</span>"
+    ]
+  },
+  {
+    "objectID": "hist_and_bar_with_aggregated_data.html",
+    "href": "hist_and_bar_with_aggregated_data.html",
+    "title": "4  Plotting aggregate data with ggPlot",
+    "section": "",
+    "text": "4.0.1 Preface\nBefore we get started, let’s load the packages we’ll need.\nlibrary(tidyverse)\nlibrary(ggplot2)",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Plotting aggregate data with ggPlot</span>"
+    ]
+  },
+  {
+    "objectID": "hist_and_bar_with_aggregated_data.html#categorical-data-and-bar-charts",
+    "href": "hist_and_bar_with_aggregated_data.html#categorical-data-and-bar-charts",
+    "title": "4  Plotting aggregate data with ggPlot",
+    "section": "5.1 Categorical data and bar charts",
+    "text": "5.1 Categorical data and bar charts\nWe can do the same thing with a categorical variable, course grades. First we’ll plot using the raw data, and then we’ll switch to the aggregated version. For the aggregated case, we’ll again rely on the stat argument of the geom_bar() function.\n\n# Plot from raw data\n# For a categorical variable, we use geom_bar\ndf %&gt;% filter(course=='ela') %&gt;%\n  ggplot(aes(x=grade)) +\n  geom_bar()\n\n\n\n\n\n\n\n# Now let's aggregate the data\ngrade_agg &lt;- df %&gt;% filter(course=='ela') %&gt;% \n  group_by(grade) %&gt;%\n  summarize(n=n())\n\n# Now reproduce the bar plot from the aggregated data\nggplot(grade_agg, aes(x=grade, y=n)) + geom_bar(stat='identity')\n\n\n\n\n\n\n\n\nLooks exactly the same! (Except for the y-axis label.)",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Plotting aggregate data with ggPlot</span>"
+    ]
+  },
+  {
+    "objectID": "hist_and_bar_with_aggregated_data.html#a-closing-thought",
+    "href": "hist_and_bar_with_aggregated_data.html#a-closing-thought",
+    "title": "4  Plotting aggregate data with ggPlot",
+    "section": "5.2 A Closing Thought",
+    "text": "5.2 A Closing Thought\nSometimes the data we get have already been aggregated. In this case, we might still want to visualize distributions of the variables that have been grouped. The above guide introduces the stat argument of geom_bar() as a way to get this done.",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Plotting aggregate data with ggPlot</span>"
+    ]
+  },
+  {
+    "objectID": "heatmap_jitter_alpha.html",
+    "href": "heatmap_jitter_alpha.html",
+    "title": "5  Jitter and heatmap examples",
+    "section": "",
+    "text": "6 Jitter examples\n\n# Histogram of ouput variable (INTEG)\nhist(Schooldata$INTEG)\n\n\n\n\n\n\n\n# Histogram of predictor variable (PER_FSM)\nhist(Schooldata$PER_FSM)\n\n\n\n\n\n\n\n# Scatterplot of ouput variable (INTEG) on predictor (FSM)\nggplot(Schooldata, aes(x = PER_FSM, y = INTEG)) +\n  geom_point() +\n  labs(title= \"Model 1 - using the variance from perfect represenation vs Free School Meals\",\n       x = \"Percentage of student in the school on Free School Meals (FSM)\",\n       y = \"Percentage deviance from perfectly reflective of ethnic groups in local area\")\n\n\n\n\n\n\n\nfit1 &lt;- lm(INTEG ~ PER_FSM, data=Schooldata)\nsummary(fit1)\n\n\nCall:\nlm(formula = INTEG ~ PER_FSM, data = Schooldata)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-51.901 -17.485  -3.918  12.352 115.029 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 54.10637    0.86768  62.358   &lt;2e-16 ***\nPER_FSM     -0.09395    0.03680  -2.553   0.0107 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 24.4 on 2485 degrees of freedom\nMultiple R-squared:  0.002616,  Adjusted R-squared:  0.002215 \nF-statistic: 6.518 on 1 and 2485 DF,  p-value: 0.01074\n\n\nWe can try jittering more (jittering here is not a good choice, by the way). The width and height control how much jitter to do both left-right and up-down.\n\nggplot(Schooldata, aes(x = PER_FSM, y = INTEG)) +\n  geom_jitter(width = 5, height=5) +\n  labs(title= \"Model 1 - using the variance from perfect represenation vs Free School Meals\",\n       x = \"Percentage of student in the school on Free School Meals (FSM)\",\n       y = \"Percentage deviance from perfectly reflective of ethnic groups in local area\")\n\n\n\n\n\n\n\nggplot(Schooldata, aes(x = PER_FSM, y = INTEG)) +\n  geom_jitter(width = 20, height=20) +\n  labs(title= \"Model 1 - using the variance from perfect represenation vs Free School Meals\",\n       x = \"Percentage of student in the school on Free School Meals (FSM)\",\n       y = \"Percentage deviance from perfectly reflective of ethnic groups in local area\")\n\n\n\n\n\n\n\nggplot(Schooldata, aes(x = PER_FSM, y = INTEG)) +\n  geom_jitter(width = 100, height=100) +\n  labs(title= \"Model 1 - using the variance from perfect represenation vs Free School Meals\",\n       x = \"Percentage of student in the school on Free School Meals (FSM)\",\n       y = \"Percentage deviance from perfectly reflective of ethnic groups in local area\")\n\n\n\n\n\n\n\n\nYou can also generate jittered data with jitter():\n\na = 1:10\na\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\njitter( a )\n\n [1]  0.8450063  2.1356390  2.8158542  4.1619213  5.0124118  6.1019370\n [7]  6.9199925  8.1623758  9.1853610 10.0818507\n\njitter( a, factor = 0.5 )\n\n [1] 1.057121 2.064147 2.917788 4.067049 5.043186 6.084479 7.077787 7.962012\n [9] 8.938766 9.924741\n\njitter( a, factor = 0.0005 )\n\n [1]  0.9999857  2.0000303  2.9999013  4.0000080  4.9999218  6.0000065\n [7]  7.0000029  8.0000241  8.9999319 10.0000346\n\n## Try alpha\n\nggplot(Schooldata, aes(x = PER_FSM, y = INTEG)) +\n  geom_point(alpha = 0.5) +\n  labs(title= \"Model 1 - using the variance from perfect represenation vs Free School Meals\",\n       x = \"Percentage of student in the school on Free School Meals (FSM)\",\n       y = \"Percentage deviance from perfectly reflective of ethnic groups in local area\")\n\n\n\n\n\n\n\nggplot(Schooldata, aes(x = PER_FSM, y = INTEG)) +\n  geom_point(alpha = 0.25) +\n  labs(title= \"Model 1 - using the variance from perfect represenation vs Free School Meals\",\n       x = \"Percentage of student in the school on Free School Meals (FSM)\",\n       y = \"Percentage deviance from perfectly reflective of ethnic groups in local area\")\n\n\n\n\n\n\n\nggplot(Schooldata, aes(x = PER_FSM, y = INTEG)) +\n  geom_point(alpha = 0.05) +\n  labs(title= \"Model 1 - using the variance from perfect represenation vs Free School Meals\",\n       x = \"Percentage of student in the school on Free School Meals (FSM)\",\n       y = \"Percentage deviance from perfectly reflective of ethnic groups in local area\")\n\n\n\n\n\n\n\n\n\n\n7 Making a heat map\n\nggplot(Schooldata,aes(x = PER_FSM, y = INTEG))+\n  stat_density2d(aes(alpha=..level..), geom=\"polygon\") +\n  labs(title= \"Model 1 - using the variance from perfect represenation vs Free School Meals\",\n       x = \"Percentage of student in the school on Free School Meals (FSM)\",\n       y = \"Percentage deviance from perfectly reflective of ethnic groups in local area\") +\n  geom_point(colour=\"red\",alpha=0.05)+\n  theme_bw()\n\nWarning: The dot-dot notation (`..level..`) was deprecated in ggplot2 3.4.0.\nℹ Please use `after_stat(level)` instead.",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Jitter and heatmap examples</span>"
+    ]
+  },
+  {
+    "objectID": "manipulation_examples.html",
+    "href": "manipulation_examples.html",
+    "title": "6  Basic Data Manipulation (tidyverse)",
+    "section": "",
+    "text": "7 R for DS Chapter 5 Core Commands\nLet’s use this simple table and run through the commands from Chapter 5. This is not a complete reference! See the text for further details.\nlibrary( tidyverse )\ntable1\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Basic Data Manipulation (tidyverse)</span>"
+    ]
+  },
+  {
+    "objectID": "manipulation_examples.html#filter-grab-the-rows-you-want-5.1",
+    "href": "manipulation_examples.html#filter-grab-the-rows-you-want-5.1",
+    "title": "6  Basic Data Manipulation (tidyverse)",
+    "section": "7.1 filter() (Grab the rows you want, 5.1)",
+    "text": "7.1 filter() (Grab the rows you want, 5.1)\n\nfilter( table1, year &gt; 1999 )\n\n# A tibble: 3 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  2000   2666   20595360\n2 Brazil       2000  80488  174504898\n3 China        2000 213766 1280428583\n\n\nRemember, if you want to save the results of your command, you need to put it in a new variable, like so:\n\nmy.table &lt;- filter( table1, year &gt; 1999 )\nmy.table\n\n# A tibble: 3 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  2000   2666   20595360\n2 Brazil       2000  80488  174504898\n3 China        2000 213766 1280428583\n\n\nWhen you do something like this, you should see it appear in your workplace.",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Basic Data Manipulation (tidyverse)</span>"
+    ]
+  },
+  {
+    "objectID": "manipulation_examples.html#arrange-sort-your-rows-the-way-you-want-5.2",
+    "href": "manipulation_examples.html#arrange-sort-your-rows-the-way-you-want-5.2",
+    "title": "6  Basic Data Manipulation (tidyverse)",
+    "section": "7.2 arrange() (Sort your rows the way you want, 5.2)",
+    "text": "7.2 arrange() (Sort your rows the way you want, 5.2)\n\narrange( table1, cases )\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583\n\narrange( table1, desc( country ), population )\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 China        1999 212258 1272915272\n2 China        2000 213766 1280428583\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 Afghanistan  1999    745   19987071\n6 Afghanistan  2000   2666   20595360",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Basic Data Manipulation (tidyverse)</span>"
+    ]
+  },
+  {
+    "objectID": "manipulation_examples.html#select-grab-the-columns-you-want-5.3",
+    "href": "manipulation_examples.html#select-grab-the-columns-you-want-5.3",
+    "title": "6  Basic Data Manipulation (tidyverse)",
+    "section": "7.3 select() (Grab the columns you want, 5.3)",
+    "text": "7.3 select() (Grab the columns you want, 5.3)\n\nselect( table1, country, population )\n\n# A tibble: 6 × 2\n  country     population\n  &lt;chr&gt;            &lt;dbl&gt;\n1 Afghanistan   19987071\n2 Afghanistan   20595360\n3 Brazil       172006362\n4 Brazil       174504898\n5 China       1272915272\n6 China       1280428583",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Basic Data Manipulation (tidyverse)</span>"
+    ]
+  },
+  {
+    "objectID": "manipulation_examples.html#mutate-make-new-variables-out-of-your-old-ones-5.4",
+    "href": "manipulation_examples.html#mutate-make-new-variables-out-of-your-old-ones-5.4",
+    "title": "6  Basic Data Manipulation (tidyverse)",
+    "section": "7.4 mutate() (Make new variables out of your old ones, 5.4)",
+    "text": "7.4 mutate() (Make new variables out of your old ones, 5.4)\n\ntable1 &lt;- mutate( table1, case.per.1000 = 1000 * cases / population )\ntable1\n\n# A tibble: 6 × 5\n  country      year  cases population case.per.1000\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071        0.0373\n2 Afghanistan  2000   2666   20595360        0.129 \n3 Brazil       1999  37737  172006362        0.219 \n4 Brazil       2000  80488  174504898        0.461 \n5 China        1999 212258 1272915272        0.167 \n6 China        2000 213766 1280428583        0.167 \n\n\n(We will use this new variable later, so I am saving it in our table)",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Basic Data Manipulation (tidyverse)</span>"
+    ]
+  },
+  {
+    "objectID": "manipulation_examples.html#group_by-and-summarize-summarize-your-data-by-subgroup-5.6",
+    "href": "manipulation_examples.html#group_by-and-summarize-summarize-your-data-by-subgroup-5.6",
+    "title": "6  Basic Data Manipulation (tidyverse)",
+    "section": "7.5 group_by() and summarize (Summarize your data by subgroup, 5.6)",
+    "text": "7.5 group_by() and summarize (Summarize your data by subgroup, 5.6)\n\ntbl &lt;- group_by( table1, country )\nsummarize( tbl, av.pop = mean( population ), av.cases = mean( cases ) )\n\n# A tibble: 3 × 3\n  country          av.pop av.cases\n  &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;\n1 Afghanistan   20291216.    1706.\n2 Brazil       173255630    59112.\n3 China       1276671928.  213012 \n\n\nSame thing, with the pipe!\n\ntable1 %&gt;% group_by( country ) %&gt;%\n    summarize( av.pop = mean( population ), av.cases = mean( cases ) )\n\n# A tibble: 3 × 3\n  country          av.pop av.cases\n  &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;\n1 Afghanistan   20291216.    1706.\n2 Brazil       173255630    59112.\n3 China       1276671928.  213012",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Basic Data Manipulation (tidyverse)</span>"
+    ]
+  },
+  {
+    "objectID": "manipulation_examples.html#special-grouped-mutates-making-new-variables-within-subgroups-5.6",
+    "href": "manipulation_examples.html#special-grouped-mutates-making-new-variables-within-subgroups-5.6",
+    "title": "6  Basic Data Manipulation (tidyverse)",
+    "section": "7.6 Special: grouped mutates (Making new variables within subgroups, 5.6)",
+    "text": "7.6 Special: grouped mutates (Making new variables within subgroups, 5.6)\nThis combo is for doing things like group mean centering your data:\n\ntable1 %&gt;% group_by( year ) %&gt;% mutate( case.per.1000.cent = case.per.1000 - mean( case.per.1000 ) )\n\n# A tibble: 6 × 6\n# Groups:   year [2]\n  country      year  cases population case.per.1000 case.per.1000.cent\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;              &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071        0.0373            -0.104 \n2 Afghanistan  2000   2666   20595360        0.129             -0.123 \n3 Brazil       1999  37737  172006362        0.219              0.0783\n4 Brazil       2000  80488  174504898        0.461              0.209 \n5 China        1999 212258 1272915272        0.167              0.0256\n6 China        2000 213766 1280428583        0.167             -0.0856\n\n\nAnd a plot\n\nggplot( table1, aes( x=year, y=case.per.1000, col=country ) ) + geom_line() + geom_point()",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Basic Data Manipulation (tidyverse)</span>"
+    ]
+  },
+  {
+    "objectID": "doing_things_over_and_over.html",
+    "href": "doing_things_over_and_over.html",
+    "title": "7  Doing things over and over again",
+    "section": "",
+    "text": "8 The replicate() command\nThis simple command repeats a line of code a given number of times. If the line of code gives you a number back each time it is run, then you will end up with a list of numbers.\nTo illustrate, say we want to look at rolling dice. Here is some code that provides a function that will roll some number of 6-sided dice:\nroll_dice = function( ndice ) {\n    rolls = sample( 1:6, ndice, replace=TRUE )\n    sum( rolls )\n}\n\n# Roll a single die\nroll_dice( 1 )\n\n[1] 3\n\n# Roll 3 dice and add them up.\nroll_dice( 3 )\n\n[1] 10\nIf we want to get the sum of three dice over and over, we can replicate:\nrolls = replicate( 10, roll_dice( 3 ) )\nrolls\n\n [1] 14  6 11  8  9  6 16  7 10 14\nNote how the rolls variable is a nice numeric vector, easy to work with. It is easy to do calculations with it, like take the average:\nmean( rolls )\n\n[1] 10.1\nHere we use this to see how often we roll above a 15:\nrolls = replicate( 10000, roll_dice( 3 ) )\nmean( rolls &gt; 15 )\n\n[1] 0.0436",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Doing things over and over again</span>"
+    ]
+  },
+  {
+    "objectID": "doing_things_over_and_over.html#warning-replicate-doesnt-do-well-with-fancy-functions",
+    "href": "doing_things_over_and_over.html#warning-replicate-doesnt-do-well-with-fancy-functions",
+    "title": "7  Doing things over and over again",
+    "section": "9.1 Warning: replicate() doesn’t do well with fancy functions",
+    "text": "9.1 Warning: replicate() doesn’t do well with fancy functions\nThe replicate() command doesn’t act nice in the following:\n\nrolls = replicate( 2, roll_dice_extended(3) )\nrolls\n\n, , 1\n\n  mean median max\n1 4    5      6  \n\n, , 2\n\n  mean median max\n1 4    4      5  \n\n\nThat doesn’t look like a fun thing to work with. (It is a 3 dimensional array of output, in case you are wondering.) Use rerun + bind_rows; it is easier to control and understand.",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Doing things over and over again</span>"
+    ]
+  },
+  {
+    "objectID": "doing_things_over_and_over.html#take-away",
+    "href": "doing_things_over_and_over.html#take-away",
+    "title": "7  Doing things over and over again",
+    "section": "9.2 Take-away",
+    "text": "9.2 Take-away\nIf your function that you want to repeat returns a single number with each call, use replicate(). If it returns more than one thing, use the rerun() + bind_rows() combination.",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Doing things over and over again</span>"
+    ]
+  },
+  {
+    "objectID": "doing_things_over_and_over.html#relocate",
+    "href": "doing_things_over_and_over.html#relocate",
+    "title": "7  Doing things over and over again",
+    "section": "12.1 relocate()",
+    "text": "12.1 relocate()\nNot really mapping specific, but still a nice way to move a variable to the start of a data frame.\n\nrelocate( resL, freq )\n\n# A tibble: 33 × 3\n    freq ndice roll \n   &lt;dbl&gt; &lt;int&gt; &lt;chr&gt;\n 1   162     1 1    \n 2   154     1 2    \n 3   171     1 3    \n 4   178     1 4    \n 5   163     1 5    \n 6   172     1 6    \n 7    23     2 1    \n 8    76     2 2    \n 9   150     2 3    \n10   198     2 4    \n# ℹ 23 more rows",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Doing things over and over again</span>"
+    ]
+  },
+  {
+    "objectID": "doing_things_over_and_over.html#pull",
+    "href": "doing_things_over_and_over.html#pull",
+    "title": "7  Doing things over and over again",
+    "section": "12.2 pull()",
+    "text": "12.2 pull()\nThis will grab a column from a data frame in a list of pipe commands, which can make it easier to plug into some other tools.\nHere we pull the roll column and then hand it to the table() command to count the number of instances of each roll.\n\nresL %&gt;% pull( roll ) %&gt;%\n  table()\n\n.\n1 2 3 4 5 6 \n4 5 6 6 6 6",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Doing things over and over again</span>"
+    ]
+  },
+  {
+    "objectID": "doing_things_over_and_over.html#set_names-list-names",
+    "href": "doing_things_over_and_over.html#set_names-list-names",
+    "title": "7  Doing things over and over again",
+    "section": "12.3 set_names( list, names )",
+    "text": "12.3 set_names( list, names )\nOn the fly name a list before handing to map!\n\ndice = 2:6\ndice %&gt;% set_names( paste0( dice, \" dice\" ) ) %&gt;%\n  map_df( roll_dice_extended, .id = \"scenario\" )\n\n  scenario     mean median max\n1   2 dice 2.000000    2.0   2\n2   3 dice 3.666667    4.0   5\n3   4 dice 4.750000    6.0   6\n4   5 dice 3.000000    2.0   5\n5   6 dice 5.333333    5.5   6",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Doing things over and over again</span>"
+    ]
+  },
+  {
+    "objectID": "doing_things_over_and_over.html#unpack-and-pack",
+    "href": "doing_things_over_and_over.html#unpack-and-pack",
+    "title": "7  Doing things over and over again",
+    "section": "12.4 unpack() and pack()",
+    "text": "12.4 unpack() and pack()\nThese will translate a data frame column into individual columns. You can end up with a data frame column if you use map to make a new column in your data:\n\nscenarios = tibble( n_dice = 1:6 )\nscenarios = scenarios %&gt;%\n  mutate( result = map_df( n_dice, roll_dice_extended ) )\nscenarios\n\n# A tibble: 6 × 2\n  n_dice result$mean $median  $max\n   &lt;int&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;\n1      1        1        1       1\n2      2        3.5      3.5     5\n3      3        2.33     1       5\n4      4        2.5      1.5     6\n5      5        4        4       5\n6      6        3        2       6\n\n\nNotice the weird $ in the printout? This is because the three columns are inside the dataframe of result. You can unpack it like so:\n\nunpack( scenarios, result )\n\n# A tibble: 6 × 4\n  n_dice  mean median   max\n   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt;\n1      1  1       1       1\n2      2  3.5     3.5     5\n3      3  2.33    1       5\n4      4  2.5     1.5     6\n5      5  4       4       5\n6      6  3       2       6\n\n\nto get your nice, normal dataframe.",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Doing things over and over again</span>"
+    ]
+  },
+  {
+    "objectID": "demo_cluster_boot.html",
+    "href": "demo_cluster_boot.html",
+    "title": "8  Demonstration of the Cluster Bootstrap",
+    "section": "",
+    "text": "9 The Cluster Bootstrap\nThe cluster bootstrap is a resampling technique commonly used in statistics and machine learning for estimating the variability of statistical estimators, such as mean, variance, or regression coefficients. It is especially useful when the underlying data have a complex dependence structure.\nThe main idea of the cluster bootstrap is to resample clusters of data points rather than individual data points. A cluster is a group of data points that are correlated with each other, for example, spatially adjacent data points or data points within the same experimental unit.\nTo perform the cluster bootstrap, we follow these steps:\nThe cluster bootstrap is particularly useful when the underlying data have a complex correlation structure that cannot be easily accounted for using standard resampling methods, such as the simple random sampling bootstrap.\nThe following script is used to explore data from the Tenn Star education randomized controlled trial (RCT). It loads student-level and teacher-level data, merges them by the class ID variable, deletes observations with missing data, and creates an indicator variable for whether the student was in a small class (this is the treatment). The script then fits a linear regression model to estimate the impact of being in a small class on math scores after kindergarten, using small class status, student birth quarter, teacher education level, and teacher experience as predictors.\nHowever, the model is not adjusted for clustering at the class level, so the standard errors may be wrong. To correct for this, we offer two solutions. First, the sandwich package is used to calculate cluster-robust standard errors. This is the classic econometric solution for clustering in a regression. Second, we demonstrate cluster bootstrapping for estimating the standard errors of the model coefficients.",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Demonstration of the Cluster Bootstrap</span>"
+    ]
+  },
+  {
+    "objectID": "demo_cluster_boot.html#the-tenn-star-data",
+    "href": "demo_cluster_boot.html#the-tenn-star-data",
+    "title": "8  Demonstration of the Cluster Bootstrap",
+    "section": "9.1 The Tenn Star Data",
+    "text": "9.1 The Tenn Star Data\nThe Tennessee Star Experiment was a large-scale randomized controlled trial (RCT) conducted in Tennessee, USA, in the mid-1980s. The experiment aimed to evaluate the effectiveness of class size reduction on student outcome. Students and teachers were randomized to different class sizes, making the treatment assignment effectively assigned at the cluster level when looking at student outcomes.\nWe load and prepare the data as so:\n\nstud &lt;- read.csv('data/tenn_stud_dat.csv') ## student-level data\nteach &lt;- read.csv('data/tenn_teach_dat.csv') ## teacher-level data\ndat &lt;- merge(stud, teach, by=\"clid\")\ndat &lt;- na.omit(dat) ## for simplicity, we'll delete everyone missing any variables\n\n## create an indicator for being in a small class\ndat$small_class &lt;- ifelse( dat$cltypek == 'small class', \"yes\", \"no\" )\n\n# Drop some extra variables\ndat &lt;- dplyr::select( dat, -id, -cltypek, -sesk )\n\nhead( dat )\n\n  clid   ssex srace                  sbirthq sbirthy treadssk tmathssk\n1    1   male black 2nd qtr - april,may,june    1980      445      489\n2    1   male black  3rd qtr - july,aug,sept    1980      393      429\n3    1   male black    4th qtr - oct,nov,dec    1978      395      429\n4    1   male black 2nd qtr - april,may,june    1980      403      405\n5    1 female black 2nd qtr - april,may,june    1980      424      500\n6    1   male black  3rd qtr - july,aug,sept    1980      414      444\n      hdegk      cladk totexpk tracek small_class\n1 bachelors apprentice       1  black          no\n2 bachelors apprentice       1  black          no\n3 bachelors apprentice       1  black          no\n4 bachelors apprentice       1  black          no\n5 bachelors apprentice       1  black          no\n6 bachelors apprentice       1  black          no\n\nlength(unique(dat$clid)) ## 196 classes\n\n[1] 196\n\nnrow(dat) ## 3219 students\n\n[1] 3219\n\n\nOur research question is whether student math achievment was higher for kids in small classrooms vs. large ones.",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Demonstration of the Cluster Bootstrap</span>"
+    ]
+  },
+  {
+    "objectID": "demo_cluster_boot.html#the-wrong-method",
+    "href": "demo_cluster_boot.html#the-wrong-method",
+    "title": "8  Demonstration of the Cluster Bootstrap",
+    "section": "9.2 The Wrong Method",
+    "text": "9.2 The Wrong Method\nIf we use simple regression we are not taking the correlation of students within a given teacher into account. I.e., say a teacher happened to be effective. Then this teacher being assigned to a small class would have a positive impact on a bunch of treated students due to the single teacher. The student outcomes are correlated with each other by the single teacher. We would need to take this into account when calculating uncertainty: the students are not independent.\n\nmod &lt;- lm(tmathssk ~ small_class + sbirthq + hdegk + totexpk, \n          data = dat)\nres_OLS &lt;- tidy( mod )\nknitr::kable( res_OLS, digits = 2 )\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n486.49\n2.33\n208.38\n0.00\n\n\nsmall_classyes\n6.39\n1.69\n3.79\n0.00\n\n\nsbirthq2nd qtr - april,may,june\n-5.64\n2.33\n-2.42\n0.02\n\n\nsbirthq3rd qtr - july,aug,sept\n-13.85\n2.27\n-6.11\n0.00\n\n\nsbirthq4th qtr - oct,nov,dec\n10.19\n2.49\n4.08\n0.00\n\n\nhdegkmaster +\n-2.71\n5.44\n-0.50\n0.62\n\n\nhdegkmasters\n-5.25\n1.82\n-2.89\n0.00\n\n\nhdegkspecialist\n16.98\n7.62\n2.23\n0.03\n\n\ntotexpk\n0.58\n0.15\n3.88\n0.00\n\n\n\n\n\nTo be clear, the above regression gives a reasonable estimate of the impact of small class size, but the standard errors, and therefore p-values, etc., are wrong.",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Demonstration of the Cluster Bootstrap</span>"
+    ]
+  },
+  {
+    "objectID": "demo_cluster_boot.html#cluster-robust-standard-errors",
+    "href": "demo_cluster_boot.html#cluster-robust-standard-errors",
+    "title": "8  Demonstration of the Cluster Bootstrap",
+    "section": "9.3 Cluster robust standard errors",
+    "text": "9.3 Cluster robust standard errors\nOne statistical way of handling this is with the lm_robust package that uses the sandwich package that does cluster robust standard errors:\n\nlibrary( estimatr )\nmod_CRVE &lt;- lm_robust(tmathssk ~ small_class + sbirthq + hdegk + totexpk, \n                 clusters = dat$clid,\n                 data = dat) ## another way to get the same result (more or less)\nres_CRVE &lt;- tidy(mod_CRVE) %&gt;%\n  dplyr::select( term, estimate, std.error, p.value )\nknitr::kable( res_CRVE, digits = 2 )\n\n\n\n\nterm\nestimate\nstd.error\np.value\n\n\n\n\n(Intercept)\n486.49\n4.26\n0.00\n\n\nsmall_classyes\n6.39\n3.86\n0.10\n\n\nsbirthq2nd qtr - april,may,june\n-5.64\n2.27\n0.01\n\n\nsbirthq3rd qtr - july,aug,sept\n-13.85\n2.35\n0.00\n\n\nsbirthq4th qtr - oct,nov,dec\n10.19\n2.48\n0.00\n\n\nhdegkmaster +\n-2.71\n11.50\n0.83\n\n\nhdegkmasters\n-5.25\n4.15\n0.21\n\n\nhdegkspecialist\n16.98\n15.10\n0.37\n\n\ntotexpk\n0.58\n0.35\n0.11",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Demonstration of the Cluster Bootstrap</span>"
+    ]
+  },
+  {
+    "objectID": "demo_cluster_boot.html#cluster-bootstrap",
+    "href": "demo_cluster_boot.html#cluster-bootstrap",
+    "title": "8  Demonstration of the Cluster Bootstrap",
+    "section": "9.4 Cluster Bootstrap",
+    "text": "9.4 Cluster Bootstrap\nAnother way is to use the cluster bootstrap. It is a versitile method for getting standard errors on data that is clustered, as it keeps clusters intact.\nWe write an analysis function as follows:\n\nmy_analysis &lt;- function( the_dat ) {\n    mod &lt;- lm(tmathssk ~  small_class + sbirthq + hdegk + totexpk,\n              data = the_dat)\n    broom::tidy(mod)\n}\n\nmy_analysis( dat )\n\n# A tibble: 9 × 5\n  term                              estimate std.error statistic       p.value\n  &lt;chr&gt;                                &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 \"(Intercept)\"                      486.        2.33    208.    0            \n2 \"small_classyes\"                     6.39      1.69      3.79  0.000156     \n3 \"sbirthq2nd qtr - april,may,june\"   -5.64      2.33     -2.42  0.0155       \n4 \"sbirthq3rd qtr - july,aug,sept\"   -13.9       2.27     -6.11  0.00000000110\n5 \"sbirthq4th qtr - oct,nov,dec\"      10.2       2.49      4.08  0.0000452    \n6 \"hdegkmaster + \"                    -2.71      5.44     -0.497 0.619        \n7 \"hdegkmasters\"                      -5.25      1.82     -2.89  0.00393      \n8 \"hdegkspecialist\"                   17.0       7.62      2.23  0.0259       \n9 \"totexpk\"                            0.579     0.149     3.88  0.000108     \n\n\nWe then nest our data so each row is an entire cluster:\n\ndat_nst &lt;- dat %&gt;%\n    group_by( clid ) %&gt;%\n    nest() %&gt;%\n    ungroup()\ndat_nst\n\n# A tibble: 196 × 2\n    clid data              \n   &lt;int&gt; &lt;list&gt;            \n 1     1 &lt;tibble [20 × 11]&gt;\n 2     2 &lt;tibble [22 × 11]&gt;\n 3     3 &lt;tibble [21 × 11]&gt;\n 4     5 &lt;tibble [23 × 11]&gt;\n 5     6 &lt;tibble [21 × 11]&gt;\n 6     7 &lt;tibble [18 × 11]&gt;\n 7     9 &lt;tibble [23 × 11]&gt;\n 8    11 &lt;tibble [19 × 11]&gt;\n 9    13 &lt;tibble [17 × 11]&gt;\n10    14 &lt;tibble [17 × 11]&gt;\n# ℹ 186 more rows\n\n\nWe can then boostrap our data as so:\n\none_cluster_boot &lt;- function( ) {\n    \n    dat_nst_star = slice_sample( dat_nst, n = nrow(dat_nst), replace=TRUE )\n    dat_nst_star$clid = 1:nrow(dat_nst_star)\n    \n    dat_star &lt;- unnest( dat_nst_star, cols=\"data\" )\n    \n    my_analysis( dat_star )\n}\n\nNote we are regenerating the cluster ID so if we have the same cluster multiple times, each time gets a new ID.\nWe bootstrap and analyze a bunch of times and get standard errors:\n\nboots = map_df( 1:1000, ~ one_cluster_boot(), .id = \"boot\" )\n\nres_boot &lt;- boots %&gt;% group_by( term ) %&gt;%\n    summarise( SE = sd( estimate ) )\nres_boot\n\n# A tibble: 9 × 2\n  term                                  SE\n  &lt;chr&gt;                              &lt;dbl&gt;\n1 \"(Intercept)\"                      4.24 \n2 \"hdegkmaster + \"                  12.2  \n3 \"hdegkmasters\"                     4.12 \n4 \"hdegkspecialist\"                 14.4  \n5 \"sbirthq2nd qtr - april,may,june\"  2.26 \n6 \"sbirthq3rd qtr - july,aug,sept\"   2.31 \n7 \"sbirthq4th qtr - oct,nov,dec\"     2.43 \n8 \"small_classyes\"                   3.89 \n9 \"totexpk\"                          0.347\n\n\nWe can compare to the original (WRONG) OLS estimates, the CRVE standard errors, and the bootstrap standard errors:\n\nCRVE_sub &lt;- res_CRVE %&gt;%\n  dplyr::select( -estimate, -p.value ) %&gt;%\n  rename( SE_CRVE = std.error )\nOLS_sub &lt;- res_OLS %&gt;%\n  dplyr::select( -estimate, -p.value ) %&gt;%\n  rename( SE_OLS = std.error )\n\n# Make the table\ntbl &lt;- left_join( res_boot, OLS_sub, \n                  by = \"term\" ) %&gt;%\n  left_join( CRVE_sub, by = \"term\" ) %&gt;%\n  relocate( term, statistic ) %&gt;% \n  mutate( boot_v_OLS = SE / SE_OLS,\n          boot_v_CRVE = SE / SE_CRVE )\n\nknitr::kable( tbl, digits=2 )\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nstatistic\nSE\nSE_OLS\nSE_CRVE\nboot_v_OLS\nboot_v_CRVE\n\n\n\n\n(Intercept)\n208.38\n4.24\n2.33\n4.26\n1.82\n1.00\n\n\nhdegkmaster +\n-0.50\n12.22\n5.44\n11.50\n2.25\n1.06\n\n\nhdegkmasters\n-2.89\n4.12\n1.82\n4.15\n2.26\n0.99\n\n\nhdegkspecialist\n2.23\n14.43\n7.62\n15.10\n1.90\n0.96\n\n\nsbirthq2nd qtr - april,may,june\n-2.42\n2.26\n2.33\n2.27\n0.97\n0.99\n\n\nsbirthq3rd qtr - july,aug,sept\n-6.11\n2.31\n2.27\n2.35\n1.02\n0.98\n\n\nsbirthq4th qtr - oct,nov,dec\n4.08\n2.43\n2.49\n2.48\n0.97\n0.98\n\n\nsmall_classyes\n3.79\n3.89\n1.69\n3.86\n2.31\n1.01\n\n\ntotexpk\n3.88\n0.35\n0.15\n0.35\n2.32\n0.98\n\n\n\n\n\nA ratio of 1 means the estimated SEs are about the same. More than 1 means the bootstrap is returning larger SEs.\nGenerally, we see that the bootstrap is increasing the SEs for the level-2 coefficients (those that are talking about how clusters are different). This is good: the OLS SEs are way too small since they are not taking clustering into account.\nThe CRVE is basically the same as the bootstrap here, with some mild differences. All these methods are for estimating standard errors; they do not change the estimated coefficents themselves.\nBootstrapping is a simple way of getting uncertainty when you don’t know how to do that with math or a package. When we can do a mathematical approximation, the bootstrapping might not be worth it, due to the extra computation. But bootstrapping, by direct simulation, can also account for things like heteroskedasticity, outliers, or other weirdness that the mathmatical approximations cannot. It is worth using in many cases due to this general applicability, versitility, and robustness.",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Demonstration of the Cluster Bootstrap</span>"
+    ]
+  },
+  {
+    "objectID": "Predicting_birthweight.html",
+    "href": "Predicting_birthweight.html",
+    "title": "9  A demonstration of different machine learning methods all fit to the same data",
+    "section": "",
+    "text": "10 Overview\nThis document showcases a bunch of different machine learning tools, all used on the same data set. At the end we compare the different rmse on the validation set.\nFor context, we will use a classic data set (e.g., Almond et al., 2005) on child birthweight. This data set was originally constructed to estimate the causal effect of maternal smoking on child birthweight; that is not what we are up to now. Our goal is to instead predict child birthweight directly based on observable characteristics prior to birth.\nThe target of interest is the child’s birthweight, stored as child_birthwt. This is a continuous outcome. All other variables are fair game as predictors.\nWhile this is obviously a simplified data set, the prediction problem is very real – many medical insurers and providers target services based on algorithms similar to what you will put together.\nNote: For the purposes of illustration we are going to use a proportionally small training set of 10,000 observations (so we need to regularize and use fancy stuff) and a very large validation set (so we see the real comparison of our different choices). In practice we would try to use as much of our data as possible for training.",
+    "crumbs": [
+      "On Machine Learning",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>A demonstration of different machine learning methods all fit to the same data</span>"
+    ]
+  },
+  {
+    "objectID": "Predicting_birthweight.html#tuning-the-random-forest",
+    "href": "Predicting_birthweight.html#tuning-the-random-forest",
+    "title": "9  A demonstration of different machine learning methods all fit to the same data",
+    "section": "17.1 Tuning the random forest",
+    "text": "17.1 Tuning the random forest\nWe should tune our random forest, to figure out which specification is best. We use caret’s train() to do this (borrowing code from the case-study walk-through from the Data Science in Education textbook):\n\n# setting a seed for reproducibility\nset.seed(2020)\n\n# Create a grid of different values of mtry, splitrule, and min.node.size,\n# the three tuning parameters for our random forest.\ntune_grid &lt;-\n    expand.grid(\n        mtry = c(2, 3, 7, 10),\n        splitrule = c(\"variance\"),        \n        min.node.size = c(10, 20, 50)\n    )\n\n# Fit a new model, using the tuning grid we created above.  This will take\n# awhile to run.\nrf_tuned &lt;-\n    train(child_birthwt ~ ., data = ca_training,\n          method = \"ranger\",\n          tuneGrid = tune_grid)\n\nrf_tuned\n\nRandom Forest \n\n10000 samples\n   25 predictor\n\nNo pre-processing\nResampling: Bootstrapped (25 reps) \nSummary of sample sizes: 10000, 10000, 10000, 10000, 10000, 10000, ... \nResampling results across tuning parameters:\n\n  mtry  min.node.size  RMSE      Rsquared    MAE     \n   2    10             560.5576  0.08226263  421.6399\n   2    20             560.7701  0.08165209  421.7262\n   2    50             561.0561  0.08155258  421.8141\n   3    10             557.0580  0.08455732  420.1078\n   3    20             557.0095  0.08532631  419.9823\n   3    50             557.4392  0.08517044  419.9752\n   7    10             557.9592  0.08025062  423.9294\n   7    20             556.6819  0.08320896  422.4458\n   7    50             555.3160  0.08691731  420.4274\n  10    10             559.3643  0.07946736  426.1047\n  10    20             557.4722  0.08297020  424.0431\n  10    50             555.1987  0.08782704  421.2257\n\nTuning parameter 'splitrule' was held constant at a value of variance\nRMSE was used to select the optimal model using the smallest value.\nThe final values used for the model were mtry = 10, splitrule = variance\n and min.node.size = 50.\n\n\nWe then take our final random forest, fit to all of our training data and using the winning tuning parameters, by simply using predict from the result of our train() call:\n\nrmse( rf_tuned, ca_holdout )\n\n[1] 547.0557",
+    "crumbs": [
+      "On Machine Learning",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>A demonstration of different machine learning methods all fit to the same data</span>"
+    ]
+  },
+  {
+    "objectID": "test_train_and_CV.html",
+    "href": "test_train_and_CV.html",
+    "title": "10  Reflections on using machine learning (for final projects)",
+    "section": "",
+    "text": "11 Test/train splits, test/train/validate, and cross validation\nIt is important to track what your machine learning methods are doing in terms of spliting your data inside the call. For example, the caret package’s train() method will often be doing cross validation (or something similar) inside of it. You thus do not need to always do a test/train split outside of it!\nAlso, don’t do a test/train split if you don’t have a lot of data. It is too expensive! This is where cross validation is particularly useful, since it lets all of your data be used for testing, and it uses most of your data for fitting your models. It is kind of like a “have your cake and eat it too” situation.\nFinally, the full test/train/validate trifecta is only if you are really, really concerned about predicting your future performance of a model. It turns out that if you use cross-validation to select the best set of tuning parameters, the final estimated accuracy from the cross-validation will generally be pretty close to what a final validation set would tell you.\nLet’s see how the case study in Data Science in Ed, Chapter 14 went about things. They first split the data into a training set and a testing set. They then made a grid of tuning parameters related to tree size and so forth, and then used train() to identify what set of tuning parameters was best for the data. In particular, train() used this grid and a variant of cross validation (bootstrap resampling) to repeatedly divide the training data into a part used to fit one random forest for each tuning parameter combo and a part used to evaluate all of those random forests on out of sample data. The final table produced gives the estimated error rates, and finally train() selects the tuning parameter combo with the best rates.\nThe book then took the final model (via rf_fit2$finalModel), which is a last model fit by train() to all the training data using the best found parameter combo, as their answer. To evaluate the quality of their answer, they used finalModel to predict outcomes for the test data they set aside at the beginning of their case study.\nIn our language, their “test” data was used for the final validation step, and the train() method was doing little test/train splits inside of it to get the estimates of out of sample error as part of the tuning process.\nNote that they also found the predicted error of the finally selected final model was about the same as reported by the out of sample error by train(): this is not unusual. If we are not fitting too many different combos of tuning parameter and so forth, then the estimated error from this process will often be close.",
+    "crumbs": [
+      "On Machine Learning",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reflections on using machine learning (for final projects)</span>"
+    ]
+  },
+  {
+    "objectID": "test_train_and_CV.html#cross-validation-options-for-caret",
+    "href": "test_train_and_CV.html#cross-validation-options-for-caret",
+    "title": "10  Reflections on using machine learning (for final projects)",
+    "section": "11.1 Cross validation options for caret",
+    "text": "11.1 Cross validation options for caret\nThe caret package does cross validation internally as part of train(), if you tell it. If you don’t, it does a different kind of internal repeated test/train splitting that it calls bootstrap. This is not bootstrap for inference! What it is doing is resampling the data with replacement to get a training dataset of the same size as it was passed. It will then have about a third of the data not in the training set, and it will use this for out-of-sample testing to estimate the performance of all the models fit. Finally, it repeats this a bunch of times and averages: this means each observation will be in most training sets, but will be used for testing some of the time. This is just like cross validation (except more random)!\nAlso, caret’s cross-validation is, by default, a random cross-validation: repeatedly take 10% of the data as testing, and use the rest for training. Repeat 10 times. This means each observation will be used about once for testing and about nine times for training, but not exactly. Functionally, this will generally be nearly the same as the classic CV where we divide all the data into 10 parts systematically.\nIt basically does not matter which form of cross-validation or splitting you use. The number of iterations will impact running time: 25 iterations will be 2.5 times longer to run than 10!",
+    "crumbs": [
+      "On Machine Learning",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reflections on using machine learning (for final projects)</span>"
+    ]
+  },
+  {
+    "objectID": "test_train_and_CV.html#bootstrap-vs.-cross-validation",
+    "href": "test_train_and_CV.html#bootstrap-vs.-cross-validation",
+    "title": "10  Reflections on using machine learning (for final projects)",
+    "section": "11.2 Bootstrap vs. Cross validation",
+    "text": "11.2 Bootstrap vs. Cross validation\nDon’t confuse bootstrapping with cross-validiation. Bootstrapping is a way of doing statistical inference: you use it to ask how much an estimate would change if you happened to get a different data set from the same source. This allows you to decide if, for example, a coefficient is “really” positive–if your bootstrapping doesn’t really give you any negative estimates, then you can be sure that your estimate is probably not positive due to random chance.\nCross validation, by contrast, is a way of doing a lot of test/train splits because you want to know how a fit model would work on new data. It is focusing on estimating future predictive accuracy, not statistical inference.",
+    "crumbs": [
+      "On Machine Learning",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reflections on using machine learning (for final projects)</span>"
+    ]
+  },
+  {
+    "objectID": "interpreting_lasso_models.html",
+    "href": "interpreting_lasso_models.html",
+    "title": "11  Interpreting LASSO models, and some other stuff",
+    "section": "",
+    "text": "12 The Story\nYou are newly hired analyst working in the State Ministry of Education. This morning, you open your email to find a request from your supervisor, your first project in the new job. How exciting!\nYour boss writes that the Ministry has received funding to provide a one-on-one tutoring intervention for a modest number of struggling 8th grade math students. It’s important that we select the right students for the intervention because we can’t afford to give it to everyone. Unfortunately, we don’t have previous math scores for students in the state. The first standardized math test they take is at the end of 8th grade.\nYour boss proposes that you build a predictive model, using the other data the ministry has about students, to estimate who will perform poorly in math at the end of the 8th grade.\nThe only other requirement is that the model can be explained to policymakers and other higherups in the ministry. No black-box models.\nHer email includes an attachment with the data on last year’s 8th graders.\nOur goal is to understand what is predictive of math scores. More specifically, we want to predict who the struggling students will be. There are a lot of things we could do. Remember whatever we do must be interpretable/explainable. Trees might work. Of course we’ll settle on LASSO here. Generally speaking, LASSO is more interpretable than Ridge? (LASSO shrinks many predictors to zero, so we only have to explain the non-zero coefficients, which hopefully will be a small number.)",
+    "crumbs": [
+      "On Machine Learning",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Interpreting LASSO models, and some other stuff</span>"
+    ]
+  },
+  {
+    "objectID": "interpreting_lasso_models.html#what-variables-to-include",
+    "href": "interpreting_lasso_models.html#what-variables-to-include",
+    "title": "11  Interpreting LASSO models, and some other stuff",
+    "section": "13.1 What variables to include?",
+    "text": "13.1 What variables to include?\nWe might not want to put all of our available variables into our model. For example, if we are trying to predict math score, we might not want to include other test scores from that same testing occasion, because were looking for contextual factors that lead to a particular outcome. Thus, we might rerun everything we’ve done without including reading and science, which would force the model to use the contextual variables about the students rather than other measures of their academic ability.",
+    "crumbs": [
+      "On Machine Learning",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Interpreting LASSO models, and some other stuff</span>"
+    ]
+  },
+  {
+    "objectID": "interpreting_lasso_models.html#coefficient-size",
+    "href": "interpreting_lasso_models.html#coefficient-size",
+    "title": "11  Interpreting LASSO models, and some other stuff",
+    "section": "13.2 Coefficient size",
+    "text": "13.2 Coefficient size\nThe SIZE of the coefficients is going to be too small, in general, because LASSO shrinks coefficients towards zero to stabilize. We should not, for example, expect that the increase in math for each unit increase in reading is 0.3432561. One trick some folks do is refit the selected coefficients using OLS to get a new, final model:\n\n# Identify nonzero coefficients\ncoef_indices &lt;- which( colnames(x) %in% names(cc) )\ncoef_indices\n\n[1]  9 10 12 13 31\n\n# Subset data to nonzero covariates\nx_sub &lt;- x[, coef_indices]\nhead( x_sub )\n\n  gendermale computeryes    read science    escs\n1          1           1 347.710 273.827  0.7018\n2          0           1 427.958 460.357  0.2091\n3          1           1 271.743 337.150 -1.1074\n4          1           1 336.271 368.131 -0.4944\n5          1           1 402.166 322.163 -0.1840\n6          0           1 350.848 342.939 -0.6022\n\n# Fit OLS model to nonzero covariates\nfit_sub &lt;- lm(y ~ ., data = as.data.frame(x_sub))\n\n# Print summary of refit model\nsummary(fit_sub)\n\n\nCall:\nlm(formula = y ~ ., data = as.data.frame(x_sub))\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-189.522  -32.514   -0.457   32.687  239.605 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 51.00114    5.30280   9.618  &lt; 2e-16 ***\ngendermale  19.31204    1.86074  10.379  &lt; 2e-16 ***\ncomputeryes  8.01858    2.71953   2.949  0.00322 ** \nread         0.38790    0.01883  20.602  &lt; 2e-16 ***\nscience      0.47816    0.01944  24.596  &lt; 2e-16 ***\nescs         4.52125    0.97928   4.617 4.04e-06 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 51.17 on 3309 degrees of freedom\nMultiple R-squared:  0.7529,    Adjusted R-squared:  0.7525 \nF-statistic:  2016 on 5 and 3309 DF,  p-value: &lt; 2.2e-16\n\n\nWe can compare how much shrinkage there was:\n\nols_coef = coef( fit_sub )\nctbl = tibble( coef = names(ols_coef),\n               OLS = ols_coef,\n               Lasso = cc )\nctbl\n\n# A tibble: 6 × 3\n  coef           OLS  Lasso\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 (Intercept) 51.0   78.3  \n2 gendermale  19.3    9.08 \n3 computeryes  8.02   0.505\n4 read         0.388  0.343\n5 science      0.478  0.488\n6 escs         4.52   3.01",
+    "crumbs": [
+      "On Machine Learning",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Interpreting LASSO models, and some other stuff</span>"
+    ]
+  },
+  {
+    "objectID": "interpreting_lasso_models.html#assessing-stability-a-kind-of-inference",
+    "href": "interpreting_lasso_models.html#assessing-stability-a-kind-of-inference",
+    "title": "11  Interpreting LASSO models, and some other stuff",
+    "section": "13.3 Assessing stability (a kind of inference)",
+    "text": "13.3 Assessing stability (a kind of inference)\nWe might worry that the Lasso model is picking these variables only due to random chance. We could bootstrap this process to see if the same variables tend to get picked each time. Here is a single bootstrap iteration to illustrate:\n\ndatstar = slice_sample( stu_data, n = nrow(stu_data), replace=TRUE )\nxstar &lt;- model.matrix(math ~ ., datstar)[,-1]\nystar &lt;- datstar$math\n\nmodstar &lt;- glmnet(x = xstar,\n                  y = ystar, \n                  lambda = best_lambda_lasso,\n                  alpha = 1 )\n\ncc &lt;- coef(modstar)\ncc[ cc[,1] != 0, ]\n\n                (Intercept) father_educless than ISCED1 \n                 83.6514190                  -2.6175776 \n                 gendermale                        read \n                  6.5947801                   0.3550822 \n                    science                        escs \n                  0.4687787                   3.3871490 \n\n\nWe generally got the same answers, suggesting stability in what variables are selected. But we should do this a lot, and see how often each variable shows up. To do this, we need a function! And, for our function, life is always easier if we get a data frame back:\n\none_boot &lt;- function( ) {\n  datstar = slice_sample( stu_data, n = nrow(stu_data), replace=TRUE )\n  xstar &lt;- model.matrix(math ~ ., datstar)[,-1]\n  ystar &lt;- datstar$math\n  \n  modstar &lt;- glmnet(x = xstar,\n                    y = ystar, \n                    lambda = best_lambda_lasso,\n                    alpha = 1 )\n  \n  cc &lt;- coef(modstar)\n  cc &lt;- cc[ cc[,1] != 0, ]\n  cc = tibble( coef = names(cc), est = cc)\n}\n\nThen replicate:\n\nrps = map_df( 1:100, ~ one_boot() )\nrps %&gt;% group_by( coef ) %&gt;%\n  summarise( n = n() ) %&gt;%\n  arrange( -n ) %&gt;%\n  knitr::kable()\n\n\n\n\ncoef\nn\n\n\n\n\n(Intercept)\n100\n\n\ngendermale\n100\n\n\nread\n100\n\n\nscience\n100\n\n\nescs\n99\n\n\ncomputeryes\n58\n\n\nwealth\n44\n\n\ncar2\n26\n\n\ninternetyes\n14\n\n\nfather_educless than ISCED1\n13\n\n\ndeskyes\n6\n\n\nmother_educless than ISCED1\n5\n\n\nbook201-500\n2\n\n\ncomputer_n3+\n1\n\n\nmother_educISCED 3A\n1\n\n\n\n\n\nThe things at the top were always selected–they are clearly important. The things near the bottom are less so. Our initial “computer” variable seems somewhat important, but not as reliably selected as things such as reading and science.",
+    "crumbs": [
+      "On Machine Learning",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Interpreting LASSO models, and some other stuff</span>"
+    ]
+  },
+  {
+    "objectID": "interpreting_lasso_models.html#last-words-on-writing-up-results",
+    "href": "interpreting_lasso_models.html#last-words-on-writing-up-results",
+    "title": "11  Interpreting LASSO models, and some other stuff",
+    "section": "13.4 Last words on writing up results",
+    "text": "13.4 Last words on writing up results\nIn writing up your results, consider the following elements:\n\nIntroduction: Begin by introducing the purpose of your analysis and the dataset you used. For example:\n\n“We fit a Lasso regression model to predict the response variable [name of response variable] based on [list of predictor variables]. The dataset used was [name of dataset] and consisted of [number of observations] observations.”\n\nModel Selection: Explain the process you used to select the best model, including the choice of the regularization parameter. For example:\n\n“We used cross-validation to select the value of lambda that minimized the mean squared error. The selected lambda was [value].”\n\nModel Performance: Report the performance of the Lasso model, including the model’s R-squared value, the root mean squared error (RMSE), and any other relevant metrics. For example:\n\n“The Lasso model achieved an R-squared value of [R-squared value], indicating that [percentage of variation in response variable] of the variation in the response variable can be explained by the predictor variables. The RMSE of the model was [RMSE value], indicating an average error of [RMSE value] units in predicting the response variable.”\nYou can calculate R2 by comparing the variance of the predictions to the variance of the original outcome: \\[ R^2 = 1 - \\frac{ Var( predictions ) }{ Var( Y ) } \\]\n\nInterpretation of Coefficients: Report the estimated coefficients. For example:\n\n“Table XX shows the estimated coefficients for the predictor variables.”\nYou might include OLS values as well, on this table.\n\nConclusion: Summarize the key findings of your analysis and any insights gained from the Lasso model. For example:\n\n“In conclusion, we found that [some variables] predicted our outcome, suggesting [something]. On the other hand, we expected [something else] to be selected, but it never was across the bootstrap samples, indicating that, given the other variables, there is no strong connection between [this thing] and the outcome.”\nRemember to provide enough detail for the reader to understand your analysis, but keep your report concise and focused on the key points.",
+    "crumbs": [
+      "On Machine Learning",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Interpreting LASSO models, and some other stuff</span>"
+    ]
+  },
+  {
+    "objectID": "interactions_discussion.html",
+    "href": "interactions_discussion.html",
+    "title": "12  Main effects, interactions in linear models, and prediction",
+    "section": "",
+    "text": "12.1 Getting the data ready\nWe use a data set of a bunch of behavioral outcomes measured for how a mother interacts with a child. One question of interest is whether mothers systematically interact with girls differently than they do with boys.\nWe first load tidyverse and load the data.\nqm = read.table( \"data/KONG.txt\" )\nnames( qm ) = c( \"wealth\", \"age\", \"fed\", \"med\", \"bookread\", \"hwhelp\", \"talkchld\", \"female\", \"sibling\" )\nhead( qm )\n\n  wealth       age fed med bookread hwhelp talkchld female sibling\n1  11830 11.333330   9   9        2      2        2      0       1\n2   8500 12.333330   2   5        2      2        2      1       1\n3  20047 13.416670   9   8        2      2        2      1       1\n4  18650 11.166670   0  12        2      2        2      1       1\n5   6760 11.666670   5   0        1      2        1      0       1\n6   4580  9.416667   8   8        2      2        2      1       1\n\nnrow( qm )\n\n[1] 1976\nWe make an aggregate measure of interaction by adding our three interview questions together. There are better ways of doing this, but this will work for now.\nqm = mutate( qm, lwealth = log(wealth),\n             interact = bookread + hwhelp + talkchld,\n             sex = factor( female, levels=c(0,1), labels=c(\"boy\",\"girl\" ) ) )\nTo simplify things, we are going to take the middle 80% of the data based on wealth. (There is odd tail behavior that clouds the trends that I want to avoid for pedagogical purposes.) qm = filter( qm, wealth &gt;= quantile( wealth, 0.1 ), wealth &lt;= quantile( wealth, 0.9 ) ) nrow( qm )\nLets see what we have:\nggplot( qm, aes( x=lwealth, y=interact, col=sex ) ) +\n    geom_point( alpha=0.5 ) +\n    stat_smooth( aes( group=sex ), method=\"loess\", se=FALSE )\nLets look at a simple main effect of sex\nM0 = lm( interact ~ sex + lwealth + sibling, data=qm )\nsummary( M0 )\n\n\nCall:\nlm(formula = interact ~ sex + lwealth + sibling, data = qm)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-3.4280 -0.9432  0.0462  0.9583  3.7106 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  4.365853   0.311989  13.994  &lt; 2e-16 ***\nsexgirl      0.005984   0.062663   0.095    0.924    \nlwealth      0.197600   0.032674   6.048 1.75e-09 ***\nsibling     -0.219954   0.043481  -5.059 4.62e-07 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.367 on 1972 degrees of freedom\nMultiple R-squared:  0.03351,   Adjusted R-squared:  0.03203 \nF-statistic: 22.79 on 3 and 1972 DF,  p-value: 1.679e-14",
+    "crumbs": [
+      "Extra Stuff",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Main effects, interactions in linear models, and prediction</span>"
+    ]
+  },
+  {
+    "objectID": "interactions_discussion.html#fitting-an-interacted-model",
+    "href": "interactions_discussion.html#fitting-an-interacted-model",
+    "title": "12  Main effects, interactions in linear models, and prediction",
+    "section": "12.2 Fitting an interacted model",
+    "text": "12.2 Fitting an interacted model\nNow let’s fit a model where we interact sex and wealth. The plot does not look particularly linear, but we will proceed for illustrative purposes.\n\nM1 = lm( interact ~ sex * lwealth + sibling, data=qm )\nsummary( M1 )\n\n\nCall:\nlm(formula = interact ~ sex * lwealth + sibling, data = qm)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-3.3704 -0.9534  0.0387  0.9547  3.7785 \n\nCoefficients:\n                Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)      4.80629    0.41588  11.557  &lt; 2e-16 ***\nsexgirl         -0.95389    0.60286  -1.582 0.113750    \nlwealth          0.14987    0.04422   3.389 0.000715 ***\nsibling         -0.22096    0.04347  -5.083 4.06e-07 ***\nsexgirl:lwealth  0.10468    0.06539   1.601 0.109569    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.366 on 1971 degrees of freedom\nMultiple R-squared:  0.03476,   Adjusted R-squared:  0.0328 \nF-statistic: 17.74 on 4 and 1971 DF,  p-value: 2.543e-14\n\n\nNotice the coefficient for sex changes a lot. This is because this is the estimated difference of girls and boys for those with a lwealth of 0.\nTo recover our “main effect” estimate we need to see what the average predicted difference would be for all the individuals in our dataset. We do this by doing the following steps:\n\nCopy our dataset to make two new ones\n\n\nqm.g = qm.b = qm\n\n\nNow make all the folks in the qm.g dataset girls, and all folks in the other boys.\n\n\nqm.g$sex = \"girl\"\nqm.b$sex = \"boy\"\n\n\nPredict interaction assuming everyone is a girl and everyone is a boy:\n\n\npred.g = predict( M1, qm.g )\npred.b = predict( M1, qm.b )\n\n\nThen the difference of the predictions is our predicted difference in interaction for two kids with the same covariates except sex:\n\n\ndeltas = pred.g - pred.b\nsex.diff = mean( deltas )\nsex.diff\n\n[1] 0.006737327\n\n\nSee? Now it matches more closely with the main effect estimate of M0. The core idea here is that the real interpretation of the main effect is a difference in average outcomes (when looking at a dummy varaible) between two groups, when holding all else equal. When you have interactions, the main effect is the predicted difference for those with zeros for the interaction terms, which might not be very sensible. We can get back to the difference between the two groups by predicting for everyone and comparing the averages.",
+    "crumbs": [
+      "Extra Stuff",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Main effects, interactions in linear models, and prediction</span>"
+    ]
+  },
+  {
+    "objectID": "interactions_discussion.html#plotting",
+    "href": "interactions_discussion.html#plotting",
+    "title": "12  Main effects, interactions in linear models, and prediction",
+    "section": "12.3 Plotting",
+    "text": "12.3 Plotting\nAs a reminder, we can plot with our predictions in a nice way. The cleanest would be to put all our predictions into a dataframe, convert to long form, and plot.\n(Note we use ‘gender’ as our key, in the following, to avoid colliding with the ‘sex’ variable name.)\n\nqm$girl = pred.g\nqm$boy = pred.b\nqml = qm %&gt;%\n  pivot_longer( cols = c(girl, boy),\n                names_to = \"gender\",\n                values_to = \"pred\" )\n\n\nggplot( qml, aes( x=lwealth, y= pred, col=gender ) ) +\n    geom_point()\n\n\n\n\n\n\n\n\nWe see different stripes for the different numbers of siblings.\nAs a better way, we can get fancier with the data grid stuff.\n\nlibrary( modelr )\ngrid = data_grid( qm, lwealth = seq_range( lwealth, 30 ), sex, .model = M1 )\nhead( grid )\n\n# A tibble: 6 × 3\n  lwealth sex   sibling\n    &lt;dbl&gt; &lt;fct&gt;   &lt;dbl&gt;\n1    4.74 boy         1\n2    4.74 girl        1\n3    5.00 boy         1\n4    5.00 girl        1\n5    5.26 boy         1\n6    5.26 girl        1\n\ngrid = add_predictions( grid, M1, \"pred\" )\n\n\nggplot( grid, aes( x=lwealth, y= pred, col=sex ) ) +\n    geom_point()\n\n\n\n\n\n\n\n\nI used geom_point() to show the individual predictions. Normally we would use geom_line()",
+    "crumbs": [
+      "Extra Stuff",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Main effects, interactions in linear models, and prediction</span>"
+    ]
+  },
+  {
+    "objectID": "interactions_discussion.html#centering-an-alternative-approach",
+    "href": "interactions_discussion.html#centering-an-alternative-approach",
+    "title": "12  Main effects, interactions in linear models, and prediction",
+    "section": "12.4 Centering, an alternative approach",
+    "text": "12.4 Centering, an alternative approach\nYou can also center your continuous variable, which means your coefficient for your main effect on your dummy variable will correspond to the average value of the continuous. Much more interpretable!\n\nqm = mutate( qm, lwealth.cent = lwealth - mean(lwealth) )\nM1b = lm( interact ~ sex * lwealth.cent + sibling, data=qm )\n\ncoef( M0 )\n\n (Intercept)      sexgirl      lwealth      sibling \n 4.365852906  0.005984015  0.197600022 -0.219953588 \n\ncoef( M1b )\n\n         (Intercept)              sexgirl         lwealth.cent \n         6.181712978          0.006737327          0.149873199 \n             sibling sexgirl:lwealth.cent \n        -0.220960207          0.104675040 \n\n\nSee? Much more interpretable!",
+    "crumbs": [
+      "Extra Stuff",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Main effects, interactions in linear models, and prediction</span>"
+    ]
+  },
+  {
+    "objectID": "interactions_discussion.html#confidence-intervals-for-the-gap",
+    "href": "interactions_discussion.html#confidence-intervals-for-the-gap",
+    "title": "12  Main effects, interactions in linear models, and prediction",
+    "section": "12.5 Confidence intervals for the gap?",
+    "text": "12.5 Confidence intervals for the gap?\nA bootstrap is the easiest here.\n\nreps = replicate( 1000, {\n    qm.star = mosaic::sample( qm, replace=TRUE )\n\n    # refit the original model with the bootstrap data\n    M1.star = update( M1, data=qm.star )\n\n    pred.g = predict( M1.star, qm.g )\n    pred.b = predict( M1.star, qm.b )\n\n    deltas = pred.g - pred.b\n    mean( deltas )\n} )\n\nOur bootstrap confidence interval: quantile( reps, c( 0.025, 0.975 ) )\n\nhist( reps, breaks=30, col=\"grey\" )\nabline( v=sex.diff, col=\"red\", lwd=3 )",
+    "crumbs": [
+      "Extra Stuff",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Main effects, interactions in linear models, and prediction</span>"
+    ]
+  },
+  {
+    "objectID": "interactions_discussion.html#a-final-investigation",
+    "href": "interactions_discussion.html#a-final-investigation",
+    "title": "12  Main effects, interactions in linear models, and prediction",
+    "section": "12.6 A final investigation",
+    "text": "12.6 A final investigation\nI don’t like the linear relationship. Better to have, perhaps a cubic for both girl and boy?\n\nM3 = lm( interact ~ ( lwealth + I((lwealth-mean(lwealth))^2) +\n                          I((lwealth-mean(lwealth))^3) ) * sex + sibling,\n         data=qm )\ncoef( M3 )\n\n                           (Intercept)                                lwealth \n                          3.9677413630                           0.2376064190 \n        I((lwealth - mean(lwealth))^2)         I((lwealth - mean(lwealth))^3) \n                          0.0226463368                          -0.0264912833 \n                               sexgirl                                sibling \n                         -1.0082023177                          -0.2159902502 \n                       lwealth:sexgirl I((lwealth - mean(lwealth))^2):sexgirl \n                          0.1117568699                          -0.0122453285 \nI((lwealth - mean(lwealth))^3):sexgirl \n                         -0.0007258967 \n\ngrid = add_predictions( grid, M3, \"pred\" )\nggplot( grid, aes( x=lwealth, y= pred, col=sex ) ) +\n    geom_line()\n\n\n\n\n\n\n\n\nIn truth, splines would be the best. A topic for another day (or prior handout).",
+    "crumbs": [
+      "Extra Stuff",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Main effects, interactions in linear models, and prediction</span>"
+    ]
+  },
+  {
+    "objectID": "interactions_discussion.html#disclaimer",
+    "href": "interactions_discussion.html#disclaimer",
+    "title": "12  Main effects, interactions in linear models, and prediction",
+    "section": "12.7 Disclaimer",
+    "text": "12.7 Disclaimer\nThe coefficients of the above are not significant, and we are not finding a real difference between girls and boys in this case. But the code is designed to illustrate the core concept of using predict to get access to a real estimate of a main effect when you are fitting a model with an interaction term.\nTo check if a complex model is an improvement, use anova()\n\nanova( M0, M1, M3 )\n\nAnalysis of Variance Table\n\nModel 1: interact ~ sex + lwealth + sibling\nModel 2: interact ~ sex * lwealth + sibling\nModel 3: interact ~ (lwealth + I((lwealth - mean(lwealth))^2) + I((lwealth - \n    mean(lwealth))^3)) * sex + sibling\n  Res.Df    RSS Df Sum of Sq      F  Pr(&gt;F)  \n1   1972 3684.0                              \n2   1971 3679.2  1    4.7838 2.5691 0.10913  \n3   1967 3662.7  4   16.5032 2.2157 0.06503 .\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nNope, the interactions (or the more flexible cubic) are not helping us (other than helping our understanding of how to model interactions).",
+    "crumbs": [
+      "Extra Stuff",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Main effects, interactions in linear models, and prediction</span>"
+    ]
+  },
+  {
+    "objectID": "ipeds_data.html",
+    "href": "ipeds_data.html",
+    "title": "13  Finding and Merging Data Online",
+    "section": "",
+    "text": "13.1 Datasets Posted on the Web\nThis handout provides a walk-through of downloading publicly available datasets from the web and merging them together. No guide can cover all cases, but this example should give you a sense of what to look for/think about when wrangling data posted on websites. Note that this is not about scraping. What we’re considering here are datasets posted for download, often - but not always - found on government sites.",
+    "crumbs": [
+      "Extra Stuff",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Finding and Merging Data Online</span>"
+    ]
+  },
+  {
+    "objectID": "ipeds_data.html#ipeds",
+    "href": "ipeds_data.html#ipeds",
+    "title": "13  Finding and Merging Data Online",
+    "section": "13.2 IPEDS",
+    "text": "13.2 IPEDS\nThis example uses data from IPEDS, the Integrated Postsecondary Education Data System. These data are made available by NCES, the National Center for Education Statistics, a great place to start looking for education-related data in the US. The data represent a set of surveys, conducted every year, of all colleges, universities, and other post-secondary institutions that take federal student aide money (which is like, many of them). Data are available going back to 1986 (some scattered earlier years also have data). The surveys cover enrollments, graduation rates, prices, and many other things.\nThere are 12 total survey components that cover 9 major topics:\n\nAcademic Libraries\nAdmissions\nCompletions\nEnrollment (Fall and 12-Month)\nFinance\nGraduation Rates and Outcome Measures\nHuman Resources\nInstitutional Characteristics\nStudent Financial Aid\n\nIt’s worth noting that some info is only collected every other year. In addition, the data are not consistent over time. New survey items get added. Old items get dropped. Definitions change. Identifying codes, like the Classification of Instructional Program (CIP) codes or the Standard Occupational Classification (SOC), are periodically reviewed and updated. Being aware of (and dealing with) these issues is part of our job as data scientists. When you’re working with new data, take some time to identify these kinds of challenges before you dig too deeply into analysis.",
+    "crumbs": [
+      "Extra Stuff",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Finding and Merging Data Online</span>"
+    ]
+  },
+  {
+    "objectID": "ipeds_data.html#finding-ipeds-data",
+    "href": "ipeds_data.html#finding-ipeds-data",
+    "title": "13  Finding and Merging Data Online",
+    "section": "13.3 Finding IPEDS Data",
+    "text": "13.3 Finding IPEDS Data\nThe landing page for IPEDS is here. When you open the page, you’ll see many links. NCES provides a lot of information about their data (and different ways to access it). Sorting through surfeits of info like this is often the biggest challenge of working with public data sources. My description of IPEDS (in the above section) came from digging around these links.1\nOn the IPEDS page, there’s a link to their data explorer. When you hit this page, you’ll see links to the most recently released surveys. You can filter the datasets by year or by which of the 12 survey components you’re interested in. These data are aggregated, but it’s a good way to get a sense of what information is available in the individual survey components.\nTo get the survey data, look for this section of the landing page:\n\nIn the dropdown menu, select “Complete Data Files”. This will take you to a page with download links for each survey component. The files we want are found in the “Data File” column. Let’s download this admissions and test scores file,\n\nWhen we download the file, we should put it in a folder on our computer that’s dedicated to this project. That’ll make things easier once we start writing code. On my laptop, I’ve made a folder called “ipeds_handout”. Inside that folder, I made another folder called “data”. I put the downloaded file into that “data” folder. When I start writing code, I’ll store it in the parent folder (“ipeds_handout”).\nThe downloaded file is a zipped csv. We know how to work with a csv in R, but before we can do that, we have to unzip the file. If you haven’t done this before, here’s a page that walks through how to unzip files on PC or Mac. Once you have the unzipped csv, you can delete the original zip file to tidy things up.\nWhile we’re at it, let’s grab one more file, data on instructional staff salaries,\n\nLike before, unzip the file and put the csv in a project-specific folder.2 You should also download and unzip the dictionary files for both datasets.\n\nThe dictionaries contain codebooks that explain what each variable and value in the dataset means. These usually aren’t big files, so we can open and browse them directly in Excel. I’m going to use them soon to figure out how to find the information I’m interested in.\nNow we’re ready to get started.",
+    "crumbs": [
+      "Extra Stuff",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Finding and Merging Data Online</span>"
+    ]
+  },
+  {
+    "objectID": "ipeds_data.html#our-example-case",
+    "href": "ipeds_data.html#our-example-case",
+    "title": "13  Finding and Merging Data Online",
+    "section": "13.4 Our Example Case",
+    "text": "13.4 Our Example Case\nLet’s start by loading our libraries and data.\n\nlibrary(tidyverse)\nlibrary(ggplot2)\n\n\nadmit &lt;- read_csv('data/adm2021.csv')\n\nRows: 1981 Columns: 68\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (29): XAPPLCN, XAPPLCNM, XAPPLCNW, XADMSSN, XADMSSNM, XADMSSNW, XENRLT, ...\ndbl (39): UNITID, ADMCON1, ADMCON2, ADMCON3, ADMCON4, ADMCON5, ADMCON6, ADMC...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nsal &lt;- read_csv('data/sal2021_is.csv')\n\nRows: 15382 Columns: 110\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (54): XSAINSTT, XSAINSTM, XSAINSTW, XSA_9MCT, XSA_9MCM, XSA_9MCW, XSATOT...\ndbl (56): UNITID, ARANK, SAINSTT, SAINSTM, SAINSTW, SA_9MCT, SA_9MCM, SA_9MC...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nWith the datasets we’ve downloaded, we can explore the relationship between assistant professor salaries and the math ability of incoming Freshmen. To begin, we narrow down each dataset to the variables of interest. To identify these, I looked at the dictionaries we downloaded from IPEDS.\n\n# Keep only school IDs and average salary for 9-month\n# Contract instructors\nsal &lt;- sal %&gt;% filter(ARANK==3) %&gt;% \n  # The dictionary tells us that these are assistant profs\n  select(UNITID, SA09MAT)\n\n\n# Keep school Ids, # of applicants, % that submit SATs,\n# and 75th pctile of SAT scores\nadmit &lt;- admit %&gt;% select(UNITID, APPLCN, SATPCT, SATMT75)\n\nIn other cases, you might have to do much more cleaning before you merge these datasets together. In general, the process will be to clean each dataset so they can be easily merged. (Of course, more data cleaning may be necessary, post-merge.)\n\n13.4.1 Merging the Admissions and Salary Data\nIt’s a good idea to do a full join. This will keep all rows from both datasets and allow us to explore which rows did and did not match, post-merge. That said, I often start with a left or right join just as a quick check of how many records match.\n\ndf &lt;- left_join(sal, admit, by='UNITID')\nsum(is.na(df$SATPCT)) \n\n[1] 1298\n\n\nAbout half (around 1,300 institutions) don’t have a match. This should be explored. Maybe it’s from particular types of institutions (e.g. Vocational/Technical Schools). We might have to merge in additional data to explore the matching behavior. We might figure it out by reading carefully through the dictionaries or other documentation on IPEDS. You can take these steps by following the framework laid out above.\nFor now, we can run a preliminary regression and call it a day.\n\n# First let's mean-center both variables\ndf &lt;- df %&gt;% mutate(across(c(SA09MAT, SATMT75), ~.x-mean(.x, na.rm=TRUE)))\n\nsummary(lm(SA09MAT ~ SATMT75, df))\n\n\nCall:\nlm(formula = SA09MAT ~ SATMT75, data = df)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-49118  -8410   -889   8346  52056 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 2829.703    459.431   6.159 1.18e-09 ***\nSATMT75      164.646      6.186  26.616  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 12740 on 771 degrees of freedom\n  (1529 observations deleted due to missingness)\nMultiple R-squared:  0.4788,    Adjusted R-squared:  0.4782 \nF-statistic: 708.4 on 1 and 771 DF,  p-value: &lt; 2.2e-16\n\n\nIt looks like assistant professors make more at schools with higher SAT math scores (as measured by the 75th percentile of the distribution). Assistant profs at schools with 100 points higher scores earn about 10k more on average. There are lots of reasons we shouldn’t put much weight on this result. Lots of rows didn’t merge. We haven’t investigated missingness in the data. But the above steps walk through the process of a first, rough-cut analysis with IPEDS data.",
+    "crumbs": [
+      "Extra Stuff",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Finding and Merging Data Online</span>"
+    ]
+  },
+  {
+    "objectID": "ipeds_data.html#footnotes",
+    "href": "ipeds_data.html#footnotes",
+    "title": "13  Finding and Merging Data Online",
+    "section": "",
+    "text": "Along the way, I encountered some broken pages, like this link to the IPEDS data release calendar. Maybe they’ll fix it, but you can often find the information you need on some other page. When that doesn’t work, ask someone who’s familiar with the data. When that doesn’t work, you can email someone who works for the agency responsible for the data. In my experience, people get back to you reasonably quickly and are happy to be helpful, as long as you write politely to them.↩︎\nTo be clear, this should be the same folder as the first dataset. Also, if you’re working with many datasets for a project, it’s a good idea to rename them at this stage. Give the datasets clear, descriptive names so you know what they contain. This will make it easier to write and read code later.↩︎",
+    "crumbs": [
+      "Extra Stuff",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Finding and Merging Data Online</span>"
+    ]
+  },
+  {
+    "objectID": "predictive_papers.html",
+    "href": "predictive_papers.html",
+    "title": "14  Applied Prediction Papers",
+    "section": "",
+    "text": "Below is a list of papers related to predictive data science and machine learning in public policy (including education). These are organized into: (1) surveys and reviews and (2) original applications. You may find many of these papers helpful as you are working on your final project and interpreting results - please peruse them with this use case in mind as well as for your general understanding of how these methods are used in the real world.\n\n15 Surveys and reviews\nThe following list includes review articles, textbooks, and textbook chapters that provide an overview of the application of machine learning in various fields related to public policy. These fields include education, public health, urban planning, economics, and urban planning, among many others. Many of these works discuss or cite specific applications of these methods within these fields as well (including some of the references that follow after this section).\n\n15.0.0.1 Athey, Susan. “Beyond Prediction.” Science (American Association for the Advancement of Science), vol. 355, no. 6324, 2017, pp. 483–85, https://doi.org/10.1126/science.aal4321.\nDiscussion of the challenges of using machine learning predictions to improve public policies. Includes many references to real-world uses of predictive data science.\n\n\n15.0.0.2 Athey, Susan. The Impact of Machine Learning on Economics. In: The Economics of Artificial Intelligence: An Agenda [Internet]. University of Chicago Press; 2018 [cited 2023 Mar 31]. p. 507–47. Available from: https://www.nber.org/books-and-chapters/economics-artificial-intelligence-agenda/impact-machine-learning-economics\nThis chapter discusses use of machine learning in economics and includes a discussion of “prediction policy” applications for informing economic decision-making.\n\n\n15.0.0.3 Casali, Ylenia, et al. Machine learning for spatial analyses in urban areas: a scoping review. Sustainable Cities and Society. 2022 Oct 1;85:104050.\nAuthors review the use of machine learning in city/urban planning. Specific attention is given to machine learning applications involving spatial data.\n\n\n15.0.0.4 Hu, Xindi C., et al. “The Utility of Machine Learning Models for Predicting Chemical Contaminants in Drinking Water: Promise, Challenges, and Opportunities.” Current Environmental Health Reports. 2023 Mar;10(1):45–60.\nReview of the use and challenges of machine learning models for predicting chemical contaminants in drinking water. Also discusses their frequent use to guide sampling efforts by prioritizing at-risk areas.\n\n\n15.0.0.5 Payedimarri, Anil Babu, et al. Prediction Models for Public Health Containment Measures on COVID-19 Using Artificial Intelligence and Machine Learning: A Systematic Review. International Journal of Environmental Research and Public Health. 2021 Jan;18(9):4499.\nA brief review of the use of machine learning (and artificial intelligence) methods to evaluate public health interventions to contain the spread of SARS-CoV-2.\n\n\n15.0.0.6 Perry, Walt L. 2013. Predictive Policing: The Role of Crime Forecasting in Law Enforcement Operations. Rand Corporation.\nOpen access book gives an overview of common predictive policing practices.\n\n\n15.0.0.7 Williamson, Ben. 2016. “Digital education governance: data visualization, predictive analytics, and ‘real-time’ policy instruments.” Journal of Education Policy 31(2):123-141.\nBroad overview of uses of modern education data. Includes a section on predictive analytics. See first full paragraph on p. 136.\n\n\n15.0.0.8 Baker, R. S., Martin, T., & Rossi, L. M. (2016). Educational Data Mining and Learning Analytics. In The Wiley Handbook of Cognition and Assessment (pp. 379–396). John Wiley & Sons, Ltd. https://doi.org/10.1002/9781118956588.ch16\nThis chapter written by experts in the field provides a nice overview of educational data mining and learning analytics. Data obtained through naturally occurring log data (e.g., from learning management systems) or specifically procured sources (e.g., eyetracking) can be used to both make inferences and predictions on learning behavior and outcomes.\n\n\n\n16 Original applications\nThe following list includes papers that apply machine learning methods to specific research questions. All are related to prediction and public policy, but span a similarly wide range of disciplines. While reading these, focus on the descriptions of the methods and results. This may be useful for your final project (and, of course, more generally!).\n\n16.0.0.1 Bansak, Kirk, et al. “Improving Refugee Integration through Data-Driven Algorithmic Assignment.” Science (American Association for the Advancement of Science), vol. 359, no. 6373, 2018, pp. 325–29.\nIn this paper, the authors propose a model that aims to predict where refugees will integrate best. They suggest governments take up their approach to make their refugee programs more efficient.\n\n\n16.0.0.2 Goel S, Rao JM, Shroff R. Precinct or prejudice? Understanding racial disparities in New York City’s stop-and-frisk policy. The Annals of Applied Statistics. 2016 Mar;10(1):365–94.\nThe authors of this paper used machine learning to estimate the probability that a detained individual truly has a weapon for stops related to suspicion of criminal weapon possession in New York City. Disproportionate stops by racial/ethnic groups, and the factors resulting in these disparities, are also discussed.\n\n\n16.0.0.3 Hino, M, et al. Machine learning for environmental monitoring. Nature Sustainability. 2018 Oct;1(10):583–8.\nDemonstration of how machine learning methods can help allocate resources to more efficiently conduct inspections for violations of the Clean Water Act.\n\n\n16.0.0.4 Kelly, Sean, et al. “Automatically Measuring Question Authenticity in Real-World Classrooms.” Educational Researcher, vol. 47, no. 7, 2018, pp. 451–64, Available from: https://doi.org/10.3102/0013189X18785613.\nThis team uses regression trees to predict which teacher questions are “authentic”.\n\n\n16.0.0.5 Lee Kwang-Sig, et al. Association of Preterm Birth with Depression and Particulate Matter: Machine Learning Analysis Using National Health Insurance Data. Diagnostics. 2021 Mar;11(3):555.\nDemonstrates a use of machine learning to predict and identify the majors determinants of preterm birth in South Korea. Authors discuss that strategies to reduce air pollution could be an effective intervention based on these findings.\n\n\n16.0.0.6 Yoo, Sanglim. Investigating important urban characteristics in the formation of urban heat islands: a machine learning approach. Journal of Big Data. 2018 Jan 24;5(1):2.\nThe author presents and discusses use of random forest to predict the formation of urban heat islands in Indianapolis, Indiana.\n\n\n16.0.0.7 https://chicago.github.io/food-inspections-evaluation/\nThe city of Chicago uses a predictive model to decide which food establishments are inspected first.\n\n\n16.0.0.8 Romero, C., López, M. I., Luna, J. M., & Ventura, S. (2013). Predicting students’ final performance from participation in on-line discussion forums. Computers & Education, 68, 458-472.\nThe researchers used classification and clustering to predict student performance based on a collection of features from an online discussion forum. This paper is a good example of the complicated data cleaning and feature pre-processing usually required for learning analytics (LA) work. It also demonstrates the various models that can be used in the process; plus, the paper actually explains what the models are and how they work before going into the results. Overall, it is a good entry paper into the field.\n\n\n16.0.0.9 Bozick, Robert and Dalton, Benjamin. Balancing Career and Technical Education With Academic Coursework: The Consequences for Mathematics Achievement in High School. Educational Evaluation and Policy Analysis. 2013 Jun 1;35(2):123-38.\nThese researchers assessed the ability of career and technical education courses to improve student learning. Their work provides an example of the use of bootstrapping methods to calculate standard errors of regression coefficients.",
+    "crumbs": [
+      "Extra Stuff",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Applied Prediction Papers</span>"
+    ]
+  }
+]
