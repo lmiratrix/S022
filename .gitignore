@@ -34,21 +34,15 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 .DS_Store
-Predicting_birthweight_files/
-demo_cluster_boot_files/
-doing_things_over_and_over_files/
-hist_and_bar_with_aggregated_data_files/
-interpreting_lasso_models_files
-interactions_discussion_files/
 ipeds_data.pdf
 junk/
 *.tex
 *.log
 *.toc
 *.aux
-test_train_and_CV_files/
 /.quarto/
 update_book.sh
+book-output/
+*_files/
+*_cache/
 /.quarto/
-/_site/
-/_book/
