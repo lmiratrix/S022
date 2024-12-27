@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Luke Miratrix (with some others for some parts)">
-<meta name="dcterms.date" content="2023-04-19">
+<meta name="author" content="Zach Himmelsbach">
 
-<title>Handouts for S022 (Data Science in Education)</title>
+<title>13&nbsp; Finding and Merging Data Online – Handouts for S022 (Data Science in Education)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,7 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./using_quarto.html" rel="next">
+<link href="./predictive_papers.html" rel="next">
+<link href="./interactions_discussion.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -82,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./interactions_discussion.html">Extra Stuff</a></li><li class="breadcrumb-item"><a href="./ipeds_data.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -109,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -240,7 +274,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ipeds_data.html" class="sidebar-item-text sidebar-link">
+  <a href="./ipeds_data.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
   </div>
 </li>
@@ -262,16 +296,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#datasets-posted-on-the-web" id="toc-datasets-posted-on-the-web" class="nav-link active" data-scroll-target="#datasets-posted-on-the-web"><span class="header-section-number">13.1</span> Datasets Posted on the Web</a></li>
+  <li><a href="#ipeds" id="toc-ipeds" class="nav-link" data-scroll-target="#ipeds"><span class="header-section-number">13.2</span> IPEDS</a></li>
+  <li><a href="#finding-ipeds-data" id="toc-finding-ipeds-data" class="nav-link" data-scroll-target="#finding-ipeds-data"><span class="header-section-number">13.3</span> Finding IPEDS Data</a></li>
+  <li><a href="#our-example-case" id="toc-our-example-case" class="nav-link" data-scroll-target="#our-example-case"><span class="header-section-number">13.4</span> Our Example Case</a>
+  <ul class="collapse">
+  <li><a href="#merging-the-admissions-and-salary-data" id="toc-merging-the-admissions-and-salary-data" class="nav-link" data-scroll-target="#merging-the-admissions-and-salary-data"><span class="header-section-number">13.4.1</span> Merging the Admissions and Salary Data</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./interactions_discussion.html">Extra Stuff</a></li><li class="breadcrumb-item"><a href="./ipeds_data.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Handouts for S022 (Data Science in Education)</h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></h1>
+<p class="subtitle lead">An Example with IPEDS Data</p>
 </div>
 
 
@@ -281,16 +322,10 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Luke Miratrix (with some others for some parts) </p>
+             <p>Zach Himmelsbach </p>
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">April 19, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -300,13 +335,139 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>This “book” is basically a set of handouts generated for a Data Science in Education course taught at the Harvard Graduate School of Education by Luke Miratrix. They are loosely organized, but the primary purpose is to make all the handouts easy to access and find.</p>
-<p>The handouts were generated in response to student questions, and aim to short-circuit staring at the possibly confusing world of Stack Overflow. They are curated in the sense that these activities tend to come up over and over in the course of fundamental data science work.</p>
-<p>I hope you find this resource useful. Please send feedback to <code>lmiratrix@g.harvard.edu</code>.</p>
+<section id="datasets-posted-on-the-web" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="datasets-posted-on-the-web"><span class="header-section-number">13.1</span> Datasets Posted on the Web</h2>
+<p>This handout provides a walk-through of downloading publicly available datasets from the web and merging them together. No guide can cover all cases, but this example should give you a sense of what to look for/think about when wrangling data posted on websites. Note that this is <em>not about scraping</em>. What we’re considering here are datasets posted for download, often - but not always - found on government sites.</p>
+</section>
+<section id="ipeds" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="ipeds"><span class="header-section-number">13.2</span> IPEDS</h2>
+<p>This example uses data from IPEDS, the Integrated Postsecondary Education Data System. These data are made available by NCES, the National Center for Education Statistics, a great place to start looking for education-related data in the US. The data represent a set of surveys, conducted every year, of all colleges, universities, and other post-secondary institutions that take federal student aide money (which is like, many of them). Data are available going back to 1986 (some scattered earlier years also have data). The surveys cover enrollments, graduation rates, prices, and many other things.</p>
+<p>There are 12 total survey components that cover 9 major topics:</p>
+<ul>
+<li><p>Academic Libraries</p></li>
+<li><p>Admissions</p></li>
+<li><p>Completions</p></li>
+<li><p>Enrollment (Fall and 12-Month)</p></li>
+<li><p>Finance</p></li>
+<li><p>Graduation Rates and Outcome Measures</p></li>
+<li><p>Human Resources</p></li>
+<li><p>Institutional Characteristics</p></li>
+<li><p>Student Financial Aid</p></li>
+</ul>
+<p>It’s worth noting that some info is only collected every other year. In addition, the data are not consistent over time. New survey items get added. Old items get dropped. Definitions change. Identifying codes, like the Classification of Instructional Program (CIP) codes or the Standard Occupational Classification (SOC), are periodically reviewed and updated. Being aware of (and dealing with) these issues is part of our job as data scientists. When you’re working with new data, take some time to identify these kinds of challenges before you dig too deeply into analysis.</p>
+</section>
+<section id="finding-ipeds-data" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="finding-ipeds-data"><span class="header-section-number">13.3</span> Finding IPEDS Data</h2>
+<p>The landing page for IPEDS is <a href="https://nces.ed.gov/ipeds/use-the-data">here</a>. When you open the page, you’ll see many links. NCES provides a lot of information about their data (and different ways to access it). Sorting through surfeits of info like this is often the biggest challenge of working with public data sources. My description of IPEDS (in the above section) came from digging around these links.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>On the IPEDS page, there’s a link to their <a href="https://nces.ed.gov/ipeds/Search">data explorer</a>. When you hit this page, you’ll see links to the most recently released surveys. You can filter the datasets by year or by which of the 12 survey components you’re interested in. These data are aggregated, but it’s a good way to get a sense of what information is available in the individual survey components.</p>
+<p>To <em>get</em> the survey data, look for this section of the landing page:</p>
+<p><img src="images/ipeds_images/survey_download.png" class="img-fluid"></p>
+<p>In the dropdown menu, select “Complete Data Files”. This will take you to a page with download links for each survey component. The files we want are found in the “Data File” column. Let’s download this admissions and test scores file,</p>
+<p><img src="images/ipeds_images/admissions_and_test_scores.png" class="img-fluid"></p>
+<p>When we download the file, we should put it in a folder on our computer that’s dedicated to this project. That’ll make things easier once we start writing code. On my laptop, I’ve made a folder called “ipeds_handout”. Inside <em>that</em> folder, I made another folder called “data”. I put the downloaded file into that “data” folder. When I start writing code, I’ll store it in the parent folder (“ipeds_handout”).</p>
+<p>The downloaded file is a zipped csv. We know how to work with a csv in R, but before we can do that, we have to unzip the file. If you haven’t done this before, <a href="https://www.filecenter.com/blog/how-to-unzip-files-mac-iphone-android-windows/">here’s a page</a> that walks through how to unzip files on PC or Mac. Once you have the unzipped csv, you can delete the original zip file to tidy things up.</p>
+<p>While we’re at it, let’s grab one more file, data on instructional staff salaries,</p>
+<p><img src="images/ipeds_images/instructional_salaries.png" class="img-fluid"></p>
+<p>Like before, unzip the file and put the csv in a project-specific folder.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> You should also download and unzip the dictionary files for both datasets.</p>
+<p><img src="images/ipeds_images/dictionary_download.png" class="img-fluid"></p>
+<p>The dictionaries contain codebooks that explain what each variable and value in the dataset means. These usually aren’t big files, so we can open and browse them directly in Excel. I’m going to use them soon to figure out how to find the information I’m interested in.</p>
+<p>Now we’re ready to get started.</p>
+</section>
+<section id="our-example-case" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="our-example-case"><span class="header-section-number">13.4</span> Our Example Case</h2>
+<p>Let’s start by loading our libraries and data.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center" data-messages="false" data-warnings="false">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>admit <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'data/adm2021.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 1981 Columns: 68
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (29): XAPPLCN, XAPPLCNM, XAPPLCNW, XADMSSN, XADMSSNM, XADMSSNW, XENRLT, ...
+dbl (39): UNITID, ADMCON1, ADMCON2, ADMCON3, ADMCON4, ADMCON5, ADMCON6, ADMC...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sal <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'data/sal2021_is.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 15382 Columns: 110
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (54): XSAINSTT, XSAINSTM, XSAINSTW, XSA_9MCT, XSA_9MCM, XSA_9MCW, XSATOT...
+dbl (56): UNITID, ARANK, SAINSTT, SAINSTM, SAINSTW, SA_9MCT, SA_9MCM, SA_9MC...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<p>With the datasets we’ve downloaded, we can explore the relationship between assistant professor salaries and the math ability of incoming Freshmen. To begin, we narrow down each dataset to the variables of interest. To identify these, I looked at the dictionaries we downloaded from IPEDS.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only school IDs and average salary for 9-month</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Contract instructors</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>sal <span class="ot">&lt;-</span> sal <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ARANK<span class="sc">==</span><span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># The dictionary tells us that these are assistant profs</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(UNITID, SA09MAT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep school Ids, # of applicants, % that submit SATs,</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and 75th pctile of SAT scores</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>admit <span class="ot">&lt;-</span> admit <span class="sc">%&gt;%</span> <span class="fu">select</span>(UNITID, APPLCN, SATPCT, SATMT75)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In other cases, you might have to do much more cleaning before you merge these datasets together. In general, the process will be to clean each dataset so they can be easily merged. (Of course, more data cleaning may be necessary, post-merge.)</p>
+<section id="merging-the-admissions-and-salary-data" class="level3" data-number="13.4.1">
+<h3 data-number="13.4.1" class="anchored" data-anchor-id="merging-the-admissions-and-salary-data"><span class="header-section-number">13.4.1</span> Merging the Admissions and Salary Data</h3>
+<p>It’s a good idea to do a full join. This will keep all rows from both datasets and allow us to explore which rows did and did not match, post-merge. That said, I often start with a left or right join just as a quick check of how many records match.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">left_join</span>(sal, admit, <span class="at">by=</span><span class="st">'UNITID'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(df<span class="sc">$</span>SATPCT)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1298</code></pre>
+</div>
+</div>
+<p>About half (around 1,300 institutions) don’t have a match. This should be explored. Maybe it’s from particular types of institutions (e.g.&nbsp;Vocational/Technical Schools). We might have to merge in additional data to explore the matching behavior. We might figure it out by reading carefully through the dictionaries or other documentation on IPEDS. You can take these steps by following the framework laid out above.</p>
+<p>For now, we can run a preliminary regression and call it a day.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First let's mean-center both variables</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(SA09MAT, SATMT75), <span class="sc">~</span>.x<span class="sc">-</span><span class="fu">mean</span>(.x, <span class="at">na.rm=</span><span class="cn">TRUE</span>)))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(SA09MAT <span class="sc">~</span> SATMT75, df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = SA09MAT ~ SATMT75, data = df)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-49118  -8410   -889   8346  52056 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 2829.703    459.431   6.159 1.18e-09 ***
+SATMT75      164.646      6.186  26.616  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 12740 on 771 degrees of freedom
+  (1529 observations deleted due to missingness)
+Multiple R-squared:  0.4788,    Adjusted R-squared:  0.4782 
+F-statistic: 708.4 on 1 and 771 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>It looks like assistant professors make more at schools with higher SAT math scores (as measured by the 75th percentile of the distribution). Assistant profs at schools with 100 points higher scores earn about 10k more on average. There are lots of reasons we shouldn’t put much weight on this result. Lots of rows didn’t merge. We haven’t investigated missingness in the data. But the above steps walk through the process of a first, rough-cut analysis with IPEDS data.</p>
 
 
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Along the way, I encountered some broken pages, like <a href="https://surveys.nces.ed.gov/ipeds/ViewContent.aspx?contentId=21">this link to the IPEDS data release calendar</a>. Maybe they’ll fix it, but you can often find the information you need on some other page. When that doesn’t work, ask someone who’s familiar with the data. When <em>that</em> doesn’t work, you can email someone who works for the agency responsible for the data. In my experience, people get back to you reasonably quickly and are happy to be helpful, as long as you write politely to them.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>To be clear, this should be the same folder as the first dataset. Also, if you’re working with many datasets for a project, it’s a good idea to rename them at this stage. Give the datasets clear, descriptive names so you know what they contain. This will make it easier to write and read code later.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -732,10 +893,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./interactions_discussion.html" class="pagination-link" aria-label="Main effects, interactions in linear models, and prediction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./using_quarto.html" class="pagination-link" aria-label="How to Quarto">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">How to Quarto</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./predictive_papers.html" class="pagination-link" aria-label="Applied Prediction Papers">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

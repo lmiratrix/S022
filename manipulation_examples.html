@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Luke Miratrix (with some others for some parts)">
-<meta name="dcterms.date" content="2023-04-19">
+<meta name="author" content="Miratrix">
+<meta name="dcterms.date" content="2017-02-07">
 
-<title>Handouts for S022 (Data Science in Education)</title>
+<title>6&nbsp; Basic Data Manipulation (tidyverse) – Handouts for S022 (Data Science in Education)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,7 +66,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./using_quarto.html" rel="next">
+<link href="./doing_things_over_and_over.html" rel="next">
+<link href="./heatmap_jitter_alpha.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -82,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./manipulation_examples.html">On Coding</a></li><li class="breadcrumb-item"><a href="./manipulation_examples.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -109,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -176,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./manipulation_examples.html" class="sidebar-item-text sidebar-link">
+  <a href="./manipulation_examples.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></span></a>
   </div>
 </li>
@@ -262,16 +297,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#r-for-ds-chapter-5-core-commands" id="toc-r-for-ds-chapter-5-core-commands" class="nav-link active" data-scroll-target="#r-for-ds-chapter-5-core-commands"><span class="header-section-number">7</span> R for DS Chapter 5 Core Commands</a>
+  <ul class="collapse">
+  <li><a href="#filter-grab-the-rows-you-want-5.1" id="toc-filter-grab-the-rows-you-want-5.1" class="nav-link" data-scroll-target="#filter-grab-the-rows-you-want-5.1"><span class="header-section-number">7.1</span> <code>filter()</code> (Grab the rows you want, 5.1)</a></li>
+  <li><a href="#arrange-sort-your-rows-the-way-you-want-5.2" id="toc-arrange-sort-your-rows-the-way-you-want-5.2" class="nav-link" data-scroll-target="#arrange-sort-your-rows-the-way-you-want-5.2"><span class="header-section-number">7.2</span> <code>arrange()</code> (Sort your rows the way you want, 5.2)</a></li>
+  <li><a href="#select-grab-the-columns-you-want-5.3" id="toc-select-grab-the-columns-you-want-5.3" class="nav-link" data-scroll-target="#select-grab-the-columns-you-want-5.3"><span class="header-section-number">7.3</span> <code>select()</code> (Grab the columns you want, 5.3)</a></li>
+  <li><a href="#mutate-make-new-variables-out-of-your-old-ones-5.4" id="toc-mutate-make-new-variables-out-of-your-old-ones-5.4" class="nav-link" data-scroll-target="#mutate-make-new-variables-out-of-your-old-ones-5.4"><span class="header-section-number">7.4</span> <code>mutate()</code> (Make new variables out of your old ones, 5.4)</a></li>
+  <li><a href="#group_by-and-summarize-summarize-your-data-by-subgroup-5.6" id="toc-group_by-and-summarize-summarize-your-data-by-subgroup-5.6" class="nav-link" data-scroll-target="#group_by-and-summarize-summarize-your-data-by-subgroup-5.6"><span class="header-section-number">7.5</span> <code>group_by()</code> and <code>summarize</code> (Summarize your data by subgroup, 5.6)</a></li>
+  <li><a href="#special-grouped-mutates-making-new-variables-within-subgroups-5.6" id="toc-special-grouped-mutates-making-new-variables-within-subgroups-5.6" class="nav-link" data-scroll-target="#special-grouped-mutates-making-new-variables-within-subgroups-5.6"><span class="header-section-number">7.6</span> Special: grouped mutates (Making new variables within subgroups, 5.6)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./manipulation_examples.html">On Coding</a></li><li class="breadcrumb-item"><a href="./manipulation_examples.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Handouts for S022 (Data Science in Education)</h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></h1>
 </div>
 
 
@@ -281,14 +324,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Luke Miratrix (with some others for some parts) </p>
+             <p>Miratrix </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 19, 2023</p>
+      <p class="date">February 7, 2017</p>
     </div>
   </div>
   
@@ -300,13 +343,177 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>This “book” is basically a set of handouts generated for a Data Science in Education course taught at the Harvard Graduate School of Education by Luke Miratrix. They are loosely organized, but the primary purpose is to make all the handouts easy to access and find.</p>
-<p>The handouts were generated in response to student questions, and aim to short-circuit staring at the possibly confusing world of Stack Overflow. They are curated in the sense that these activities tend to come up over and over in the course of fundamental data science work.</p>
-<p>I hope you find this resource useful. Please send feedback to <code>lmiratrix@g.harvard.edu</code>.</p>
+<section id="r-for-ds-chapter-5-core-commands" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> R for DS Chapter 5 Core Commands</h1>
+<p>Let’s use this simple table and run through the commands from Chapter 5. This is not a complete reference! See the text for further details.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>( tidyverse )</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>table1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+<section id="filter-grab-the-rows-you-want-5.1" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="filter-grab-the-rows-you-want-5.1"><span class="header-section-number">7.1</span> <code>filter()</code> (Grab the rows you want, 5.1)</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>( table1, year <span class="sc">&gt;</span> <span class="dv">1999</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1 Afghanistan  2000   2666   20595360
+2 Brazil       2000  80488  174504898
+3 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+<p>Remember, if you want to save the results of your command, you need to put it in a new variable, like so:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my.table <span class="ot">&lt;-</span> <span class="fu">filter</span>( table1, year <span class="sc">&gt;</span> <span class="dv">1999</span> )</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>my.table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1 Afghanistan  2000   2666   20595360
+2 Brazil       2000  80488  174504898
+3 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+<p>When you do something like this, you should see it appear in your workplace.</p>
+</section>
+<section id="arrange-sort-your-rows-the-way-you-want-5.2" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="arrange-sort-your-rows-the-way-you-want-5.2"><span class="header-section-number">7.2</span> <code>arrange()</code> (Sort your rows the way you want, 5.2)</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>( table1, cases )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>( table1, <span class="fu">desc</span>( country ), population )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1 China        1999 212258 1272915272
+2 China        2000 213766 1280428583
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 Afghanistan  1999    745   19987071
+6 Afghanistan  2000   2666   20595360</code></pre>
+</div>
+</div>
+</section>
+<section id="select-grab-the-columns-you-want-5.3" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="select-grab-the-columns-you-want-5.3"><span class="header-section-number">7.3</span> <code>select()</code> (Grab the columns you want, 5.3)</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>( table1, country, population )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  country     population
+  &lt;chr&gt;            &lt;dbl&gt;
+1 Afghanistan   19987071
+2 Afghanistan   20595360
+3 Brazil       172006362
+4 Brazil       174504898
+5 China       1272915272
+6 China       1280428583</code></pre>
+</div>
+</div>
+</section>
+<section id="mutate-make-new-variables-out-of-your-old-ones-5.4" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="mutate-make-new-variables-out-of-your-old-ones-5.4"><span class="header-section-number">7.4</span> <code>mutate()</code> (Make new variables out of your old ones, 5.4)</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>table1 <span class="ot">&lt;-</span> <span class="fu">mutate</span>( table1, <span class="at">case.per.1000 =</span> <span class="dv">1000</span> <span class="sc">*</span> cases <span class="sc">/</span> population )</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>table1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  country      year  cases population case.per.1000
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;
+1 Afghanistan  1999    745   19987071        0.0373
+2 Afghanistan  2000   2666   20595360        0.129 
+3 Brazil       1999  37737  172006362        0.219 
+4 Brazil       2000  80488  174504898        0.461 
+5 China        1999 212258 1272915272        0.167 
+6 China        2000 213766 1280428583        0.167 </code></pre>
+</div>
+</div>
+<p>(We will use this new variable later, so I am saving it in our table)</p>
+</section>
+<section id="group_by-and-summarize-summarize-your-data-by-subgroup-5.6" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="group_by-and-summarize-summarize-your-data-by-subgroup-5.6"><span class="header-section-number">7.5</span> <code>group_by()</code> and <code>summarize</code> (Summarize your data by subgroup, 5.6)</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">group_by</span>( table1, country )</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>( tbl, <span class="at">av.pop =</span> <span class="fu">mean</span>( population ), <span class="at">av.cases =</span> <span class="fu">mean</span>( cases ) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  country          av.pop av.cases
+  &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;
+1 Afghanistan   20291216.    1706.
+2 Brazil       173255630    59112.
+3 China       1276671928.  213012 </code></pre>
+</div>
+</div>
+<p>Same thing, with the pipe!</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>table1 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>( country ) <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>( <span class="at">av.pop =</span> <span class="fu">mean</span>( population ), <span class="at">av.cases =</span> <span class="fu">mean</span>( cases ) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  country          av.pop av.cases
+  &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;
+1 Afghanistan   20291216.    1706.
+2 Brazil       173255630    59112.
+3 China       1276671928.  213012 </code></pre>
+</div>
+</div>
+</section>
+<section id="special-grouped-mutates-making-new-variables-within-subgroups-5.6" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="special-grouped-mutates-making-new-variables-within-subgroups-5.6"><span class="header-section-number">7.6</span> Special: grouped mutates (Making new variables within subgroups, 5.6)</h2>
+<p>This combo is for doing things like group mean centering your data:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>table1 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>( year ) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>( <span class="at">case.per.1000.cent =</span> case.per<span class="fl">.1000</span> <span class="sc">-</span> <span class="fu">mean</span>( case.per<span class="fl">.1000</span> ) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+# Groups:   year [2]
+  country      year  cases population case.per.1000 case.per.1000.cent
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;              &lt;dbl&gt;
+1 Afghanistan  1999    745   19987071        0.0373            -0.104 
+2 Afghanistan  2000   2666   20595360        0.129             -0.123 
+3 Brazil       1999  37737  172006362        0.219              0.0783
+4 Brazil       2000  80488  174504898        0.461              0.209 
+5 China        1999 212258 1272915272        0.167              0.0256
+6 China        2000 213766 1280428583        0.167             -0.0856</code></pre>
+</div>
+</div>
+<p>And a plot</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( table1, <span class="fu">aes</span>( <span class="at">x=</span>year, <span class="at">y=</span>case.per<span class="fl">.1000</span>, <span class="at">col=</span>country ) ) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="manipulation_examples_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -732,10 +939,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./heatmap_jitter_alpha.html" class="pagination-link" aria-label="Jitter and heatmap examples">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./using_quarto.html" class="pagination-link" aria-label="How to Quarto">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">How to Quarto</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./doing_things_over_and_over.html" class="pagination-link" aria-label="Doing things over and over again">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Luke Miratrix (with some others for some parts)">
-<meta name="dcterms.date" content="2023-04-19">
+<meta name="author" content="Zach Himmelsbach">
 
-<title>Handouts for S022 (Data Science in Education)</title>
+<title>4&nbsp; Plotting aggregate data with ggPlot – Handouts for S022 (Data Science in Education)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,7 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./using_quarto.html" rel="next">
+<link href="./heatmap_jitter_alpha.html" rel="next">
+<link href="./simple_plotting_tips.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -82,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./simple_plotting_tips.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./hist_and_bar_with_aggregated_data.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -109,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -153,7 +187,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hist_and_bar_with_aggregated_data.html" class="sidebar-item-text sidebar-link">
+  <a href="./hist_and_bar_with_aggregated_data.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></span></a>
   </div>
 </li>
@@ -262,16 +296,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface"><span class="header-section-number">4.0.1</span> Preface</a></li>
+  <li><a href="#the-situation" id="toc-the-situation" class="nav-link" data-scroll-target="#the-situation"><span class="header-section-number">5</span> The Situation</a>
+  <ul class="collapse">
+  <li><a href="#categorical-data-and-bar-charts" id="toc-categorical-data-and-bar-charts" class="nav-link" data-scroll-target="#categorical-data-and-bar-charts"><span class="header-section-number">5.1</span> Categorical data and bar charts</a></li>
+  <li><a href="#a-closing-thought" id="toc-a-closing-thought" class="nav-link" data-scroll-target="#a-closing-thought"><span class="header-section-number">5.2</span> A Closing Thought</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./simple_plotting_tips.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./hist_and_bar_with_aggregated_data.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Handouts for S022 (Data Science in Education)</h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></h1>
 </div>
 
 
@@ -281,16 +320,10 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Luke Miratrix (with some others for some parts) </p>
+             <p>Zach Himmelsbach </p>
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">April 19, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -300,13 +333,132 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>This “book” is basically a set of handouts generated for a Data Science in Education course taught at the Harvard Graduate School of Education by Luke Miratrix. They are loosely organized, but the primary purpose is to make all the handouts easy to access and find.</p>
-<p>The handouts were generated in response to student questions, and aim to short-circuit staring at the possibly confusing world of Stack Overflow. They are curated in the sense that these activities tend to come up over and over in the course of fundamental data science work.</p>
-<p>I hope you find this resource useful. Please send feedback to <code>lmiratrix@g.harvard.edu</code>.</p>
+<p>This handout demonstrates how to create histograms with ggplot when the data have already been aggregated or tallied.</p>
+<section id="preface" class="level3" data-number="4.0.1">
+<h3 data-number="4.0.1" class="anchored" data-anchor-id="preface"><span class="header-section-number">4.0.1</span> Preface</h3>
+<p>Before we get started, let’s load the packages we’ll need.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-situation" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> The Situation</h1>
+<p>Typically, we create histograms from individual data points. Suppose we have data on students. The data include a student ID number, a course identifier, the grade the student got in the course, and their final exam score (out of 100 points). Here’s some example data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>num_students <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sid=</span><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>num_students, <span class="dv">2</span>),</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">course=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">'math'</span>, num_students), <span class="fu">rep</span>(<span class="st">'ela'</span>, num_students)),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">grade=</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>, <span class="st">'D'</span>, <span class="st">'F'</span>), </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                              <span class="dv">2</span><span class="sc">*</span>num_students, </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                              <span class="at">replace=</span><span class="cn">TRUE</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">exam_score=</span><span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">2</span><span class="sc">*</span>num_students, <span class="at">replace=</span><span class="cn">TRUE</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">prob=</span><span class="fu">dnorm</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">mean=</span><span class="dv">80</span>, <span class="at">sd=</span><span class="dv">7</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s make a histogram of the exam score data for math. This should be familiar.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(course<span class="sc">==</span><span class="st">'math'</span>), <span class="fu">aes</span>(<span class="at">x=</span>exam_score)) <span class="sc">+</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hist_and_bar_with_aggregated_data_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There’s a lot we could do to make this a publication-ready graphic - label the axes, add a title, etc. - but our focus here is on the core plotting, so we’ll skip it.</p>
+<p>But what if the data were already aggregated by exam score? Let me show you what I mean in code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>exam_agg <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(course<span class="sc">==</span><span class="st">'math'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(exam_score) <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>exam_agg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 30 × 2
+   exam_score     n
+        &lt;int&gt; &lt;int&gt;
+ 1         61     1
+ 2         63     2
+ 3         65     2
+ 4         67     1
+ 5         68     5
+ 6         69     2
+ 7         70     3
+ 8         71     6
+ 9         72     5
+10         73    10
+# ℹ 20 more rows</code></pre>
+</div>
+</div>
+<p>The dataset <code>exam_agg</code> contains only two variables: the exam score and the number of students who received that score. Sometimes, this is the way we receive data. How can we make a histogram out of this? Let’s try it the old way:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(exam_agg, <span class="fu">aes</span>(<span class="at">x=</span>exam_score)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hist_and_bar_with_aggregated_data_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Whoa! That doesn’t look right. The problem is that <code>geom_histogram()</code> counts how many times each score appears in the data, but after we aggregated, each score only appears once. We need to tell R that the counts are stored in the <code>n</code> column of the dataset. Here’s how we do it:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(exam_agg, <span class="fu">aes</span>(<span class="at">x=</span>exam_score, <span class="at">y=</span>n)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">'identity'</span>, <span class="at">width=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hist_and_bar_with_aggregated_data_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We’ve switched from <code>geom_histogram()</code> to <code>geom_bar()</code>. This allows us to specify a separate variable for the y-axis. Inside the <code>geom_bar()</code> call, we need to specify that <code>stat='identity'</code>. This tells ggplot that it should just use the raw value of the y-variable we gave it. If we don’t make this explicit, R doesn’t know what to do with the second variable.</p>
+<section id="categorical-data-and-bar-charts" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="categorical-data-and-bar-charts"><span class="header-section-number">5.1</span> Categorical data and bar charts</h2>
+<p>We can do the same thing with a categorical variable, course grades. First we’ll plot using the raw data, and then we’ll switch to the aggregated version. For the aggregated case, we’ll again rely on the <code>stat</code> argument of the <code>geom_bar()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot from raw data</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For a categorical variable, we use geom_bar</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(course<span class="sc">==</span><span class="st">'ela'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>grade)) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hist_and_bar_with_aggregated_data_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now let's aggregate the data</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>grade_agg <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(course<span class="sc">==</span><span class="st">'ela'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(grade) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Now reproduce the bar plot from the aggregated data</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grade_agg, <span class="fu">aes</span>(<span class="at">x=</span>grade, <span class="at">y=</span>n)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">'identity'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hist_and_bar_with_aggregated_data_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Looks exactly the same! (Except for the y-axis label.)</p>
+</section>
+<section id="a-closing-thought" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="a-closing-thought"><span class="header-section-number">5.2</span> A Closing Thought</h2>
+<p>Sometimes the data we get have already been aggregated. In this case, we might still want to visualize distributions of the variables that have been grouped. The above guide introduces the <code>stat</code> argument of <code>geom_bar()</code> as a way to get this done.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -732,10 +884,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./simple_plotting_tips.html" class="pagination-link" aria-label="Simple plotting tips">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Simple plotting tips</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./using_quarto.html" class="pagination-link" aria-label="How to Quarto">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">How to Quarto</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./heatmap_jitter_alpha.html" class="pagination-link" aria-label="Jitter and heatmap examples">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
