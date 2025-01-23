@@ -18,8 +18,7 @@ book:
       chapters:
       - intro_markdown.qmd
       - using_quarto.qmd
-      - code_chunks_demo.qmd
-      - configuring_code_chunks.qmd
+      - code_chunks.qmd
       - making_tables.qmd
     - part: "On Plotting"
       chapters:

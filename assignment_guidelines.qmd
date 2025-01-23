@@ -17,7 +17,7 @@ The following are some specific details that further the guiding principle. It i
 -   Use different fonts/formatting for your R code, R output and answers and use font formatting consistently throughout each assignment.
 -   Use single line spacing and normal 1-inch margins.
 -   Include page numbers.
--   *Let people say of your work: "There is no bombast, no similes, flowers, digressions, or unnecessary descriptions. Everything tends directly to the catastrophe."* -- Horace Walpole, The Castle of Otranto
+-   *Let people say of your work: "There is no bombast, no similes, flowers, digressions, or unnecessary descriptions. Everything tends directly to the catastrophe."* —Horace Walpole, The Castle of Otranto
 
 ## Numbers
 
@@ -25,7 +25,7 @@ The following are some specific details that further the guiding principle. It i
 -   Put a zero in front of a decimal place (e.g. 0.2 instead of .2). This is optional for bounded numbers (e.g., p-values or proportions).
 -   Round to the nearest meaningful digit. What this means is a little hard to say, and different people can have different standards. However, if you have a statistic with a standard error of 1, it's not meaningful to report decimals because the estimate simply isn't precise enough to estimate numbers that small. Similarly, if you're reporting average salaries, it's usually not meaningful to report past the hundreds place regardless of your precision, because tens of dollars are too small to matter. Because this is so imprecise, we'll give a lot of lee-way, but spurious precision will annoy. If you're not sure what this means in practice, feel free to ask a TF.
 -   Format your p-values! Round p-values to 3 places, and never report a p-value of 0. Instead say, for example, "p \< 0.001" or "p \< 10\^-r" for some r.
--   *"Numbers have life; they're not just symbols on paper."* -- Shakuntala Devi
+-   *"Numbers have life; they're not just symbols on paper."* —Shakuntala Devi
 
 ## Plots
 
@@ -34,14 +34,14 @@ The following are some specific details that further the guiding principle. It i
 -   Include notes and captions as necessary.
 -   Try to make plots easier to compare when you have multiple plots. For example, it is nice to have the same $X$-axis bounds if giving two histograms.
 -   Do not include best fit lines unless you have some reason, e.g. a significant $p$-value or a scientific basis for understanding an association.
--   *"Above all else show the data."* --Edward Tufte
+-   *"Above all else show the data."* —Edward Tufte
 
 ## Avoiding bias
 
 -   Use plural phrases, nouns or pronouns, e.g. "children and their toys" for "a child and his toy." You may use the singular "they" pronoun ("a child and their toy"), but be warned that broader academic communities are still in flux regarding this usage.
--   Try to avoid biased forms of language concerning race, gender, disability and sexuality. A reasonable list of case studies to consider on this topic is https://academicguides.waldenu.edu/writingcenter/scholarlyvoice/avoidingbias. The APA also has a guide for race at https://apastyle.apa.org/style-grammar-guidelines/bias-free-language/racial-ethnic-minorities.
--   *"I have yet to see a piece of writing, political or non-political, that does not have a slant. All writing slants the way a writer leans, and no man is born perpendicular."* ― E.B. White
+-   Try to avoid biased forms of language concerning race, gender, disability and sexuality. Walden University has [a reasonable list of case studies to consider on this topic](https://academicguides.waldenu.edu/writingcenter/scholarlyvoice/avoidingbias). The APA also has [a guide for writing about race](https://apastyle.apa.org/style-grammar-guidelines/bias-free-language/racial-ethnic-minorities).
+-   *"I have yet to see a piece of writing, political or non-political, that does not have a slant. All writing slants the way a writer leans, and no man is born perpendicular."* — E.B. White
 
 ## Conciseness
 
--   *"Brevity is the soul of wit."* --Hamlet
+-   *"Brevity is the soul of wit."* —Hamlet

@@ -8,7 +8,7 @@ Grade each piece as following
 -   "check" - Half point, did at least part of it, but had some problems.
 -   "X" - zero points, didn't get it.
 
-A "piece" is each item of a problem. So if you had 1(a), 1(b), and 1(c), that would be three pieces for a maximum total of three points.
+A "piece" is each part of a problem, usually given a letter. So if you had 1(a), 1(b), and 1(c), that would be three pieces for a maximum total of three points for Problem 1.
 
 As you go through the solutions, see if you can figure out where you went wrong, if you did so. If you still don't understand a problem, make a note as to problem number.
 

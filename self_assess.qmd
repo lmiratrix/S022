@@ -1,6 +1,6 @@
 # Do I take S-022? A self-assessment {.unnumbered}
 
-I received numerous inquiries as to whether a given background is enough to take this course. Let me elaborate at length. The stated prerequisite to this course is S040 or equivalent. Ideally, you would have taken S052 as well, but enrolling in it concurrently is just as good. Technically, if you have *just* taken S040 or equivalent, you could take this course. Having gone a bit beyond means this course is a bit more manageable with more of these foundational skills. More specifically, we greatly prefer you to have the following skills as a prerequisite for this course:
+I received numerous inquiries as to whether a given background is enough to take S022. Let me elaborate at length. The stated prerequisite to this course is S040 or equivalent. Ideally, you would have taken S052 as well, but enrolling in it concurrently is just as good. Technically, if you have *just* taken S040 or equivalent, you could take this course. Having gone a bit beyond means this course is a bit more manageable with more of these foundational skills. More specifically, we greatly prefer you to have the following skills:
 
 -   You can calculate summary statistics and visualizations for data (the mean, standard deviation, scatterplots, histograms) using some sort of statistical software.
 
@@ -24,9 +24,9 @@ You will have an easier time if you have some of the following skills and experi
 
 If you have a strong mathematical background, or strong comfort with math, or if you have a strong computer programming background, or strong comfort with that, then you can likely get a lot out of this course even if you do not have some of the above skills and knowledge.
 
-People from many, many different backgrounds take S022. In general, the more background experience you have, the easier the course. Even if you don't have as solid a background, you can still get a lot out of this course if you are willing to sign on for an intense experience. But *please* don't be surprised if you sign up for an intense experience... and it is really intense!
+People from many different backgrounds take S022. In general, the more background experience you have, the easier the course. Even if you don't have as solid a background, you can still get a lot out of this course if you are willing to sign on for an intense experience. But *please* don't be surprised if you sign up for an intense experience... and it is really intense!
 
-To get a very rough sense of what it might feel like, take the quiz below.
+To get a very rough sense of what S022 might feel like, take the quiz below.
 
 ## A self-assessment quiz {.unnumbered}
 
@@ -44,11 +44,11 @@ Trying to figure out how S022 will be for you? ​Add up the points across the f
 
 -2        I have no prior stat experience under my belt, or
 
-+1        I have taken a very intro stat course (e.g., S12) or have at least a little stat knowledge, or
++1        I have taken a very intro stat course (e.g., S012) or have a little stat knowledge, or
 
-+3        I have taken a linear regression course (e.g., S30, S40), or
++3        I have taken a linear regression course (e.g., S030, S040), or
 
-+5        I have taken an intermediate or advanced stats course (e.g., S52 or beyond)
++5        I have taken an intermediate or advanced stats course (e.g., S052 or beyond)
 
 +1 bonus if concurrently enrolling in S052
 
@@ -100,7 +100,7 @@ Trying to figure out how S022 will be for you? ​Add up the points across the f
 
 7-8:      **It will be hard**! There are lots of folks like you who are taking this course. The course will likely be a fair bit of work and could feel confusing/overwhelming at times. We would support you through this. At the end you will have learned a lot if you stick with it.
 
-9+:     **It will probably feel like a normal course**. No reservations. You can either work a reasonable amount and learn a lot about data science, or dig deeper to really go far with the skills we cover.
+9-12:     **It will probably feel like a normal course**. No reservations. You can either work a reasonable amount and learn a lot about data science, or dig deeper to really go far with the skills we cover.
 
 13+:     **It will probably be a cake-walk.** You will learn some concepts but not have to work particularly hard in this course. We would still love to have you!
 

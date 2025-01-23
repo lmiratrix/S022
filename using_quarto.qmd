@@ -1,16 +1,14 @@
 ---
-title: "How to Quarto"
+title: "Creating Reports in Quarto"
 author: "Zach Himmelsbach"
 format: pdf
 embed-resources: true
 editor: visual
 ---
 
-# Creating Reports in Quarto
-
 ## What is Quarto?
 
-Quarto is the "next-generation" of RMarkdown. Most tutorials on Quarto are intended for people who have experience with RMarkdown, so a great place to start is to watch Luke's video on RMarkdown. You can find it on [this page](https://canvas.harvard.edu/courses/118862/pages/week-1-intro-to-r), under the "Do it for Lab" tab.
+Quarto is the "next-generation" of RMarkdown. Most tutorials on Quarto are intended for people who have experience with RMarkdown, so a great place to start is to read the prior chapter before reading this one.
 
 Once you're familiar with RMarkdown, the tricks you know will almost always work in Quarto. The major difference is that Quarto will render *inside* RStudio, as you write your document, which makes it a little nicer to work with. There are other new (and very cool) features, but they aren't essential for anything in this course.
 
@@ -61,8 +59,10 @@ You can copy-paste or drag-and-drop images into a Quarto doc. That's how I put t
 
 Here are a couple more links if you'd like to learn more:
 
--   Grab the [RMarkdown Cheatsheet](https://posit.co/resources/cheatsheets/?type=posit-cheatsheets&_page=2/) (lots of other great cheatsheets there, too). Most things that work in RMarkdown work in Quarto.
+-   The [RMarkdown Cheatsheet](https://posit.co/resources/cheatsheets/?type=posit-cheatsheets&_page=2/) has great information.  Remember, most things that work in RMarkdown work in Quarto. Also, there are a lot of other great cheatsheets at this site as well.
 
--   [Quarto Intro Video](https://www.youtube.com/watch?v=y5VcxMOnj3M) This video walks through using Quarto for the first time.
+-   A [Quarto Intro Video](https://www.youtube.com/watch?v=y5VcxMOnj3M) that  walks through using Quarto for the first time.
 
--   [In Depth Quarto Intro](https://www.youtube.com/watch?v=yvi5uXQMvu4) This covers the amazing new features (like making interactive html reports).
+-   A [In Depth Quarto Intro](https://www.youtube.com/watch?v=yvi5uXQMvu4) video that covers many amazing new features (like making interactive html reports).
+
+

@@ -12,7 +12,8 @@ options(list(dplyr.summarise.inform = FALSE))
 theme_set( theme_classic() )
 ```
 
-When writing reports you may, from time to time, need to include a table. You should probably make a chart instead, but every so often a table actually is a nice thing to have. This chapter focuses on two key aspects: creating the table itself, and formatting it for a report or presentation. We here cover only generic tables; for guidance on creating regression tables (where you show a bunch of different regression models together), see @sec-make-regression-tables.
+When writing reports you may, from time to time, need to include a table. You should probably make a chart instead, but every so often a table actually is a nice thing to have. This chapter focuses on two key aspects: creating the table itself, and formatting it for a report or presentation. 
+<!-- We here cover only generic tables; for guidance on creating regression tables (where you show a bunch of different regression models together), see @sec-make-regression-tables.-->
 
 Many table-making packages and functions in R produce basic tables that display nicely in a monospace font on the screen. This is a good starting point, but you’ll often need additional formatting to make the table publication-ready. R offers several excellent packages to help with this, catering to different needs. Some are particularly suited for HTML documents (such as websites), while others are better for PDF documents (such as reports and papers). Finding the right package for your specific use case can take some trial and error.
 
@@ -59,8 +60,8 @@ names = tribble( ~ G, ~ name,
                  "E", "unknown" )
 names
 
-sdat = left_join( sdat, names ) %>%
-    relocate( name)
+sdat = left_join( sdat, names, by = "G" ) %>%
+    relocate( name )
 ```
 
 Again, the easiest way to make a nice clean table is with the `kable` command.
@@ -69,7 +70,7 @@ Again, the easiest way to make a nice clean table is with the `kable` command.
 knitr::kable( sdat, digits=2 )
 ```
 
-This is a great workhorse table-making tool! There are expansion R packages as well, e.g. `kableExtra`, which can do lots of fancy customization stuff.
+`kable()` is a great workhorse table-making tool! There are expansion R packages as well, e.g. `kableExtra`, which can do lots of fancy customization stuff.
 
 ## Making a "table one"
 
@@ -98,7 +99,7 @@ print(tb$ContTable, printToggle = FALSE) %>%
 
 ## The stargazer package
 
-You can easily make pretty tables using the `stargazer` package. You need to ensure the data is a data.frame, not tibble, because `stargazer` is old school. It appears to only do continuous variables. Stargazer is probably best known for making regression tables (see next chapter), but it can make other kinds of tables as well, such as data summaries.
+You can easily make pretty tables using the `stargazer` package. You need to ensure the data is a data.frame, not tibble, because `stargazer` is old school. It appears to only do continuous variables. Stargazer is probably best known for making regression tables, but it can make other kinds of tables as well, such as data summaries.
 
 When using `stargazer` to summarize a dataset, you can specify that it should include only some of the variables and you can omit stats that are not of interest:
 
@@ -125,8 +126,10 @@ See the `stargazer` help file for how to set/change more of the options: https:/
 
 To use `stargazer` in a PDF or HTML report, you will want the report to format the table so it doesn't look like raw output. To do so, you would not set `type="text"` but rather `type="latex"` or `type="html"`, and then in the markdown chunk header (the thing that encloses all your R code) you would say "results='asis'" in your code chunk header like so:
 
-```{r, results="asis", messages=FALSE}
-```
+````
+  ```{r, results="asis", messages=FALSE}
+  ```
+````
 
 This will ensure the output of stargazer gets formatted properly in your R Markdown.
 

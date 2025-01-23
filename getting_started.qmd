@@ -1,4 +1,4 @@
-# Getting Started with R  {.unnumbered}
+# Getting Started with R {.unnumbered}
 
 To get started with R, first download and install R and RStudio (the IDE, or integrated development environment, that makes using R much, much more pleasant).  See links at [this HGSE software support page.](https://its.gse.harvard.edu/research-software-support)
 
@@ -16,8 +16,12 @@ Each class has a R script that shows how to do the stuff from that class. See th
 
 ### A Very Important Online Textbook {.unnumbered}
 
-See [R for Data Science.](http://r4ds.had.co.nz/). This textbook provides important information on wrangling data, making plots, and doing statistical programming. It is full of examples and code snippets you can steal.
+The online textbook [R for Data Science.](http://r4ds.had.co.nz/) provides important information on wrangling data, making plots, and doing statistical programming. It is full of examples and code snippets you can steal. There are two versions:
 
+ * [The First Edition](https://r4ds.had.co.nz/) -- this what we often refer to in these materials.  But we are slowly updating to...
+ * [The Second Edition](https://r4ds.hadley.nz/) -- this one has a different organization, less weird modeling, and covers recent changes to the "tidyverse."
+ 
+ 
 ### Class Sections {.unnumbered}
 
 Sections will typically have a hands-on component which will give you a chance to try things out yourself. These sections will also publish the final R code for future reference. See the section pages on Canvas to get this information.
