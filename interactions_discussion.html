@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Luke Miratrix">
-<meta name="dcterms.date" content="2024-12-26">
+<meta name="dcterms.date" content="2025-01-23">
 
-<title>19&nbsp; Main effects, interactions in linear models, and prediction – Handouts for S022 (Data Science in Education)</title>
+<title>18&nbsp; Main effects, interactions in linear models, and prediction – Handouts for S022 (Data Science in Education)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./interactions_discussion.html">Extra Stuff</a></li><li class="breadcrumb-item"><a href="./interactions_discussion.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./interactions_discussion.html">Extra Stuff</a></li><li class="breadcrumb-item"><a href="./interactions_discussion.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -207,25 +207,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Creating Reports in Quarto</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./code_chunks_demo.html" class="sidebar-item-text sidebar-link">
+  <a href="./code_chunks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Working with Rmarkdown chunks</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./configuring_code_chunks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Configuring Rmarkdown chunks</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./making_tables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Making tables in Markdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Making tables in Markdown</span></span></a>
   </div>
 </li>
       </ul>
@@ -242,31 +236,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_ggplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Intro to <code>ggplot</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Intro to <code>ggplot</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./simple_plotting_tips.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">chunk_output_type: console</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">chunk_output_type: console</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./double_plot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Plotting Two Datasets at Once</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Plotting Two Datasets at Once</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hist_and_bar_with_aggregated_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./heatmap_jitter_alpha.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span></a>
   </div>
 </li>
       </ul>
@@ -283,25 +277,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./manipulation_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_linear_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./doing_things_over_and_over.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./demo_cluster_boot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
   </div>
 </li>
       </ul>
@@ -318,19 +312,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Predicting_birthweight.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./test_train_and_CV.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interpreting_lasso_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
   </div>
 </li>
       </ul>
@@ -347,19 +341,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interactions_discussion.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ipeds_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./predictive_papers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
   </div>
 </li>
       </ul>
@@ -374,22 +368,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#getting-the-data-ready" id="toc-getting-the-data-ready" class="nav-link active" data-scroll-target="#getting-the-data-ready"><span class="header-section-number">19.1</span> Getting the data ready</a></li>
-  <li><a href="#fitting-an-interacted-model" id="toc-fitting-an-interacted-model" class="nav-link" data-scroll-target="#fitting-an-interacted-model"><span class="header-section-number">19.2</span> Fitting an interacted model</a></li>
-  <li><a href="#plotting" id="toc-plotting" class="nav-link" data-scroll-target="#plotting"><span class="header-section-number">19.3</span> Plotting</a></li>
-  <li><a href="#centering-an-alternative-approach" id="toc-centering-an-alternative-approach" class="nav-link" data-scroll-target="#centering-an-alternative-approach"><span class="header-section-number">19.4</span> Centering, an alternative approach</a></li>
-  <li><a href="#confidence-intervals-for-the-gap" id="toc-confidence-intervals-for-the-gap" class="nav-link" data-scroll-target="#confidence-intervals-for-the-gap"><span class="header-section-number">19.5</span> Confidence intervals for the gap?</a></li>
-  <li><a href="#a-final-investigation" id="toc-a-final-investigation" class="nav-link" data-scroll-target="#a-final-investigation"><span class="header-section-number">19.6</span> A final investigation</a></li>
-  <li><a href="#disclaimer" id="toc-disclaimer" class="nav-link" data-scroll-target="#disclaimer"><span class="header-section-number">19.7</span> Disclaimer</a></li>
+  <li><a href="#getting-the-data-ready" id="toc-getting-the-data-ready" class="nav-link active" data-scroll-target="#getting-the-data-ready"><span class="header-section-number">18.1</span> Getting the data ready</a></li>
+  <li><a href="#fitting-an-interacted-model" id="toc-fitting-an-interacted-model" class="nav-link" data-scroll-target="#fitting-an-interacted-model"><span class="header-section-number">18.2</span> Fitting an interacted model</a></li>
+  <li><a href="#plotting" id="toc-plotting" class="nav-link" data-scroll-target="#plotting"><span class="header-section-number">18.3</span> Plotting</a></li>
+  <li><a href="#centering-an-alternative-approach" id="toc-centering-an-alternative-approach" class="nav-link" data-scroll-target="#centering-an-alternative-approach"><span class="header-section-number">18.4</span> Centering, an alternative approach</a></li>
+  <li><a href="#confidence-intervals-for-the-gap" id="toc-confidence-intervals-for-the-gap" class="nav-link" data-scroll-target="#confidence-intervals-for-the-gap"><span class="header-section-number">18.5</span> Confidence intervals for the gap?</a></li>
+  <li><a href="#a-final-investigation" id="toc-a-final-investigation" class="nav-link" data-scroll-target="#a-final-investigation"><span class="header-section-number">18.6</span> A final investigation</a></li>
+  <li><a href="#disclaimer" id="toc-disclaimer" class="nav-link" data-scroll-target="#disclaimer"><span class="header-section-number">18.7</span> Disclaimer</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./interactions_discussion.html">Extra Stuff</a></li><li class="breadcrumb-item"><a href="./interactions_discussion.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./interactions_discussion.html">Extra Stuff</a></li><li class="breadcrumb-item"><a href="./interactions_discussion.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></h1>
+<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></h1>
 </div>
 
 
@@ -406,7 +400,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 26, 2024</p>
+      <p class="date">January 23, 2025</p>
     </div>
   </div>
   
@@ -419,8 +413,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>This document is designed to address a problem that I have seen several times in the final projects. In particular, people will fit a sequence of models, and noticed that the main effect changes massively when they include an interaction term. This document shows a possible solution for this “problem,” a solution where you fit a model, and predict two outcomes for each observation, one with a dummy variable of interest and one without. By then looking at the average difference between these predictions, we can recover what we should think of as a main effect.</p>
-<section id="getting-the-data-ready" class="level2" data-number="19.1">
-<h2 data-number="19.1" class="anchored" data-anchor-id="getting-the-data-ready"><span class="header-section-number">19.1</span> Getting the data ready</h2>
+<section id="getting-the-data-ready" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="getting-the-data-ready"><span class="header-section-number">18.1</span> Getting the data ready</h2>
 <p>We use a data set of a bunch of behavioral outcomes measured for how a mother interacts with a child. One question of interest is whether mothers systematically interact with girls differently than they do with boys.</p>
 <p>We first load tidyverse and load the data.</p>
 <div class="cell" data-layout-align="center">
@@ -489,8 +483,8 @@ F-statistic: 22.79 on 3 and 1972 DF,  p-value: 1.679e-14</code></pre>
 </div>
 </div>
 </section>
-<section id="fitting-an-interacted-model" class="level2" data-number="19.2">
-<h2 data-number="19.2" class="anchored" data-anchor-id="fitting-an-interacted-model"><span class="header-section-number">19.2</span> Fitting an interacted model</h2>
+<section id="fitting-an-interacted-model" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="fitting-an-interacted-model"><span class="header-section-number">18.2</span> Fitting an interacted model</h2>
 <p>Now let’s fit a model where we interact sex and wealth. The plot does not look particularly linear, but we will proceed for illustrative purposes.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">=</span> <span class="fu">lm</span>( interact <span class="sc">~</span> sex <span class="sc">*</span> lwealth <span class="sc">+</span> sibling, <span class="at">data=</span>qm )</span>
@@ -554,8 +548,8 @@ F-statistic: 17.74 on 4 and 1971 DF,  p-value: 2.543e-14</code></pre>
 </div>
 <p>See? Now it matches more closely with the main effect estimate of M0. The core idea here is that the real interpretation of the main effect is a difference in average outcomes (when looking at a dummy varaible) between two groups, when holding all else equal. When you have interactions, the main effect is the predicted difference <em>for those with zeros for the interaction terms</em>, which might not be very sensible. We can get back to the difference between the two groups by predicting for everyone and comparing the averages.</p>
 </section>
-<section id="plotting" class="level2" data-number="19.3">
-<h2 data-number="19.3" class="anchored" data-anchor-id="plotting"><span class="header-section-number">19.3</span> Plotting</h2>
+<section id="plotting" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="plotting"><span class="header-section-number">18.3</span> Plotting</h2>
 <p>As a reminder, we can plot with our predictions in a nice way. The cleanest would be to put all our predictions into a dataframe, convert to long form, and plot.</p>
 <p>(Note we use ‘gender’ as our key, in the following, to avoid colliding with the ‘sex’ variable name.)</p>
 <div class="cell" data-layout-align="center">
@@ -609,8 +603,8 @@ F-statistic: 17.74 on 4 and 1971 DF,  p-value: 2.543e-14</code></pre>
 </div>
 <p>I used <code>geom_point()</code> to show the individual predictions. Normally we would use <code>geom_line()</code></p>
 </section>
-<section id="centering-an-alternative-approach" class="level2" data-number="19.4">
-<h2 data-number="19.4" class="anchored" data-anchor-id="centering-an-alternative-approach"><span class="header-section-number">19.4</span> Centering, an alternative approach</h2>
+<section id="centering-an-alternative-approach" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="centering-an-alternative-approach"><span class="header-section-number">18.4</span> Centering, an alternative approach</h2>
 <p>You can also center your continuous variable, which means your coefficient for your main effect on your dummy variable will correspond to the average value of the continuous. Much more interpretable!</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>qm <span class="ot">=</span> <span class="fu">mutate</span>( qm, <span class="at">lwealth.cent =</span> lwealth <span class="sc">-</span> <span class="fu">mean</span>(lwealth) )</span>
@@ -631,8 +625,8 @@ F-statistic: 17.74 on 4 and 1971 DF,  p-value: 2.543e-14</code></pre>
 </div>
 <p>See? Much more interpretable!</p>
 </section>
-<section id="confidence-intervals-for-the-gap" class="level2" data-number="19.5">
-<h2 data-number="19.5" class="anchored" data-anchor-id="confidence-intervals-for-the-gap"><span class="header-section-number">19.5</span> Confidence intervals for the gap?</h2>
+<section id="confidence-intervals-for-the-gap" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="confidence-intervals-for-the-gap"><span class="header-section-number">18.5</span> Confidence intervals for the gap?</h2>
 <p>A bootstrap is the easiest here.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>reps <span class="ot">=</span> <span class="fu">replicate</span>( <span class="dv">1000</span>, {</span>
@@ -661,8 +655,8 @@ F-statistic: 17.74 on 4 and 1971 DF,  p-value: 2.543e-14</code></pre>
 </div>
 </div>
 </section>
-<section id="a-final-investigation" class="level2" data-number="19.6">
-<h2 data-number="19.6" class="anchored" data-anchor-id="a-final-investigation"><span class="header-section-number">19.6</span> A final investigation</h2>
+<section id="a-final-investigation" class="level2" data-number="18.6">
+<h2 data-number="18.6" class="anchored" data-anchor-id="a-final-investigation"><span class="header-section-number">18.6</span> A final investigation</h2>
 <p>I don’t like the linear relationship. Better to have, perhaps a cubic for both girl and boy?</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>M3 <span class="ot">=</span> <span class="fu">lm</span>( interact <span class="sc">~</span> ( lwealth <span class="sc">+</span> <span class="fu">I</span>((lwealth<span class="sc">-</span><span class="fu">mean</span>(lwealth))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span></span>
@@ -694,8 +688,8 @@ I((lwealth - mean(lwealth))^3):sexgirl
 </div>
 <p>In truth, splines would be the best. A topic for another day (or prior handout).</p>
 </section>
-<section id="disclaimer" class="level2" data-number="19.7">
-<h2 data-number="19.7" class="anchored" data-anchor-id="disclaimer"><span class="header-section-number">19.7</span> Disclaimer</h2>
+<section id="disclaimer" class="level2" data-number="18.7">
+<h2 data-number="18.7" class="anchored" data-anchor-id="disclaimer"><span class="header-section-number">18.7</span> Disclaimer</h2>
 <p>The coefficients of the above are not significant, and we are not finding a real difference between girls and boys in this case. But the code is designed to illustrate the core concept of using predict to get access to a real estimate of a main effect when you are fitting a model with an interaction term.</p>
 <p>To check if a complex model is an improvement, use anova()</p>
 <div class="cell" data-layout-align="center">
@@ -1144,12 +1138,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./interpreting_lasso_models.html" class="pagination-link" aria-label="Interpreting LASSO models, and some other stuff">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./ipeds_data.html" class="pagination-link" aria-label="Finding and Merging Data Online">
-        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

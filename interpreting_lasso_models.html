@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Luke Miratrix (with some text from prior TF labs)">
-<meta name="dcterms.date" content="2024-12-26">
+<meta name="dcterms.date" content="2025-01-23">
 
-<title>18&nbsp; Interpreting LASSO models, and some other stuff – Handouts for S022 (Data Science in Education)</title>
+<title>17&nbsp; Interpreting LASSO models, and some other stuff – Handouts for S022 (Data Science in Education)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -146,7 +146,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Predicting_birthweight.html">On Machine Learning</a></li><li class="breadcrumb-item"><a href="./interpreting_lasso_models.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Predicting_birthweight.html">On Machine Learning</a></li><li class="breadcrumb-item"><a href="./interpreting_lasso_models.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -236,25 +236,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">How to Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Creating Reports in Quarto</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./code_chunks_demo.html" class="sidebar-item-text sidebar-link">
+  <a href="./code_chunks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Working with Rmarkdown chunks</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./configuring_code_chunks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Configuring Rmarkdown chunks</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./making_tables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Making tables in Markdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Making tables in Markdown</span></span></a>
   </div>
 </li>
       </ul>
@@ -271,31 +265,31 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_ggplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Intro to <code>ggplot</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Intro to <code>ggplot</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./simple_plotting_tips.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">chunk_output_type: console</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">chunk_output_type: console</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./double_plot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Plotting Two Datasets at Once</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Plotting Two Datasets at Once</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hist_and_bar_with_aggregated_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./heatmap_jitter_alpha.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span></a>
   </div>
 </li>
       </ul>
@@ -312,25 +306,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./manipulation_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_linear_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./doing_things_over_and_over.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./demo_cluster_boot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
   </div>
 </li>
       </ul>
@@ -347,19 +341,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Predicting_birthweight.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./test_train_and_CV.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interpreting_lasso_models.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
   </div>
 </li>
       </ul>
@@ -376,19 +370,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interactions_discussion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ipeds_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./predictive_papers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
   </div>
 </li>
       </ul>
@@ -403,13 +397,13 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-story" id="toc-the-story" class="nav-link active" data-scroll-target="#the-story"><span class="header-section-number">19</span> The Story</a></li>
-  <li><a href="#fitting-and-interpreting-lasso" id="toc-fitting-and-interpreting-lasso" class="nav-link" data-scroll-target="#fitting-and-interpreting-lasso"><span class="header-section-number">20</span> Fitting and interpreting LASSO</a>
+  <li><a href="#the-story" id="toc-the-story" class="nav-link active" data-scroll-target="#the-story"><span class="header-section-number">18</span> The Story</a></li>
+  <li><a href="#fitting-and-interpreting-lasso" id="toc-fitting-and-interpreting-lasso" class="nav-link" data-scroll-target="#fitting-and-interpreting-lasso"><span class="header-section-number">19</span> Fitting and interpreting LASSO</a>
   <ul class="collapse">
-  <li><a href="#what-variables-to-include" id="toc-what-variables-to-include" class="nav-link" data-scroll-target="#what-variables-to-include"><span class="header-section-number">20.1</span> What variables to include?</a></li>
-  <li><a href="#coefficient-size" id="toc-coefficient-size" class="nav-link" data-scroll-target="#coefficient-size"><span class="header-section-number">20.2</span> Coefficient size</a></li>
-  <li><a href="#assessing-stability-a-kind-of-inference" id="toc-assessing-stability-a-kind-of-inference" class="nav-link" data-scroll-target="#assessing-stability-a-kind-of-inference"><span class="header-section-number">20.3</span> Assessing stability (a kind of inference)</a></li>
-  <li><a href="#last-words-on-writing-up-results" id="toc-last-words-on-writing-up-results" class="nav-link" data-scroll-target="#last-words-on-writing-up-results"><span class="header-section-number">20.4</span> Last words on writing up results</a></li>
+  <li><a href="#what-variables-to-include" id="toc-what-variables-to-include" class="nav-link" data-scroll-target="#what-variables-to-include"><span class="header-section-number">19.1</span> What variables to include?</a></li>
+  <li><a href="#coefficient-size" id="toc-coefficient-size" class="nav-link" data-scroll-target="#coefficient-size"><span class="header-section-number">19.2</span> Coefficient size</a></li>
+  <li><a href="#assessing-stability-a-kind-of-inference" id="toc-assessing-stability-a-kind-of-inference" class="nav-link" data-scroll-target="#assessing-stability-a-kind-of-inference"><span class="header-section-number">19.3</span> Assessing stability (a kind of inference)</a></li>
+  <li><a href="#last-words-on-writing-up-results" id="toc-last-words-on-writing-up-results" class="nav-link" data-scroll-target="#last-words-on-writing-up-results"><span class="header-section-number">19.4</span> Last words on writing up results</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -417,9 +411,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Predicting_birthweight.html">On Machine Learning</a></li><li class="breadcrumb-item"><a href="./interpreting_lasso_models.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Predicting_birthweight.html">On Machine Learning</a></li><li class="breadcrumb-item"><a href="./interpreting_lasso_models.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></h1>
+<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></h1>
 </div>
 
 
@@ -436,7 +430,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 26, 2024</p>
+      <p class="date">January 23, 2025</p>
     </div>
   </div>
   
@@ -449,8 +443,8 @@ window.Quarto = {
 
 
 <p>Back in Lab 10, or thereabouts, we walked through a LASSO model fit to student level data from the PISA exam. For our predictive task, we imagined that these students come from a single country, but in fact, we combined data from multiple nations. I sourced these data using the <code>learningtower</code> package.</p>
-<section id="the-story" class="level1" data-number="19">
-<h1 data-number="19"><span class="header-section-number">19</span> The Story</h1>
+<section id="the-story" class="level1" data-number="18">
+<h1 data-number="18"><span class="header-section-number">18</span> The Story</h1>
 <p>You are newly hired analyst working in the State Ministry of Education. This morning, you open your email to find a request from your supervisor, your first project in the new job. How exciting!</p>
 <p>Your boss writes that the Ministry has received funding to provide a one-on-one tutoring intervention for a modest number of struggling 8th grade math students. It’s important that we select the right students for the intervention because we can’t afford to give it to everyone. Unfortunately, we don’t have previous math scores for students in the state. The first standardized math test they take is at the <em>end</em> of 8th grade.</p>
 <p>Your boss proposes that you build a predictive model, using the other data the ministry has about students, to estimate who will perform poorly in math at the end of the 8th grade.</p>
@@ -458,8 +452,8 @@ window.Quarto = {
 <p>Her email includes an attachment with the data on last year’s 8th graders.</p>
 <p>Our goal is to understand what is predictive of math scores. More specifically, we want to predict who the struggling students will be. There are a lot of things we could do. Remember whatever we do must be interpretable/explainable. Trees might work. Of course we’ll settle on LASSO here. Generally speaking, LASSO is more interpretable than Ridge? (LASSO shrinks many predictors to zero, so we only have to explain the non-zero coefficients, which hopefully will be a small number.)</p>
 </section>
-<section id="fitting-and-interpreting-lasso" class="level1" data-number="20">
-<h1 data-number="20"><span class="header-section-number">20</span> Fitting and interpreting LASSO</h1>
+<section id="fitting-and-interpreting-lasso" class="level1" data-number="19">
+<h1 data-number="19"><span class="header-section-number">19</span> Fitting and interpreting LASSO</h1>
 <p>Here is a block of code that (without any actual exploration, etc.–please see the lab for that) fits the LASSO model.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>stu_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'data/student_data.csv'</span>)</span>
@@ -561,12 +555,12 @@ escs                         3.0051742</code></pre>
 </div>
 <p>LASSO selected only a few of the many predictors available. In particular, the main predictors of math score are reading in science score, the student’s economic, social and cultural status (ESCS), whether they have a computer, and whether they are assigned male in the data. Given this information, the Lasso model is saying that knowing how many televisions, cars, books, or computers are in the family is not useful for predicting math score. Neither is the mothers or fathers education level.</p>
 <p>As an aside, it’s generally hard to use categorical variables – continuous variables are easier to select because a single variable can describe a lot of variation. So this might be why these other variables are not being picked.</p>
-<section id="what-variables-to-include" class="level2" data-number="20.1">
-<h2 data-number="20.1" class="anchored" data-anchor-id="what-variables-to-include"><span class="header-section-number">20.1</span> What variables to include?</h2>
+<section id="what-variables-to-include" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="what-variables-to-include"><span class="header-section-number">19.1</span> What variables to include?</h2>
 <p>We might not want to put all of our available variables into our model. For example, if we are trying to predict math score, we might not want to include other test scores from that same testing occasion, because were looking for contextual factors that lead to a particular outcome. Thus, we might rerun everything we’ve done without including reading and science, which would force the model to use the contextual variables about the students rather than other measures of their academic ability.</p>
 </section>
-<section id="coefficient-size" class="level2" data-number="20.2">
-<h2 data-number="20.2" class="anchored" data-anchor-id="coefficient-size"><span class="header-section-number">20.2</span> Coefficient size</h2>
+<section id="coefficient-size" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="coefficient-size"><span class="header-section-number">19.2</span> Coefficient size</h2>
 <p>The SIZE of the coefficients is going to be too small, in general, because LASSO shrinks coefficients towards zero to stabilize. We should not, for example, expect that the increase in math for each unit increase in reading is 0.3432561. One trick some folks do is <em>refit</em> the selected coefficients using OLS to get a new, final model:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify nonzero coefficients</span></span>
@@ -637,8 +631,8 @@ F-statistic:  2016 on 5 and 3309 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="assessing-stability-a-kind-of-inference" class="level2" data-number="20.3">
-<h2 data-number="20.3" class="anchored" data-anchor-id="assessing-stability-a-kind-of-inference"><span class="header-section-number">20.3</span> Assessing stability (a kind of inference)</h2>
+<section id="assessing-stability-a-kind-of-inference" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="assessing-stability-a-kind-of-inference"><span class="header-section-number">19.3</span> Assessing stability (a kind of inference)</h2>
 <p>We might worry that the Lasso model is picking these variables only due to random chance. We could bootstrap this process to see if the same variables tend to get picked each time. Here is a single bootstrap iteration to illustrate:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>datstar <span class="ot">=</span> <span class="fu">slice_sample</span>( stu_data, <span class="at">n =</span> <span class="fu">nrow</span>(stu_data), <span class="at">replace=</span><span class="cn">TRUE</span> )</span>
@@ -760,8 +754,8 @@ F-statistic:  2016 on 5 and 3309 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>The things at the top were <em>always</em> selected–they are clearly important. The things near the bottom are less so. Our initial “computer” variable seems somewhat important, but not as reliably selected as things such as reading and science.</p>
 </section>
-<section id="last-words-on-writing-up-results" class="level2" data-number="20.4">
-<h2 data-number="20.4" class="anchored" data-anchor-id="last-words-on-writing-up-results"><span class="header-section-number">20.4</span> Last words on writing up results</h2>
+<section id="last-words-on-writing-up-results" class="level2" data-number="19.4">
+<h2 data-number="19.4" class="anchored" data-anchor-id="last-words-on-writing-up-results"><span class="header-section-number">19.4</span> Last words on writing up results</h2>
 <p>In writing up your results, consider the following elements:</p>
 <ol type="1">
 <li>Introduction: Begin by introducing the purpose of your analysis and the dataset you used. For example:</li>
@@ -1215,12 +1209,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./test_train_and_CV.html" class="pagination-link" aria-label="Reflections on using machine learning (for final projects)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./interactions_discussion.html" class="pagination-link" aria-label="Main effects, interactions in linear models, and prediction">
-        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
