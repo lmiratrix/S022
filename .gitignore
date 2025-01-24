@@ -48,3 +48,9 @@ book-output/
 /.quarto/
 /_book/
 book-output
+*.js
+*.html
+*.css
+*.Rproj
+*.woff
+*.rmarkdown

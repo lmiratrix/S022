@@ -3,7 +3,12 @@
 # and installs any that are not currently installed.  Good to run
 # before trying to render the book on a local machine.
 
+# stringr is called below—-install if not already installed
+if (!require("stringr")) {
+  install.packages("stringr")
+}
 
+library("stringr")
 
 # List all qmd files
 qmd_files <- list.files(path = ".", pattern = "\\.qmd$", recursive = TRUE)
@@ -12,8 +17,8 @@ qmd_files <- list.files(path = ".", pattern = "\\.qmd$", recursive = TRUE)
 # extra packages
 ex_pack = c( "mosaic", "TeachingDemos" )
 
-# Initialize an empty vector to store packages
-packages <- c()
+# Initialize a vector to store packages
+packages <- c("remotes")
 
 # Loop through each file and extract library calls
 for (file in qmd_files) {
@@ -48,3 +53,15 @@ if (length(not_installed) > 0) {
 } else {
   cat("\nAll packages are installed.\n")
 }
+
+# Add a special case for dataedu, whcih has to be installed from GitHub
+if ('dataedu' %in% not_installed) {
+  if(!require("dataedu")) {
+    remotes::install_github("data-edu/dataedu")
+  }
+}
+
+
+
+
+
