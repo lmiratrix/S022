@@ -166,6 +166,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Self Grading Instructions</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources_on_learning_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources on Learning R</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -201,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_markdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro to R Markdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro to R Markdown #{sec-intro-markdown}</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -242,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./simple_plotting_tips.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">chunk_output_type: console</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Some tips for making plots</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -277,7 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./manipulation_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -512,18 +518,18 @@ F-statistic: 6.518 on 1 and 2485 DF,  p-value: 0.01074</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">jitter</span>( a )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.8434238 2.0016101 3.0559577 4.1635296 4.9623617 5.8186652 7.1135578
- [8] 7.9594628 9.1806936 9.8183012</code></pre>
+<pre><code> [1] 0.9101964 2.0495048 2.8895016 4.0503323 5.1828552 5.9413801 6.9465185
+ [8] 8.1875840 9.1974467 9.9710692</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">jitter</span>( a, <span class="at">factor =</span> <span class="fl">0.5</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.9098715 2.0409311 3.0214980 4.0610038 4.9218504 6.0938931 7.0765275
- [8] 7.9234185 9.0182804 9.9021186</code></pre>
+<pre><code> [1] 1.043054 2.085757 2.941163 3.998704 5.006021 5.900659 7.070870 8.037672
+ [9] 8.958997 9.981389</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">jitter</span>( a, <span class="at">factor =</span> <span class="fl">0.0005</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  0.9999791  1.9999286  3.0000164  4.0000932  5.0000573  5.9999768
- [7]  6.9999232  8.0000187  8.9999930 10.0000378</code></pre>
+<pre><code> [1] 0.9999841 1.9999137 2.9999772 3.9999379 5.0000341 6.0000208 6.9999914
+ [8] 8.0000790 8.9999071 9.9999341</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Try alpha</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1019,8 +1025,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./manipulation_examples.html" class="pagination-link" aria-label="Basic Data Manipulation (tidyverse)">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./manipulation_examples.html" class="pagination-link" aria-label="Basic Data Manipulation with tidyverse">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

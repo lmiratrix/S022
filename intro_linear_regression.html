@@ -194,6 +194,12 @@ window.Quarto = {
  <span class="menu-text">Self Grading Instructions</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources_on_learning_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources on Learning R</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -229,7 +235,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_markdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro to R Markdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro to R Markdown #{sec-intro-markdown}</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -270,7 +276,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./simple_plotting_tips.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">chunk_output_type: console</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Some tips for making plots</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -305,7 +311,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./manipulation_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -444,10 +450,17 @@ window.Quarto = {
 </header>
 
 
-<p>This walkthrough shows how to fit simple linear regression models in R. Linear regression is the main way researchers tend to examine the relationships between multiple variables. This document runs through some code without too much discussion, with the assumption that you are already familiar with interpretation of such models.</p>
+<p>In S022 we assume a general understanding of linear regression, but sometimes one might like to review those concepts! In the following we first give some readings about regression, and then give a code walkthrough of how to do it in R.</p>
+<p>The suggested readings (which can be accessed via the Library Reserves Tool on the Canvas site) are:</p>
+<ul>
+<li><p><strong>Gelman, A. &amp; Hill, J. Chapter 4. In Data analysis using regression and multilevel/hierarchical models. Cambridge University Press, pp 53-74.</strong> This chapter talks a bit more about regression, in particular transforming and centering variables, both being important tools for making your regression models more interpretable.</p></li>
+<li><p><strong>Kaplan, D.T. (2012). Chapter 7. In Statistical modeling: A fresh approach. (n.p.): Project Mosaic, pp.&nbsp;129-151.</strong> This reading reviews what regression is, and how to think about regression coefficients. An excellent review that points out that we can view regression as a summary of trends in our data. (i.e., use regression without believing in the model being correct). This is more in line with how data scientists think about models.</p></li>
+<li><p><strong>Gerber, A. S. &amp; Green, D. (2012). Chapter 3. In Field experiments: Design, analysis, and interpretation. New York, NY: W. W. Norton &amp; Company, pp.&nbsp;51-86.</strong> This chapter is a nice overview of what a standard error is, and how we should think about statistical uncertainty. It will deepen your understanding of the S040 material.</p></li>
+</ul>
 <section id="simple-regression" class="level2" data-number="12.1">
 <h2 data-number="12.1" class="anchored" data-anchor-id="simple-regression"><span class="header-section-number">12.1</span> Simple Regression</h2>
-<p>We are going to use an example dataset, <code>RestaurantTips</code>, that records tip amounts for a series of bills. Let’s first regress <code>Tip</code> on <code>Bill</code>. Before doing regression, we should plot the data to make sure using simple linear regression is reasonable. For kicks, we add in an automatic regression line as well by taking advantage of ggplot’s <code>geom_smooth()</code> method:</p>
+<p>We now give a walk-through on how to fit simple linear regression models in R. Linear regression is the main way researchers tend to examine the relationships between multiple variables. This document runs through some code without too much discussion, with the assumption that you are already familiar with interpretation of such models. If you want some help with the interpretation, see the suggested readings above!</p>
+<p>For our walk-through, we are going to use an example dataset, <code>RestaurantTips</code>, that records tip amounts for a series of bills. Let’s first regress <code>Tip</code> on <code>Bill</code>. Before doing regression, we should plot the data to make sure using simple linear regression is reasonable. For kicks, we add in an automatic regression line as well by taking advantage of ggplot’s <code>geom_smooth()</code> method:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the data into memory</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(RestaurantTips)</span>
@@ -1358,8 +1371,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./manipulation_examples.html" class="pagination-link" aria-label="Basic Data Manipulation (tidyverse)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></span>
+      <a href="./manipulation_examples.html" class="pagination-link" aria-label="Basic Data Manipulation with tidyverse">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
