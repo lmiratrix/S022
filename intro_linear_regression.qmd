@@ -29,13 +29,29 @@ rm(list = ls())
 theme_set(theme_bw())
 ```
 
-This walkthrough shows how to fit simple linear regression models in R.
-Linear regression is the main way researchers tend to examine the relationships between multiple variables.
-This document runs through some code without too much discussion, with the assumption that you are already familiar with interpretation of such models.
+In S022 we assume a general understanding of linear regression, but sometimes one might like to review those concepts!  In the following we first give some readings about regression, and then give a code walkthrough of how to do it in R.
+
+The suggested readings (which can be accessed via the Library Reserves Tool on the Canvas site) are:
+
+ * **Gelman, A. & Hill, J. Chapter 4. In Data analysis using regression and multilevel/hierarchical models. Cambridge University Press, pp 53-74.**
+ This chapter talks a bit more about regression, in particular transforming and centering variables, both being important tools for making your regression models more interpretable.
+
+ * **Kaplan, D.T. (2012). Chapter 7. In Statistical modeling: A fresh approach. (n.p.): Project Mosaic, pp. 129-151.**
+This reading reviews what regression is, and how to think about regression coefficients. An excellent review that points out that we can view regression as a summary of trends in our data. (i.e., use regression without believing in the model being correct). This is more in line with how data scientists think about models.
+
+ * **Gerber, A. S. & Green, D. (2012). Chapter 3. In Field experiments: Design, analysis, and interpretation. New York, NY: W. W. Norton & Company, pp. 51-86.**
+This chapter is a nice overview of what a standard error is, and how we should think about statistical uncertainty. It will deepen your understanding of the S040 material.
+
+
+
 
 ## Simple Regression
 
-We are going to use an example dataset, `RestaurantTips`, that records tip amounts for a series of bills.
+We now give a walk-through on how to fit simple linear regression models in R.
+Linear regression is the main way researchers tend to examine the relationships between multiple variables.
+This document runs through some code without too much discussion, with the assumption that you are already familiar with interpretation of such models.  If you want some help with the interpretation, see the suggested readings above!
+
+For our walk-through, we are going to use an example dataset, `RestaurantTips`, that records tip amounts for a series of bills.
 Let's first regress `Tip` on `Bill`.
 Before doing regression, we should plot the data to make sure using simple linear regression is reasonable.
 For kicks, we add in an automatic regression line as well by taking advantage of ggplot's `geom_smooth()` method:
