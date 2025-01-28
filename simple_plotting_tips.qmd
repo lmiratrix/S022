@@ -1,9 +1,9 @@
-title: "Simple plotting tips"
+---
+title: "Some tips for making plots"
 author: "Luke Miratrix"
-date: "4/29/2021"
-output: pdf_document
-editor_options: 
-  chunk_output_type: console
+editor: 
+  markdown: 
+    wrap: sentence
 ---
 
 ```{r setup, include=FALSE}
