@@ -1,10 +1,4 @@
----
-title: "Intro to R Markdown"
-author: "Luke Miratrix"
-editor: 
-  markdown: 
-    wrap: sentence
----
+# Intro to R Markdown #{sec-intro-markdown}
 
 
 ```{r, include=FALSE}

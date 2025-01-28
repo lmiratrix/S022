@@ -1,11 +1,4 @@
----
-title: "Basic Data Manipulation (tidyverse)"
-author: "Miratrix"
-date: "2/7/2017"
-output:
-  pdf_document: default
-  html_document: default
----
+# Basic Data Manipulation with tidyverse {#sec-manipulation_examples}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, out.width="0.5\\linewidth", fig.align="center")
@@ -13,9 +6,7 @@ library( tidyverse )
 
 ```
 
-# R for DS Chapter 5 Core Commands
-
-Let's use this simple table and run through the commands from Chapter 5. This is not a complete reference! See the text for further details.
+Let's use the following simple table and run through various tidyverse commands. This is not a complete reference! See the text of the textbook for further details.
 
 ```{r}
 library( tidyverse )

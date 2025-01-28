@@ -1,0 +1,105 @@
+# Resources on Learning R {.unnumbered}
+
+To get help, try to stick with this textbook as there are so many ways of doing things in R that you can be led into strange lands that look very different from the land of S022.
+This index may help you find certain helpful documents (chapters) in this textbook quickly.
+It also lists other places you might go for help.
+
+So, where can you get help with R?
+
+### Live Class Code and Sections
+The labs and classes usually have R scripts that shows how to do the stuff from that class. See the Packets for this code.
+Sections will typically have a hands-on component which will give you a chance to try things out yourself. These sections will also publish the final R code for future reference. See the section pages to get this information.
+
+### R for Data Science: The Very Important Online Textbook
+See [R for Data Science (2e).](https://r4ds.hadley.nz/). This textbook provides important information on wrangling data, making plots, and doing statistical programming. It is full of examples and code snippets you can steal.  Note that we are using the second edition of this textbook (2e).
+
+There are solutions to this guide. See [https://mine-cetinkaya-rundel.github.io/r4ds-solutions/.](https://mine-cetinkaya-rundel.github.io/r4ds-solutions/). It can be quite useful to do the exercises in this text!
+
+**A supplementary textbook**
+Also check out Modern Dive's "[Statistical Inference via Data Science](https://moderndive.com/)", especially for some beginning R information in Chapter 1.
+
+### Office Hours
+Office hours are fine time to get help troubleshooting a specific or script you are working on.
+
+### GSE Stat Help Desk
+Education students can write to [stathelp@gse.harvard.edu](mailto:stathelp@gse.harvard.edu) to get help getting started with R. If groups of 3 or more want some tutorials, they can ask for them as well.
+
+They sometimes have intro to R workshops. For example, grab some old workshop materials here:[http://its.gse.harvard.edu/gentle-introduction-r](http://its.gse.harvard.edu/gentle-introduction-r)
+
+### R Cheat Sheets
+R Cheat Sheets are one page sheets that give lots of R commands for specific tasks. VERY USEFUL! See [https://rstudio.com/resources/cheatsheets/](https://rstudio.com/resources/cheatsheets/) for a full compendium of cheat sheets for work in RStudio, such as the ggplot sheet.
+
+We've covered/touched on a lot of the cheat sheet topics in class or section like using the dplyr package, R-Markdown, or RegEx, but there are also things that we haven't discussed, such as creating survival plots in ggplot or developing a web-based app.
+
+
+### Selected Handouts
+
+**WARNING: The following links have not yet been updated, but all chapters should be in the textbook**
+
+**Chapter @sec-manipulation_examples** -- a quick review of basic data manipulation.
+This chapter shows the core tidyverse dplyr commands for manipulating data.
+
+**Coding Style Guide**
+This gives advice on how to format your code in a consistent manner.
+[style_guide.pdf](https://canvas.harvard.edu/courses/152037/files/21403964?wrap=1)
+
+**Simple Plot Control**
+[simple_plotting_tips.pdf](https://canvas.harvard.edu/courses/152037/files/21404225?wrap=1)[](https://canvas.harvard.edu/courses/152037/files/21404225/download) (https://canvas.harvard.edu/courses/152037/files/21404225/download)
+A handout on making nice plots, controlling their size, some simple make it beautiful advice, and saving them at a high resolution!
+
+**Prediction and Plotting**
+Using predict() with a fit model on fake data that has systematically spaced values can be a nice road for beautiful plots.
+[prediction_and_plotting.pdf](https://canvas.harvard.edu/courses/152037/files/21403883?wrap=1)
+
+**Aggregation and Plotting**
+Aggregate data and make plots. Illustrates some data wrangling to get data ready.
+[pivot_and_line_plotting.pdf](https://canvas.harvard.edu/courses/152037/files/21403921?wrap=1)
+
+**Doing things over and over (map, rerun, replicate)**
+Useful in particular for implementing resampling methods like the bootstrap, or doing tasks repeatidly, like web scraping.
+[doing_things_over_and_over.pdf](https://canvas.harvard.edu/courses/152037/files/21403971?wrap=1)
+
+**Data cleaning excel files**
+This "handout" (actually an R script) loads in a csv file made from a dirty excel file and cleans it. This is a data cleaning problem I have seen a few final project groups face. Download these files, look at the original csv file, and then source the script and see what you get!
+[data_cleaning_example.R](https://canvas.harvard.edu/courses/152037/files/21404126?wrap=1)
+[sample_ugly_data.csv](https://canvas.harvard.edu/courses/152037/files/21403927?wrap=1) 
+
+**Overview of Machine Learning Tools**
+[Predicting-birthweight.pdf](https://canvas.harvard.edu/courses/152037/files/21404047?wrap=1)
+
+**Intro to Quarto (and Quarto Resources)**
+    [using_quarto.pdf](https://canvas.harvard.edu/courses/152037/files/21404230?wrap=1)
+
+**Plotting Distributions from Aggregate Data**
+This handout covers how to plot univariate distributions of data (i.e. histograms and bar charts) if your data have already been aggregated (e.g. you have the counts for each value of a variable but not the individual observations).
+[hist_and_bar_with_aggregated_data.pdf](https://canvas.harvard.edu/courses/152037/files/21404162?wrap=1)
+
+**Downloading and Merging Publicly Posted Datasets**
+This handout walks through an example case of downloading datasets posted on a government website, cleaning them, merging them together, and using the merged dataset for an analysis. It addresses some of the common challenges of getting acquainted with a data portal.
+[ipeds_data-1.pdf](https://canvas.harvard.edu/courses/152037/files/21404163?wrap=1)
+
+### Further information on using R Markdown
+
+In addition to [Chapter @sec-intro_markdown] (which has some initial thoughts and how-tos tailored to the course), there are some additional resources on using R Markdown:
+
+ * [rmarkdown-cheatsheet-2.0.pdf](https://rmarkdown.rstudio.com/lesson-15.HTML)
+ * [rmarkdown-reference.pdf](https://canvas.harvard.edu/courses/152037/files/21404131/download?wrap=1)
+ * See the async lecture on configuring code chunks in Week 1, on Canvas, as well.
+
+
+### Useful links to materials on the web
+
+* R: [https://www.r-project.org/](https://www.r-project.org/)
+* RStudio: [https://www.rstudio.com/](https://www.rstudio.com/)
+* Columbia RStudio overview: [here](https://courseworks.columbia.edu/access/content/group/QMSSG4065_001_2015_1/RStudio/G4065.html)
+* TryR code school: [http://tryr.codeschool.com](http://tryr.codeschool.com/)
+* Data Camp: [https://www.datacamp.com/courses/free-introduction-to-r](https://www.datacamp.com/courses/free-introduction-to-r)
+* Princeton R tutorials: [http://data.princeton.edu/R/](http://data.princeton.edu/R/)
+* D-Lab R training: [https://github.com/dlab-berkeley/R-for-Data-Science](https://github.com/dlab-berkeley/R-for-Data-Science)
+* GGPlot2: [http://ggplot2.org/](http://ggplot2.org/)
+* Google/stackoverflow
+
+
+### Writing your own math
+
+ * [Handout: math reference](https://lmiratrix.github.io/MLM/math_reference.html) -- This handout, from my handout textbook for S043 (multilevel modeling) has the Latex you need to write equations easily for your reports. But what you really want is the Rmd version that has the code to make this handout, which is linked in the handout itself.
