@@ -31,15 +31,13 @@ knitr::include_graphics("image/code_quality.png")
 
 Many style decisions in coding are arbitrary, so why bother adhering to them? The primary reasons are that good style makes your code more readable, allows you to focus on writing quality code rather than worrying about inconsistencies, and helps you avoid being judged negatively for poor style.
 
-More importantly, if you write in a clean style, you will be able to read your own code a few weeks later, when you have forgotten what you have been thinking.  It also makes it _a lot_ easier for the teaching team to help you understand possible problems in your code.
+More importantly, if you write in a clean style, you will be able to read your own code a few weeks later, when you have forgotten what you have been thinking. It also makes it *a lot* easier for the teaching team to help you understand possible problems in your code.
 
-In this chapter, I lay out some tips for writing clean code.
-Much of this was initially taken from the Tidyverse style guide at <http://style.tidyverse.org>; we are primarily focusing on Chapters 2 and 4. But I will note that I depart substantially from some of their recommendations.
+In this chapter, I lay out some tips for writing clean code. Much of this was initially taken from the Tidyverse style guide at <http://style.tidyverse.org>; we are primarily focusing on Chapters 2 and 4. But I will note that I depart substantially from some of their recommendations.
 
 The cartoon is [xkcd](https://xkcd.com/); read those if you want to be an awesome nerd.
 
-For further reading about coding practice, also see [Code and Data for the Social Sciences: A Practitioner's Guide](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf), Gentzkow and Shapiro.  Worth a skim!
-
+For further reading about coding practice, also see [Code and Data for the Social Sciences: A Practitioner's Guide](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf), Gentzkow and Shapiro. Worth a skim!
 
 ## The naming of things
 
@@ -49,6 +47,7 @@ For further reading about coding practice, also see [Code and Data for the Socia
 -   Use an underscore to separate words within a name.
 -   Generally, variable names should be nouns and function names should be verbs.
 -   Ideally, your names should be self-explanatory and your code should be "self-documenting."
+-   However, avoid making your variables too long (less than about 15 characters), unless you love typing.
 -   Avoid using numbers to store versions of a data frame (e.g., `df1`, `df2`, `df3`, ...).
 -   Names for variables, functions, files, etc. should generally consist of complete words.
 -   Naming is hard. more art than science.
@@ -91,8 +90,6 @@ diamonds_clean <-
   diamonds %>%
   mutate(y = winsorize(y, probs = c(0.01, 0.99)))
 ```
-
-
 
 ## Syntax
 
@@ -154,13 +151,16 @@ list(
 
 A function typically takes several arguments, namely the **data** to compute on and further arguments giving the **details** of the desired computation.
 
-Omit names of common arguments (e.g. `data`, `aes`).
+Omit names of common arguments (e.g. `data`, `aes`). However you can include these to make your code more readable to others.
 
 If you override the default value of an argument, use the full name:
 
 ```{r, eval = FALSE}
 # Good
 mean(1:10, na.rm = TRUE)
+
+# Also Good
+mean(x = 1:10, na.rm = TRUE)
 
 # Bad
 mean(x = 1:10, , FALSE)
@@ -171,7 +171,6 @@ mean(, TRUE, x = c(1:10, NA))
 
 -   use one line each for the function name, each argument, and the closing ')'.
 -   use indentation to make it clear that the arguments are part of the function call.
-
 
 ```{r, eval = FALSE, mysize = TRUE, size = '\\scriptsize'}
 # Good
@@ -236,14 +235,13 @@ Use `"`, not `'`, for quoting text. The only exception is when the text already 
 
 ### Comments are good
 
-Comments can really help with code, and help a reader assess if the code is achiving the desired effect.  Comments should give the purpose of the code, not just restate the code in English.
+Comments can really help with code, and help a reader assess if the code is achieving the desired effect. Comments should give the purpose of the code, not just restate the code in English.
 
-That said, commends can be dangerous because if you change your code without changing the comments, you can cause confusion.  This happens a lot, potentially making comments a source of confusion rather than clarity.
-
+That said, commends can be dangerous because if you change your code without changing the comments, you can cause confusion. This happens a lot, potentially making comments a source of confusion rather than clarity.
 
 ## Pipes (`%>%`) with `magrittr`
 
-Use `%>%` (or `|>`, if you are modern) to emphasise a sequence of actions, rather than the object that the actions are being performed on.
+Use `%>%` (or `|>`, if you are modern) to emphasize a sequence of actions, rather than the object that the actions are being performed on.
 
 Avoid using the pipe when:
 
@@ -253,8 +251,8 @@ Avoid using the pipe when:
 
 ### Surround the pipe with whitespace
 
--   `%>%` should always have a space before it, and should usually be followed by a new line. 
--   After the first step, each line should be indented by two spaces. 
+-   `%>%` should always have a space before it, and should usually be followed by a new line.
+-   After the first step, each line should be indented by two spaces.
 
 Adhering to the above structure makes it easier to add new steps (or rearrange existing steps) and makes it harder to overlook a step.
 
@@ -275,7 +273,7 @@ arrange(value)
 
 ### Formatting short pipes
 
-It is ok to keep a one-step pipe in one line, if you want.  But not doing so is also fine.
+It is ok to keep a one-step pipe in one line, if you want. But not doing so is also fine.
 
 ```{r, eval = FALSE}
 # Good
@@ -318,7 +316,6 @@ left_join(x_join, y_join, by = c("a", "b"))
 
 Generally when you are doing something to two datasets, put both inside the parenthesis, rather than having one in and one piped in.
 
-
 ### Keep your parenthesis even if you have no arguments
 
 magrittr allows you to omit `()` on functions that don't have arguments. Avoid this. This way data objects never have parentheses and functions always do.
@@ -346,12 +343,12 @@ iris_long <- iris %>%
   arrange(-value)
 ```
 
-
 ## A few final remarks
 
 -   Style is awesome. Save a future researcher from spending months trying to disentangle your spaghetti!
 -   You don't need to memorize these rules! Just as you have spell check and grammarly on your computer for prose, there is a package `styler` to help you follow the code style guide.
 -   Just as you still need to learn to spell (since spell checker doesn't capture everything), you need to learn these rules as well.
+-   If you get tired of rules and typing, try using the \[Tidyverse's \`styler\` package\](<https://www.tidyverse.org/blog/2017/12/styler-1.0.0/>). The package links to the "Addins" widget in RStudio and is a fast way to clean up your code according to Tidyverse conventions.
 
 In closing:
 

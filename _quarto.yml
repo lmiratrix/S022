@@ -31,6 +31,7 @@ book:
     - part: "On Coding"
       chapters:
       - manipulation_examples.qmd
+      - group_by_deep_dive.qmd 
       - intro_linear_regression.qmd
       - doing_things_over_and_over.qmd
       - demo_cluster_boot.qmd
