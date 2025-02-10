@@ -1,0 +1,230 @@
+---
+title: "A Deep Dive on `group_by()`"
+author: "Nora Delaney (Adapted from materials created by Zach Himmelsbach, Jonathan Seiden, & Tiffany Yang)"
+date: "`r Sys.Date()`"
+output: pdf_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+knitr::opts_chunk$set(echo = TRUE, 
+                      message = FALSE, 
+                      fig.width = 5,
+                      fig.height = 3,
+                      out.width = "5in", 
+                      out.height = "3in", 
+                      fig.align = "center")
+
+knitr::opts_chunk$set(echo = TRUE)
+
+theme_set(theme_classic())
+```
+
+The `group_by()` functionality in the Tidyverse is a powerhouse function, with many applications for summarizing and cleaning data. This handout walks through several common use cases for the `groupby_()` function.
+
+# Importing the\`dplyr\`package
+
+The `group_by()` function technically belongs to the `dplyr` package, but we can also load it by importing the `tidyverse` shortcut.
+
+```{r tidyverse import}
+library(dplyr)
+library(tidyverse)
+```
+
+For this walkthrough, we will be using a dataset of information on NFL players. We will use the `group_by()` function to analyze information across NFL teams. Our dataset consists of 16 columns and 1,822 players (one player per row).
+
+```{r nfl import, include=FALSE, echo=FALSE}
+nfl <- read_csv("./data/NFL-Census-Data-9.2.2013_clean.csv", 
+                na = c("NA","N/A","", "#VALUE!") )
+```
+
+```{r nfl cleaning, echo=FALSE, results='hide'}
+# Just a typo in the birthdate. We can fix it
+nfl$Birthdate[nfl$Birthdate == "1/181990"] <- '1/18/1990'
+
+nfl <- nfl %>% 
+  mutate(birth_date = mdy(Birthdate),
+         birth_month = month(birth_date))
+```
+
+```{r nfl display}
+nfl
+```
+
+## What does `group_by()` do?
+
+When you call `group_by()` on a dataframe, you are asking R to "organize" your data according to the grouping variable. For example, let's group our data on NFL players by team. If you look carefully at the output below, you will see that our data has 1,822 rows and 16 columns, just like it did before. However, it now also has 32 groups (one for each NFL team).
+
+```{r}
+nfl %>% group_by(Team)
+```
+
+Conceptually, here is a visualization of what R does when you `group_by(Team)` . Behind the scenes, your data is partitioned according to values of your grouping variables. This becomes extremely useful if we want to calculate group-specific variables or create group-specific summary variables.
+
+![](image/group_by_drawing.png)
+
+## Introducing `summarize()`
+
+The `summarize()` function is extremely useful for creating summary statistics on aggregated data, such as calculating the number of observations, the mean of a particular variabe, etc. First, let's look at what happens when we use `summarize()` on its own. In the example below, we use `summarize()` on the *ungrouped* `nfl` data to find the overall mean salary of players (\$2,142,272).
+
+```{r}
+nfl %>% summarize(mean.salary = mean(Salary, na.rm = TRUE))
+```
+
+We can also use `summarize()` to get a variety of summary features using different functions to suit our purposes. We can also name these summary variables whatever we want ("mean_salary", "n_obs", "number_of_observations", etc.). The code below calculates the average salary, the standard deviation of salaries, average age of players, and the total number of observations.
+
+Below, you might also notice the `n()` function. This "short and sweet" function tells us the number of observations that we are summarizing across. In this case, `n()` returns 1,822--the same number of rows in our NFL data frame!
+
+```{r}
+nfl %>% 
+  summarize(mean_salary = mean(Salary, na.rm = TRUE), # gets the overall average salary
+            sd_salary = sd(Salary, na.rm = TRUE), # gets the standard deviation of salaries 
+            mean_age = mean(Age, na.rm = TRUE), # we can also look at other variables
+            n_obs = n() # gets the number of observations
+            )
+```
+
+## Combining `group_by()` with `summarize()`
+
+Now, let's add in `group_by()` to find the average (mean) and maximum salary *within each team*. Let's also get a count of the number of players on each team. Our output below has 32 rows—one for each value of the `Team` grouping variable.
+
+Looking at the output, we can see that the Cleveland Browns (CLE) have an average salary of \$1,924,681 and that the Baltimore Ravens (BAL) have an average salary of \$2,145,966. Note that we set `mean(..., na.rm = TRUE)`, so we are ignoring any players with missing salary data when calculating our team averages.
+
+```{r}
+nfl %>% 
+  group_by(Team) %>%
+  summarize(num_players = n(), 
+            mean_sal = mean(Salary, na.rm = TRUE), 
+            max_sal = max(Salary, na.rm = TRUE))
+```
+
+### Getting fancy: Grouping with more than one variable
+
+However, we can also group by more than one variable! For example, we can extend our code to get the average salary within each player position on each team. Let's extend the code above to find the average and maximum salary within each team and position on that team. In this case, the `n()` summary variable tells us how many observations are within each grouping cell (i.e. the number of players in each position on each team).
+
+What do you notice that is similar or different from the output above with a single grouping variable?
+
+```{r warning=FALSE}
+nfl %>% 
+  group_by(Team, Position) %>%
+  summarize(num_players = n(), 
+            min_sal = min(Salary, na.rm = TRUE), 
+            mean_sal = mean(Salary, na.rm = TRUE), 
+            max_sal = max(Salary, na.rm = TRUE))
+```
+
+## Using `mutate()` with `group_by()`
+
+On its own, the `mutate()` function allows us to create and modify variables in a dataframe (see @sec-manipulation_examples for more information about `mutate()`). For example, we can use mutate to convert players' weight from pounds to kilograms.
+
+In this basic example, note that we have not grouped the `nfl` dataframe.
+
+```{r}
+nfl %>% 
+  select(`Player Name`, Weight) %>% 
+  mutate(weight_kg = Weight / 2.2) %>% 
+  head()
+```
+
+sHowever, when we combine `group_by()` and `mutate()` we can create new variables for individual players that reflect group-level attributes. For example, let's look at how we could find how much younger each player is than the oldest player on their team.
+
+In this case, the grouping variable essentially allows us to create a new column for each individual in the NFL using summary variables within each NFL team.
+
+```{r}
+# let's create a new dataframe to hold our new data 
+nfl_1 <- nfl %>% 
+  select(`Player Name`, Team, Age) %>% 
+  group_by(Team) %>% 
+  mutate(years_younger = max(Age, na.rm = TRUE) - Age, 
+         team_max_age = max(Age, na.rm = TRUE) # we don't need this, but you can include it to visualize what's happening here
+         ) %>% 
+  arrange(Team) # re-order our data to help us understand how grouping is occurring at the team level
+
+nfl_1 %>% head()
+```
+
+If you look at the output above, you will notice that our new `nfl_1` dataframe is still grouped by Team. We might not want this, especially if we want to great other variables based on other grouping factors later. We can remove the groups from the `nfl_1` dataset like this:
+
+```{r}
+nfl_1 <- nfl_1 %>% ungroup()
+```
+
+## Learning Check: What is the difference between pairing `group_by()` with `summarize()` vs `group_by()` with `mutate()`?
+
+Take a moment to review the output of the code above. How many rows do we have in our resulting dataframes after calling `group_by(Team)` with `summarize()` vs `group_by(Team)` with `mutate()`?
+
+You might notice that there are far fewer rows in the output from commands using `summarize()`. This is because the `summarize()` function collapses data down to return a single value per group level (ex. one row for each of the 32 teams in the NFL). By contrast, using `group_by()` with `mutate()` preserves all rows in the data while allowing the user to synthesize and make use of group-level information.
+
+## Practical Application: Centering Data
+
+Centering data is a common practice in social science and education research. For example, we might often be less interested in a student's absolute test score and more interested in how they performed relative to an average value.
+
+For example, we established above that the average salary in the entire NFL is \$2,142,272. We can use centering to calculate the amount each player earns above or below this overall average salary using the code below. This is called "grand mean" centering (i.e. we are comparing each player's salary to the overall average).
+
+Note that the code below tabulates the average salary `mean(Salary)` without first calling `group_by()`.
+
+```{r}
+nfl <- nfl %>% 
+  group_by(Team) %>% 
+  mutate(grand_cent_sal = (Salary - mean(Salary,  na.rm =  TRUE))) %>% 
+  ungroup() # ungroup our data once we have what we need
+
+nfl %>% select(Team, Salary, grand_cent_sal)
+```
+
+We can visualized the resulting `grand_cent_sal` data series using `ggplot()`.
+
+```{r warning=FALSE}
+ggplot(nfl, aes(x = (grand_cent_sal) / 1000000)) + 
+  geom_histogram(alpha = 0.8) +
+  geom_segment(x = 0, xend = 0, y = 0, yend = 875, linetype = 'dashed', color = 'red', ) + 
+  annotate(geom = 'text', x = 0, y = 975, label = str_wrap("NFL Average: $2,142,272", 12), 
+           color = 'red', fontface = 'bold') + 
+  scale_x_continuous(breaks = seq(-5, 18.5, 2.5), labels = scales::dollar_format(accuracy = 0.1)) + 
+  scale_y_continuous(breaks = seq(0, 1000, 250), limits = c(0, 1000), labels = scales::comma_format()) + 
+  labs(title = "Player Salaries: Amount Below or Above Average", 
+       x = "Distance from NFL Mean Salary (millions)", 
+       y = "Number of Players") 
+```
+
+### Group Mean Centering
+
+Now let's assume that it actually might be more informative to compare players' salaries to those of other players *on the same team*. In this case, we want to group our data by team before calculating our centered salary variable. This is called group mean centering.
+
+```{r}
+nfl <- nfl %>% 
+  group_by(Team) %>%
+  mutate(group_cent_sal = (Salary - mean(Salary,  na.rm =  TRUE)), 
+         team_average_salary = mean(Salary, na.rm = TRUE)) 
+
+nfl %>% select(Team, Salary, group_cent_sal, team_average_salary) %>% head()
+```
+
+```{r warning=FALSE, fig.width=7, fig.height=5, out.width = "7in", out.height = "5in"}
+# choose some teams to plot
+teams <- sample(unique(nfl$Team), 9)
+
+# get the average salary for each team 
+team_average_sal_df <- nfl %>%
+  filter(Team %in% teams) %>%
+  group_by(Team) %>%
+  summarize(team_avg_sal = mean(Salary, na.rm = T))
+
+ggplot(nfl %>% filter(Team %in% teams), 
+       aes(x = (group_cent_sal) / 1000000)) + 
+  geom_histogram(alpha = 0.8) +
+  facet_wrap(~ Team) + 
+  geom_segment(x = 0, xend = 0, y = 0, yend = 30, linetype = 'dashed', color = 'red', ) +
+  geom_text(data = team_average_sal_df, aes(x = 0, y = 32, label = scales::dollar(team_avg_sal)), 
+            color = 'red', size = 3, 
+            fontface = 'bold', inherit.aes = F) + 
+  scale_x_continuous(breaks = seq(-6, 18.5, 3), limits = c(-3, 18), 
+                     labels = scales::dollar_format(accuracy = 1)) +
+  scale_y_continuous(breaks = seq(0, 30, 10), limits = c(0, 35)) +
+  labs(title = "Player Salaries: Amount Below or Above Team Average", 
+       x = "Distance from Team Average Salary (millions)", 
+       y = "Number of Players") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
