@@ -4,16 +4,16 @@ project:
 book:
   title: "Handouts for S022 (Data Science in Education)"
   author: "Luke Miratrix (with some others for some parts)"
-  date: "4/19/2023"
+  date: "2/07/2025"
   chapters:
     - index.qmd
     - self_assess.qmd
     - assignment_guidelines.qmd
     - self_grading.qmd
-    - resources_on_learning_R.qmd
     - part: "Getting Started"
       chapters:
       - getting_started.qmd
+      - resources_on_learning_R.qmd
       - style_guide.qmd
     - part: "On markdown"
       chapters:

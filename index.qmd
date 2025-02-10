@@ -20,11 +20,10 @@ We highly recommend using RStudio, which makes using R easier. RStudio is an Int
 
 We will teach R and the associated tools as part of this course. We assume no background knowledge with statistical programming or any other programming.
 
-
 ## The R Mystique
+
 Many people seem to believe that R is particularly technically challenging and difficult to master. This probably stems from its extreme flexibility; it is a fully functional programming language as well as a statistical analysis package. R can do things that many other software packages (I’m looking at you, Stata) essentially can’t. These more involved things are frequently hard to do because they require you to think like a programmer rather than a data analyst. As a result, R is perceived as a "hard" language to use.
 
 However, for straightforward, off-the-shelf analyses, R is arguably easier to learn and use in many ways than programs such as Stata or SAS. This is especially true when R is combined with RStudio for a better programming experience.
 
 Don't believe me? Take S022, have us teach you some R, and find out for yourself.
-
