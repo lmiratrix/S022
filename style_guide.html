@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Luke Miratrix, adapted from Peter Ganong via Avi Feller">
-<meta name="dcterms.date" content="2025-01-28">
+<meta name="dcterms.date" content="2025-02-10">
 
 <title>1&nbsp; An R Code Style Guide (Miratrix version) – Handouts for S022 (Data Science in Education)</title>
 <style>
@@ -288,20 +288,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./group_by_deep_dive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./intro_linear_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./doing_things_over_and_over.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./demo_cluster_boot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
   </div>
 </li>
       </ul>
@@ -318,19 +324,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Predicting_birthweight.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./test_train_and_CV.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interpreting_lasso_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
   </div>
 </li>
       </ul>
@@ -347,19 +353,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interactions_discussion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ipeds_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./predictive_papers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
   </div>
 </li>
       </ul>
@@ -425,7 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 28, 2025</p>
+      <p class="date">February 10, 2025</p>
     </div>
   </div>
   
@@ -464,6 +470,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Use an underscore to separate words within a name.</li>
 <li>Generally, variable names should be nouns and function names should be verbs.</li>
 <li>Ideally, your names should be self-explanatory and your code should be “self-documenting.”</li>
+<li>However, avoid making your variables too long (less than about 15 characters), unless you love typing.</li>
 <li>Avoid using numbers to store versions of a data frame (e.g., <code>df1</code>, <code>df2</code>, <code>df3</code>, …).</li>
 <li>Names for variables, functions, files, etc. should generally consist of complete words.</li>
 <li>Naming is hard. more art than science.</li>
@@ -566,15 +573,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="including-names-when-calling-functions" class="level3" data-number="1.3.4">
 <h3 data-number="1.3.4" class="anchored" data-anchor-id="including-names-when-calling-functions"><span class="header-section-number">1.3.4</span> Including names when calling functions</h3>
 <p>A function typically takes several arguments, namely the <strong>data</strong> to compute on and further arguments giving the <strong>details</strong> of the desired computation.</p>
-<p>Omit names of common arguments (e.g.&nbsp;<code>data</code>, <code>aes</code>).</p>
+<p>Omit names of common arguments (e.g.&nbsp;<code>data</code>, <code>aes</code>). However you can include these to make your code more readable to others.</p>
 <p>If you override the default value of an argument, use the full name:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, , <span class="cn">FALSE</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(, <span class="cn">TRUE</span>, <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cn">NA</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Also Good</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, , <span class="cn">FALSE</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(, <span class="cn">TRUE</span>, <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cn">NA</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="no-line-of-code-should-be-longer-than-80-characters" class="level3" data-number="1.3.5">
@@ -642,13 +652,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="comments-are-good" class="level3" data-number="1.3.8">
 <h3 data-number="1.3.8" class="anchored" data-anchor-id="comments-are-good"><span class="header-section-number">1.3.8</span> Comments are good</h3>
-<p>Comments can really help with code, and help a reader assess if the code is achiving the desired effect. Comments should give the purpose of the code, not just restate the code in English.</p>
+<p>Comments can really help with code, and help a reader assess if the code is achieving the desired effect. Comments should give the purpose of the code, not just restate the code in English.</p>
 <p>That said, commends can be dangerous because if you change your code without changing the comments, you can cause confusion. This happens a lot, potentially making comments a source of confusion rather than clarity.</p>
 </section>
 </section>
 <section id="pipes-with-magrittr" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="pipes-with-magrittr"><span class="header-section-number">1.4</span> Pipes (<code>%&gt;%</code>) with <code>magrittr</code></h2>
-<p>Use <code>%&gt;%</code> (or <code>|&gt;</code>, if you are modern) to emphasise a sequence of actions, rather than the object that the actions are being performed on.</p>
+<p>Use <code>%&gt;%</code> (or <code>|&gt;</code>, if you are modern) to emphasize a sequence of actions, rather than the object that the actions are being performed on.</p>
 <p>Avoid using the pipe when:</p>
 <ul>
 <li><p>You need to manipulate more than one object at a time. Reserve pipes for a sequence of steps applied to one primary object.</p></li>
@@ -748,6 +758,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Style is awesome. Save a future researcher from spending months trying to disentangle your spaghetti!</li>
 <li>You don’t need to memorize these rules! Just as you have spell check and grammarly on your computer for prose, there is a package <code>styler</code> to help you follow the code style guide.</li>
 <li>Just as you still need to learn to spell (since spell checker doesn’t capture everything), you need to learn these rules as well.</li>
+<li>If you get tired of rules and typing, try using the [Tidyverse’s `styler` package](<a href="https://www.tidyverse.org/blog/2017/12/styler-1.0.0/" class="uri">https://www.tidyverse.org/blog/2017/12/styler-1.0.0/</a>). The package links to the “Addins” widget in RStudio and is a fast way to clean up your code according to Tidyverse conventions.</li>
 </ul>
 <p>In closing:</p>
 <blockquote class="blockquote">
