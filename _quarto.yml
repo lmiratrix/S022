@@ -25,6 +25,7 @@ book:
       chapters:
       - intro_ggplot.qmd
       - simple_plotting_tips.qmd
+      - tennessee_star_plots.qmd
       - double_plot.qmd
       - hist_and_bar_with_aggregated_data.qmd
       - heatmap_jitter_alpha.qmd
