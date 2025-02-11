@@ -1,6 +1,6 @@
 ---
 title: "Tennessee Star Handout"
-author: "Sanjana Bhaskar (Updated from materials created by Diana Feng, Emma Klugman and Jonathan Seiden)"
+author: "Sanjana Bhaskar, Diana Feng, Emma Klugman, and Jonathan Seiden"
 format:
   html: default
 editor: 
@@ -8,16 +8,15 @@ editor:
     wrap: sentence
 ---
 
-This handout demonstrates a step-by-step worked example of creating a publication-ready plot, along with improvements and stylistic enhancements. Additionally, you will find detailed explanations and use cases for several useful functions, such as grid.arrange(), annotate(), and geom_text(), to help you refine your visualizations effectively.
-
+This handout demonstrates a step-by-step worked example of creating a publication-ready plot, along with improvements and stylistic enhancements.
+Additionally, you will find detailed explanations and use cases for several useful functions, such as `grid.arrange()`, `annotate()`, and `geom_text()`, to help you refine your visualizations effectively.
 
 ```{r setup, output = FALSE}
 # Load in required libraries
 library(tidyverse) #this automatically loads ggplot2
 
-#Note: you will likely need to install these packages to load Ecdat
-#install.packages("TeachingDemos")
-#install.packages("Ecfun")
+# Note: you will likely need to install the Ecdat package to load the
+# data we use via:
 #install.packages("Ecdat")
 library(Ecdat)
 
@@ -26,20 +25,34 @@ library(gridExtra)  # Required for using grid.arrange()
 
 ## Re-creating the Tennessee STAR Boxplot
 
-We will revisit the Tennessee Star dataset, and recreate the boxplot we covered during the lecture on plotting. We will start with a simple boxplot and work our way up to the final visualization.
+This handout provides the solution to the in-class plotting exercise where we recreated a plot o the Tennesse Star dataset.
+In this handout we start with a simple boxplot and work our way up to the final visualization.
+When then look at some extensions.
 
-In this plot, we want to visualize reading test scores (`treadssk`) by the type of classroom randomly assigned (`classk`) along with variables showing whether the student was eligible for free or reduced price lunch in kindergarten (`freelunk`) and race (`race`).
+In our target plot, we want to visualize reading test scores (`treadssk`) by the type of classroom randomly assigned (`classk`) along with variables showing whether the student was eligible for free or reduced price lunch in kindergarten (`freelunk`) and race (`race`).
+The plot we are trying to mimic looks like this:
 
-![](images/tennessee_star_boxplot.png)
+![The target plot we are trying to recreate](image/tennessee_star_boxplot.png)
 
 It's useful to start small, and then build up iteratively to more complex plots.
-Start with a simple `geom_boxplot` of test scores, and then gradually make it more complex to try and emulate the original. Some manipulations are easier done in the `ggplot` itself, whereas other things might be easier if you manipulate the data *before* you give it to ggplot.
+Start with a simple `geom_boxplot` of test scores, and then gradually make it more complex to try and emulate the original.
+Some manipulations are easier done in the `ggplot` itself, whereas other things might be easier if you manipulate the data *before* you give it to ggplot.
 
 Let's start by a single boxplot that separate students only by class sizes:
+```{r}
+star <- Ecdat::Star
+star %>%
+  ggplot(aes(x = classk, y = treadssk)) +
+  geom_boxplot(varwidth = TRUE) 
+```
+
+If we want to change the labels of each group, we can convert our `classk` to a factor.  The order of the levels will determine the order of the boxes in the plot.
+Also, the boxes are vertical instead of horizontal, as in the example.  We can fix this with `coord_flip()`.
+Here we go:
+
 
 ```{r}
 # some pre-processing to make the class sizes a proper factor
-star <- Ecdat::Star
 star <- mutate(star, classk = factor(classk,
                                      levels = c("small.class",
                                                 "regular.with.aide",
@@ -58,18 +71,10 @@ star %>%
   # fewer data points** will have narrower boxplots.
   # If varwidth = FALSE (default), all boxplots have the 
   # same width regardless of sample size.
-  geom_boxplot(varwidth = TRUE) 
-```
-
-OK, we see that the boxes are vertical instead of horizontal, as in the example.
-Let's fix that:
-
-```{r}
-star %>%
-  ggplot(aes(x = classk, y = treadssk)) +
   geom_boxplot(varwidth = TRUE) +
   coord_flip() # Flip axes for better readability
 ```
+
 
 Now let's add in just free lunch as an additional categorical variable.
 
@@ -104,7 +109,9 @@ star %>%
 
 It looks almost there right now.
 But `facet_wrap` seems to create six completely separate panels.
-Let's try `facet_grid` instead (*think*: if our goal is simply to create a "good" plot instead of replicating an existing one, is `facet_wrap` or `facet_grid` the better choice here? Why?).
+Let's try `facet_grid` instead.
+
+*Side note*: if our goal is simply to create a "good" plot instead of replicating an existing one, is `facet_wrap` or `facet_grid` the better choice here? Why?.
 
 ```{r}
 star %>%
@@ -128,10 +135,12 @@ star %>%
        x = "Class Size Condition")
 ```
 
-In this iterative process, we managed to build a clean (i.e., little chart junk) and accessible (e.g., relatively low cognitive load to process, friendly to people with color vision deficiencies) plot to represent the data.
-Viewers are able to see that (visually, as we haven't done any statistical tests yet) class size seems to impact (*think*: why can we use causative language here?) reading test scores differently based on students' race and family income.
+In this iterative process, we managed to build a clean (i.e., not much chart junk) and accessible (e.g., relatively low cognitive load to process, friendly to people with color vision deficiencies) plot to represent the data.
+Viewers are able to see that (visually, as we haven't done any statistical tests yet) class size appears to impact reading test scores differently for students with different races and family incomes.
 
-### Recreating the boxplot without manipulating the original dataset
+### (Optional) Recreating the boxplot without manipulating the original dataset
+
+We can label things on the fly rather than making the factors in our dataset different, like so:
 
 ```{r}
 # Loading the Tennessee Star dataset in a new data frame
@@ -162,9 +171,13 @@ ggplot(data=star_new, aes(x=treadssk, y=classk)) +
   theme(axis.text.y = element_text(angle = 45))
 ```
 
-### A quick note on the grid.arrange() function
+Which you do is a matter of coding taste, for the most part.
 
-If we want to place two completely separate plots side by side without faceting, we can use the grid.arrange function. The grid.arrange() function allows you to arrange multiple ggplot2 plots in a grid layout. This is useful when you want to display multiple visualizations side by side in a single output.
+## Bundling plots with grid.arrange()
+
+If we want to place two completely separate plots side by side without faceting, we can use the `grid.arrange()` function.
+`grid.arrange()` allows you to arrange multiple ggplot2 plots in a grid layout.
+This is useful when you want to display multiple visualizations side by side in a single output.
 
 **How is grid.arrange() different from faceting?**
 
@@ -175,7 +188,7 @@ If we want to place two completely separate plots side by side without faceting,
 
 The code chunk below demonstrates use of this function.
 
-```{r}
+```{r, fig.height = 2.5}
 # Let's go back to the Tennessee Star dataset, 
 # and create two boxplots, one between reading test scores 
 # and free lunch eligibility, and the second between 
@@ -187,7 +200,7 @@ plot_1 <- star %>%
   geom_boxplot() +
   theme_minimal() + 
    labs( #Adding some labels here for x-axis, y-axis and the plot title
-    title = " Free Lunch Eligibility vs. Reading Test Scores",
+    title = " Free Lunch Eligibility vs.\n   Reading Test Scores",
     x = "Reading Test Scores",
     y = "Free Lunch Eligibility"
   )
@@ -198,7 +211,7 @@ plot_2 <- star %>%
   geom_boxplot() + 
   theme_classic() + 
   labs( #Adding some labels here for x-axis, y-axis and the plot title
-    title = "Sex vs. Reading Test Scores",
+    title = "Sex vs.\n  Reading Test Scores",
     x = "Reading Test Scores",
     y = "Sex"
   ) + # Below, we use the scale_y_discrete function to rename labels on y-axis
@@ -206,18 +219,21 @@ plot_2 <- star %>%
   scale_y_discrete(labels = c("boy" = "Boy", "girl" = "Girl")) 
 
 
-# Using grid.arrange(), we arrange plot_1 and plot_2 in a single column with two rows
-grid.arrange(plot_1, plot_2, ncol = 1, nrow = 2)
+# Using grid.arrange(), we arrange plot_1 and plot_2 in a single row
+# with two columns
+grid.arrange(plot_1, plot_2, ncol = 2, nrow = 1)
 
 ```
 
 ## Improvements on the Tennessee STAR Boxplot
 
-### What if we want to add a different color for the small class sizes to hightlight the distributions in that category? 
+### What if we want to add a different color for the small class sizes to hightlight the distributions in that category?
 
-Consider replicating the graph below. You may find the [documentation page](https://ggplot2.tidyverse.org/reference/scale_manual.html) for `scale_manual` helpful. For a list of color names, this [link](https://r-charts.com/colors/) will be handy.\
+You can set colors quite easily.
+You may find the [documentation page](https://ggplot2.tidyverse.org/reference/scale_manual.html) for `scale_manual` helpful.
+For a list of color names, this [link](https://r-charts.com/colors/) will be handy.
+Here is a demonstration:
 
-![](images/tennessee_star_boxplot_color.png)
 
 ```{r}
 star %>%
@@ -236,11 +252,10 @@ star %>%
   scale_color_manual(values=c("orange","gray", "gray")) 
 ```
 
-### What if we want to annotate all the boxplots corresponding to the the small class size category? 
+### What if we want to annotate all the boxplots corresponding to the the small class size category?
 
-Consider replicating the graph below. You may find the [documentation page](https://ggplot2.tidyverse.org/reference/annotate.html) for `annotate` helpful.
-
-![](images/tennessee_star_boxplot_annotate.png)
+You can also annotate your plot.
+You may find the [documentation page](https://ggplot2.tidyverse.org/reference/annotate.html) for `annotate` helpful.
 
 ```{r}
 star %>%
@@ -262,23 +277,22 @@ star %>%
 The annotate() function is used to **add custom shapes or text** to a ggplot.
 Here, "rect" (rectangle) is used to **highlight** a specific region in the plot.
 
-- **xmin = 0.65, xmax = 1.35**: classk is a **factor**, so ggplot assigns it numeric positions (e.g., 1 = small class, 2 = regular with aide, 3 = regular).
-The values 0.65 and 1.35 **define the "height" of the rectangle**, but because of `coord_flip()`, this actually affects the **y-axis** instead of the x-axis.
+-   **xmin = 0.65, xmax = 1.35**: classk is a **factor**, so ggplot assigns it numeric positions (e.g., 1 = small class, 2 = regular with aide, 3 = regular).
+    The values 0.65 and 1.35 **define the "height" of the rectangle**, but because of `coord_flip()`, this actually affects the **y-axis** instead of the x-axis.
 
-- **ymin = 300, ymax = 700**: Defines the **horizontal** range of the rectangle (test scores from 300 to 700), since `coord_flip()` swaps the x- and y-axes.
+-   **ymin = 300, ymax = 700**: Defines the **horizontal** range of the rectangle (test scores from 300 to 700), since `coord_flip()` swaps the x- and y-axes.
 
-- **If `coord_flip()` was not used** and we instead used x = treadssk, y = classk in the ggplot aesthetics, we would need to swap `xmin` with `ymin` and `xmax` with `ymax`: `xmin = 300, xmax = 700` (test scores would be on the x-axis) and `ymin = 0.65, ymax = 1.35` (class size categories would be on the y-axis). This is because, without `coord_flip()`, the **x-axis stays horizontal and the y-axis stays vertical**. 
+-   **If `coord_flip()` was not used** and we instead used x = treadssk, y = classk in the ggplot aesthetics, we would need to swap `xmin` with `ymin` and `xmax` with `ymax`: `xmin = 300, xmax = 700` (test scores would be on the x-axis) and `ymin = 0.65, ymax = 1.35` (class size categories would be on the y-axis).
+    This is because, without `coord_flip()`, the **x-axis stays horizontal and the y-axis stays vertical**.
 
-- **alpha = 0.2**: This controls transparency (0 = fully transparent, 1 = fully opaque). A value of 0.2 makes the rectangle **semi-transparent**, so the data underneath is still visible.
+-   **alpha = 0.2**: This controls transparency (0 = fully transparent, 1 = fully opaque).
+    A value of 0.2 makes the rectangle **semi-transparent**, so the data underneath is still visible.
 
-- **fill = "red"**: The rectangle is filled with red, drawing attention to the selected region.
+-   **fill = "red"**: The rectangle is filled with red, drawing attention to the selected region.
 
-## Additional Challenge: Adding text to the annotated Tennessee Star Boxplot
+## What about adding text to the annotated Tennessee Star Boxplot?
 
-In this exercise, we will try to add some text to the annotated plot above.
-The goal is to recreate the figure below.
-
-![](images/tennessee_star_boxplot_annotate_text.png)
+We next demonstrate adding some text to the annotated plot above. In particular we add the useful eye catching "Here!" in red.
 
 ```{r}
 p <- star %>%
@@ -317,3 +331,5 @@ text <- data.frame(
 p + geom_text(data = text,label = "Here!", col="red", size=6)
 
 ```
+
+Voila!
