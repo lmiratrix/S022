@@ -8,7 +8,7 @@
 
 <meta name="author" content="Zach Himmelsbach">
 
-<title>9&nbsp; Plotting aggregate data with ggPlot – Handouts for S022 (Data Science in Education)</title>
+<title>12&nbsp; Plotting aggregate data with ggPlot – Handouts for S022 (Data Science in Education)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro_ggplot.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./hist_and_bar_with_aggregated_data.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro_ggplot.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./hist_and_bar_with_aggregated_data.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -177,13 +177,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./getting_started.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Getting Started with R</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources_on_learning_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Resources on Learning R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./style_guide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">An R Code Style Guide (Miratrix version)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">An R Code Style Guide (Miratrix version)</span></span></a>
   </div>
 </li>
       </ul>
@@ -200,25 +206,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_markdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro to R Markdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Intro to R Markdown</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Creating Reports in Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Creating Reports in Quarto</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./code_chunks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Working with Rmarkdown chunks</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Working with Rmarkdown chunks</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./making_tables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Making tables in Markdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Making tables in Markdown</span></span></a>
   </div>
 </li>
       </ul>
@@ -235,31 +241,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_ggplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Intro to <code>ggplot</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Intro to <code>ggplot</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./simple_plotting_tips.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">chunk_output_type: console</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Some tips for making plots</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tennessee_star_plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Tennessee Star Handout</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./double_plot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Plotting Two Datasets at Once</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Plotting Two Datasets at Once</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hist_and_bar_with_aggregated_data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./heatmap_jitter_alpha.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span></a>
   </div>
 </li>
       </ul>
@@ -276,31 +288,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./manipulation_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Data Manipulation (tidyverse)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./group_by_deep_dive.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_linear_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./doing_things_over_and_over.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./demo_cluster_boot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
   </div>
 </li>
       </ul>
@@ -317,19 +329,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Predicting_birthweight.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./test_train_and_CV.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interpreting_lasso_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
   </div>
 </li>
       </ul>
@@ -346,19 +358,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interactions_discussion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ipeds_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./predictive_papers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
   </div>
 </li>
       </ul>
@@ -373,11 +385,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface"><span class="header-section-number">9.0.1</span> Preface</a></li>
-  <li><a href="#the-situation" id="toc-the-situation" class="nav-link" data-scroll-target="#the-situation"><span class="header-section-number">10</span> The Situation</a>
+  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface"><span class="header-section-number">12.0.1</span> Preface</a></li>
+  <li><a href="#the-situation" id="toc-the-situation" class="nav-link" data-scroll-target="#the-situation"><span class="header-section-number">13</span> The Situation</a>
   <ul class="collapse">
-  <li><a href="#categorical-data-and-bar-charts" id="toc-categorical-data-and-bar-charts" class="nav-link" data-scroll-target="#categorical-data-and-bar-charts"><span class="header-section-number">10.1</span> Categorical data and bar charts</a></li>
-  <li><a href="#a-closing-thought" id="toc-a-closing-thought" class="nav-link" data-scroll-target="#a-closing-thought"><span class="header-section-number">10.2</span> A Closing Thought</a></li>
+  <li><a href="#categorical-data-and-bar-charts" id="toc-categorical-data-and-bar-charts" class="nav-link" data-scroll-target="#categorical-data-and-bar-charts"><span class="header-section-number">13.1</span> Categorical data and bar charts</a></li>
+  <li><a href="#a-closing-thought" id="toc-a-closing-thought" class="nav-link" data-scroll-target="#a-closing-thought"><span class="header-section-number">13.2</span> A Closing Thought</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -385,9 +397,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro_ggplot.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./hist_and_bar_with_aggregated_data.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro_ggplot.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./hist_and_bar_with_aggregated_data.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></h1>
 </div>
 
 
@@ -411,16 +423,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>This handout demonstrates how to create histograms with ggplot when the data have already been aggregated or tallied.</p>
-<section id="preface" class="level3" data-number="9.0.1">
-<h3 data-number="9.0.1" class="anchored" data-anchor-id="preface"><span class="header-section-number">9.0.1</span> Preface</h3>
+<section id="preface" class="level3" data-number="12.0.1">
+<h3 data-number="12.0.1" class="anchored" data-anchor-id="preface"><span class="header-section-number">12.0.1</span> Preface</h3>
 <p>Before we get started, let’s load the packages we’ll need.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="the-situation" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> The Situation</h1>
+<section id="the-situation" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> The Situation</h1>
 <p>Typically, we create histograms from individual data points. Suppose we have data on students. The data include a student ID number, a course identifier, the grade the student got in the course, and their final exam score (out of 100 points). Here’s some example data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>num_students <span class="ot">&lt;-</span> <span class="dv">200</span></span>
@@ -453,20 +465,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>exam_agg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 32 × 2
+<pre><code># A tibble: 36 × 2
    exam_score     n
         &lt;int&gt; &lt;int&gt;
- 1         65     1
- 2         67     1
- 3         68     4
- 4         69     5
- 5         70     5
- 6         71     8
- 7         72     3
- 8         73     9
- 9         74    10
-10         75     5
-# ℹ 22 more rows</code></pre>
+ 1         57     1
+ 2         62     1
+ 3         63     2
+ 4         64     1
+ 5         65     2
+ 6         66     1
+ 7         67     5
+ 8         68     4
+ 9         69     3
+10         70     5
+# ℹ 26 more rows</code></pre>
 </div>
 </div>
 <p>The dataset <code>exam_agg</code> contains only two variables: the exam score and the number of students who received that score. Sometimes, this is the way we receive data. How can we make a histogram out of this? Let’s try it the old way:</p>
@@ -497,8 +509,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We’ve switched from <code>geom_histogram()</code> to <code>geom_bar()</code>. This allows us to specify a separate variable for the y-axis. Inside the <code>geom_bar()</code> call, we need to specify that <code>stat='identity'</code>. This tells ggplot that it should just use the raw value of the y-variable we gave it. If we don’t make this explicit, R doesn’t know what to do with the second variable.</p>
-<section id="categorical-data-and-bar-charts" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="categorical-data-and-bar-charts"><span class="header-section-number">10.1</span> Categorical data and bar charts</h2>
+<section id="categorical-data-and-bar-charts" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="categorical-data-and-bar-charts"><span class="header-section-number">13.1</span> Categorical data and bar charts</h2>
 <p>We can do the same thing with a categorical variable, course grades. First we’ll plot using the raw data, and then we’ll switch to the aggregated version. For the aggregated case, we’ll again rely on the <code>stat</code> argument of the <code>geom_bar()</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot from raw data</span></span>
@@ -530,8 +542,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Looks exactly the same! (Except for the y-axis label.)</p>
 </section>
-<section id="a-closing-thought" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="a-closing-thought"><span class="header-section-number">10.2</span> A Closing Thought</h2>
+<section id="a-closing-thought" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="a-closing-thought"><span class="header-section-number">13.2</span> A Closing Thought</h2>
 <p>Sometimes the data we get have already been aggregated. In this case, we might still want to visualize distributions of the variables that have been grouped. The above guide introduces the <code>stat</code> argument of <code>geom_bar()</code> as a way to get this done.</p>
 
 
@@ -962,12 +974,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./double_plot.html" class="pagination-link" aria-label="Plotting Two Datasets at Once">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Plotting Two Datasets at Once</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Plotting Two Datasets at Once</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./heatmap_jitter_alpha.html" class="pagination-link" aria-label="Jitter and heatmap examples">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

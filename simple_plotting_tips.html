@@ -8,7 +8,7 @@
 
 <meta name="author" content="Luke Miratrix">
 
-<title>7&nbsp; Some tips for making plots – Handouts for S022 (Data Science in Education)</title>
+<title>9&nbsp; Some tips for making plots – Handouts for S022 (Data Science in Education)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./double_plot.html" rel="next">
+<link href="./tennessee_star_plots.html" rel="next">
 <link href="./intro_ggplot.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro_ggplot.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./simple_plotting_tips.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Some tips for making plots</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro_ggplot.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./simple_plotting_tips.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Some tips for making plots</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,12 +165,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Self Grading Instructions</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./resources_on_learning_R.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Resources on Learning R</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -183,13 +177,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./getting_started.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Getting Started with R</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources_on_learning_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Resources on Learning R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./style_guide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">An R Code Style Guide (Miratrix version)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">An R Code Style Guide (Miratrix version)</span></span></a>
   </div>
 </li>
       </ul>
@@ -206,25 +206,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_markdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro to R Markdown #{sec-intro-markdown}</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Intro to R Markdown</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Creating Reports in Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Creating Reports in Quarto</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./code_chunks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Working with Rmarkdown chunks</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Working with Rmarkdown chunks</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./making_tables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Making tables in Markdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Making tables in Markdown</span></span></a>
   </div>
 </li>
       </ul>
@@ -241,31 +241,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_ggplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Intro to <code>ggplot</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Intro to <code>ggplot</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./simple_plotting_tips.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Some tips for making plots</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Some tips for making plots</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tennessee_star_plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Tennessee Star Handout</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./double_plot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Plotting Two Datasets at Once</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Plotting Two Datasets at Once</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hist_and_bar_with_aggregated_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./heatmap_jitter_alpha.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span></a>
   </div>
 </li>
       </ul>
@@ -282,31 +288,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./manipulation_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./group_by_deep_dive.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_linear_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./doing_things_over_and_over.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./demo_cluster_boot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
   </div>
 </li>
       </ul>
@@ -323,19 +329,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Predicting_birthweight.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./test_train_and_CV.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interpreting_lasso_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
   </div>
 </li>
       </ul>
@@ -352,19 +358,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interactions_discussion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ipeds_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./predictive_papers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
   </div>
 </li>
       </ul>
@@ -379,25 +385,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#setting-a-theme" id="toc-setting-a-theme" class="nav-link active" data-scroll-target="#setting-a-theme"><span class="header-section-number">8</span> Setting a theme</a></li>
-  <li><a href="#formatting-axes-and-making-labels" id="toc-formatting-axes-and-making-labels" class="nav-link" data-scroll-target="#formatting-axes-and-making-labels"><span class="header-section-number">9</span> Formatting axes and making labels</a></li>
-  <li><a href="#making-legends-using-aes" id="toc-making-legends-using-aes" class="nav-link" data-scroll-target="#making-legends-using-aes"><span class="header-section-number">10</span> Making legends using aes()</a></li>
-  <li><a href="#cropping-vs.-zooming-in" id="toc-cropping-vs.-zooming-in" class="nav-link" data-scroll-target="#cropping-vs.-zooming-in"><span class="header-section-number">11</span> Cropping vs.&nbsp;zooming in</a></li>
-  <li><a href="#controlling-size-in-markdown-files" id="toc-controlling-size-in-markdown-files" class="nav-link" data-scroll-target="#controlling-size-in-markdown-files"><span class="header-section-number">12</span> Controlling size in markdown files</a></li>
-  <li><a href="#making-the-fonts-of-labels-etc.-larger" id="toc-making-the-fonts-of-labels-etc.-larger" class="nav-link" data-scroll-target="#making-the-fonts-of-labels-etc.-larger"><span class="header-section-number">13</span> Making the fonts of labels, etc., larger</a></li>
-  <li><a href="#saving-high-resolution-plots" id="toc-saving-high-resolution-plots" class="nav-link" data-scroll-target="#saving-high-resolution-plots"><span class="header-section-number">14</span> Saving high resolution plots</a></li>
-  <li><a href="#think-about-the-height-of-a-plot." id="toc-think-about-the-height-of-a-plot." class="nav-link" data-scroll-target="#think-about-the-height-of-a-plot."><span class="header-section-number">15</span> Think about the height of a plot.</a></li>
-  <li><a href="#think-about-the-x-and-y-axis-of-your-plot" id="toc-think-about-the-x-and-y-axis-of-your-plot" class="nav-link" data-scroll-target="#think-about-the-x-and-y-axis-of-your-plot"><span class="header-section-number">16</span> Think about the x and y axis of your plot</a></li>
-  <li><a href="#controlling-colors-etc" id="toc-controlling-colors-etc" class="nav-link" data-scroll-target="#controlling-colors-etc"><span class="header-section-number">17</span> Controlling colors, etc</a></li>
+  <li><a href="#setting-a-theme" id="toc-setting-a-theme" class="nav-link active" data-scroll-target="#setting-a-theme"><span class="header-section-number">10</span> Setting a theme</a></li>
+  <li><a href="#formatting-axes-and-making-labels" id="toc-formatting-axes-and-making-labels" class="nav-link" data-scroll-target="#formatting-axes-and-making-labels"><span class="header-section-number">11</span> Formatting axes and making labels</a></li>
+  <li><a href="#making-legends-using-aes" id="toc-making-legends-using-aes" class="nav-link" data-scroll-target="#making-legends-using-aes"><span class="header-section-number">12</span> Making legends using aes()</a></li>
+  <li><a href="#cropping-vs.-zooming-in" id="toc-cropping-vs.-zooming-in" class="nav-link" data-scroll-target="#cropping-vs.-zooming-in"><span class="header-section-number">13</span> Cropping vs.&nbsp;zooming in</a></li>
+  <li><a href="#controlling-size-in-markdown-files" id="toc-controlling-size-in-markdown-files" class="nav-link" data-scroll-target="#controlling-size-in-markdown-files"><span class="header-section-number">14</span> Controlling size in markdown files</a></li>
+  <li><a href="#making-the-fonts-of-labels-etc.-larger" id="toc-making-the-fonts-of-labels-etc.-larger" class="nav-link" data-scroll-target="#making-the-fonts-of-labels-etc.-larger"><span class="header-section-number">15</span> Making the fonts of labels, etc., larger</a></li>
+  <li><a href="#saving-high-resolution-plots" id="toc-saving-high-resolution-plots" class="nav-link" data-scroll-target="#saving-high-resolution-plots"><span class="header-section-number">16</span> Saving high resolution plots</a></li>
+  <li><a href="#think-about-the-height-of-a-plot." id="toc-think-about-the-height-of-a-plot." class="nav-link" data-scroll-target="#think-about-the-height-of-a-plot."><span class="header-section-number">17</span> Think about the height of a plot.</a></li>
+  <li><a href="#think-about-the-x-and-y-axis-of-your-plot" id="toc-think-about-the-x-and-y-axis-of-your-plot" class="nav-link" data-scroll-target="#think-about-the-x-and-y-axis-of-your-plot"><span class="header-section-number">18</span> Think about the x and y axis of your plot</a></li>
+  <li><a href="#controlling-colors-etc" id="toc-controlling-colors-etc" class="nav-link" data-scroll-target="#controlling-colors-etc"><span class="header-section-number">19</span> Controlling colors, etc</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro_ggplot.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./simple_plotting_tips.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Some tips for making plots</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro_ggplot.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./simple_plotting_tips.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Some tips for making plots</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Some tips for making plots</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Some tips for making plots</span></h1>
 </div>
 
 
@@ -421,8 +427,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>This document provides several simple plotting tips for using RStudio to make plots (primarily using the <code>ggplot2</code> package in <code>tidyverse</code>). These are all very simple tricks that can radically enhance the legibility of a plot. This document also covers how to save your plots so you can use them in presentations and other documents, and how to control the size of your plot in a R Markdown document.</p>
-<section id="setting-a-theme" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Setting a theme</h1>
+<section id="setting-a-theme" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Setting a theme</h1>
 <p>Themes in ggplot give you a bunch of default options for plotting. For example, you can get rid of the grey background of plots with the <code>theme_minimal()</code> command.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>airquality<span class="sc">$</span>day_cntr <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(airquality)</span>
@@ -464,8 +470,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>( <span class="fu">theme_minimal</span>() )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="formatting-axes-and-making-labels" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> Formatting axes and making labels</h1>
+<section id="formatting-axes-and-making-labels" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Formatting axes and making labels</h1>
 <p>The <code>labs()</code> command is critical for getting labels for your plot. The <code>scale_x_continuous()</code> (or y) allow you to control the scales on each axis. Also, there is a nice package, <code>scales</code> that will format your x and y-axes. Witness!</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>( scales ) <span class="co"># for label_dollar(), below</span></span>
@@ -487,8 +493,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="making-legends-using-aes" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> Making legends using aes()</h1>
+<section id="making-legends-using-aes" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Making legends using aes()</h1>
 <p>If you are making a bunch of lines and want to color them, you can do so by giving them all names and then letting R pick the colors for you. This also lets you have a nice legend telling you which color is which. Also note how you can put a name for your legend inside <code>labs()</code>. Witness!</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>( scales ) <span class="co"># for label_dollar(), below</span></span>
@@ -512,8 +518,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="cropping-vs.-zooming-in" class="level1" data-number="11">
-<h1 data-number="11"><span class="header-section-number">11</span> Cropping vs.&nbsp;zooming in</h1>
+<section id="cropping-vs.-zooming-in" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Cropping vs.&nbsp;zooming in</h1>
 <p>If you set the scale of your plot via <code>scale_x_continuous()</code> you will drop data from your analysis. If you use <code>coord_cartesian()</code> you will zoom in on the specified window, but it will be using all the data for smoothers, etc. This can be an important difference:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( sat93, <span class="fu">aes</span>( expend, tot_sat ) ) <span class="sc">+</span></span>
@@ -556,8 +562,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="controlling-size-in-markdown-files" class="level1" data-number="12">
-<h1 data-number="12"><span class="header-section-number">12</span> Controlling size in markdown files</h1>
+<section id="controlling-size-in-markdown-files" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> Controlling size in markdown files</h1>
 <p>You can add <code>fig.height=2, fig.width=7</code> into the header of a chunk. For example, the chunk above had:</p>
 <div class="cell" data-layout-align="center" data-wrapper="true">
 <p>{r,r my_figure, fig.height=2, fig.width=7}</p>
@@ -572,8 +578,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The <code>fig.width</code> controls how big the figure is when plotting. The figure is then rescaled to fit into the area dictated by <code>out.width</code>. The “75%” can be replaced with, e.g., “4in” for 4 inches. The percent is the percent of text width of the page.</p>
 </section>
-<section id="making-the-fonts-of-labels-etc.-larger" class="level1" data-number="13">
-<h1 data-number="13"><span class="header-section-number">13</span> Making the fonts of labels, etc., larger</h1>
+<section id="making-the-fonts-of-labels-etc.-larger" class="level1" data-number="15">
+<h1 data-number="15"><span class="header-section-number">15</span> Making the fonts of labels, etc., larger</h1>
 <p>If you make the figure smaller, the axes labels and line thicknesses and everything get larger, relatively speaking. Compare the following, with the header chunks printed out for clarity:</p>
 <div class="cell" data-layout-align="center" data-wrapper="true">
 <p>{r,r, fig.height=2, fig.width=7, out.width=“100%”, out.height=“100%”}</p>
@@ -614,8 +620,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="saving-high-resolution-plots" class="level1" data-number="14">
-<h1 data-number="14"><span class="header-section-number">14</span> Saving high resolution plots</h1>
+<section id="saving-high-resolution-plots" class="level1" data-number="16">
+<h1 data-number="16"><span class="header-section-number">16</span> Saving high resolution plots</h1>
 <p>There are three ways to export plots from RStudio. You can click on the export button on RStudio. If you say “Copy to Clipboard” you will get a bitmap plot (basically a digital photo of your plot), which will be fuzzy if you blow it up in your report. One way around that is specify a larger width and height in the dialog box before you save. “Save as Image” has the same concern.</p>
 <p>The “Save to PDF” will save a vector image of your plot. Vector images remember the dots and lines used for your plot, and will be crisp if you make them large or small.</p>
 <p>You can also use <code>ggsave</code> as follows:</p>
@@ -628,8 +634,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>I recommend saving to PDF. The image bitmap plots always look a bit lousy.</p>
 <div style="page-break-after: always;"></div>
 </section>
-<section id="think-about-the-height-of-a-plot." class="level1" data-number="15">
-<h1 data-number="15"><span class="header-section-number">15</span> Think about the height of a plot.</h1>
+<section id="think-about-the-height-of-a-plot." class="level1" data-number="17">
+<h1 data-number="17"><span class="header-section-number">17</span> Think about the height of a plot.</h1>
 <p>Very often, making your plot <em>shorter</em> will make it better. Big vertical distance amplifies variation and makes it hard to follow trends.</p>
 <p>Compare</p>
 <div class="cell" data-layout-align="center" data-wrapper="true">
@@ -658,8 +664,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div style="page-break-after: always;"></div>
 </section>
-<section id="think-about-the-x-and-y-axis-of-your-plot" class="level1" data-number="16">
-<h1 data-number="16"><span class="header-section-number">16</span> Think about the x and y axis of your plot</h1>
+<section id="think-about-the-x-and-y-axis-of-your-plot" class="level1" data-number="18">
+<h1 data-number="18"><span class="header-section-number">18</span> Think about the x and y axis of your plot</h1>
 <p>Similarly, swapping the x and y axes of a plot can make labels <em>a lot</em> easier to read.</p>
 <p>Consider the following two plots:</p>
 <div class="cell" data-layout-align="center">
@@ -698,8 +704,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Also notice the rotating of the axes labels. With <code>coord_flip</code> be careful as to what element you are controlling. Usually fiddling around will get it right in no time!</p>
 <p>Note: these data are from the Massachusetts Department of Elementary and Secondary Education, school year 2019-20, for the state.</p>
 </section>
-<section id="controlling-colors-etc" class="level1" data-number="17">
-<h1 data-number="17"><span class="header-section-number">17</span> Controlling colors, etc</h1>
+<section id="controlling-colors-etc" class="level1" data-number="19">
+<h1 data-number="19"><span class="header-section-number">19</span> Controlling colors, etc</h1>
 <p>For this, read the “Graphics for Communication” chapter of R for DS: https://r4ds.had.co.nz/graphics-for-communication.html</p>
 
 
@@ -1129,12 +1135,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./intro_ggplot.html" class="pagination-link" aria-label="Intro to `ggplot`">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Intro to <code>ggplot</code></span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Intro to <code>ggplot</code></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./double_plot.html" class="pagination-link" aria-label="Plotting Two Datasets at Once">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Plotting Two Datasets at Once</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./tennessee_star_plots.html" class="pagination-link" aria-label="Tennessee Star Handout">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Tennessee Star Handout</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

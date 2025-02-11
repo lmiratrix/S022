@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Luke Miratrix, adapted from Peter Ganong via Avi Feller">
-<meta name="dcterms.date" content="2025-02-10">
+<meta name="dcterms.date" content="2025-02-11">
 
-<title>1&nbsp; An R Code Style Guide (Miratrix version) – Handouts for S022 (Data Science in Education)</title>
+<title>3&nbsp; An R Code Style Guide (Miratrix version) – Handouts for S022 (Data Science in Education)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,7 +67,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./intro_markdown.html" rel="next">
-<link href="./getting_started.html" rel="prev">
+<link href="./resources_on_learning_R.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./getting_started.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./style_guide.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">An R Code Style Guide (Miratrix version)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./getting_started.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./style_guide.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">An R Code Style Guide (Miratrix version)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -166,12 +166,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Self Grading Instructions</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./resources_on_learning_R.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Resources on Learning R</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -184,13 +178,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./getting_started.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Getting Started with R</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources_on_learning_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Resources on Learning R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./style_guide.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">An R Code Style Guide (Miratrix version)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">An R Code Style Guide (Miratrix version)</span></span></a>
   </div>
 </li>
       </ul>
@@ -207,25 +207,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_markdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro to R Markdown #{sec-intro-markdown}</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Intro to R Markdown</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Creating Reports in Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Creating Reports in Quarto</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./code_chunks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Working with Rmarkdown chunks</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Working with Rmarkdown chunks</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./making_tables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Making tables in Markdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Making tables in Markdown</span></span></a>
   </div>
 </li>
       </ul>
@@ -242,31 +242,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_ggplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Intro to <code>ggplot</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Intro to <code>ggplot</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./simple_plotting_tips.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Some tips for making plots</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Some tips for making plots</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tennessee_star_plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Tennessee Star Handout</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./double_plot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Plotting Two Datasets at Once</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Plotting Two Datasets at Once</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hist_and_bar_with_aggregated_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Plotting aggregate data with ggPlot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./heatmap_jitter_alpha.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span></a>
   </div>
 </li>
       </ul>
@@ -283,31 +289,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./manipulation_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./group_by_deep_dive.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_linear_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./doing_things_over_and_over.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./demo_cluster_boot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
   </div>
 </li>
       </ul>
@@ -324,19 +330,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Predicting_birthweight.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./test_train_and_CV.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interpreting_lasso_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
   </div>
 </li>
       </ul>
@@ -353,19 +359,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interactions_discussion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ipeds_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./predictive_papers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
   </div>
 </li>
       </ul>
@@ -380,41 +386,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#why-have-coding-style" id="toc-why-have-coding-style" class="nav-link active" data-scroll-target="#why-have-coding-style"><span class="header-section-number">1.1</span> Why have coding style?</a></li>
-  <li><a href="#the-naming-of-things" id="toc-the-naming-of-things" class="nav-link" data-scroll-target="#the-naming-of-things"><span class="header-section-number">1.2</span> The naming of things</a>
+  <li><a href="#why-have-coding-style" id="toc-why-have-coding-style" class="nav-link active" data-scroll-target="#why-have-coding-style"><span class="header-section-number">3.1</span> Why have coding style?</a></li>
+  <li><a href="#the-naming-of-things" id="toc-the-naming-of-things" class="nav-link" data-scroll-target="#the-naming-of-things"><span class="header-section-number">3.2</span> The naming of things</a>
   <ul class="collapse">
-  <li><a href="#dont-use-common-names" id="toc-dont-use-common-names" class="nav-link" data-scroll-target="#dont-use-common-names"><span class="header-section-number">1.2.1</span> Don’t use common names</a></li>
-  <li><a href="#name-constants-for-clarity" id="toc-name-constants-for-clarity" class="nav-link" data-scroll-target="#name-constants-for-clarity"><span class="header-section-number">1.2.2</span> Name constants for clarity</a></li>
+  <li><a href="#dont-use-common-names" id="toc-dont-use-common-names" class="nav-link" data-scroll-target="#dont-use-common-names"><span class="header-section-number">3.2.1</span> Don’t use common names</a></li>
+  <li><a href="#name-constants-for-clarity" id="toc-name-constants-for-clarity" class="nav-link" data-scroll-target="#name-constants-for-clarity"><span class="header-section-number">3.2.2</span> Name constants for clarity</a></li>
   </ul></li>
-  <li><a href="#syntax" id="toc-syntax" class="nav-link" data-scroll-target="#syntax"><span class="header-section-number">1.3</span> Syntax</a>
+  <li><a href="#syntax" id="toc-syntax" class="nav-link" data-scroll-target="#syntax"><span class="header-section-number">3.3</span> Syntax</a>
   <ul class="collapse">
-  <li><a href="#appropriate-spaces-make-code-readable" id="toc-appropriate-spaces-make-code-readable" class="nav-link" data-scroll-target="#appropriate-spaces-make-code-readable"><span class="header-section-number">1.3.1</span> Appropriate spaces make code readable</a></li>
-  <li><a href="#judicious-spaces-group-elements-to-increase-readability" id="toc-judicious-spaces-group-elements-to-increase-readability" class="nav-link" data-scroll-target="#judicious-spaces-group-elements-to-increase-readability"><span class="header-section-number">1.3.2</span> Judicious spaces group elements to increase readability</a></li>
-  <li><a href="#lots-of-spaces-to-line-things-up-is-nice" id="toc-lots-of-spaces-to-line-things-up-is-nice" class="nav-link" data-scroll-target="#lots-of-spaces-to-line-things-up-is-nice"><span class="header-section-number">1.3.3</span> Lots of spaces to line things up is nice</a></li>
-  <li><a href="#including-names-when-calling-functions" id="toc-including-names-when-calling-functions" class="nav-link" data-scroll-target="#including-names-when-calling-functions"><span class="header-section-number">1.3.4</span> Including names when calling functions</a></li>
-  <li><a href="#no-line-of-code-should-be-longer-than-80-characters" id="toc-no-line-of-code-should-be-longer-than-80-characters" class="nav-link" data-scroll-target="#no-line-of-code-should-be-longer-than-80-characters"><span class="header-section-number">1.3.5</span> No line of code should be longer than 80 characters</a></li>
-  <li><a href="#use---for-assignment-if-you-are-prissy" id="toc-use---for-assignment-if-you-are-prissy" class="nav-link" data-scroll-target="#use---for-assignment-if-you-are-prissy"><span class="header-section-number">1.3.6</span> Use <code>&lt;-</code> for assignment (if you are prissy)</a></li>
-  <li><a href="#double-quotes-are-standard" id="toc-double-quotes-are-standard" class="nav-link" data-scroll-target="#double-quotes-are-standard"><span class="header-section-number">1.3.7</span> Double quotes are standard</a></li>
-  <li><a href="#comments-are-good" id="toc-comments-are-good" class="nav-link" data-scroll-target="#comments-are-good"><span class="header-section-number">1.3.8</span> Comments are good</a></li>
+  <li><a href="#appropriate-spaces-make-code-readable" id="toc-appropriate-spaces-make-code-readable" class="nav-link" data-scroll-target="#appropriate-spaces-make-code-readable"><span class="header-section-number">3.3.1</span> Appropriate spaces make code readable</a></li>
+  <li><a href="#judicious-spaces-group-elements-to-increase-readability" id="toc-judicious-spaces-group-elements-to-increase-readability" class="nav-link" data-scroll-target="#judicious-spaces-group-elements-to-increase-readability"><span class="header-section-number">3.3.2</span> Judicious spaces group elements to increase readability</a></li>
+  <li><a href="#lots-of-spaces-to-line-things-up-is-nice" id="toc-lots-of-spaces-to-line-things-up-is-nice" class="nav-link" data-scroll-target="#lots-of-spaces-to-line-things-up-is-nice"><span class="header-section-number">3.3.3</span> Lots of spaces to line things up is nice</a></li>
+  <li><a href="#including-names-when-calling-functions" id="toc-including-names-when-calling-functions" class="nav-link" data-scroll-target="#including-names-when-calling-functions"><span class="header-section-number">3.3.4</span> Including names when calling functions</a></li>
+  <li><a href="#no-line-of-code-should-be-longer-than-80-characters" id="toc-no-line-of-code-should-be-longer-than-80-characters" class="nav-link" data-scroll-target="#no-line-of-code-should-be-longer-than-80-characters"><span class="header-section-number">3.3.5</span> No line of code should be longer than 80 characters</a></li>
+  <li><a href="#use---for-assignment-if-you-are-prissy" id="toc-use---for-assignment-if-you-are-prissy" class="nav-link" data-scroll-target="#use---for-assignment-if-you-are-prissy"><span class="header-section-number">3.3.6</span> Use <code>&lt;-</code> for assignment (if you are prissy)</a></li>
+  <li><a href="#double-quotes-are-standard" id="toc-double-quotes-are-standard" class="nav-link" data-scroll-target="#double-quotes-are-standard"><span class="header-section-number">3.3.7</span> Double quotes are standard</a></li>
+  <li><a href="#comments-are-good" id="toc-comments-are-good" class="nav-link" data-scroll-target="#comments-are-good"><span class="header-section-number">3.3.8</span> Comments are good</a></li>
   </ul></li>
-  <li><a href="#pipes-with-magrittr" id="toc-pipes-with-magrittr" class="nav-link" data-scroll-target="#pipes-with-magrittr"><span class="header-section-number">1.4</span> Pipes (<code>%&gt;%</code>) with <code>magrittr</code></a>
+  <li><a href="#pipes-with-magrittr" id="toc-pipes-with-magrittr" class="nav-link" data-scroll-target="#pipes-with-magrittr"><span class="header-section-number">3.4</span> Pipes (<code>%&gt;%</code>) with <code>magrittr</code></a>
   <ul class="collapse">
-  <li><a href="#surround-the-pipe-with-whitespace" id="toc-surround-the-pipe-with-whitespace" class="nav-link" data-scroll-target="#surround-the-pipe-with-whitespace"><span class="header-section-number">1.4.1</span> Surround the pipe with whitespace</a></li>
-  <li><a href="#formatting-short-pipes" id="toc-formatting-short-pipes" class="nav-link" data-scroll-target="#formatting-short-pipes"><span class="header-section-number">1.4.2</span> Formatting short pipes</a></li>
-  <li><a href="#do-not-pack-pipes-inside-of-other-pipes" id="toc-do-not-pack-pipes-inside-of-other-pipes" class="nav-link" data-scroll-target="#do-not-pack-pipes-inside-of-other-pipes"><span class="header-section-number">1.4.3</span> Do not pack pipes inside of other pipes</a></li>
-  <li><a href="#keep-your-parenthesis-even-if-you-have-no-arguments" id="toc-keep-your-parenthesis-even-if-you-have-no-arguments" class="nav-link" data-scroll-target="#keep-your-parenthesis-even-if-you-have-no-arguments"><span class="header-section-number">1.4.4</span> Keep your parenthesis even if you have no arguments</a></li>
-  <li><a href="#rule-4.6-assignment" id="toc-rule-4.6-assignment" class="nav-link" data-scroll-target="#rule-4.6-assignment"><span class="header-section-number">1.4.5</span> Rule 4.6: Assignment</a></li>
+  <li><a href="#surround-the-pipe-with-whitespace" id="toc-surround-the-pipe-with-whitespace" class="nav-link" data-scroll-target="#surround-the-pipe-with-whitespace"><span class="header-section-number">3.4.1</span> Surround the pipe with whitespace</a></li>
+  <li><a href="#formatting-short-pipes" id="toc-formatting-short-pipes" class="nav-link" data-scroll-target="#formatting-short-pipes"><span class="header-section-number">3.4.2</span> Formatting short pipes</a></li>
+  <li><a href="#do-not-pack-pipes-inside-of-other-pipes" id="toc-do-not-pack-pipes-inside-of-other-pipes" class="nav-link" data-scroll-target="#do-not-pack-pipes-inside-of-other-pipes"><span class="header-section-number">3.4.3</span> Do not pack pipes inside of other pipes</a></li>
+  <li><a href="#keep-your-parenthesis-even-if-you-have-no-arguments" id="toc-keep-your-parenthesis-even-if-you-have-no-arguments" class="nav-link" data-scroll-target="#keep-your-parenthesis-even-if-you-have-no-arguments"><span class="header-section-number">3.4.4</span> Keep your parenthesis even if you have no arguments</a></li>
+  <li><a href="#rule-4.6-assignment" id="toc-rule-4.6-assignment" class="nav-link" data-scroll-target="#rule-4.6-assignment"><span class="header-section-number">3.4.5</span> Rule 4.6: Assignment</a></li>
   </ul></li>
-  <li><a href="#a-few-final-remarks" id="toc-a-few-final-remarks" class="nav-link" data-scroll-target="#a-few-final-remarks"><span class="header-section-number">1.5</span> A few final remarks</a></li>
+  <li><a href="#a-few-final-remarks" id="toc-a-few-final-remarks" class="nav-link" data-scroll-target="#a-few-final-remarks"><span class="header-section-number">3.5</span> A few final remarks</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./getting_started.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./style_guide.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">An R Code Style Guide (Miratrix version)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./getting_started.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./style_guide.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">An R Code Style Guide (Miratrix version)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">An R Code Style Guide (Miratrix version)</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">An R Code Style Guide (Miratrix version)</span></h1>
 </div>
 
 
@@ -431,7 +437,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 10, 2025</p>
+      <p class="date">February 11, 2025</p>
     </div>
   </div>
   
@@ -452,16 +458,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="why-have-coding-style" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="why-have-coding-style"><span class="header-section-number">1.1</span> Why have coding style?</h2>
+<section id="why-have-coding-style" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="why-have-coding-style"><span class="header-section-number">3.1</span> Why have coding style?</h2>
 <p>Many style decisions in coding are arbitrary, so why bother adhering to them? The primary reasons are that good style makes your code more readable, allows you to focus on writing quality code rather than worrying about inconsistencies, and helps you avoid being judged negatively for poor style.</p>
 <p>More importantly, if you write in a clean style, you will be able to read your own code a few weeks later, when you have forgotten what you have been thinking. It also makes it <em>a lot</em> easier for the teaching team to help you understand possible problems in your code.</p>
 <p>In this chapter, I lay out some tips for writing clean code. Much of this was initially taken from the Tidyverse style guide at <a href="http://style.tidyverse.org" class="uri">http://style.tidyverse.org</a>; we are primarily focusing on Chapters 2 and 4. But I will note that I depart substantially from some of their recommendations.</p>
 <p>The cartoon is <a href="https://xkcd.com/">xkcd</a>; read those if you want to be an awesome nerd.</p>
 <p>For further reading about coding practice, also see <a href="https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf">Code and Data for the Social Sciences: A Practitioner’s Guide</a>, Gentzkow and Shapiro. Worth a skim!</p>
 </section>
-<section id="the-naming-of-things" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="the-naming-of-things"><span class="header-section-number">1.2</span> The naming of things</h2>
+<section id="the-naming-of-things" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="the-naming-of-things"><span class="header-section-number">3.2</span> The naming of things</h2>
 <blockquote class="blockquote">
 <p><strong>“There are only two hard things in Computer Science: <a href="https://en.wikipedia.org/wiki/Cache_invalidation">cache invalidation</a> and naming things.”</strong> —Phil Karlton</p>
 </blockquote>
@@ -486,8 +492,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>dayone</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>djm1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="dont-use-common-names" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="dont-use-common-names"><span class="header-section-number">1.2.1</span> Don’t use common names</h3>
+<section id="dont-use-common-names" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="dont-use-common-names"><span class="header-section-number">3.2.1</span> Don’t use common names</h3>
 <p>If R uses a name already, just avoid it.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
@@ -496,8 +502,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="name-constants-for-clarity" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="name-constants-for-clarity"><span class="header-section-number">1.2.2</span> Name constants for clarity</h3>
+<section id="name-constants-for-clarity" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="name-constants-for-clarity"><span class="header-section-number">3.2.2</span> Name constants for clarity</h3>
 <div class="cell" data-mysize="true">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>winsor_upper <span class="ot">&lt;-</span> <span class="fl">0.99</span></span>
@@ -513,10 +519,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="syntax" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="syntax"><span class="header-section-number">1.3</span> Syntax</h2>
-<section id="appropriate-spaces-make-code-readable" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="appropriate-spaces-make-code-readable"><span class="header-section-number">1.3.1</span> Appropriate spaces make code readable</h3>
+<section id="syntax" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="syntax"><span class="header-section-number">3.3</span> Syntax</h2>
+<section id="appropriate-spaces-make-code-readable" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="appropriate-spaces-make-code-readable"><span class="header-section-number">3.3.1</span> Appropriate spaces make code readable</h3>
 <ul>
 <li>Put a space before and after <code>=</code> when naming arguments in function calls.</li>
 <li>Always put a space after a comma, and never before (just like in regular English).</li>
@@ -533,8 +539,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>average <span class="ot">&lt;-</span> <span class="fu">mean</span>(x ,<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="judicious-spaces-group-elements-to-increase-readability" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="judicious-spaces-group-elements-to-increase-readability"><span class="header-section-number">1.3.2</span> Judicious spaces group elements to increase readability</h3>
+<section id="judicious-spaces-group-elements-to-increase-readability" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="judicious-spaces-group-elements-to-increase-readability"><span class="header-section-number">3.3.2</span> Judicious spaces group elements to increase readability</h3>
 <ul>
 <li>Most infix operators (<code>==</code>, <code>+</code>, <code>-</code>, <code>&lt;-</code>, etc.) should be surrounded by spaces.</li>
 <li>The exception are those with relatively <a href="http://stat.ethz.ch/R-manual/R-patched/library/base/html/Syntax.html">high precedence</a>: <code>^</code>, <code>:</code>, <code>::</code>, and <code>:::</code>. (“High precedence” means that these operators are evaluated first, like multiplication goes before addition.)</li>
@@ -553,8 +559,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>base <span class="sc">::</span> get</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="lots-of-spaces-to-line-things-up-is-nice" class="level3" data-number="1.3.3">
-<h3 data-number="1.3.3" class="anchored" data-anchor-id="lots-of-spaces-to-line-things-up-is-nice"><span class="header-section-number">1.3.3</span> Lots of spaces to line things up is nice</h3>
+<section id="lots-of-spaces-to-line-things-up-is-nice" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="lots-of-spaces-to-line-things-up-is-nice"><span class="header-section-number">3.3.3</span> Lots of spaces to line things up is nice</h3>
 <p>Extra spacing (i.e., more than one space in a row) is ok if it improves alignment of equal signs or assignments (&lt;-).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
@@ -570,8 +576,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="including-names-when-calling-functions" class="level3" data-number="1.3.4">
-<h3 data-number="1.3.4" class="anchored" data-anchor-id="including-names-when-calling-functions"><span class="header-section-number">1.3.4</span> Including names when calling functions</h3>
+<section id="including-names-when-calling-functions" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="including-names-when-calling-functions"><span class="header-section-number">3.3.4</span> Including names when calling functions</h3>
 <p>A function typically takes several arguments, namely the <strong>data</strong> to compute on and further arguments giving the <strong>details</strong> of the desired computation.</p>
 <p>Omit names of common arguments (e.g.&nbsp;<code>data</code>, <code>aes</code>). However you can include these to make your code more readable to others.</p>
 <p>If you override the default value of an argument, use the full name:</p>
@@ -587,8 +593,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(, <span class="cn">TRUE</span>, <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cn">NA</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="no-line-of-code-should-be-longer-than-80-characters" class="level3" data-number="1.3.5">
-<h3 data-number="1.3.5" class="anchored" data-anchor-id="no-line-of-code-should-be-longer-than-80-characters"><span class="header-section-number">1.3.5</span> No line of code should be longer than 80 characters</h3>
+<section id="no-line-of-code-should-be-longer-than-80-characters" class="level3" data-number="3.3.5">
+<h3 data-number="3.3.5" class="anchored" data-anchor-id="no-line-of-code-should-be-longer-than-80-characters"><span class="header-section-number">3.3.5</span> No line of code should be longer than 80 characters</h3>
 <ul>
 <li>use one line each for the function name, each argument, and the closing ‘)’.</li>
 <li>use indentation to make it clear that the arguments are part of the function call.</li>
@@ -625,8 +631,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="use---for-assignment-if-you-are-prissy" class="level3" data-number="1.3.6">
-<h3 data-number="1.3.6" class="anchored" data-anchor-id="use---for-assignment-if-you-are-prissy"><span class="header-section-number">1.3.6</span> Use <code>&lt;-</code> for assignment (if you are prissy)</h3>
+<section id="use---for-assignment-if-you-are-prissy" class="level3" data-number="3.3.6">
+<h3 data-number="3.3.6" class="anchored" data-anchor-id="use---for-assignment-if-you-are-prissy"><span class="header-section-number">3.3.6</span> Use <code>&lt;-</code> for assignment (if you are prissy)</h3>
 <p>Use <code>&lt;-</code>, not <code>=</code>, for assignment.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
@@ -636,8 +642,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="double-quotes-are-standard" class="level3" data-number="1.3.7">
-<h3 data-number="1.3.7" class="anchored" data-anchor-id="double-quotes-are-standard"><span class="header-section-number">1.3.7</span> Double quotes are standard</h3>
+<section id="double-quotes-are-standard" class="level3" data-number="3.3.7">
+<h3 data-number="3.3.7" class="anchored" data-anchor-id="double-quotes-are-standard"><span class="header-section-number">3.3.7</span> Double quotes are standard</h3>
 <p>Use <code>"</code>, not <code>'</code>, for quoting text. The only exception is when the text already contains double quotes and no single quotes.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
@@ -650,22 +656,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="st">'Text with "double" and </span><span class="sc">\'</span><span class="st">single</span><span class="sc">\'</span><span class="st"> quotes'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="comments-are-good" class="level3" data-number="1.3.8">
-<h3 data-number="1.3.8" class="anchored" data-anchor-id="comments-are-good"><span class="header-section-number">1.3.8</span> Comments are good</h3>
+<section id="comments-are-good" class="level3" data-number="3.3.8">
+<h3 data-number="3.3.8" class="anchored" data-anchor-id="comments-are-good"><span class="header-section-number">3.3.8</span> Comments are good</h3>
 <p>Comments can really help with code, and help a reader assess if the code is achieving the desired effect. Comments should give the purpose of the code, not just restate the code in English.</p>
 <p>That said, commends can be dangerous because if you change your code without changing the comments, you can cause confusion. This happens a lot, potentially making comments a source of confusion rather than clarity.</p>
 </section>
 </section>
-<section id="pipes-with-magrittr" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="pipes-with-magrittr"><span class="header-section-number">1.4</span> Pipes (<code>%&gt;%</code>) with <code>magrittr</code></h2>
+<section id="pipes-with-magrittr" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="pipes-with-magrittr"><span class="header-section-number">3.4</span> Pipes (<code>%&gt;%</code>) with <code>magrittr</code></h2>
 <p>Use <code>%&gt;%</code> (or <code>|&gt;</code>, if you are modern) to emphasize a sequence of actions, rather than the object that the actions are being performed on.</p>
 <p>Avoid using the pipe when:</p>
 <ul>
 <li><p>You need to manipulate more than one object at a time. Reserve pipes for a sequence of steps applied to one primary object.</p></li>
 <li><p>There are meaningful intermediate objects that could be given informative names (cf rule 2.9).</p></li>
 </ul>
-<section id="surround-the-pipe-with-whitespace" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="surround-the-pipe-with-whitespace"><span class="header-section-number">1.4.1</span> Surround the pipe with whitespace</h3>
+<section id="surround-the-pipe-with-whitespace" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="surround-the-pipe-with-whitespace"><span class="header-section-number">3.4.1</span> Surround the pipe with whitespace</h3>
 <ul>
 <li><code>%&gt;%</code> should always have a space before it, and should usually be followed by a new line.</li>
 <li>After the first step, each line should be indented by two spaces.</li>
@@ -686,8 +692,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="formatting-short-pipes" class="level3" data-number="1.4.2">
-<h3 data-number="1.4.2" class="anchored" data-anchor-id="formatting-short-pipes"><span class="header-section-number">1.4.2</span> Formatting short pipes</h3>
+<section id="formatting-short-pipes" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="formatting-short-pipes"><span class="header-section-number">3.4.2</span> Formatting short pipes</h3>
 <p>It is ok to keep a one-step pipe in one line, if you want. But not doing so is also fine.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
@@ -700,8 +706,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(iris, Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="do-not-pack-pipes-inside-of-other-pipes" class="level3" data-number="1.4.3">
-<h3 data-number="1.4.3" class="anchored" data-anchor-id="do-not-pack-pipes-inside-of-other-pipes"><span class="header-section-number">1.4.3</span> Do not pack pipes inside of other pipes</h3>
+<section id="do-not-pack-pipes-inside-of-other-pipes" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="do-not-pack-pipes-inside-of-other-pipes"><span class="header-section-number">3.4.3</span> Do not pack pipes inside of other pipes</h3>
 <p>This is brain-hurty:</p>
 <div class="cell" data-mysize="true">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad</span></span>
@@ -726,8 +732,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Generally when you are doing something to two datasets, put both inside the parenthesis, rather than having one in and one piped in.</p>
 </section>
-<section id="keep-your-parenthesis-even-if-you-have-no-arguments" class="level3" data-number="1.4.4">
-<h3 data-number="1.4.4" class="anchored" data-anchor-id="keep-your-parenthesis-even-if-you-have-no-arguments"><span class="header-section-number">1.4.4</span> Keep your parenthesis even if you have no arguments</h3>
+<section id="keep-your-parenthesis-even-if-you-have-no-arguments" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="keep-your-parenthesis-even-if-you-have-no-arguments"><span class="header-section-number">3.4.4</span> Keep your parenthesis even if you have no arguments</h3>
 <p>magrittr allows you to omit <code>()</code> on functions that don’t have arguments. Avoid this. This way data objects never have parentheses and functions always do.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
@@ -741,8 +747,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  sort</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="rule-4.6-assignment" class="level3" data-number="1.4.5">
-<h3 data-number="1.4.5" class="anchored" data-anchor-id="rule-4.6-assignment"><span class="header-section-number">1.4.5</span> Rule 4.6: Assignment</h3>
+<section id="rule-4.6-assignment" class="level3" data-number="3.4.5">
+<h3 data-number="3.4.5" class="anchored" data-anchor-id="rule-4.6-assignment"><span class="header-section-number">3.4.5</span> Rule 4.6: Assignment</h3>
 <p>The first line can have the assignment and also the starting dataframe of a pipe sequence.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good</span></span>
@@ -752,8 +758,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="a-few-final-remarks" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="a-few-final-remarks"><span class="header-section-number">1.5</span> A few final remarks</h2>
+<section id="a-few-final-remarks" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="a-few-final-remarks"><span class="header-section-number">3.5</span> A few final remarks</h2>
 <ul>
 <li>Style is awesome. Save a future researcher from spending months trying to disentangle your spaghetti!</li>
 <li>You don’t need to memorize these rules! Just as you have spell check and grammarly on your computer for prose, there is a package <code>styler</code> to help you follow the code style guide.</li>
@@ -1191,13 +1197,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./getting_started.html" class="pagination-link" aria-label="Getting Started with R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Getting Started with R</span>
+      <a href="./resources_on_learning_R.html" class="pagination-link" aria-label="Resources on Learning R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Resources on Learning R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro_markdown.html" class="pagination-link" aria-label="Intro to R Markdown #{sec-intro-markdown}">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro to R Markdown #{sec-intro-markdown}</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./intro_markdown.html" class="pagination-link" aria-label="Intro to R Markdown">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Intro to R Markdown</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
