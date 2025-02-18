@@ -1183,5 +1183,71 @@
       "Extra Stuff",
       "<span class='chapter-number'>24</span>  <span class='chapter-title'>Applied Prediction Papers</span>"
     ]
+  },
+  {
+    "objectID": "pivot_and_line_plotting.html",
+    "href": "pivot_and_line_plotting.html",
+    "title": "14  Using pivot methods to make line graphs",
+    "section": "",
+    "text": "14.1 Overview\nIn this short example I demonstrate how to aggregate data and make a line graph of the results. In particular, the setting is we have a bunch of data on church donations, along with the age of the donor.\nWe are going to look at what proportion of the donations are above a specific size as a function of age. We are also going to look at whether the distribution of donations from those belonging to a strict evangelical doctrine are different.",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Using pivot methods to make line graphs</span>"
+    ]
+  },
+  {
+    "objectID": "pivot_and_line_plotting.html#our-data",
+    "href": "pivot_and_line_plotting.html#our-data",
+    "title": "14  Using pivot methods to make line graphs",
+    "section": "14.2 Our data",
+    "text": "14.2 Our data\nWe load the data and look at the donations. It is hard to see trends given the heavy skew of donation size.\n\nlibrary( tidyverse )\n\nchurch = read.table( \"data/CHURCH.txt\" )\nnames(church) = c( \"church\", \"memberID\", \"giving\", \"age\", \"strict\" )\n\nggplot( church, aes( age, giving ) ) +\n    geom_point()",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Using pivot methods to make line graphs</span>"
+    ]
+  },
+  {
+    "objectID": "pivot_and_line_plotting.html#aggregating",
+    "href": "pivot_and_line_plotting.html#aggregating",
+    "title": "14  Using pivot methods to make line graphs",
+    "section": "14.3 Aggregating",
+    "text": "14.3 Aggregating\nWe group by age category and church type, and calculate the proportion of donations above $5000 and above $1000.\n\nschurch = church %&gt;% group_by( age, strict ) %&gt;%\n    summarise( prop_large = mean( giving &gt; 5000 ),\n               prop_medium = mean( giving &gt; 1000 ) )\n\n`summarise()` has grouped output by 'age'. You can override using the `.groups`\nargument.\n\nschurch\n\n# A tibble: 12 × 4\n# Groups:   age [6]\n     age strict prop_large prop_medium\n   &lt;int&gt;  &lt;int&gt;      &lt;dbl&gt;       &lt;dbl&gt;\n 1    22      0     0.0141       0.141\n 2    22      1     0.0526       0.4  \n 3    28      0     0.0287       0.217\n 4    28      1     0.0667       0.55 \n 5    33      0     0.0253       0.333\n 6    33      1     0.0848       0.635\n 7    38      0     0.0353       0.357\n 8    38      1     0.161        0.672\n 9    43      0     0.0812       0.452\n10    43      1     0.131        0.655\n11    48      0     0.0532       0.505\n12    48      1     0.186        0.739",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Using pivot methods to make line graphs</span>"
+    ]
+  },
+  {
+    "objectID": "pivot_and_line_plotting.html#graphing-take-1",
+    "href": "pivot_and_line_plotting.html#graphing-take-1",
+    "title": "14  Using pivot methods to make line graphs",
+    "section": "14.4 Graphing (take 1)",
+    "text": "14.4 Graphing (take 1)\nWe can make a graph of the proportion of medium donations vs age relatively easily:\n\nschurch$strict = factor( schurch$strict, levels = c(0,1),\n                         labels=c(\"no\",\"yes\" ) )\n\nggplot( schurch, aes( age, prop_medium, group=strict, col=strict ) ) +\n    geom_line()",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Using pivot methods to make line graphs</span>"
+    ]
+  },
+  {
+    "objectID": "pivot_and_line_plotting.html#graphing-take-2",
+    "href": "pivot_and_line_plotting.html#graphing-take-2",
+    "title": "14  Using pivot methods to make line graphs",
+    "section": "14.5 Graphing (take 2)",
+    "text": "14.5 Graphing (take 2)\nTo get a line for both medium and large donations, we need to reshape our data. In particular, we want to have two groups of observations, one for each type:\n\nschurchL &lt;- schurch %&gt;% pivot_longer( cols=c(prop_large, prop_medium),\n                         names_to = \"size\", values_to=\"proportion\" )\nschurchL\n\n# A tibble: 24 × 4\n# Groups:   age [6]\n     age strict size        proportion\n   &lt;int&gt; &lt;fct&gt;  &lt;chr&gt;            &lt;dbl&gt;\n 1    22 no     prop_large      0.0141\n 2    22 no     prop_medium     0.141 \n 3    22 yes    prop_large      0.0526\n 4    22 yes    prop_medium     0.4   \n 5    28 no     prop_large      0.0287\n 6    28 no     prop_medium     0.217 \n 7    28 yes    prop_large      0.0667\n 8    28 yes    prop_medium     0.55  \n 9    33 no     prop_large      0.0253\n10    33 no     prop_medium     0.333 \n# ℹ 14 more rows\n\n\nSee how now each row is a specific age, donation size and proportion. This sets us up nicely for ggplot since each variable for plotting is ready to go:\n\nggplot( schurchL, aes( age, proportion, col=size ) ) +\n    facet_wrap( ~ strict ) +\n    geom_line() +\n    labs( col=\"donation size\" )",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Using pivot methods to make line graphs</span>"
+    ]
+  },
+  {
+    "objectID": "pivot_and_line_plotting.html#graphing-another-road",
+    "href": "pivot_and_line_plotting.html#graphing-another-road",
+    "title": "14  Using pivot methods to make line graphs",
+    "section": "14.6 Graphing (another road)",
+    "text": "14.6 Graphing (another road)\nWe can also plot individual lines without doing a pivot_longer by specifying different outcomes in the ggplot command:\n\nggplot( schurch, aes( age ) ) +\n    facet_wrap( ~strict ) +\n    geom_line( aes( y = prop_medium, col=\"medium\" ) )  +\n    geom_line( aes( y = prop_large, col=\"large\" ) )\n\n\n\n\n\n\n\n\nNotice we are putting color to specific values inside each geom_line: this tells ggplot to make a legend of those different values. If we put these outside the aes() we can specify the color but we will not get an automatic legend:\n\nggplot( schurch, aes( age ) ) +\n    facet_wrap( ~strict ) +\n    geom_line( aes( y = prop_medium ), col=\"red\" )  +\n    geom_line( aes( y = prop_large ), col=\"blue\" )",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Using pivot methods to make line graphs</span>"
+    ]
   }
 ]
