@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Nora Delaney (Adapted from materials created by Zach Himmelsbach, Jonathan Seiden, &amp; Tiffany Yang)">
-<meta name="dcterms.date" content="2025-02-11">
+<meta name="dcterms.date" content="2025-02-18">
 
-<title>15&nbsp; A Deep Dive on group_by() – Handouts for S022 (Data Science in Education)</title>
+<title>16&nbsp; A Deep Dive on group_by() – Handouts for S022 (Data Science in Education)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./manipulation_examples.html">On Coding</a></li><li class="breadcrumb-item"><a href="./group_by_deep_dive.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./manipulation_examples.html">On Coding</a></li><li class="breadcrumb-item"><a href="./group_by_deep_dive.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -275,6 +275,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pivot_and_line_plotting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Using pivot methods to make line graphs</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -289,31 +295,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./manipulation_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./group_by_deep_dive.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_linear_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./doing_things_over_and_over.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./demo_cluster_boot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
   </div>
 </li>
       </ul>
@@ -330,19 +336,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Predicting_birthweight.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./test_train_and_CV.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interpreting_lasso_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
   </div>
 </li>
       </ul>
@@ -359,19 +365,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interactions_discussion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ipeds_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./predictive_papers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
   </div>
 </li>
       </ul>
@@ -386,19 +392,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#importing-thedplyrpackage" id="toc-importing-thedplyrpackage" class="nav-link active" data-scroll-target="#importing-thedplyrpackage"><span class="header-section-number">16</span> Importing the`dplyr`package</a>
+  <li><a href="#importing-thedplyrpackage" id="toc-importing-thedplyrpackage" class="nav-link active" data-scroll-target="#importing-thedplyrpackage"><span class="header-section-number">17</span> Importing the`dplyr`package</a>
   <ul class="collapse">
-  <li><a href="#what-does-group_by-do" id="toc-what-does-group_by-do" class="nav-link" data-scroll-target="#what-does-group_by-do"><span class="header-section-number">16.1</span> What does <code>group_by()</code> do?</a></li>
-  <li><a href="#introducing-summarize" id="toc-introducing-summarize" class="nav-link" data-scroll-target="#introducing-summarize"><span class="header-section-number">16.2</span> Introducing <code>summarize()</code></a></li>
-  <li><a href="#combining-group_by-with-summarize" id="toc-combining-group_by-with-summarize" class="nav-link" data-scroll-target="#combining-group_by-with-summarize"><span class="header-section-number">16.3</span> Combining <code>group_by()</code> with <code>summarize()</code></a>
+  <li><a href="#what-does-group_by-do" id="toc-what-does-group_by-do" class="nav-link" data-scroll-target="#what-does-group_by-do"><span class="header-section-number">17.1</span> What does <code>group_by()</code> do?</a></li>
+  <li><a href="#introducing-summarize" id="toc-introducing-summarize" class="nav-link" data-scroll-target="#introducing-summarize"><span class="header-section-number">17.2</span> Introducing <code>summarize()</code></a></li>
+  <li><a href="#combining-group_by-with-summarize" id="toc-combining-group_by-with-summarize" class="nav-link" data-scroll-target="#combining-group_by-with-summarize"><span class="header-section-number">17.3</span> Combining <code>group_by()</code> with <code>summarize()</code></a>
   <ul class="collapse">
-  <li><a href="#getting-fancy-grouping-with-more-than-one-variable" id="toc-getting-fancy-grouping-with-more-than-one-variable" class="nav-link" data-scroll-target="#getting-fancy-grouping-with-more-than-one-variable"><span class="header-section-number">16.3.1</span> Getting fancy: Grouping with more than one variable</a></li>
+  <li><a href="#getting-fancy-grouping-with-more-than-one-variable" id="toc-getting-fancy-grouping-with-more-than-one-variable" class="nav-link" data-scroll-target="#getting-fancy-grouping-with-more-than-one-variable"><span class="header-section-number">17.3.1</span> Getting fancy: Grouping with more than one variable</a></li>
   </ul></li>
-  <li><a href="#using-mutate-with-group_by" id="toc-using-mutate-with-group_by" class="nav-link" data-scroll-target="#using-mutate-with-group_by"><span class="header-section-number">16.4</span> Using <code>mutate()</code> with <code>group_by()</code></a></li>
-  <li><a href="#learning-check-what-is-the-difference-between-pairing-group_by-with-summarize-vs-group_by-with-mutate" id="toc-learning-check-what-is-the-difference-between-pairing-group_by-with-summarize-vs-group_by-with-mutate" class="nav-link" data-scroll-target="#learning-check-what-is-the-difference-between-pairing-group_by-with-summarize-vs-group_by-with-mutate"><span class="header-section-number">16.5</span> Learning Check: What is the difference between pairing <code>group_by()</code> with <code>summarize()</code> vs <code>group_by()</code> with <code>mutate()</code>?</a></li>
-  <li><a href="#practical-application-centering-data" id="toc-practical-application-centering-data" class="nav-link" data-scroll-target="#practical-application-centering-data"><span class="header-section-number">16.6</span> Practical Application: Centering Data</a>
+  <li><a href="#using-mutate-with-group_by" id="toc-using-mutate-with-group_by" class="nav-link" data-scroll-target="#using-mutate-with-group_by"><span class="header-section-number">17.4</span> Using <code>mutate()</code> with <code>group_by()</code></a></li>
+  <li><a href="#learning-check-what-is-the-difference-between-pairing-group_by-with-summarize-vs-group_by-with-mutate" id="toc-learning-check-what-is-the-difference-between-pairing-group_by-with-summarize-vs-group_by-with-mutate" class="nav-link" data-scroll-target="#learning-check-what-is-the-difference-between-pairing-group_by-with-summarize-vs-group_by-with-mutate"><span class="header-section-number">17.5</span> Learning Check: What is the difference between pairing <code>group_by()</code> with <code>summarize()</code> vs <code>group_by()</code> with <code>mutate()</code>?</a></li>
+  <li><a href="#practical-application-centering-data" id="toc-practical-application-centering-data" class="nav-link" data-scroll-target="#practical-application-centering-data"><span class="header-section-number">17.6</span> Practical Application: Centering Data</a>
   <ul class="collapse">
-  <li><a href="#group-mean-centering" id="toc-group-mean-centering" class="nav-link" data-scroll-target="#group-mean-centering"><span class="header-section-number">16.6.1</span> Group Mean Centering</a></li>
+  <li><a href="#group-mean-centering" id="toc-group-mean-centering" class="nav-link" data-scroll-target="#group-mean-centering"><span class="header-section-number">17.6.1</span> Group Mean Centering</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -407,9 +413,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./manipulation_examples.html">On Coding</a></li><li class="breadcrumb-item"><a href="./group_by_deep_dive.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./manipulation_examples.html">On Coding</a></li><li class="breadcrumb-item"><a href="./group_by_deep_dive.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></h1>
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></h1>
 </div>
 
 
@@ -426,7 +432,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 11, 2025</p>
+      <p class="date">February 18, 2025</p>
     </div>
   </div>
   
@@ -439,8 +445,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>The <code>group_by()</code> functionality in the Tidyverse is a powerhouse function, with many applications for summarizing and cleaning data. This handout walks through several common use cases for the <code>groupby_()</code> function.</p>
-<section id="importing-thedplyrpackage" class="level1" data-number="16">
-<h1 data-number="16"><span class="header-section-number">16</span> Importing the`dplyr`package</h1>
+<section id="importing-thedplyrpackage" class="level1" data-number="17">
+<h1 data-number="17"><span class="header-section-number">17</span> Importing the`dplyr`package</h1>
 <p>The <code>group_by()</code> function technically belongs to the <code>dplyr</code> package, but we can also load it by importing the <code>tidyverse</code> shortcut.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -468,8 +474,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #   Race &lt;chr&gt;, birth_date &lt;date&gt;, birth_month &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<section id="what-does-group_by-do" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="what-does-group_by-do"><span class="header-section-number">16.1</span> What does <code>group_by()</code> do?</h2>
+<section id="what-does-group_by-do" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="what-does-group_by-do"><span class="header-section-number">17.1</span> What does <code>group_by()</code> do?</h2>
 <p>When you call <code>group_by()</code> on a dataframe, you are asking R to “organize” your data according to the grouping variable. For example, let’s group our data on NFL players by team. If you look carefully at the output below, you will see that our data has 1,822 rows and 16 columns, just like it did before. However, it now also has 32 groups (one for each NFL team).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>nfl <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Team)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -496,8 +502,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Conceptually, here is a visualization of what R does when you <code>group_by(Team)</code> . Behind the scenes, your data is partitioned according to values of your grouping variables. This becomes extremely useful if we want to calculate group-specific variables or create group-specific summary variables.</p>
 <p><img src="image/group_by_drawing.png" class="img-fluid"></p>
 </section>
-<section id="introducing-summarize" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="introducing-summarize"><span class="header-section-number">16.2</span> Introducing <code>summarize()</code></h2>
+<section id="introducing-summarize" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="introducing-summarize"><span class="header-section-number">17.2</span> Introducing <code>summarize()</code></h2>
 <p>The <code>summarize()</code> function is extremely useful for creating summary statistics on aggregated data, such as calculating the number of observations, the mean of a particular variabe, etc. First, let’s look at what happens when we use <code>summarize()</code> on its own. In the example below, we use <code>summarize()</code> on the <em>ungrouped</em> <code>nfl</code> data to find the overall mean salary of players ($2,142,272).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>nfl <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mean.salary =</span> <span class="fu">mean</span>(Salary, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -525,8 +531,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="combining-group_by-with-summarize" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="combining-group_by-with-summarize"><span class="header-section-number">16.3</span> Combining <code>group_by()</code> with <code>summarize()</code></h2>
+<section id="combining-group_by-with-summarize" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="combining-group_by-with-summarize"><span class="header-section-number">17.3</span> Combining <code>group_by()</code> with <code>summarize()</code></h2>
 <p>Now, let’s add in <code>group_by()</code> to find the average (mean) and maximum salary <em>within each team</em>. Let’s also get a count of the number of players on each team. Our output below has 32 rows—one for each value of the <code>Team</code> grouping variable.</p>
 <p>Looking at the output, we can see that the Cleveland Browns (CLE) have an average salary of $1,924,681 and that the Baltimore Ravens (BAL) have an average salary of $2,145,966. Note that we set <code>mean(..., na.rm = TRUE)</code>, so we are ignoring any players with missing salary data when calculating our team averages.</p>
 <div class="cell" data-layout-align="center">
@@ -552,8 +558,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ 22 more rows</code></pre>
 </div>
 </div>
-<section id="getting-fancy-grouping-with-more-than-one-variable" class="level3" data-number="16.3.1">
-<h3 data-number="16.3.1" class="anchored" data-anchor-id="getting-fancy-grouping-with-more-than-one-variable"><span class="header-section-number">16.3.1</span> Getting fancy: Grouping with more than one variable</h3>
+<section id="getting-fancy-grouping-with-more-than-one-variable" class="level3" data-number="17.3.1">
+<h3 data-number="17.3.1" class="anchored" data-anchor-id="getting-fancy-grouping-with-more-than-one-variable"><span class="header-section-number">17.3.1</span> Getting fancy: Grouping with more than one variable</h3>
 <p>However, we can also group by more than one variable! For example, we can extend our code to get the average salary within each player position on each team. Let’s extend the code above to find the average and maximum salary within each team and position on that team. In this case, the <code>n()</code> summary variable tells us how many observations are within each grouping cell (i.e.&nbsp;the number of players in each position on each team).</p>
 <p>What do you notice that is similar or different from the output above with a single grouping variable?</p>
 <div class="cell" data-layout-align="center">
@@ -583,9 +589,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="using-mutate-with-group_by" class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="using-mutate-with-group_by"><span class="header-section-number">16.4</span> Using <code>mutate()</code> with <code>group_by()</code></h2>
-<p>On its own, the <code>mutate()</code> function allows us to create and modify variables in a dataframe (see <a href="manipulation_examples.html" class="quarto-xref"><span>Chapter 14</span></a> for more information about <code>mutate()</code>). For example, we can use mutate to convert players’ weight from pounds to kilograms.</p>
+<section id="using-mutate-with-group_by" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="using-mutate-with-group_by"><span class="header-section-number">17.4</span> Using <code>mutate()</code> with <code>group_by()</code></h2>
+<p>On its own, the <code>mutate()</code> function allows us to create and modify variables in a dataframe (see <a href="manipulation_examples.html" class="quarto-xref"><span>Chapter 15</span></a> for more information about <code>mutate()</code>). For example, we can use mutate to convert players’ weight from pounds to kilograms.</p>
 <p>In this basic example, note that we have not grouped the <code>nfl</code> dataframe.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>nfl <span class="sc">%&gt;%</span> </span>
@@ -635,13 +641,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>nfl_1 <span class="ot">&lt;-</span> nfl_1 <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="learning-check-what-is-the-difference-between-pairing-group_by-with-summarize-vs-group_by-with-mutate" class="level2" data-number="16.5">
-<h2 data-number="16.5" class="anchored" data-anchor-id="learning-check-what-is-the-difference-between-pairing-group_by-with-summarize-vs-group_by-with-mutate"><span class="header-section-number">16.5</span> Learning Check: What is the difference between pairing <code>group_by()</code> with <code>summarize()</code> vs <code>group_by()</code> with <code>mutate()</code>?</h2>
+<section id="learning-check-what-is-the-difference-between-pairing-group_by-with-summarize-vs-group_by-with-mutate" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="learning-check-what-is-the-difference-between-pairing-group_by-with-summarize-vs-group_by-with-mutate"><span class="header-section-number">17.5</span> Learning Check: What is the difference between pairing <code>group_by()</code> with <code>summarize()</code> vs <code>group_by()</code> with <code>mutate()</code>?</h2>
 <p>Take a moment to review the output of the code above. How many rows do we have in our resulting dataframes after calling <code>group_by(Team)</code> with <code>summarize()</code> vs <code>group_by(Team)</code> with <code>mutate()</code>?</p>
 <p>You might notice that there are far fewer rows in the output from commands using <code>summarize()</code>. This is because the <code>summarize()</code> function collapses data down to return a single value per group level (ex. one row for each of the 32 teams in the NFL). By contrast, using <code>group_by()</code> with <code>mutate()</code> preserves all rows in the data while allowing the user to synthesize and make use of group-level information.</p>
 </section>
-<section id="practical-application-centering-data" class="level2" data-number="16.6">
-<h2 data-number="16.6" class="anchored" data-anchor-id="practical-application-centering-data"><span class="header-section-number">16.6</span> Practical Application: Centering Data</h2>
+<section id="practical-application-centering-data" class="level2" data-number="17.6">
+<h2 data-number="17.6" class="anchored" data-anchor-id="practical-application-centering-data"><span class="header-section-number">17.6</span> Practical Application: Centering Data</h2>
 <p>Centering data is a common practice in social science and education research. For example, we might often be less interested in a student’s absolute test score and more interested in how they performed relative to an average value.</p>
 <p>For example, we established above that the average salary in the entire NFL is $2,142,272. We can use centering to calculate the amount each player earns above or below this overall average salary using the code below. This is called “grand mean” centering (i.e.&nbsp;we are comparing each player’s salary to the overall average).</p>
 <p>Note that the code below tabulates the average salary <code>mean(Salary)</code> without first calling <code>group_by()</code>.</p>
@@ -689,8 +695,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="group-mean-centering" class="level3" data-number="16.6.1">
-<h3 data-number="16.6.1" class="anchored" data-anchor-id="group-mean-centering"><span class="header-section-number">16.6.1</span> Group Mean Centering</h3>
+<section id="group-mean-centering" class="level3" data-number="17.6.1">
+<h3 data-number="17.6.1" class="anchored" data-anchor-id="group-mean-centering"><span class="header-section-number">17.6.1</span> Group Mean Centering</h3>
 <p>Now let’s assume that it actually might be more informative to compare players’ salaries to those of other players <em>on the same team</em>. In this case, we want to group our data by team before calculating our centered salary variable. This is called group mean centering.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>nfl <span class="ot">&lt;-</span> nfl <span class="sc">%&gt;%</span> </span>
@@ -1175,12 +1181,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./manipulation_examples.html" class="pagination-link" aria-label="Basic Data Manipulation with tidyverse">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./intro_linear_regression.html" class="pagination-link" aria-label="Intro to Regression">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
