@@ -1,0 +1,89 @@
+# Using pivot methods to make line graphs
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, out.width = "4in", out.height = "3in",
+                      fig.align = "center" )
+library( tidyverse )
+```
+
+## Overview
+
+In this short example I demonstrate how to aggregate data and make a line graph of the results. In particular, the setting is we have a bunch of data on church donations, along with the age of the donor.
+
+We are going to look at what proportion of the donations are above a specific size as a function of age. We are also going to look at whether the distribution of donations from those belonging to a strict evangelical doctrine are different.
+
+## Our data
+
+We load the data and look at the donations. It is hard to see trends given the heavy skew of donation size.
+
+```{r}
+library( tidyverse )
+
+church = read.table( "data/CHURCH.txt" )
+names(church) = c( "church", "memberID", "giving", "age", "strict" )
+
+ggplot( church, aes( age, giving ) ) +
+    geom_point()
+```
+
+## Aggregating
+
+We group by age category and church type, and calculate the proportion of donations above \$5000 and above \$1000.
+
+```{r}
+schurch = church %>% group_by( age, strict ) %>%
+    summarise( prop_large = mean( giving > 5000 ),
+               prop_medium = mean( giving > 1000 ) )
+schurch
+```
+
+## Graphing (take 1)
+
+We can make a graph of the proportion of medium donations vs age relatively easily:
+
+```{r}
+schurch$strict = factor( schurch$strict, levels = c(0,1),
+                         labels=c("no","yes" ) )
+
+ggplot( schurch, aes( age, prop_medium, group=strict, col=strict ) ) +
+    geom_line()
+```
+
+## Graphing (take 2)
+
+To get a line for both medium and large donations, we need to reshape our data. In particular, we want to have two groups of observations, one for each type:
+
+```{r}
+schurchL <- schurch %>% pivot_longer( cols=c(prop_large, prop_medium),
+                         names_to = "size", values_to="proportion" )
+schurchL
+```
+
+See how now each row is a specific age, donation size and proportion. This sets us up nicely for ggplot since each variable for plotting is ready to go:
+
+```{r}
+ggplot( schurchL, aes( age, proportion, col=size ) ) +
+    facet_wrap( ~ strict ) +
+    geom_line() +
+    labs( col="donation size" )
+```
+
+## Graphing (another road)
+
+We can also plot individual lines without doing a pivot_longer by specifying different outcomes in the ggplot command:
+
+```{r}
+ggplot( schurch, aes( age ) ) +
+    facet_wrap( ~strict ) +
+    geom_line( aes( y = prop_medium, col="medium" ) )  +
+    geom_line( aes( y = prop_large, col="large" ) )
+```
+
+Notice we are putting color to specific values inside each `geom_line`: this tells ggplot to make a legend of those different values. If we put these *outside* the `aes()` we can specify the color but we will not get an automatic legend:
+
+```{r}
+ggplot( schurch, aes( age ) ) +
+    facet_wrap( ~strict ) +
+    geom_line( aes( y = prop_medium ), col="red" )  +
+    geom_line( aes( y = prop_large ), col="blue" )
+```
