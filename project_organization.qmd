@@ -50,13 +50,13 @@ By centering your code around the `.Rproj` file, you can write code that seamles
 
 ##### Good: {.unnumbered}
 
-Uses the `here()` function to set relative file paths to locations in the project directory. 
+Uses the `here()` function to set relative file paths to locations in the project directory. Note that this example creates separate sub-directories for raw and cleaned data. A nice way to take it easy on your collaborators and your future self! 
 
 ```{r eval=FALSE}
-school_dat <- read_csv(glue("{here::here()}/data/school_data_2025.csv"))
+school_dat <- read_csv(here::here("data/raw_data/school_data_2025.csv")) 
 ...
 # Cleaning code here
-saveRDS(clean_dat, glue("{here::here()}/data/clean_school_data.Rds"))
+saveRDS(clean_dat, here::here("data/clean_data/clean_school_data.Rds"))
 ```
 
 ##### Bad: {.unnumbered}
