@@ -1249,5 +1249,203 @@
       "Extra Stuff",
       "<span class='chapter-number'>25</span>  <span class='chapter-title'>Applied Prediction Papers</span>"
     ]
+  },
+  {
+    "objectID": "prediction_and_plotting.html",
+    "href": "prediction_and_plotting.html",
+    "title": "16  Prediction and Plotting",
+    "section": "",
+    "text": "17 Overview\nTo make nice plots from funky, curved models, the easiest way is to use the model to predict values for different covariate combinations, store all of this in a dataframe, and then use ggplot to plot your results using geom_line which will give you nice smoothed curves through the points.\nThis document hilites some useful methods for doing this. See R for DS 23.3. We need the tidyverse and the modelr package:\nlibrary( tidyverse )\nlibrary( modelr )",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Prediction and Plotting</span>"
+    ]
+  },
+  {
+    "objectID": "prediction_and_plotting.html#some-important-functions",
+    "href": "prediction_and_plotting.html#some-important-functions",
+    "title": "16  Prediction and Plotting",
+    "section": "17.1 Some important functions",
+    "text": "17.1 Some important functions\nSome important functions are: add_predictions() and add_residuals()\nAlso see gather_pred() to compare models.\nHere is an example using the iris dataset\n\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\nggplot( iris, aes( x = Petal.Length, y = Petal.Width, col=Species ) ) +\n    geom_point()\n\n\n\n\n\n\n\n\nLet’s fit a simple linear model ignoring species\n\nM0 = lm( Petal.Length ~ Petal.Width, data=iris )\nsummary( M0 )\n\n\nCall:\nlm(formula = Petal.Length ~ Petal.Width, data = iris)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.33542 -0.30347 -0.02955  0.25776  1.39453 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  1.08356    0.07297   14.85   &lt;2e-16 ***\nPetal.Width  2.22994    0.05140   43.39   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.4782 on 148 degrees of freedom\nMultiple R-squared:  0.9271,    Adjusted R-squared:  0.9266 \nF-statistic:  1882 on 1 and 148 DF,  p-value: &lt; 2.2e-16\n\n\nLet’s fit a linear model with a species interaction:\n\nM1 = lm( Petal.Length ~ Petal.Width * Species, data=iris )\nsummary( M1 )\n\n\nCall:\nlm(formula = Petal.Length ~ Petal.Width * Species, data = iris)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-0.84099 -0.19343 -0.03686  0.16314  1.17065 \n\nCoefficients:\n                              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)                     1.3276     0.1309  10.139  &lt; 2e-16 ***\nPetal.Width                     0.5465     0.4900   1.115   0.2666    \nSpeciesversicolor               0.4537     0.3737   1.214   0.2267    \nSpeciesvirginica                2.9131     0.4060   7.175 3.53e-11 ***\nPetal.Width:Speciesversicolor   1.3228     0.5552   2.382   0.0185 *  \nPetal.Width:Speciesvirginica    0.1008     0.5248   0.192   0.8480    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.3615 on 144 degrees of freedom\nMultiple R-squared:  0.9595,    Adjusted R-squared:  0.9581 \nF-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16\n\n\nNow let’s add some predictions to our original data:\n\nmy.iris = iris\nmy.iris = add_predictions(iris, M1 )\nhead( my.iris )\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species     pred\n1          5.1         3.5          1.4         0.2  setosa 1.436861\n2          4.9         3.0          1.4         0.2  setosa 1.436861\n3          4.7         3.2          1.3         0.2  setosa 1.436861\n4          4.6         3.1          1.5         0.2  setosa 1.436861\n5          5.0         3.6          1.4         0.2  setosa 1.436861\n6          5.4         3.9          1.7         0.4  setosa 1.546160",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Prediction and Plotting</span>"
+    ]
+  },
+  {
+    "objectID": "prediction_and_plotting.html#more-on-the-model-matrix",
+    "href": "prediction_and_plotting.html#more-on-the-model-matrix",
+    "title": "16  Prediction and Plotting",
+    "section": "17.2 More on the model matrix",
+    "text": "17.2 More on the model matrix\nSee model_matrix, a slightly better version of model.matrix in that it gives you a tibble rather than a matrix, so it is easier to deal with.\n\nmodel_matrix( Petal.Length ~ Petal.Width * Species, data=iris )\n\n# A tibble: 150 × 6\n   `(Intercept)` Petal.Width Speciesversicolor Speciesvirginica\n           &lt;dbl&gt;       &lt;dbl&gt;             &lt;dbl&gt;            &lt;dbl&gt;\n 1             1         0.2                 0                0\n 2             1         0.2                 0                0\n 3             1         0.2                 0                0\n 4             1         0.2                 0                0\n 5             1         0.2                 0                0\n 6             1         0.4                 0                0\n 7             1         0.3                 0                0\n 8             1         0.2                 0                0\n 9             1         0.2                 0                0\n10             1         0.1                 0                0\n# ℹ 140 more rows\n# ℹ 2 more variables: `Petal.Width:Speciesversicolor` &lt;dbl&gt;,\n#   `Petal.Width:Speciesvirginica` &lt;dbl&gt;",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Prediction and Plotting</span>"
+    ]
+  },
+  {
+    "objectID": "prediction_and_plotting.html#data_grid",
+    "href": "prediction_and_plotting.html#data_grid",
+    "title": "16  Prediction and Plotting",
+    "section": "17.3 data_grid()",
+    "text": "17.3 data_grid()\nThis function, in the modelr package, given a dataframe, will generate a simple dataframe with one row for each possible combination of variables you want:\n\nlibrary( modelr )\nmy.df = data.frame( A=c(1,2,1,2), B=c(10,20,20,20), C=c(10,20,30,40) )\ndata_grid( my.df, A, B )\n\n# A tibble: 4 × 2\n      A     B\n  &lt;dbl&gt; &lt;dbl&gt;\n1     1    10\n2     1    20\n3     2    10\n4     2    20\n\n\nYou can also get “typical values” (usually the median or most commonly occuring) for things not on your grid using a modeling argument:\n\nmod &lt;- lm(Petal.Length ~ Petal.Width * Species, data=iris)\ndata_grid(iris, .model = mod)\n\n# A tibble: 3 × 2\n  Petal.Width Species   \n        &lt;dbl&gt; &lt;chr&gt;     \n1         1.3 setosa    \n2         1.3 versicolor\n3         1.3 virginica \n\ndata_grid(iris, Petal.Width = seq_range(Petal.Width, 9), .model = mod)\n\n# A tibble: 27 × 2\n   Petal.Width Species   \n         &lt;dbl&gt; &lt;chr&gt;     \n 1         0.1 setosa    \n 2         0.1 versicolor\n 3         0.1 virginica \n 4         0.4 setosa    \n 5         0.4 versicolor\n 6         0.4 virginica \n 7         0.7 setosa    \n 8         0.7 versicolor\n 9         0.7 virginica \n10         1   setosa    \n# ℹ 17 more rows\n\n\nSimilar is seq_range() that gives you a nice sequence of numbers over a range of values\n\nX = rnorm( 10000 )\nseq_range( X, 5 )\n\n[1] -3.57284806 -1.77666894  0.01951018  1.81568930  3.61186842\n\n# drop 5% of data on tails\nseq_range( X, 5, trim=0.05 )\n\n[1] -1.941935383 -0.970773794  0.000387795  0.971549384  1.942710973\n\n# use pretty numbers\nseq_range( X, 5, trim=0.05, pretty=TRUE )\n\n[1] -2 -1  0  1  2\n\n\nYou can combine with data_grid to get a nice data frame of points to use for your “canonical points” for prediction or whatnot:\n\nmy.df = data.frame( A=rnorm(1000), B=rexp(1000), C=rnorm(1000,mean=5) )\ndata_grid( my.df, \n           A=seq_range(A,n=3),\n           B=seq_range(B,n=3) )\n\n# A tibble: 9 × 2\n       A         B\n   &lt;dbl&gt;     &lt;dbl&gt;\n1 -3.13  0.0000242\n2 -3.13  3.73     \n3 -3.13  7.46     \n4  0.148 0.0000242\n5  0.148 3.73     \n6  0.148 7.46     \n7  3.42  0.0000242\n8  3.42  3.73     \n9  3.42  7.46",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Prediction and Plotting</span>"
+    ]
+  },
+  {
+    "objectID": "prediction_and_plotting.html#bonus-interactions-and-curved-lines",
+    "href": "prediction_and_plotting.html#bonus-interactions-and-curved-lines",
+    "title": "16  Prediction and Plotting",
+    "section": "18.1 Bonus: Interactions and curved lines",
+    "text": "18.1 Bonus: Interactions and curved lines\nThe above generalizes. Let’s add a quadratic model:\n\nM2 = lm( Petal.Length ~ (Petal.Width + I(Petal.Width^2)) * Species, data=iris )\ngrid2 = add_predictions( grid, M2 )\nggplot( grid2, aes(x= Petal.Width, y= pred, col=Species ) ) +\n    geom_line( lwd=1)",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Prediction and Plotting</span>"
+    ]
+  },
+  {
+    "objectID": "prediction_and_viz_illustration.html",
+    "href": "prediction_and_viz_illustration.html",
+    "title": "17  Illustration of prediction with a model",
+    "section": "",
+    "text": "17.1 Fitting the model on our data\nWe are going to show how to fit a model and then make plots of the model fit. This is a useful skill, especally when the model gets more and more complex.\nFirst load the data and drop a bunch of variables we are not going to be using. Note how the pipe flows from load data to drop X to drop all the empathy variables.\nemp = read.csv( \"data/empathy_data.csv\", as.is=TRUE ) %&gt;% \n  select( -X, -starts_with(\"empathy\" ) )\nhead( emp )\n\n  grade age female  race schid\n1     7  12      1 Other     1\n2     7  13      1 Black     1\n3     7  12      1 Asian     1\n4     7  13      1 Black     1\n5     7  12      0 Black     1\n6     7  12      0 White     1\nFor illustration, we are going to investigate the incredibly uninteresting relationship between age and grade. Here is our raw data\nggplot( data=emp, aes( x=grade, y=age ) ) +\n    geom_jitter()\n\nWarning: Removed 410 rows containing missing values or values outside the scale range\n(`geom_point()`).\nLet’s fit a simple model:\nM0 &lt;- lm( age ~ grade * female, data=emp )",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Illustration of prediction with a model</span>"
+    ]
+  },
+  {
+    "objectID": "prediction_and_viz_illustration.html#prediction-and-model-vizualization",
+    "href": "prediction_and_viz_illustration.html#prediction-and-model-vizualization",
+    "title": "17  Illustration of prediction with a model",
+    "section": "17.2 Prediction and Model Vizualization",
+    "text": "17.2 Prediction and Model Vizualization\nNow we can use our model to predict. We are going to use some stuff from the modelr package which helps with this kind of activity.\nFirst load modelr and then make all combos of grade and gender:\n\nlibrary( modelr )\ngrid = emp %&gt;% data_grid( grade, female  )\ngrid\n\n# A tibble: 24 × 2\n   grade female\n   &lt;int&gt;  &lt;int&gt;\n 1     6      0\n 2     6      1\n 3     6     NA\n 4     7      0\n 5     7      1\n 6     7     NA\n 7     8      0\n 8     8      1\n 9     8     NA\n10     9      0\n# ℹ 14 more rows\n\n\nThis is a new, fake, dataset. We can use it to predict what we would expect to see as an outcome for each case (row) in this set. We get one prediction for each row in our new data.\n\npredict( M0, newdata=grid )\n\n       1        2        3        4        5        6        7        8 \n11.58937 11.39423       NA 12.56097 12.38665       NA 13.53257 13.37908 \n       9       10       11       12       13       14       15       16 \n      NA 14.50417 14.37151       NA 15.47577 15.36394       NA 16.44736 \n      17       18       19       20       21       22       23       24 \n16.35636       NA 17.41896 17.34879       NA       NA       NA       NA \n\n\nWe can be a bit more clever, using more magic from the tidyverse. The following code adds a new column to our grid dataframe with predictions for each entry.\n\ngrid &lt;- grid %&gt;% add_predictions( M0 ) \nhead( grid )\n\n# A tibble: 6 × 3\n  grade female  pred\n  &lt;int&gt;  &lt;int&gt; &lt;dbl&gt;\n1     6      0  11.6\n2     6      1  11.4\n3     6     NA  NA  \n4     7      0  12.6\n5     7      1  12.4\n6     7     NA  NA  \n\n\nOur mini-dataset of predictions makes it super easy to plot trends (we first make female a factor so it doesn’t give a continuous color axis)\n\ngrid$female = as.factor( grid$female )\nggplot( grid, aes( x=grade, y=pred, col=female, group=female ) ) + geom_line()\n\nWarning: Removed 10 rows containing missing values or values outside the scale range\n(`geom_line()`).",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Illustration of prediction with a model</span>"
+    ]
+  },
+  {
+    "objectID": "prediction_and_viz_illustration.html#residuals",
+    "href": "prediction_and_viz_illustration.html#residuals",
+    "title": "17  Illustration of prediction with a model",
+    "section": "17.3 Residuals",
+    "text": "17.3 Residuals\nWe can also add residuals to our original data:\n\nemp &lt;- add_residuals( emp, M0 )\nhead( emp )\n\n  grade age female  race schid      resid\n1     7  12      1 Other     1 -0.3866544\n2     7  13      1 Black     1  0.6133456\n3     7  12      1 Asian     1 -0.3866544\n4     7  13      1 Black     1  0.6133456\n5     7  12      0 Black     1 -0.5609714\n6     7  12      0 White     1 -0.5609714\n\n\nThis allows for diagnostic plots\n\nggplot( emp, aes(x=grade, y=resid, col=female ) ) + geom_jitter() +\n    geom_ref_line(h=0)\n\nWarning: Removed 438 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n17.3.1 Commentary\nWe could have also made our dataset by hand. For example, we could do something like this:\n\nanother_grid = data.frame( grade=seq( 1,5, length.out=10 ), female=0 )\n\nThis allows us to put in values that we didn’t necessarily have in our original dataset. The data_grid is a very convienent way to avoid doing this.\n\n\n17.3.2 Bonus weirdness\nIf you have multiple models you want to compare, you might try these commands\n\nM0 &lt;- lm( age ~ grade, data=emp )\nM1 &lt;- lm( age ~ grade * female, data=emp )\nM2 &lt;- lm( age ~ grade * female + I(grade^2), data=emp )\ngrid &lt;- data_grid( emp, age, female )\ngrid &lt;- spread_predictions( emp, M0, M1, M2 )\nhead( grid )\n\n  grade age female  race schid      resid       M0       M1       M2\n1     7  12      1 Other     1 -0.3866544 12.47108 12.38665 12.39010\n2     7  13      1 Black     1  0.6133456 12.47108 12.38665 12.39010\n3     7  12      1 Asian     1 -0.3866544 12.47108 12.38665 12.39010\n4     7  13      1 Black     1  0.6133456 12.47108 12.38665 12.39010\n5     7  12      0 Black     1 -0.5609714 12.47108 12.56097 12.56186\n6     7  12      0 White     1 -0.5609714 12.47108 12.56097 12.56186\n\n\nFor plotting, use gather_predictions instead:\n\ngrid &lt;- data_grid( emp, grade, female )\ngrid &lt;- gather_predictions( grid, M0, M1, M2 )\nhead(grid)\n\n# A tibble: 6 × 4\n  model grade female  pred\n  &lt;chr&gt; &lt;int&gt;  &lt;int&gt; &lt;dbl&gt;\n1 M0        6      0  11.5\n2 M0        6      1  11.5\n3 M0        6     NA  11.5\n4 M0        7      0  12.5\n5 M0        7      1  12.5\n6 M0        7     NA  12.5\n\ngrid$female = as.factor( grid$female )\nggplot( grid, aes( x=grade, y=pred, group=female, col=female ) ) +\n    facet_wrap( ~ model ) +\n    geom_line()\n\nWarning: Removed 19 rows containing missing values or values outside the scale range\n(`geom_line()`).",
+    "crumbs": [
+      "On Plotting",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Illustration of prediction with a model</span>"
+    ]
+  },
+  {
+    "objectID": "iteration_explored.html",
+    "href": "iteration_explored.html",
+    "title": "22  Exploring map and friends (tidyverse)",
+    "section": "",
+    "text": "23 Overview\nThis document pulls out elements from R for DS Chapter 21, which is on ways of doing iteration. And then it jumps to the map() function and list columns extensively used in Chapter 25. It is all within the tidyverse:\nlibrary( tidyverse )",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Exploring map and friends (tidyverse)</span>"
+    ]
+  },
+  {
+    "objectID": "iteration_explored.html#making-data-frames",
+    "href": "iteration_explored.html#making-data-frames",
+    "title": "22  Exploring map and friends (tidyverse)",
+    "section": "24.1 Making data frames",
+    "text": "24.1 Making data frames\nThe map_df() is especially important. But you need something that gives back a dataframe for it to work! This dataframe can be a 1 row dataframe, however. For example:\n\nmy.func = function( numbers ) {\n    data.frame( mean=mean(numbers), sd=sd(numbers) )\n}\nmap_df( lst, my.func )\n\n  mean sd\n1    1 NA\n2    3 NA\n3   20 10",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Exploring map and friends (tidyverse)</span>"
+    ]
+  },
+  {
+    "objectID": "iteration_explored.html#the-unlist-function",
+    "href": "iteration_explored.html#the-unlist-function",
+    "title": "22  Exploring map and friends (tidyverse)",
+    "section": "24.2 The unlist() function",
+    "text": "24.2 The unlist() function\nA useful function is unlist which takes a bunch of lists and just smashes it all together into one vector\n\nunlist( lst )\n\n                      B inner_list1 inner_list2 inner_list3 \n          1           3          10          20          30 \n\n\nIt even keeps the names, if there are any!",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Exploring map and friends (tidyverse)</span>"
+    ]
+  },
+  {
+    "objectID": "iteration_explored.html#extra-arguments-to-map",
+    "href": "iteration_explored.html#extra-arguments-to-map",
+    "title": "22  Exploring map and friends (tidyverse)",
+    "section": "24.3 Extra arguments to map",
+    "text": "24.3 Extra arguments to map\nIf your function takes extra stuff, then you can pass it along like so:\n\nlog( 10, base=3 )\n\n[1] 2.095903\n\nmap( lst, log, base=3 )\n\n[[1]]\n[1] 0\n\n$B\n[1] 1\n\n$inner_list\n[1] 2.095903 2.726833 3.095903",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Exploring map and friends (tidyverse)</span>"
+    ]
+  },
+  {
+    "objectID": "iteration_explored.html#chaining-map",
+    "href": "iteration_explored.html#chaining-map",
+    "title": "22  Exploring map and friends (tidyverse)",
+    "section": "25.1 Chaining map",
+    "text": "25.1 Chaining map\nYou can chain maps together. Say we are going to fit a linear model for each group of a dataframe defined by different values of a categorical variable. For example, lets divide the famous “iris data” into groups by species, and then fit a linear model for each group, and then get the R squared from that model.\nBefore we dive into this, we need to note that you can use “.” as a pronoun for “the thing we are working on.” So, for example, the following two lines are equivilent:\n\niris.list = split( iris, iris$Species )\niris.list = iris %&gt;% split( .$Species )\n\nThe “.” is what is “coming down the pipe.”\nNow we call lm() on each part by writing a function to analyze our dataframe:\n\nmy.func = function( my.df ) {\n    lm(  Sepal.Length ~ Sepal.Width, data=my.df )\n}\n\nmods = iris.list %&gt;% map( my.func )\n\nOur mods is a list of results. Here is the first result (a linear regression output):\n\nmods[[1]]\n\n\nCall:\nlm(formula = Sepal.Length ~ Sepal.Width, data = my.df)\n\nCoefficients:\n(Intercept)  Sepal.Width  \n     2.6390       0.6905  \n\n\nThe above can be bundled as follows\n\nmods = iris %&gt;% split( .$Species ) %&gt;% map( my.func )\n\nBut writing the wrapper function for lm is annoying. We can tell our map that we are “writing a function on the fly” with an abuse of the “~” notation:\n\nmods = iris %&gt;% split( .$Species ) %&gt;% \n    map( ~lm( Sepal.Length ~ Sepal.Width, data=. ) )\n\nHere we are saying, inside the map, that we want to run the lm() function, and that the stuff we got from the map should be the data argument (data = .).\nFinally, we map the above again to summary to calculate our R squared, and then we extract it:\n\nnames( summary( mods[[1]] ) )\n\n [1] \"call\"          \"terms\"         \"residuals\"     \"coefficients\" \n [5] \"aliased\"       \"sigma\"         \"df\"            \"r.squared\"    \n [9] \"adj.r.squared\" \"fstatistic\"    \"cov.unscaled\" \n\nrs = iris %&gt;% split( .$Species ) %&gt;% \n    map( ~lm( Sepal.Length ~ Sepal.Width, data=. ) ) %&gt;%\n    map( summary ) %&gt;%\n    map_dbl( ~.$r.squared )\nrs\n\n    setosa versicolor  virginica \n 0.5513756  0.2765821  0.2090573 \n\n\nThe ~.$r.squared line is a bit weird. We are taking our pronoun, and grabbing the “r.squared” variable from inside it (if there is no such value inside it we will get NA). This is a common activity, and thus the tidyverse provides a shortcut: just put in the name as a string:\n\nrs = iris %&gt;% split( .$Species ) %&gt;% \n    map( ~lm( Sepal.Length ~ Sepal.Width, data=. ) ) %&gt;%\n    map( summary ) %&gt;%\n    map_dbl( \"r.squared\" )\nrs\n\n    setosa versicolor  virginica \n 0.5513756  0.2765821  0.2090573",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Exploring map and friends (tidyverse)</span>"
+    ]
+  },
+  {
+    "objectID": "iteration_explored.html#dataframes-are-lists-of-the-columns",
+    "href": "iteration_explored.html#dataframes-are-lists-of-the-columns",
+    "title": "22  Exploring map and friends (tidyverse)",
+    "section": "25.2 Dataframes are lists of the columns",
+    "text": "25.2 Dataframes are lists of the columns\nLet’s calculate the unique number of values in each column of iris:\n\nanalyze_column = function( col ) {\n    length( unique( col ) )\n}\nmap_dbl( iris, analyze_column )\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n          35           23           43           22            3 \n\n\nOr, by map chaining:\n\niris %&gt;% map( unique ) %&gt;% map_dbl( length )\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n          35           23           43           22            3",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Exploring map and friends (tidyverse)</span>"
+    ]
+  },
+  {
+    "objectID": "iteration_explored.html#the-transpose-function",
+    "href": "iteration_explored.html#the-transpose-function",
+    "title": "22  Exploring map and friends (tidyverse)",
+    "section": "25.3 The transpose() function",
+    "text": "25.3 The transpose() function\nWe can do some funky list manipulation. Say our map gives us back a list of pairs (note cool select_if() to grab only numeric columns):\n\nmy.func = function( col ) {\n    c( mean=mean(col), sd=sd(col) )\n}\nres &lt;- iris %&gt;% select_if( is.numeric ) %&gt;% map( my.func )\nres\n\n$Sepal.Length\n     mean        sd \n5.8433333 0.8280661 \n\n$Sepal.Width\n     mean        sd \n3.0573333 0.4358663 \n\n$Petal.Length\n    mean       sd \n3.758000 1.765298 \n\n$Petal.Width\n     mean        sd \n1.1993333 0.7622377 \n\n\nBut this is hard to use. transpose() to the rescue!\n\nres2 &lt;- transpose( res )\nnames(res2)\n\n[1] \"mean\" \"sd\"  \n\nres2$mean\n\n$Sepal.Length\n[1] 5.843333\n\n$Sepal.Width\n[1] 3.057333\n\n$Petal.Length\n[1] 3.758\n\n$Petal.Width\n[1] 1.199333\n\n\nWe now have two lists, one for the means, one for the sds.\nSee R for DS 21.6 for more on this.",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Exploring map and friends (tidyverse)</span>"
+    ]
+  },
+  {
+    "objectID": "iteration_explored.html#list-columns",
+    "href": "iteration_explored.html#list-columns",
+    "title": "22  Exploring map and friends (tidyverse)",
+    "section": "26.1 List columns",
+    "text": "26.1 List columns\nA “list column” is a column of your dataframe where each entry in the column can be anything you want, including a list or entire dataframe. For example, we can make some on the fly using enframe() (See R for DS 25.4.4)\n\nx &lt;- list( a=c(\"a\",\"b\"),\n  b = 3:7, \n  c = iris\n) \n\ndf &lt;- enframe(x)\ndf\n\n# A tibble: 3 × 2\n  name  value         \n  &lt;chr&gt; &lt;list&gt;        \n1 a     &lt;chr [2]&gt;     \n2 b     &lt;int [5]&gt;     \n3 c     &lt;df [150 × 5]&gt;\n\n\nThere are several ways to make list columns to be aware of:\n\nUsing nest()\nUsing mutate() where your call gives a list back (e.g., due to map())\nUsing summarise() with a function that gives back multiple results (such as quantile()).",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Exploring map and friends (tidyverse)</span>"
+    ]
+  },
+  {
+    "objectID": "iteration_explored.html#nest-and-unnest",
+    "href": "iteration_explored.html#nest-and-unnest",
+    "title": "22  Exploring map and friends (tidyverse)",
+    "section": "26.2 nest() and unnest()",
+    "text": "26.2 nest() and unnest()\nIn particular, you can group a dataframe by something, and then nest it to make a small dataframe with each row corresponding to a single dataframe slice of your original data\n\ndfs &lt;- iris %&gt;% group_by( Species ) %&gt;% nest()\ndfs\n\n# A tibble: 3 × 2\n# Groups:   Species [3]\n  Species    data             \n  &lt;fct&gt;      &lt;list&gt;           \n1 setosa     &lt;tibble [50 × 4]&gt;\n2 versicolor &lt;tibble [50 × 4]&gt;\n3 virginica  &lt;tibble [50 × 4]&gt;\n\n# look, our 2nd value in our dataframe's data variable is a\n# dataframe!\nhead( dfs$data[[2]], 3 )\n\n# A tibble: 3 × 4\n  Sepal.Length Sepal.Width Petal.Length Petal.Width\n         &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;\n1          7           3.2          4.7         1.4\n2          6.4         3.2          4.5         1.5\n3          6.9         3.1          4.9         1.5\n\n\nNow you can use map to make new columns!\n\ndfs %&gt;% mutate( n = map_dbl( data, nrow ) )\n\n# A tibble: 3 × 3\n# Groups:   Species [3]\n  Species    data                  n\n  &lt;fct&gt;      &lt;list&gt;            &lt;dbl&gt;\n1 setosa     &lt;tibble [50 × 4]&gt;    50\n2 versicolor &lt;tibble [50 × 4]&gt;    50\n3 virginica  &lt;tibble [50 × 4]&gt;    50\n\ndfs2 &lt;- dfs %&gt;% mutate( mod = map( data, ~lm( Sepal.Length ~ Sepal.Width, data = . )))\ndfs2\n\n# A tibble: 3 × 3\n# Groups:   Species [3]\n  Species    data              mod   \n  &lt;fct&gt;      &lt;list&gt;            &lt;list&gt;\n1 setosa     &lt;tibble [50 × 4]&gt; &lt;lm&gt;  \n2 versicolor &lt;tibble [50 × 4]&gt; &lt;lm&gt;  \n3 virginica  &lt;tibble [50 × 4]&gt; &lt;lm&gt;  \n\nmap( dfs2$mod, \"coefficients\" )\n\n[[1]]\n(Intercept) Sepal.Width \n  2.6390012   0.6904897 \n\n[[2]]\n(Intercept) Sepal.Width \n  3.5397347   0.8650777 \n\n[[3]]\n(Intercept) Sepal.Width \n  3.9068365   0.9015345 \n\n\nThe nest() method has unnest() which will unstack an internal list, repeating the row the list came from over and over to make a full set. Witness\n\ndfs3 &lt;- dfs2 %&gt;% mutate( coefs = map( mod, \"coefficients\" ) )\ndfs3\n\n# A tibble: 3 × 4\n# Groups:   Species [3]\n  Species    data              mod    coefs    \n  &lt;fct&gt;      &lt;list&gt;            &lt;list&gt; &lt;list&gt;   \n1 setosa     &lt;tibble [50 × 4]&gt; &lt;lm&gt;   &lt;dbl [2]&gt;\n2 versicolor &lt;tibble [50 × 4]&gt; &lt;lm&gt;   &lt;dbl [2]&gt;\n3 virginica  &lt;tibble [50 × 4]&gt; &lt;lm&gt;   &lt;dbl [2]&gt;\n\nunnest( dfs3, coefs )\n\n# A tibble: 6 × 4\n# Groups:   Species [3]\n  Species    data              mod    coefs\n  &lt;fct&gt;      &lt;list&gt;            &lt;list&gt; &lt;dbl&gt;\n1 setosa     &lt;tibble [50 × 4]&gt; &lt;lm&gt;   2.64 \n2 setosa     &lt;tibble [50 × 4]&gt; &lt;lm&gt;   0.690\n3 versicolor &lt;tibble [50 × 4]&gt; &lt;lm&gt;   3.54 \n4 versicolor &lt;tibble [50 × 4]&gt; &lt;lm&gt;   0.865\n5 virginica  &lt;tibble [50 × 4]&gt; &lt;lm&gt;   3.91 \n6 virginica  &lt;tibble [50 × 4]&gt; &lt;lm&gt;   0.902\n\n\nSee Chapter 25 of R for DS for examples of getting unnest() to work, including the fiddly stuff to get the names right. It can be a frustraiting pain.",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Exploring map and friends (tidyverse)</span>"
+    ]
+  },
+  {
+    "objectID": "iteration_explored.html#using-summarise",
+    "href": "iteration_explored.html#using-summarise",
+    "title": "22  Exploring map and friends (tidyverse)",
+    "section": "26.3 Using summarise()",
+    "text": "26.3 Using summarise()\nWe can call summarise() with functions that give multiple things. We need to wrap the response in a list.\n\nir2 &lt;- iris %&gt;% group_by( Species ) %&gt;% summarise( probs = list( c( 0, 25, 50, 75, 100 ) ), \n                                            quants = list( quantile( Sepal.Length )) )\nir2\n\n# A tibble: 3 × 3\n  Species    probs     quants   \n  &lt;fct&gt;      &lt;list&gt;    &lt;list&gt;   \n1 setosa     &lt;dbl [5]&gt; &lt;dbl [5]&gt;\n2 versicolor &lt;dbl [5]&gt; &lt;dbl [5]&gt;\n3 virginica  &lt;dbl [5]&gt; &lt;dbl [5]&gt;\n\n\nNote the wrapping of everything in the list. Now each row has a list of the probabilities and a list of the results. We can get back a long frame with unnest():\n\nunnest( ir2 )\n\nWarning: `cols` is now required when using `unnest()`.\nℹ Please use `cols = c(probs, quants)`.\n\n\n# A tibble: 15 × 3\n   Species    probs quants\n   &lt;fct&gt;      &lt;dbl&gt;  &lt;dbl&gt;\n 1 setosa         0   4.3 \n 2 setosa        25   4.8 \n 3 setosa        50   5   \n 4 setosa        75   5.2 \n 5 setosa       100   5.8 \n 6 versicolor     0   4.9 \n 7 versicolor    25   5.6 \n 8 versicolor    50   5.9 \n 9 versicolor    75   6.3 \n10 versicolor   100   7   \n11 virginica      0   4.9 \n12 virginica     25   6.22\n13 virginica     50   6.5 \n14 virginica     75   6.9 \n15 virginica    100   7.9 \n\n\nSee R for DS Chapter 25.4 for lots of examples and discussion.",
+    "crumbs": [
+      "On Coding",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Exploring map and friends (tidyverse)</span>"
+    ]
   }
 ]
