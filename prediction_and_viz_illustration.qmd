@@ -1,0 +1,121 @@
+---
+title: "Illustration of prediction with a model"
+author: "Miratrix"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+library( tidyverse )
+knitr::opts_chunk$set(fig.align='center', out.width="0.7\\linewidth") 
+```
+
+**Reading: R for DS (1st edition), 23.3** (23.1 and 23.2 are fairly optional)
+
+## Fitting the model on our data
+
+We are going to show how to fit a model and then make plots of the model fit. This is a useful skill, especally when the model gets more and more complex.
+
+First load the data and drop a bunch of variables we are not going to be using. Note how the pipe flows from load data to drop `X` to drop all the `empathy` variables.
+
+```{r}
+emp = read.csv( "data/empathy_data.csv", as.is=TRUE ) %>% 
+  select( -X, -starts_with("empathy" ) )
+head( emp )
+```
+
+For illustration, we are going to investigate the incredibly uninteresting relationship between age and grade. Here is our raw data
+
+```{r, fig.height=5}
+ggplot( data=emp, aes( x=grade, y=age ) ) +
+    geom_jitter()
+
+```
+
+Let's fit a simple model:
+
+```{r}
+M0 <- lm( age ~ grade * female, data=emp )
+```
+
+## Prediction and Model Vizualization
+
+Now we can use our model to predict. We are going to use some stuff from the `modelr` package which helps with this kind of activity.
+
+First load `modelr` and then make all combos of grade and gender:
+
+```{r}
+library( modelr )
+grid = emp %>% data_grid( grade, female  )
+grid
+```
+
+This is a new, fake, dataset. We can use it to predict what we would expect to see as an outcome for each case (row) in this set. We get one prediction for each row in our new data.
+
+```{r}
+predict( M0, newdata=grid )
+```
+
+We can be a bit more clever, using more magic from the tidyverse. The following code adds a new column to our grid dataframe with predictions for each entry.
+
+```{r}
+grid <- grid %>% add_predictions( M0 ) 
+head( grid )
+```
+
+Our mini-dataset of predictions makes it super easy to plot trends (we first make female a factor so it doesn't give a continuous color axis)
+
+```{r, out.width="0.5\\linewidth"}
+grid$female = as.factor( grid$female )
+ggplot( grid, aes( x=grade, y=pred, col=female, group=female ) ) + geom_line()
+```
+
+## Residuals
+
+We can also add residuals to our original data:
+
+```{r}
+emp <- add_residuals( emp, M0 )
+head( emp )
+```
+
+This allows for diagnostic plots
+
+```{r}
+ggplot( emp, aes(x=grade, y=resid, col=female ) ) + geom_jitter() +
+    geom_ref_line(h=0)
+```
+
+### Commentary
+
+We could have also made our dataset by hand. For example, we could do something like this:
+
+```{r}
+another_grid = data.frame( grade=seq( 1,5, length.out=10 ), female=0 )
+```
+
+This allows us to put in values that we didn't necessarily have in our original dataset. The `data_grid` is a very convienent way to avoid doing this.
+
+### Bonus weirdness
+
+If you have multiple models you want to compare, you might try these commands
+
+```{r}
+M0 <- lm( age ~ grade, data=emp )
+M1 <- lm( age ~ grade * female, data=emp )
+M2 <- lm( age ~ grade * female + I(grade^2), data=emp )
+grid <- data_grid( emp, age, female )
+grid <- spread_predictions( emp, M0, M1, M2 )
+head( grid )
+```
+
+For plotting, use `gather_predictions` instead:
+
+```{r}
+grid <- data_grid( emp, grade, female )
+grid <- gather_predictions( grid, M0, M1, M2 )
+head(grid)
+grid$female = as.factor( grid$female )
+ggplot( grid, aes( x=grade, y=pred, group=female, col=female ) ) +
+    facet_wrap( ~ model ) +
+    geom_line()
+```

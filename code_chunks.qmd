@@ -88,7 +88,6 @@ dat %>%
   labs(x = "Minutes of delay", y = "Destinations")
 ```
 
-
 ## Changing your defaults
 
 At the beginning of your code, you can set custom defaults so all your chunks will render the same way (unless you override by specifically adding arguments to a chunk itself). This is handy in that you will then not need to repeat the custom arguments in each code chunk. For example, you can set a default figure size.

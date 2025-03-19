@@ -1,0 +1,251 @@
+---
+title: "Exploring map and friends (tidyverse)"
+author: "Miratrix"
+date: "2/7/2017"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, out.width="0.5\\linewidth", fig.align="center")
+library( tidyverse )
+
+```
+
+# Overview
+
+This document pulls out elements from R for DS Chapter 21, which is on ways of doing iteration.  And then it jumps to the `map()` function and list columns extensively used in Chapter 25.  It is all within the tidyverse:
+```{r}
+library( tidyverse )
+```
+
+
+# The map() function (R for DS 21.5)
+
+The core idea of `map` is to take a list and call a function on each thing on that list.  This list could be a list of lists (i.e. a dataframe), which can be very important, because then you can call a function on each column in your dataframe.
+
+Generally what `map` gives back is another list, with each element being what we got back from the function from each call. If your first list has named items, your result will have those names as well.  This can be quite useful.
+
+To illustrate we make a silly list with a list inside it, and then call `map()`:
+```{r}
+lst = list( 1, B=3, inner_list = c(10, 20, 30) )
+lst
+map( lst, mean )
+```
+See?  We got the mean out of each element in our list.
+
+
+
+By adding `_dbl` or similar, we can explicitly tell `map()` to turn this list into a vector of some type:
+```{r}
+map_dbl( lst, mean )
+```
+We also have `map_int`, `map_chr`, `map_lgl`, and `map_df`.  Be warned, if you call one of these and the things you get back are the wrong type, you get an error:
+```{r, error=TRUE}
+map_df( lst, mean )
+```
+
+## Making data frames
+The `map_df()` is especially important.  But you need something that gives back a dataframe for it to work!  This dataframe can be a 1 row dataframe, however.  For example:
+```{r}
+my.func = function( numbers ) {
+    data.frame( mean=mean(numbers), sd=sd(numbers) )
+}
+map_df( lst, my.func )
+```
+
+
+## The `unlist()` function
+A useful function is `unlist` which takes a bunch of lists and just smashes it all together into one vector
+```{r}
+unlist( lst )
+```
+It even keeps the names, if there are any!
+
+## Extra arguments to map
+If your function takes extra stuff, then you can pass it along like so:
+```{r}
+log( 10, base=3 )
+map( lst, log, base=3 )
+```
+
+
+# Banging on Dataframes
+
+If you have a dataframe that is a bunch of smaller dataframes, you can get a list of the smaller dataframes via `split()`.  This will make a new dataframe with the rows corresponding to each unique value of a passed variable:
+
+```{r}
+df = data.frame( A=1:6, B=c("A","A","A","B","B","C") )
+df.list = split( df, df$B )
+df.list
+class( df.list )
+map_dbl( df.list, nrow )
+```
+
+See R for DS 25.5.1
+
+## Chaining `map` 
+
+You can chain maps together.  Say we are going to fit a linear model for each group of a dataframe defined by different values of a categorical variable.  For example, lets divide the famous "iris data" into groups by species, and then fit a linear model for each group, and then get the R squared from that model.
+
+Before we dive into this, we need to note that you can use "." as a pronoun for "the thing we are working on."  So, for example, the following two lines are equivilent:
+```{r}
+iris.list = split( iris, iris$Species )
+iris.list = iris %>% split( .$Species )
+```
+The "." is what is "coming down the pipe."
+
+Now we call `lm()` on each part by writing a function to analyze our dataframe:
+```{r}
+my.func = function( my.df ) {
+    lm(  Sepal.Length ~ Sepal.Width, data=my.df )
+}
+
+mods = iris.list %>% map( my.func )
+```
+Our `mods` is a list of results.  Here is the first result (a linear regression output):
+```{r}
+mods[[1]]
+```
+
+The above can be bundled as follows
+```{r}
+mods = iris %>% split( .$Species ) %>% map( my.func )
+```
+
+But writing the wrapper function for `lm` is annoying.  We can tell our `map` that we are "writing a function on the fly" with an abuse of the "~" notation:
+```{r}
+mods = iris %>% split( .$Species ) %>% 
+    map( ~lm( Sepal.Length ~ Sepal.Width, data=. ) )
+```
+Here we are saying, inside the `map`, that we want to run the `lm()` function, and that the stuff we got from the map should be the data argument (`data = .`).
+
+Finally, we map the above again to `summary` to calculate our R squared, and then we extract it:
+```{r}
+names( summary( mods[[1]] ) )
+rs = iris %>% split( .$Species ) %>% 
+    map( ~lm( Sepal.Length ~ Sepal.Width, data=. ) ) %>%
+    map( summary ) %>%
+    map_dbl( ~.$r.squared )
+rs
+```
+
+The `~.$r.squared` line is a bit weird.  We are taking our pronoun, and grabbing the "r.squared" variable from inside it (if there is no such value inside it we will get NA).  This is a common activity, and thus the tidyverse provides a shortcut: just put in the name as a string:
+```{r}
+rs = iris %>% split( .$Species ) %>% 
+    map( ~lm( Sepal.Length ~ Sepal.Width, data=. ) ) %>%
+    map( summary ) %>%
+    map_dbl( "r.squared" )
+rs
+```
+
+
+## Dataframes are lists of the columns
+
+Let's calculate the unique number of values in each column of iris:
+```{r}
+analyze_column = function( col ) {
+    length( unique( col ) )
+}
+map_dbl( iris, analyze_column )
+```
+
+Or, by map chaining:
+```{r}
+iris %>% map( unique ) %>% map_dbl( length )
+```
+
+## The `transpose()` function
+
+We can do some funky list manipulation.  Say our map gives us back a list of pairs (note cool `select_if()` to grab only numeric columns):
+```{r}
+my.func = function( col ) {
+    c( mean=mean(col), sd=sd(col) )
+}
+res <- iris %>% select_if( is.numeric ) %>% map( my.func )
+res
+```
+
+But this is hard to use.  `transpose()` to the rescue!
+```{r}
+res2 <- transpose( res )
+names(res2)
+res2$mean
+```
+We now have two lists, one for the means, one for the sds.
+
+See R for DS 21.6 for more on this.
+
+
+
+
+# List columns and notes on R for DS 25 (25.2)
+
+Chapter 25, while nominally about modeling, actually shows a lot of useful code for complex data wrangling.  In particular it talks about list columns, which are ways of storing data in chunks and manipulating the data chunk-by-chunk.  This connects heavily with the `map` concepts above.
+
+## List columns
+A "list column" is a column of your dataframe where each entry in the column can be anything you want, including a list or entire dataframe.  For example, we can make some on the fly using `enframe()` (See R for DS 25.4.4)
+```{r}
+
+x <- list( a=c("a","b"),
+  b = 3:7, 
+  c = iris
+) 
+
+df <- enframe(x)
+df
+```
+
+There are several ways to make list columns to be aware of:
+
+* Using `nest()`
+* Using `mutate()` where your call gives a list back (e.g., due to `map()`)
+* Using `summarise()` with a function that gives back multiple results (such as `quantile()`).
+
+## `nest()` and `unnest()`
+In particular, you can group a dataframe by something, and then nest it to make a small dataframe with each row corresponding to a single dataframe slice of your original data
+```{r}
+dfs <- iris %>% group_by( Species ) %>% nest()
+dfs
+
+# look, our 2nd value in our dataframe's data variable is a
+# dataframe!
+head( dfs$data[[2]], 3 )
+```
+
+Now you can use map to make new columns!
+```{r}
+dfs %>% mutate( n = map_dbl( data, nrow ) )
+
+dfs2 <- dfs %>% mutate( mod = map( data, ~lm( Sepal.Length ~ Sepal.Width, data = . )))
+dfs2
+
+map( dfs2$mod, "coefficients" )
+```
+
+
+The `nest()` method has `unnest()` which will unstack an internal list, repeating the row the list came from over and over to make a full set.  Witness
+```{r}
+dfs3 <- dfs2 %>% mutate( coefs = map( mod, "coefficients" ) )
+dfs3
+unnest( dfs3, coefs )
+```
+See Chapter 25 of R for DS for examples of getting `unnest()` to work, including the fiddly stuff to get the names right.  It can be a frustraiting pain.
+
+
+## Using `summarise()`
+
+We can call `summarise()` with functions that give multiple things.  We need to wrap the response in a list.
+```{r}
+
+ir2 <- iris %>% group_by( Species ) %>% summarise( probs = list( c( 0, 25, 50, 75, 100 ) ), 
+                                            quants = list( quantile( Sepal.Length )) )
+ir2
+```
+Note the wrapping of everything in the list.  Now each row has a list of the probabilities and a list of the results.  We can get back a long frame with `unnest()`:
+```{r}
+unnest( ir2 )
+```
+
+See R for DS Chapter 25.4 for lots of examples and discussion.
