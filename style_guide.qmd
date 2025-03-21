@@ -1,5 +1,4 @@
 ---
-title: "An R Code Style Guide (Miratrix version)"
 author: "Luke Miratrix, adapted from Peter Ganong via Avi Feller"
 date: '`r Sys.Date()`'
 output:
@@ -10,6 +9,7 @@ output:
     fig_width: 6
     fig_height: 4
 ---
+# An R Code Style Guide (Miratrix version) {#sec-style-guide}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)

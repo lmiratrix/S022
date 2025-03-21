@@ -1,5 +1,4 @@
 ---
-title: "Prediction and Plotting"
 author: "Miratrix"
 date: "2/7/2017"
 output:
@@ -13,7 +12,8 @@ library( tidyverse )
 
 ```
 
-# Overview
+# Prediction and Plotting {#prediction_and_plotting}
+
 
 To make nice plots from funky, curved models, the easiest way is to use the model to predict values for different covariate combinations, store all of this in a dataframe, and then use `ggplot` to plot your results using `geom_line` which will give you nice smoothed curves through the points.
 

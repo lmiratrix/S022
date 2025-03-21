@@ -1,11 +1,13 @@
 ---
-title: "Plotting aggregate data with ggPlot"
 author: "Zach Himmelsbach"
 format: pdf
 editor: visual
 ---
+# Plotting aggregate data with ggPlot {#sec-plot-aggregate}
 
-This handout demonstrates how to create histograms with ggplot when the data have already been aggregated or tallied.
+This handout covers how to plot univariate distributions of data (i.e. histograms and bar charts) if your data have already been aggregated (e.g. you have the counts for each value of a variable but not the individual observations). 
+In particular, this handout demonstrates how to create histograms with ggplot when the data have already been aggregated or tallied.
+
 
 ### Preface
 

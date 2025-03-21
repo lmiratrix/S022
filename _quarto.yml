@@ -48,6 +48,7 @@ book:
       - interpreting_lasso_models.qmd
     - part: "Extra Stuff"
       chapters:
+      - clean_excel_files.qmd
       - interactions_discussion.qmd
       - ipeds_data.qmd
       - predictive_papers.qmd

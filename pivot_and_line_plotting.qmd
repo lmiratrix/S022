@@ -1,4 +1,6 @@
-# Using pivot methods to make line graphs
+
+# Using pivot methods to make line graphs {#pivot_and_line_plotting}
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, out.width = "4in", out.height = "3in",

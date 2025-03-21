@@ -1,10 +1,6 @@
----
-title: "Some tips for making plots"
-author: "Luke Miratrix"
-editor: 
-  markdown: 
-    wrap: sentence
----
+
+# Some tips for making plots {#simple-plotting-tips}
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, 
@@ -42,11 +38,14 @@ head( sat93 )
 
 ```
 
-This document provides several simple plotting tips for using RStudio to make plots (primarily using the `ggplot2` package in `tidyverse`). These are all very simple tricks that can radically enhance the legibility of a plot. This document also covers how to save your plots so you can use them in presentations and other documents, and how to control the size of your plot in a R Markdown document.
+This document provides several simple plotting tips for using RStudio to make plots (primarily using the `ggplot2` package in `tidyverse`).
+These are all very simple tricks that can radically enhance the legibility of a plot.
+This document also covers how to save your plots so you can use them in presentations and other documents, and how to control the size of your plot in a R Markdown document.
 
 # Setting a theme
 
-Themes in ggplot give you a bunch of default options for plotting. For example, you can get rid of the grey background of plots with the `theme_minimal()` command.
+Themes in ggplot give you a bunch of default options for plotting.
+For example, you can get rid of the grey background of plots with the `theme_minimal()` command.
 
 ```{r, fig.height=2, fig.width=7}
 airquality$day_cntr = 1:nrow(airquality)
@@ -74,7 +73,10 @@ theme_set( theme_minimal() )
 
 # Formatting axes and making labels
 
-The `labs()` command is critical for getting labels for your plot. The `scale_x_continuous()` (or y) allow you to control the scales on each axis. Also, there is a nice package, `scales` that will format your x and y-axes. Witness!
+The `labs()` command is critical for getting labels for your plot.
+The `scale_x_continuous()` (or y) allow you to control the scales on each axis.
+Also, there is a nice package, `scales` that will format your x and y-axes.
+Witness!
 
 ```{r}
 library( scales ) # for label_dollar(), below
@@ -91,7 +93,10 @@ ggplot( sat93, aes( expend, tot_sat ) ) +
 
 # Making legends using aes()
 
-If you are making a bunch of lines and want to color them, you can do so by giving them all names and then letting R pick the colors for you. This also lets you have a nice legend telling you which color is which. Also note how you can put a name for your legend inside `labs()`. Witness!
+If you are making a bunch of lines and want to color them, you can do so by giving them all names and then letting R pick the colors for you.
+This also lets you have a nice legend telling you which color is which.
+Also note how you can put a name for your legend inside `labs()`.
+Witness!
 
 ```{r, message=FALSE}
 library( scales ) # for label_dollar(), below
@@ -110,7 +115,9 @@ ggplot( sat93, aes( expend, tot_sat ) ) +
 
 # Cropping vs. zooming in
 
-If you set the scale of your plot via `scale_x_continuous()` you will drop data from your analysis. If you use `coord_cartesian()` you will zoom in on the specified window, but it will be using all the data for smoothers, etc. This can be an important difference:
+If you set the scale of your plot via `scale_x_continuous()` you will drop data from your analysis.
+If you use `coord_cartesian()` you will zoom in on the specified window, but it will be using all the data for smoothers, etc.
+This can be an important difference:
 
 ```{r}
 ggplot( sat93, aes( expend, tot_sat ) ) +
@@ -128,7 +135,8 @@ ggplot( sat93, aes( expend, tot_sat ) ) +
 
 # Controlling size in markdown files
 
-You can add `fig.height=2, fig.width=7` into the header of a chunk. For example, the chunk above had:
+You can add `fig.height=2, fig.width=7` into the header of a chunk.
+For example, the chunk above had:
 
 ```{r my_figure, fig.height=2, fig.width=7, wrapper=TRUE}
 ```
@@ -143,11 +151,15 @@ knitr::opts_chunk$set(echo = TRUE,
                       fig.align = "center")
 ```
 
-The `fig.width` controls how big the figure is when plotting. The figure is then rescaled to fit into the area dictated by `out.width`. The "75%" can be replaced with, e.g., "4in" for 4 inches. The percent is the percent of text width of the page.
+The `fig.width` controls how big the figure is when plotting.
+The figure is then rescaled to fit into the area dictated by `out.width`.
+The "75%" can be replaced with, e.g., "4in" for 4 inches.
+The percent is the percent of text width of the page.
 
 # Making the fonts of labels, etc., larger
 
-If you make the figure smaller, the axes labels and line thicknesses and everything get larger, relatively speaking. Compare the following, with the header chunks printed out for clarity:
+If you make the figure smaller, the axes labels and line thicknesses and everything get larger, relatively speaking.
+Compare the following, with the header chunks printed out for clarity:
 
 ```{r, fig.height=2, fig.width=7, out.width="100%", out.height="100%", wrapper=TRUE}
 ggplot( airquality, aes( day_cntr, Ozone ) ) +
@@ -159,9 +171,13 @@ ggplot( airquality, aes( day_cntr, Ozone ) ) +
     geom_point(na.rm=TRUE) + geom_line()
 ```
 
-See how the second figure is a bigger figure rescaled to fit into a smaller space (width-wise). Everything thus looks tiny. The other plots in this document are `fig.height=2, fig.width=7`.
+See how the second figure is a bigger figure rescaled to fit into a smaller space (width-wise).
+Everything thus looks tiny.
+The other plots in this document are `fig.height=2, fig.width=7`.
 
-If the plot is small, but `out.width` is large, it will not scale up but instead keep to the desired size. The `out.width` only ensures plots are no larger than given. E.g. `fig.width=3, fig.height=2, out.width="100%"` gives:
+If the plot is small, but `out.width` is large, it will not scale up but instead keep to the desired size.
+The `out.width` only ensures plots are no larger than given.
+E.g. `fig.width=3, fig.height=2, out.width="100%"` gives:
 
 ```{r, warning = FALSE, fig.width=3, fig.height=2, out.width="100%", wrapper=TRUE}
 ggplot( airquality, aes( day_cntr, Ozone ) ) +
@@ -170,9 +186,14 @@ ggplot( airquality, aes( day_cntr, Ozone ) ) +
 
 # Saving high resolution plots
 
-There are three ways to export plots from RStudio. You can click on the export button on RStudio. If you say "Copy to Clipboard" you will get a bitmap plot (basically a digital photo of your plot), which will be fuzzy if you blow it up in your report. One way around that is specify a larger width and height in the dialog box before you save. "Save as Image" has the same concern.
+There are three ways to export plots from RStudio.
+You can click on the export button on RStudio.
+If you say "Copy to Clipboard" you will get a bitmap plot (basically a digital photo of your plot), which will be fuzzy if you blow it up in your report.
+One way around that is specify a larger width and height in the dialog box before you save.
+"Save as Image" has the same concern.
 
-The "Save to PDF" will save a vector image of your plot. Vector images remember the dots and lines used for your plot, and will be crisp if you make them large or small.
+The "Save to PDF" will save a vector image of your plot.
+Vector images remember the dots and lines used for your plot, and will be crisp if you make them large or small.
 
 You can also use `ggsave` as follows:
 
@@ -182,15 +203,18 @@ ggplot( airquality, aes( day_cntr, Ozone ) ) +
 ggsave( "my_ac_plot.pdf", width = 8, height=2 )
 ```
 
-This allows you to specify the width and height and then, if you want to re-make your plot, it will save the exact same size. This is also good if you have a series of plots you want to make the same size.
+This allows you to specify the width and height and then, if you want to re-make your plot, it will save the exact same size.
+This is also good if you have a series of plots you want to make the same size.
 
-I recommend saving to PDF. The image bitmap plots always look a bit lousy.
+I recommend saving to PDF.
+The image bitmap plots always look a bit lousy.
 
 \newpage
 
 # Think about the height of a plot.
 
-Very often, making your plot *shorter* will make it better. Big vertical distance amplifies variation and makes it hard to follow trends.
+Very often, making your plot *shorter* will make it better.
+Big vertical distance amplifies variation and makes it hard to follow trends.
 
 Compare
 
@@ -247,11 +271,17 @@ ggplot( dat, aes( x = Category, y=per_students ) ) +
     theme(axis.text.x = element_text(angle = 0))  
 ```
 
-Flipping is easy to do. Just add `coord_flip()` to your `ggplot` command! The choice of vertical height of the plot also matters here. Make your bars not too thick, but still a nice amount thick so your labels are well spaced.
+Flipping is easy to do.
+Just add `coord_flip()` to your `ggplot` command!
+The choice of vertical height of the plot also matters here.
+Make your bars not too thick, but still a nice amount thick so your labels are well spaced.
 
-For the first plot, we had to rotate the labels so they didn't overlap. Other choices are likely possible.
+For the first plot, we had to rotate the labels so they didn't overlap.
+Other choices are likely possible.
 
-Also notice the rotating of the axes labels. With `coord_flip` be careful as to what element you are controlling. Usually fiddling around will get it right in no time!
+Also notice the rotating of the axes labels.
+With `coord_flip` be careful as to what element you are controlling.
+Usually fiddling around will get it right in no time!
 
 Note: these data are from the Massachusetts Department of Elementary and Secondary Education, school year 2019-20, for the state.
 

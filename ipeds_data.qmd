@@ -20,7 +20,9 @@ theme_set( theme_classic() )
 
 ## Datasets Posted on the Web
 
-This handout provides a walk-through of downloading publicly available datasets from the web and merging them together. No guide can cover all cases, but this example should give you a sense of what to look for/think about when wrangling data posted on websites. Note that this is *not about scraping*. What we're considering here are datasets posted for download, often - but not always - found on government sites.
+Downloading and merging publicly posted datasets is a very important skill. This handout walks through an example case of downloading datasets posted on a government website, cleaning them, merging them together, and using the merged dataset for an analysis. It addresses some of the common challenges of getting acquainted with a data portal.
+
+No guide can cover all cases, but this example should give you a sense of what to look for/think about when wrangling data posted on websites. Note that this is *not about scraping*. What we're considering here are datasets posted for download, often - but not always - found on government sites.
 
 ## IPEDS
 
