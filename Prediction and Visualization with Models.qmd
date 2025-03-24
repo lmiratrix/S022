@@ -1,0 +1,176 @@
+---
+title: "Prediction and Visualization with Models"
+format: html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      out.width="0.5\\linewidth", 
+                      fig.align="center",
+                      warning = FALSE,
+                      message = FALSE)
+library( tidyverse )
+library(modelr)
+theme_set(theme_bw())
+```
+
+## Overview
+
+This handout introduces how to fit models, make predictions, and visualize those predictions using R. These are foundational skills for data analysis, especially as models become more complex and interactions or non-linear terms are introduced.
+
+We will use both the `iris` dataset and an `empathy_data.csv` dataset to illustrate techniques.
+
+Reading: R for Data Science (1st Edition), Section 23.3 *(Sections 23.1 and 23.2 are optional but helpful)*
+
+## Fitting a Model: Example with `empathy_data.csv`
+
+```{r}
+emp = read.csv("data/empathy_data.csv", as.is=TRUE) %>%
+  select(-X, -starts_with("empathy"))
+head(emp)
+```
+
+### Visualizing Raw Data
+
+We’re exploring the relationship between `grade` and `age`:
+
+```{r}
+ggplot(emp, aes(x=grade, y=age)) +
+  geom_jitter()
+```
+
+### Fitting a Linear Model
+
+Let’s model age as a function of `grade` and `gender` interaction:
+
+```{r}
+M0 <- lm(age ~ grade * female, data=emp)
+summary(M0)
+```
+
+## Making Predictions
+
+We often want to understand what our model is saying by predicting outcomes over combinations of input variables.
+
+### Generate a Prediction Grid
+
+`data_grid()` creates a grid of values over which we will predict:
+
+```{r}
+grid = emp %>% data_grid(grade, female)
+grid
+```
+
+### Add Predictions to the Grid
+
+```{r}
+grid <- grid %>% add_predictions(M0)
+head(grid)
+```
+
+### Plot Predicted Trends
+
+Convert `female` to a factor to get cleaner plots:
+
+```{r}
+grid$female = as.factor(grid$female)
+ggplot(grid, aes(x=grade, y=pred, col=female, group=female)) +
+  geom_line()
+```
+
+## Residuals and Diagnostics
+
+We can add `residuals` to our data for model diagnostics:
+
+```{r}
+emp <- add_residuals(emp, M0)
+ggplot(emp, aes(x=grade, y=resid, col=factor(female))) +
+  geom_jitter() +
+  geom_ref_line(h=0)
+```
+
+## Comparing Models
+
+Let’s try multiple models and compare their predictions:
+
+```{r}
+M1 <- lm(age ~ grade, data=emp)
+M2 <- lm(age ~ grade * female + I(grade^2), data=emp)
+
+grid = data_grid(emp, grade, female)
+grid = gather_predictions(grid, M1, M0, M2)
+
+ggplot(grid, aes(x=grade, y=pred, col=factor(female), group=factor(female))) +
+  facet_wrap(~ model) +
+  geom_line()
+```
+
+## Iris Example – Modeling and Plotting with Interactions
+
+Let’s switch to the `iris` dataset.
+
+### Raw Data Plot
+
+```{r}
+ggplot(iris, aes(x=Petal.Length, y=Petal.Width, col=Species)) +
+  geom_point()
+```
+
+### Fit a Simple and an Interaction Model
+
+```{r}
+M0 <- lm(Petal.Length ~ Petal.Width, data=iris)
+M1 <- lm(Petal.Length ~ Petal.Width * Species, data=iris)
+```
+
+### Predict Over a Grid
+
+```{r}
+grid = data_grid(iris, Petal.Width = seq_range(Petal.Width, 9), .model = M1)
+grid = gather_predictions(grid, M0, M1)
+```
+
+### Visualize Predictions
+
+```{r}
+ggplot(grid, aes(x=Petal.Width, y=pred, col=Species, lty=model)) +
+  geom_line(lwd=2)
+```
+
+### Optional: Fancy Plotting with spread_predictions
+
+```{r}
+grid_spread = spread_predictions(grid, M0, M1)
+ggplot(grid_spread, aes(x=Petal.Width)) +
+  geom_line(aes(y=M0), col="black", lwd=2) +
+  geom_line(aes(y=M1, col=Species), lwd=2, lty=2)
+```
+
+## Bonus: Curved Models
+
+Let’s add a quadratic term for non-linear modeling:
+
+```{r}
+M2 <- lm(Petal.Length ~ (Petal.Width + I(Petal.Width^2)) * Species, data=iris)
+grid2 <- add_predictions(grid, M2)
+
+ggplot(grid2, aes(x=Petal.Width, y=pred, col=Species)) +
+  geom_line(lwd=1)
+```
+
+## Handy Functions Recap
+
+| Function | Use |
+|---------------------------------------------|:--------------------------|
+| `data_grid()` | Create a grid of input values for prediction |
+| `add_predictions()` | Add predicted values from a model to a dataset |
+| `add_residuals()` | Add model residuals to original data |
+| `gather_predictions()` | Combine predictions from multiple models for plotting |
+| `spread_predictions()` | Spread predictions into separate columns |
+| `seq_range()` | Create evenly spaced values over a variables range |
+
+## Final Thoughts
+
+These techniques make model interpretation and communication much easier. Being able to **visualize predictions and model trends** can bring clarity, especially when dealing with interactions or nonlinearities.
+
+Practice using these tools and adapt them to your own datasets!
