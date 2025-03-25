@@ -30,9 +30,7 @@ book:
       - double_plot.qmd
       - hist_and_bar_with_aggregated_data.qmd
       - heatmap_jitter_alpha.qmd
-      - pivot_and_line_plotting.qmd
-      - prediction_and_plotting.qmd
-      - prediction_and_viz_illustration.qmd
+      - Prediction_and_Visualization_with_Models.qmd
     - part: "On Coding"
       chapters:
       - manipulation_examples.qmd

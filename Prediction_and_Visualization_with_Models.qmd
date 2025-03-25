@@ -14,8 +14,7 @@ library(modelr)
 theme_set(theme_bw())
 ```
 
-To make nice plots of the predictions from models that have complex curves and relationships, the easiest way is to
-use the model to predict values for different covariate combinations, store all of this in a dataframe, and then use `ggplot` to plot your results using `geom_line` which will give you nice smoothed curves through the points. This document highlights some useful methods for doing this. We need the tidyverse and the `modelr` package
+To make nice plots of the predictions from models that have complex curves and relationships, the easiest way is to use the model to predict values for different covariate combinations, store all of this in a dataframe, and then use `ggplot` to plot your results using `geom_line` which will give you nice smoothed curves through the points. This document highlights some useful methods for doing this. We need the tidyverse and the `modelr` package
 
 Prediction, and making plots from predictions, are foundational skills for data analysis, especially as models become more complex and interactions or non-linear terms are introduced.
 
@@ -25,6 +24,13 @@ We will use the `iris` dataset, as it has some strong relationships that make th
 ggplot(iris, aes(x=Petal.Length, y=Petal.Width, col=Species)) +
   geom_point()
 ```
+
+To visualize we go through a series of steps:
+
+1) Fit a model to describe the relationship between variables
+2) Generate a grid of values to predict over
+3) Add predictions to the grid
+4) Make the vizualization, plotting our predictions vs. our grid values.
 
 Related reading: R for Data Science (1st Edition), Section 23.3 *(Sections 23.1 and 23.2 are optional but helpful)*
 
@@ -37,32 +43,61 @@ M1 <- lm(Petal.Length ~ Petal.Width * Species, data=iris)
 summary( M1 )
 ```
 
-## Predict with our model
+## Generate a Prediction Grid
 
 We often want to understand what our model is saying by predicting outcomes over combinations of input variables. We do this by first making a new dataset of the combinations of inputs we want to explore, and then we use our fit model to predict for all these combinations.
 
-### Generate a Prediction Grid
+`data_grid()`, in the `modelr` package, is the tool for this.
+It will generate a simple dataframe with one row for each possible combination of variables you want.  We will then predict for each of these rows.
 
-`data_grid()` creates a grid of values over which we will predict:
+Here is a toy example: see how duplicates are removed:
 
+```{r}
+library( modelr )
+my.df = data.frame( A=c(1,2,1,2), B=c(10,20,20,20), C=c(10,20,30,40) )
+data_grid( my.df, A, B )
+```
+
+For our actual data we have:
 ```{r}
 grid = iris %>%
   data_grid( Petal.Width, Species )
 grid
 ```
 
-You can also make the grid more by hand to control the number of points:
+You can also get "typical values" (usually the median or most commonly occurring) for things not on your grid using a modeling argument:
 
 ```{r}
-grid2 = data_grid( iris, 
-                   Petal.Width = seq_range(Petal.Width, 9),
-                   .model = M1)
-grid2
+mod <- lm(Petal.Length ~ Petal.Width * Species, data=iris)
+data_grid(iris, .model = mod)
+data_grid(iris, Petal.Width = seq_range(Petal.Width, 9), .model = mod)
 ```
 
-The `.model = M1` argument tells `data_grid()` to include any additional things the model uses in the grid.
+A tool that is also good is `seq_range()` that gives you a nice sequence of numbers over a range of values
 
-### Add Predictions to the Grid
+```{r}
+X = rnorm( 10000 )
+seq_range( X, 5 )
+
+# drop 5% of data on tails
+seq_range( X, 5, trim=0.05 )
+
+# use pretty numbers
+seq_range( X, 5, trim=0.05, pretty=TRUE )
+```
+
+You can combine with `data_grid` to get a nice data frame of points to use for your "canonical points" for prediction or whatnot:
+
+```{r}
+my.df = data.frame( A=rnorm(1000), B=rexp(1000), C=rnorm(1000,mean=5) )
+data_grid( my.df, 
+           A=seq_range(A,n=3),
+           B=seq_range(B,n=3) )
+```
+
+
+
+## Add Predictions to the Grid
 
 This is easy, like so:
 
@@ -72,7 +107,7 @@ grid <- grid %>%
 head(grid)
 ```
 
-### Plot Predicted Trends
+## Plot Predicted Trends
 
 We can then plot our predictions for each of our species:
 
@@ -82,7 +117,9 @@ ggplot(grid, aes(x=Petal.Width, y=pred,
   geom_line()
 ```
 
-## Residuals and Diagnostics
+## Extensions
+
+### Residuals and Diagnostics
 
 We can add `residuals` to our data for model diagnostics:
 
@@ -93,7 +130,7 @@ ggplot(iris, aes(x=Petal.Width, y=resid, col=Species)) +
   geom_ref_line(h=0, col="orange", size=0.5)
 ```
 
-## Multiple Models
+### Multiple Models
 
 Let’s try multiple models and compare their predictions. We will have a simple model with no interactions, and a more complex one that allows curved relationships within each species.
 
@@ -115,7 +152,7 @@ ggplot(grid, aes(x=Petal.Width, y=pred, col=Species ) ) +
   geom_line()
 ```
 
-### Optional: Fancy Plotting with spread_predictions
+### Fancy Plotting with spread_predictions
 
 The `spread_predictions()` function can be used to make eahc model a separate columns:
 
