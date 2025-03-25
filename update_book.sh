@@ -6,4 +6,6 @@ touch .nojekyll
 git add --all *
 git add .nojekyll
 git commit -m "Update the book"
+echo "Start the push"
 git push -q origin gh-pages
+echo "Script complete."

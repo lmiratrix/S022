@@ -1,6 +1,4 @@
-
 # Using pivot methods to make line graphs {#pivot_and_line_plotting}
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, out.width = "4in", out.height = "3in",
@@ -13,6 +11,8 @@ library( tidyverse )
 In this short example I demonstrate how to aggregate data and make a line graph of the results. In particular, the setting is we have a bunch of data on church donations, along with the age of the donor.
 
 We are going to look at what proportion of the donations are above a specific size as a function of age. We are also going to look at whether the distribution of donations from those belonging to a strict evangelical doctrine are different.
+
+The key idea is if we have multiple columns, and we want a line for each column, we need to pivot our data long, so we can make each column a distinct group, and plot all the lines using a single `geom_line()` command.
 
 ## Our data
 
