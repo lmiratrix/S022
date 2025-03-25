@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>15&nbsp; Prediction and Visualization with Models – Handouts for S022 (Data Science in Education)</title>
+<title>16&nbsp; Prediction and Visualization with Models – Handouts for S022 (Data Science in Education)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./manipulation_examples.html" rel="next">
-<link href="./heatmap_jitter_alpha.html" rel="prev">
+<link href="./pivot_and_line_plotting.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro_ggplot.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./Prediction_and_Visualization_with_Models.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Prediction and Visualization with Models</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro_ggplot.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./Prediction_and_Visualization_with_Models.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Prediction and Visualization with Models</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -281,8 +281,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./pivot_and_line_plotting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Using pivot methods to make line graphs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./Prediction_and_Visualization_with_Models.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Prediction and Visualization with Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Prediction and Visualization with Models</span></span></a>
   </div>
 </li>
       </ul>
@@ -299,37 +305,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./manipulation_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./group_by_deep_dive.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_linear_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./doing_things_over_and_over.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./iteration_explored.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Exploring map and friends (tidyverse)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Exploring map and friends (tidyverse)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./demo_cluster_boot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
   </div>
 </li>
       </ul>
@@ -346,19 +352,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Predicting_birthweight.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./test_train_and_CV.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interpreting_lasso_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
   </div>
 </li>
       </ul>
@@ -375,25 +381,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clean_excel_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Cleaning Excel files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Cleaning Excel files</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interactions_discussion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ipeds_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./predictive_papers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
   </div>
 </li>
       </ul>
@@ -408,27 +414,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#fit-a-model" id="toc-fit-a-model" class="nav-link active" data-scroll-target="#fit-a-model"><span class="header-section-number">15.1</span> Fit a model</a></li>
-  <li><a href="#generate-a-prediction-grid" id="toc-generate-a-prediction-grid" class="nav-link" data-scroll-target="#generate-a-prediction-grid"><span class="header-section-number">15.2</span> Generate a Prediction Grid</a></li>
-  <li><a href="#add-predictions-to-the-grid" id="toc-add-predictions-to-the-grid" class="nav-link" data-scroll-target="#add-predictions-to-the-grid"><span class="header-section-number">15.3</span> Add Predictions to the Grid</a></li>
-  <li><a href="#plot-predicted-trends" id="toc-plot-predicted-trends" class="nav-link" data-scroll-target="#plot-predicted-trends"><span class="header-section-number">15.4</span> Plot Predicted Trends</a></li>
-  <li><a href="#extensions" id="toc-extensions" class="nav-link" data-scroll-target="#extensions"><span class="header-section-number">15.5</span> Extensions</a>
+  <li><a href="#fit-a-model" id="toc-fit-a-model" class="nav-link active" data-scroll-target="#fit-a-model"><span class="header-section-number">16.1</span> Fit a model</a></li>
+  <li><a href="#generate-a-prediction-grid" id="toc-generate-a-prediction-grid" class="nav-link" data-scroll-target="#generate-a-prediction-grid"><span class="header-section-number">16.2</span> Generate a Prediction Grid</a></li>
+  <li><a href="#add-predictions-to-the-grid" id="toc-add-predictions-to-the-grid" class="nav-link" data-scroll-target="#add-predictions-to-the-grid"><span class="header-section-number">16.3</span> Add Predictions to the Grid</a></li>
+  <li><a href="#plot-predicted-trends" id="toc-plot-predicted-trends" class="nav-link" data-scroll-target="#plot-predicted-trends"><span class="header-section-number">16.4</span> Plot Predicted Trends</a></li>
+  <li><a href="#extensions" id="toc-extensions" class="nav-link" data-scroll-target="#extensions"><span class="header-section-number">16.5</span> Extensions</a>
   <ul class="collapse">
-  <li><a href="#residuals-and-diagnostics" id="toc-residuals-and-diagnostics" class="nav-link" data-scroll-target="#residuals-and-diagnostics"><span class="header-section-number">15.5.1</span> Residuals and Diagnostics</a></li>
-  <li><a href="#multiple-models" id="toc-multiple-models" class="nav-link" data-scroll-target="#multiple-models"><span class="header-section-number">15.5.2</span> Multiple Models</a></li>
-  <li><a href="#fancy-plotting-with-spread_predictions" id="toc-fancy-plotting-with-spread_predictions" class="nav-link" data-scroll-target="#fancy-plotting-with-spread_predictions"><span class="header-section-number">15.5.3</span> Fancy Plotting with spread_predictions</a></li>
+  <li><a href="#residuals-and-diagnostics" id="toc-residuals-and-diagnostics" class="nav-link" data-scroll-target="#residuals-and-diagnostics"><span class="header-section-number">16.5.1</span> Residuals and Diagnostics</a></li>
+  <li><a href="#multiple-models" id="toc-multiple-models" class="nav-link" data-scroll-target="#multiple-models"><span class="header-section-number">16.5.2</span> Multiple Models</a></li>
+  <li><a href="#fancy-plotting-with-spread_predictions" id="toc-fancy-plotting-with-spread_predictions" class="nav-link" data-scroll-target="#fancy-plotting-with-spread_predictions"><span class="header-section-number">16.5.3</span> Fancy Plotting with spread_predictions</a></li>
   </ul></li>
-  <li><a href="#handy-functions-recap" id="toc-handy-functions-recap" class="nav-link" data-scroll-target="#handy-functions-recap"><span class="header-section-number">15.6</span> Handy Functions Recap</a></li>
-  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts"><span class="header-section-number">15.7</span> Final Thoughts</a></li>
+  <li><a href="#handy-functions-recap" id="toc-handy-functions-recap" class="nav-link" data-scroll-target="#handy-functions-recap"><span class="header-section-number">16.6</span> Handy Functions Recap</a></li>
+  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts"><span class="header-section-number">16.7</span> Final Thoughts</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro_ggplot.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./Prediction_and_Visualization_with_Models.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Prediction and Visualization with Models</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro_ggplot.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./Prediction_and_Visualization_with_Models.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Prediction and Visualization with Models</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Prediction and Visualization with Models</span></h1>
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Prediction and Visualization with Models</span></h1>
 </div>
 
 
@@ -467,8 +473,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Make the vizualization, plotting our predictions vs.&nbsp;our grid values.</li>
 </ol>
 <p>Related reading: R for Data Science (1st Edition), Section 23.3 <em>(Sections 23.1 and 23.2 are optional but helpful)</em></p>
-<section id="fit-a-model" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="fit-a-model"><span class="header-section-number">15.1</span> Fit a model</h2>
+<section id="fit-a-model" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="fit-a-model"><span class="header-section-number">16.1</span> Fit a model</h2>
 <p>We first fit a a model to describe how petal length can be predicted by petal width and species. Our model allows the length-width relationship to be different for the different species.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Petal.Width <span class="sc">*</span> Species, <span class="at">data=</span>iris)</span>
@@ -499,8 +505,8 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="generate-a-prediction-grid" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="generate-a-prediction-grid"><span class="header-section-number">15.2</span> Generate a Prediction Grid</h2>
+<section id="generate-a-prediction-grid" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="generate-a-prediction-grid"><span class="header-section-number">16.2</span> Generate a Prediction Grid</h2>
 <p>We often want to understand what our model is saying by predicting outcomes over combinations of input variables. We do this by first making a new dataset of the combinations of inputs we want to explore, and then we use our fit model to predict for all these combinations.</p>
 <p><code>data_grid()</code>, in the <code>modelr</code> package, is the tool for this. It will generate a simple dataframe with one row for each possible combination of variables you want. We will then predict for each of these rows.</p>
 <p>Here is a toy example: see how duplicates are removed:</p>
@@ -575,12 +581,12 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">rnorm</span>( <span class="dv">10000</span> )</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>( X, <span class="dv">5</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -3.4676175 -1.6442173  0.1791828  2.0025829  3.8259831</code></pre>
+<pre><code>[1] -3.8723442 -1.9622203 -0.0520964  1.8580275  3.7681514</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># drop 5% of data on tails</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>( X, <span class="dv">5</span>, <span class="at">trim=</span><span class="fl">0.05</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.9656827 -0.9853405 -0.0049982  0.9753441  1.9556863</code></pre>
+<pre><code>[1] -1.96612249 -0.97664922  0.01282406  1.00229733  1.99177060</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use pretty numbers</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>( X, <span class="dv">5</span>, <span class="at">trim=</span><span class="fl">0.05</span>, <span class="at">pretty=</span><span class="cn">TRUE</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -596,22 +602,22 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">B=</span><span class="fu">seq_range</span>(B,<span class="at">n=</span><span class="dv">3</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 2
-       A        B
-   &lt;dbl&gt;    &lt;dbl&gt;
-1 -2.68  0.000202
-2 -2.68  3.68    
-3 -2.68  7.36    
-4  0.323 0.000202
-5  0.323 3.68    
-6  0.323 7.36    
-7  3.32  0.000202
-8  3.32  3.68    
-9  3.32  7.36    </code></pre>
+       A       B
+   &lt;dbl&gt;   &lt;dbl&gt;
+1 -3.14  0.00136
+2 -3.14  3.99   
+3 -3.14  7.98   
+4 -0.111 0.00136
+5 -0.111 3.99   
+6 -0.111 7.98   
+7  2.92  0.00136
+8  2.92  3.99   
+9  2.92  7.98   </code></pre>
 </div>
 </div>
 </section>
-<section id="add-predictions-to-the-grid" class="level2" data-number="15.3">
-<h2 data-number="15.3" class="anchored" data-anchor-id="add-predictions-to-the-grid"><span class="header-section-number">15.3</span> Add Predictions to the Grid</h2>
+<section id="add-predictions-to-the-grid" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="add-predictions-to-the-grid"><span class="header-section-number">16.3</span> Add Predictions to the Grid</h2>
 <p>This is easy, like so:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> grid <span class="sc">%&gt;%</span> </span>
@@ -630,8 +636,8 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="plot-predicted-trends" class="level2" data-number="15.4">
-<h2 data-number="15.4" class="anchored" data-anchor-id="plot-predicted-trends"><span class="header-section-number">15.4</span> Plot Predicted Trends</h2>
+<section id="plot-predicted-trends" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="plot-predicted-trends"><span class="header-section-number">16.4</span> Plot Predicted Trends</h2>
 <p>We can then plot our predictions for each of our species:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grid, <span class="fu">aes</span>(<span class="at">x=</span>Petal.Width, <span class="at">y=</span>pred, </span>
@@ -646,10 +652,10 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="extensions" class="level2" data-number="15.5">
-<h2 data-number="15.5" class="anchored" data-anchor-id="extensions"><span class="header-section-number">15.5</span> Extensions</h2>
-<section id="residuals-and-diagnostics" class="level3" data-number="15.5.1">
-<h3 data-number="15.5.1" class="anchored" data-anchor-id="residuals-and-diagnostics"><span class="header-section-number">15.5.1</span> Residuals and Diagnostics</h3>
+<section id="extensions" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="extensions"><span class="header-section-number">16.5</span> Extensions</h2>
+<section id="residuals-and-diagnostics" class="level3" data-number="16.5.1">
+<h3 data-number="16.5.1" class="anchored" data-anchor-id="residuals-and-diagnostics"><span class="header-section-number">16.5.1</span> Residuals and Diagnostics</h3>
 <p>We can add <code>residuals</code> to our data for model diagnostics:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>iris <span class="ot">&lt;-</span> <span class="fu">add_residuals</span>(iris, M1)</span>
@@ -665,8 +671,8 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="multiple-models" class="level3" data-number="15.5.2">
-<h3 data-number="15.5.2" class="anchored" data-anchor-id="multiple-models"><span class="header-section-number">15.5.2</span> Multiple Models</h3>
+<section id="multiple-models" class="level3" data-number="16.5.2">
+<h3 data-number="16.5.2" class="anchored" data-anchor-id="multiple-models"><span class="header-section-number">16.5.2</span> Multiple Models</h3>
 <p>Let’s try multiple models and compare their predictions. We will have a simple model with no interactions, and a more complex one that allows curved relationships within each species.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>M0 <span class="ot">&lt;-</span> <span class="fu">lm</span>( Petal.Length <span class="sc">~</span> Petal.Width <span class="sc">+</span> Species, <span class="at">data=</span>iris )</span>
@@ -707,8 +713,8 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="fancy-plotting-with-spread_predictions" class="level3" data-number="15.5.3">
-<h3 data-number="15.5.3" class="anchored" data-anchor-id="fancy-plotting-with-spread_predictions"><span class="header-section-number">15.5.3</span> Fancy Plotting with spread_predictions</h3>
+<section id="fancy-plotting-with-spread_predictions" class="level3" data-number="16.5.3">
+<h3 data-number="16.5.3" class="anchored" data-anchor-id="fancy-plotting-with-spread_predictions"><span class="header-section-number">16.5.3</span> Fancy Plotting with spread_predictions</h3>
 <p>The <code>spread_predictions()</code> function can be used to make eahc model a separate columns:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
@@ -745,8 +751,8 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </section>
 </section>
-<section id="handy-functions-recap" class="level2" data-number="15.6">
-<h2 data-number="15.6" class="anchored" data-anchor-id="handy-functions-recap"><span class="header-section-number">15.6</span> Handy Functions Recap</h2>
+<section id="handy-functions-recap" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="handy-functions-recap"><span class="header-section-number">16.6</span> Handy Functions Recap</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 61%">
@@ -786,8 +792,8 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </tbody>
 </table>
 </section>
-<section id="final-thoughts" class="level2" data-number="15.7">
-<h2 data-number="15.7" class="anchored" data-anchor-id="final-thoughts"><span class="header-section-number">15.7</span> Final Thoughts</h2>
+<section id="final-thoughts" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="final-thoughts"><span class="header-section-number">16.7</span> Final Thoughts</h2>
 <p>These techniques make model interpretation and communication much easier. Being able to <strong>visualize predictions and model trends</strong> can bring clarity, especially when dealing with interactions or nonlinearities.</p>
 <p>Practice using these tools and adapt them to your own datasets!</p>
 
@@ -1217,13 +1223,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./heatmap_jitter_alpha.html" class="pagination-link" aria-label="Jitter and heatmap examples">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Jitter and heatmap examples</span></span>
+      <a href="./pivot_and_line_plotting.html" class="pagination-link" aria-label="Using pivot methods to make line graphs">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Using pivot methods to make line graphs</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./manipulation_examples.html" class="pagination-link" aria-label="Basic Data Manipulation with tidyverse">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

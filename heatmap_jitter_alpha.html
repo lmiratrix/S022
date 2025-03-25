@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./prediction_and_plotting.html" rel="next">
+<link href="./pivot_and_line_plotting.html" rel="next">
 <link href="./hist_and_bar_with_aggregated_data.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -283,8 +283,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./prediction_and_plotting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Prediction and Plotting</span></span></a>
+  <a href="./pivot_and_line_plotting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Using pivot methods to make line graphs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -560,18 +560,18 @@ F-statistic: 6.518 on 1 and 2485 DF,  p-value: 0.01074</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">jitter</span>( a )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.8349725 2.1390007 3.1086623 4.1745755 5.1161536 6.1906548 7.0791825
- [8] 8.1282816 8.8051567 9.9175702</code></pre>
+<pre><code> [1] 1.167851 2.094642 3.073069 3.856128 4.959859 5.830083 7.107685 8.121303
+ [9] 8.992985 9.930763</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">jitter</span>( a, <span class="at">factor =</span> <span class="fl">0.5</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  0.9985202  1.9903797  3.0769290  3.9067506  4.9717882  6.0310387
- [7]  6.9400673  8.0507477  9.0643013 10.0871998</code></pre>
+<pre><code> [1]  0.9098678  2.0286005  2.9040049  3.9472882  4.9492277  5.9651978
+ [7]  6.9844834  7.9848442  8.9427058 10.0363461</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">jitter</span>( a, <span class="at">factor =</span> <span class="fl">0.0005</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.9999813 2.0000981 2.9999497 4.0000804 5.0000078 6.0000029 6.9999630
- [8] 7.9999515 8.9999286 9.9999145</code></pre>
+<pre><code> [1]  0.9999618  2.0000170  3.0000657  4.0000918  4.9999264  5.9999952
+ [7]  6.9999724  7.9999368  9.0000542 10.0000192</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Try alpha</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1067,8 +1067,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./prediction_and_plotting.html" class="pagination-link" aria-label="Prediction and Plotting">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Prediction and Plotting</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./pivot_and_line_plotting.html" class="pagination-link" aria-label="Using pivot methods to make line graphs">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Using pivot methods to make line graphs</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
