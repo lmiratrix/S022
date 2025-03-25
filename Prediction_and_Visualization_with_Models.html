@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>15&nbsp; Using pivot methods to make line graphs – Handouts for S022 (Data Science in Education)</title>
+<title>15&nbsp; Prediction and Visualization with Models – Handouts for S022 (Data Science in Education)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./prediction_and_plotting.html" rel="next">
+<link href="./manipulation_examples.html" rel="next">
 <link href="./heatmap_jitter_alpha.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro_ggplot.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./pivot_and_line_plotting.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Using pivot methods to make line graphs</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro_ggplot.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./Prediction_and_Visualization_with_Models.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Prediction and Visualization with Models</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -281,20 +281,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pivot_and_line_plotting.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Using pivot methods to make line graphs</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./prediction_and_plotting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Prediction and Plotting</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./prediction_and_viz_illustration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Illustration of prediction with a model</span></span></a>
+  <a href="./Prediction_and_Visualization_with_Models.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Prediction and Visualization with Models</span></span></a>
   </div>
 </li>
       </ul>
@@ -311,37 +299,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./manipulation_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./group_by_deep_dive.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">A Deep Dive on <code>group_by()</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_linear_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Intro to Regression</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./doing_things_over_and_over.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Doing things over and over again</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./iteration_explored.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Exploring map and friends (tidyverse)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Exploring map and friends (tidyverse)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./demo_cluster_boot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Demonstration of the Cluster Bootstrap</span></span></a>
   </div>
 </li>
       </ul>
@@ -358,19 +346,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Predicting_birthweight.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">A demonstration of different machine learning methods all fit to the same data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./test_train_and_CV.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Reflections on using machine learning (for final projects)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interpreting_lasso_models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Interpreting LASSO models, and some other stuff</span></span></a>
   </div>
 </li>
       </ul>
@@ -387,25 +375,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clean_excel_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Cleaning Excel files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Cleaning Excel files</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./interactions_discussion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Main effects, interactions in linear models, and prediction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ipeds_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Finding and Merging Data Online</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./predictive_papers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Applied Prediction Papers</span></span></a>
   </div>
 </li>
       </ul>
@@ -420,21 +408,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">15.1</span> Overview</a></li>
-  <li><a href="#our-data" id="toc-our-data" class="nav-link" data-scroll-target="#our-data"><span class="header-section-number">15.2</span> Our data</a></li>
-  <li><a href="#aggregating" id="toc-aggregating" class="nav-link" data-scroll-target="#aggregating"><span class="header-section-number">15.3</span> Aggregating</a></li>
-  <li><a href="#graphing-take-1" id="toc-graphing-take-1" class="nav-link" data-scroll-target="#graphing-take-1"><span class="header-section-number">15.4</span> Graphing (take 1)</a></li>
-  <li><a href="#graphing-take-2" id="toc-graphing-take-2" class="nav-link" data-scroll-target="#graphing-take-2"><span class="header-section-number">15.5</span> Graphing (take 2)</a></li>
-  <li><a href="#graphing-another-road" id="toc-graphing-another-road" class="nav-link" data-scroll-target="#graphing-another-road"><span class="header-section-number">15.6</span> Graphing (another road)</a></li>
+  <li><a href="#fit-a-model" id="toc-fit-a-model" class="nav-link active" data-scroll-target="#fit-a-model"><span class="header-section-number">15.1</span> Fit a model</a></li>
+  <li><a href="#generate-a-prediction-grid" id="toc-generate-a-prediction-grid" class="nav-link" data-scroll-target="#generate-a-prediction-grid"><span class="header-section-number">15.2</span> Generate a Prediction Grid</a></li>
+  <li><a href="#add-predictions-to-the-grid" id="toc-add-predictions-to-the-grid" class="nav-link" data-scroll-target="#add-predictions-to-the-grid"><span class="header-section-number">15.3</span> Add Predictions to the Grid</a></li>
+  <li><a href="#plot-predicted-trends" id="toc-plot-predicted-trends" class="nav-link" data-scroll-target="#plot-predicted-trends"><span class="header-section-number">15.4</span> Plot Predicted Trends</a></li>
+  <li><a href="#extensions" id="toc-extensions" class="nav-link" data-scroll-target="#extensions"><span class="header-section-number">15.5</span> Extensions</a>
+  <ul class="collapse">
+  <li><a href="#residuals-and-diagnostics" id="toc-residuals-and-diagnostics" class="nav-link" data-scroll-target="#residuals-and-diagnostics"><span class="header-section-number">15.5.1</span> Residuals and Diagnostics</a></li>
+  <li><a href="#multiple-models" id="toc-multiple-models" class="nav-link" data-scroll-target="#multiple-models"><span class="header-section-number">15.5.2</span> Multiple Models</a></li>
+  <li><a href="#fancy-plotting-with-spread_predictions" id="toc-fancy-plotting-with-spread_predictions" class="nav-link" data-scroll-target="#fancy-plotting-with-spread_predictions"><span class="header-section-number">15.5.3</span> Fancy Plotting with spread_predictions</a></li>
+  </ul></li>
+  <li><a href="#handy-functions-recap" id="toc-handy-functions-recap" class="nav-link" data-scroll-target="#handy-functions-recap"><span class="header-section-number">15.6</span> Handy Functions Recap</a></li>
+  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts"><span class="header-section-number">15.7</span> Final Thoughts</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro_ggplot.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./pivot_and_line_plotting.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Using pivot methods to make line graphs</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro_ggplot.html">On Plotting</a></li><li class="breadcrumb-item"><a href="./Prediction_and_Visualization_with_Models.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Prediction and Visualization with Models</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="pivot_and_line_plotting" class="quarto-section-identifier"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Using pivot methods to make line graphs</span></span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Prediction and Visualization with Models</span></h1>
 </div>
 
 
@@ -451,151 +445,351 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="overview" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">15.1</span> Overview</h2>
-<p>In this short example I demonstrate how to aggregate data and make a line graph of the results. In particular, the setting is we have a bunch of data on church donations, along with the age of the donor.</p>
-<p>We are going to look at what proportion of the donations are above a specific size as a function of age. We are also going to look at whether the distribution of donations from those belonging to a strict evangelical doctrine are different.</p>
-</section>
-<section id="our-data" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="our-data"><span class="header-section-number">15.2</span> Our data</h2>
-<p>We load the data and look at the donations. It is hard to see trends given the heavy skew of donation size.</p>
+<p>To make nice plots of the predictions from models that have complex curves and relationships, the easiest way is to use the model to predict values for different covariate combinations, store all of this in a dataframe, and then use <code>ggplot</code> to plot your results using <code>geom_line</code> which will give you nice smoothed curves through the points. This document highlights some useful methods for doing this. We need the tidyverse and the <code>modelr</code> package</p>
+<p>Prediction, and making plots from predictions, are foundational skills for data analysis, especially as models become more complex and interactions or non-linear terms are introduced.</p>
+<p>We will use the <code>iris</code> dataset, as it has some strong relationships that make the ideas behind these tools more salient. Here is the raw data:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>( tidyverse )</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>church <span class="ot">=</span> <span class="fu">read.table</span>( <span class="st">"data/CHURCH.txt"</span> )</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(church) <span class="ot">=</span> <span class="fu">c</span>( <span class="st">"church"</span>, <span class="st">"memberID"</span>, <span class="st">"giving"</span>, <span class="st">"age"</span>, <span class="st">"strict"</span> )</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( church, <span class="fu">aes</span>( age, giving ) ) <span class="sc">+</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Petal.Length, <span class="at">y=</span>Petal.Width, <span class="at">col=</span>Species)) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="pivot_and_line_plotting_files/figure-html/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center figure-img" style="width:4in;height:3in"></p>
+<p><img src="Prediction_and_Visualization_with_Models_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="aggregating" class="level2" data-number="15.3">
-<h2 data-number="15.3" class="anchored" data-anchor-id="aggregating"><span class="header-section-number">15.3</span> Aggregating</h2>
-<p>We group by age category and church type, and calculate the proportion of donations above $5000 and above $1000.</p>
+<p>To visualize we go through a series of steps:</p>
+<ol type="1">
+<li>Fit a model to describe the relationship between variables</li>
+<li>Generate a grid of values to predict over</li>
+<li>Add predictions to the grid</li>
+<li>Make the vizualization, plotting our predictions vs.&nbsp;our grid values.</li>
+</ol>
+<p>Related reading: R for Data Science (1st Edition), Section 23.3 <em>(Sections 23.1 and 23.2 are optional but helpful)</em></p>
+<section id="fit-a-model" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="fit-a-model"><span class="header-section-number">15.1</span> Fit a model</h2>
+<p>We first fit a a model to describe how petal length can be predicted by petal width and species. Our model allows the length-width relationship to be different for the different species.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>schurch <span class="ot">=</span> church <span class="sc">%&gt;%</span> <span class="fu">group_by</span>( age, strict ) <span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>( <span class="at">prop_large =</span> <span class="fu">mean</span>( giving <span class="sc">&gt;</span> <span class="dv">5000</span> ),</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">prop_medium =</span> <span class="fu">mean</span>( giving <span class="sc">&gt;</span> <span class="dv">1000</span> ) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'age'. You can override using the `.groups`
-argument.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>schurch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Petal.Width <span class="sc">*</span> Species, <span class="at">data=</span>iris)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>( M1 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 4
-# Groups:   age [6]
-     age strict prop_large prop_medium
-   &lt;int&gt;  &lt;int&gt;      &lt;dbl&gt;       &lt;dbl&gt;
- 1    22      0     0.0141       0.141
- 2    22      1     0.0526       0.4  
- 3    28      0     0.0287       0.217
- 4    28      1     0.0667       0.55 
- 5    33      0     0.0253       0.333
- 6    33      1     0.0848       0.635
- 7    38      0     0.0353       0.357
- 8    38      1     0.161        0.672
- 9    43      0     0.0812       0.452
-10    43      1     0.131        0.655
-11    48      0     0.0532       0.505
-12    48      1     0.186        0.739</code></pre>
+<pre><code>
+Call:
+lm(formula = Petal.Length ~ Petal.Width * Species, data = iris)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.84099 -0.19343 -0.03686  0.16314  1.17065 
+
+Coefficients:
+                              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                     1.3276     0.1309  10.139  &lt; 2e-16 ***
+Petal.Width                     0.5465     0.4900   1.115   0.2666    
+Speciesversicolor               0.4537     0.3737   1.214   0.2267    
+Speciesvirginica                2.9131     0.4060   7.175 3.53e-11 ***
+Petal.Width:Speciesversicolor   1.3228     0.5552   2.382   0.0185 *  
+Petal.Width:Speciesvirginica    0.1008     0.5248   0.192   0.8480    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.3615 on 144 degrees of freedom
+Multiple R-squared:  0.9595,    Adjusted R-squared:  0.9581 
+F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="graphing-take-1" class="level2" data-number="15.4">
-<h2 data-number="15.4" class="anchored" data-anchor-id="graphing-take-1"><span class="header-section-number">15.4</span> Graphing (take 1)</h2>
-<p>We can make a graph of the proportion of medium donations vs age relatively easily:</p>
+<section id="generate-a-prediction-grid" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="generate-a-prediction-grid"><span class="header-section-number">15.2</span> Generate a Prediction Grid</h2>
+<p>We often want to understand what our model is saying by predicting outcomes over combinations of input variables. We do this by first making a new dataset of the combinations of inputs we want to explore, and then we use our fit model to predict for all these combinations.</p>
+<p><code>data_grid()</code>, in the <code>modelr</code> package, is the tool for this. It will generate a simple dataframe with one row for each possible combination of variables you want. We will then predict for each of these rows.</p>
+<p>Here is a toy example: see how duplicates are removed:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>schurch<span class="sc">$</span>strict <span class="ot">=</span> <span class="fu">factor</span>( schurch<span class="sc">$</span>strict, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"no"</span>,<span class="st">"yes"</span> ) )</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( schurch, <span class="fu">aes</span>( age, prop_medium, <span class="at">group=</span>strict, <span class="at">col=</span>strict ) ) <span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="pivot_and_line_plotting_files/figure-html/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center figure-img" style="width:4in;height:3in"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="graphing-take-2" class="level2" data-number="15.5">
-<h2 data-number="15.5" class="anchored" data-anchor-id="graphing-take-2"><span class="header-section-number">15.5</span> Graphing (take 2)</h2>
-<p>To get a line for both medium and large donations, we need to reshape our data. In particular, we want to have two groups of observations, one for each type:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>schurchL <span class="ot">&lt;-</span> schurch <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>( <span class="at">cols=</span><span class="fu">c</span>(prop_large, prop_medium),</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">names_to =</span> <span class="st">"size"</span>, <span class="at">values_to=</span><span class="st">"proportion"</span> )</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>schurchL</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>( modelr )</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>my.df <span class="ot">=</span> <span class="fu">data.frame</span>( <span class="at">A=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">B=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">20</span>), <span class="at">C=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>) )</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data_grid</span>( my.df, A, B )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 24 × 4
-# Groups:   age [6]
-     age strict size        proportion
-   &lt;int&gt; &lt;fct&gt;  &lt;chr&gt;            &lt;dbl&gt;
- 1    22 no     prop_large      0.0141
- 2    22 no     prop_medium     0.141 
- 3    22 yes    prop_large      0.0526
- 4    22 yes    prop_medium     0.4   
- 5    28 no     prop_large      0.0287
- 6    28 no     prop_medium     0.217 
- 7    28 yes    prop_large      0.0667
- 8    28 yes    prop_medium     0.55  
- 9    33 no     prop_large      0.0253
-10    33 no     prop_medium     0.333 
-# ℹ 14 more rows</code></pre>
+<pre><code># A tibble: 4 × 2
+      A     B
+  &lt;dbl&gt; &lt;dbl&gt;
+1     1    10
+2     1    20
+3     2    10
+4     2    20</code></pre>
 </div>
 </div>
-<p>See how now each row is a specific age, donation size and proportion. This sets us up nicely for ggplot since each variable for plotting is ready to go:</p>
+<p>For our actual data we have:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( schurchL, <span class="fu">aes</span>( age, proportion, <span class="at">col=</span>size ) ) <span class="sc">+</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>( <span class="sc">~</span> strict ) <span class="sc">+</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>( <span class="at">col=</span><span class="st">"donation size"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">=</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>( Petal.Width, Species )</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>grid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 66 × 2
+   Petal.Width Species   
+         &lt;dbl&gt; &lt;fct&gt;     
+ 1         0.1 setosa    
+ 2         0.1 versicolor
+ 3         0.1 virginica 
+ 4         0.2 setosa    
+ 5         0.2 versicolor
+ 6         0.2 virginica 
+ 7         0.3 setosa    
+ 8         0.3 versicolor
+ 9         0.3 virginica 
+10         0.4 setosa    
+# ℹ 56 more rows</code></pre>
+</div>
+</div>
+<p>You can also get “typical values” (usually the median or most commonly occurring) for things not on your grid using a modeling argument:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Petal.Width <span class="sc">*</span> Species, <span class="at">data=</span>iris)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data_grid</span>(iris, <span class="at">.model =</span> mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  Petal.Width Species   
+        &lt;dbl&gt; &lt;chr&gt;     
+1         1.3 setosa    
+2         1.3 versicolor
+3         1.3 virginica </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data_grid</span>(iris, <span class="at">Petal.Width =</span> <span class="fu">seq_range</span>(Petal.Width, <span class="dv">9</span>), <span class="at">.model =</span> mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 27 × 2
+   Petal.Width Species   
+         &lt;dbl&gt; &lt;chr&gt;     
+ 1         0.1 setosa    
+ 2         0.1 versicolor
+ 3         0.1 virginica 
+ 4         0.4 setosa    
+ 5         0.4 versicolor
+ 6         0.4 virginica 
+ 7         0.7 setosa    
+ 8         0.7 versicolor
+ 9         0.7 virginica 
+10         1   setosa    
+# ℹ 17 more rows</code></pre>
+</div>
+</div>
+<p>A tool that is also good is <code>seq_range()</code> that gives you a nice sequence of numbers over a range of values</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">rnorm</span>( <span class="dv">10000</span> )</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>( X, <span class="dv">5</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -3.4676175 -1.6442173  0.1791828  2.0025829  3.8259831</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># drop 5% of data on tails</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>( X, <span class="dv">5</span>, <span class="at">trim=</span><span class="fl">0.05</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.9656827 -0.9853405 -0.0049982  0.9753441  1.9556863</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use pretty numbers</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>( X, <span class="dv">5</span>, <span class="at">trim=</span><span class="fl">0.05</span>, <span class="at">pretty=</span><span class="cn">TRUE</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -2 -1  0  1  2</code></pre>
+</div>
+</div>
+<p>You can combine with <code>data_grid</code> to get a nice data frame of points to use for your “canonical points” for prediction or whatnot:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>my.df <span class="ot">=</span> <span class="fu">data.frame</span>( <span class="at">A=</span><span class="fu">rnorm</span>(<span class="dv">1000</span>), <span class="at">B=</span><span class="fu">rexp</span>(<span class="dv">1000</span>), <span class="at">C=</span><span class="fu">rnorm</span>(<span class="dv">1000</span>,<span class="at">mean=</span><span class="dv">5</span>) )</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data_grid</span>( my.df, </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">A=</span><span class="fu">seq_range</span>(A,<span class="at">n=</span><span class="dv">3</span>),</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">B=</span><span class="fu">seq_range</span>(B,<span class="at">n=</span><span class="dv">3</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 2
+       A        B
+   &lt;dbl&gt;    &lt;dbl&gt;
+1 -2.68  0.000202
+2 -2.68  3.68    
+3 -2.68  7.36    
+4  0.323 0.000202
+5  0.323 3.68    
+6  0.323 7.36    
+7  3.32  0.000202
+8  3.32  3.68    
+9  3.32  7.36    </code></pre>
+</div>
+</div>
+</section>
+<section id="add-predictions-to-the-grid" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="add-predictions-to-the-grid"><span class="header-section-number">15.3</span> Add Predictions to the Grid</h2>
+<p>This is easy, like so:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> grid <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predictions</span>(M1)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(grid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  Petal.Width Species     pred
+        &lt;dbl&gt; &lt;fct&gt;      &lt;dbl&gt;
+1         0.1 setosa      1.38
+2         0.1 versicolor  1.97
+3         0.1 virginica   4.31
+4         0.2 setosa      1.44
+5         0.2 versicolor  2.16
+6         0.2 virginica   4.37</code></pre>
+</div>
+</div>
+</section>
+<section id="plot-predicted-trends" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="plot-predicted-trends"><span class="header-section-number">15.4</span> Plot Predicted Trends</h2>
+<p>We can then plot our predictions for each of our species:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grid, <span class="fu">aes</span>(<span class="at">x=</span>Petal.Width, <span class="at">y=</span>pred, </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">col=</span>Species, <span class="at">group=</span>Species)) <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="pivot_and_line_plotting_files/figure-html/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center figure-img" style="width:4in;height:3in"></p>
+<p><img src="Prediction_and_Visualization_with_Models_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="graphing-another-road" class="level2" data-number="15.6">
-<h2 data-number="15.6" class="anchored" data-anchor-id="graphing-another-road"><span class="header-section-number">15.6</span> Graphing (another road)</h2>
-<p>We can also plot individual lines without doing a pivot_longer by specifying different outcomes in the ggplot command:</p>
+<section id="extensions" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="extensions"><span class="header-section-number">15.5</span> Extensions</h2>
+<section id="residuals-and-diagnostics" class="level3" data-number="15.5.1">
+<h3 data-number="15.5.1" class="anchored" data-anchor-id="residuals-and-diagnostics"><span class="header-section-number">15.5.1</span> Residuals and Diagnostics</h3>
+<p>We can add <code>residuals</code> to our data for model diagnostics:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( schurch, <span class="fu">aes</span>( age ) ) <span class="sc">+</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>( <span class="sc">~</span>strict ) <span class="sc">+</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>( <span class="fu">aes</span>( <span class="at">y =</span> prop_medium, <span class="at">col=</span><span class="st">"medium"</span> ) )  <span class="sc">+</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>( <span class="fu">aes</span>( <span class="at">y =</span> prop_large, <span class="at">col=</span><span class="st">"large"</span> ) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>iris <span class="ot">&lt;-</span> <span class="fu">add_residuals</span>(iris, M1)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Petal.Width, <span class="at">y=</span>resid, <span class="at">col=</span>Species)) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ref_line</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"orange"</span>, <span class="at">size=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="pivot_and_line_plotting_files/figure-html/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center figure-img" style="width:4in;height:3in"></p>
+<p><img src="Prediction_and_Visualization_with_Models_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Notice we are putting color to specific values inside each <code>geom_line</code>: this tells ggplot to make a legend of those different values. If we put these <em>outside</em> the <code>aes()</code> we can specify the color but we will not get an automatic legend:</p>
+</section>
+<section id="multiple-models" class="level3" data-number="15.5.2">
+<h3 data-number="15.5.2" class="anchored" data-anchor-id="multiple-models"><span class="header-section-number">15.5.2</span> Multiple Models</h3>
+<p>Let’s try multiple models and compare their predictions. We will have a simple model with no interactions, and a more complex one that allows curved relationships within each species.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>( schurch, <span class="fu">aes</span>( age ) ) <span class="sc">+</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>( <span class="sc">~</span>strict ) <span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>( <span class="fu">aes</span>( <span class="at">y =</span> prop_medium ), <span class="at">col=</span><span class="st">"red"</span> )  <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>( <span class="fu">aes</span>( <span class="at">y =</span> prop_large ), <span class="at">col=</span><span class="st">"blue"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>M0 <span class="ot">&lt;-</span> <span class="fu">lm</span>( Petal.Length <span class="sc">~</span> Petal.Width <span class="sc">+</span> Species, <span class="at">data=</span>iris )</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fu">lm</span>( Petal.Length <span class="sc">~</span> Species <span class="sc">*</span>(Petal.Width <span class="sc">+</span> <span class="fu">I</span>(Petal.Width<span class="sc">^</span><span class="dv">2</span>)), <span class="at">data=</span>iris )</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">=</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>( Petal.Width, Species ) <span class="sc">%&gt;%</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather_predictions</span>( M1, M0, M2 )</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>grid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 198 × 4
+   model Petal.Width Species     pred
+   &lt;chr&gt;       &lt;dbl&gt; &lt;fct&gt;      &lt;dbl&gt;
+ 1 M1            0.1 setosa      1.38
+ 2 M1            0.1 versicolor  1.97
+ 3 M1            0.1 virginica   4.31
+ 4 M1            0.2 setosa      1.44
+ 5 M1            0.2 versicolor  2.16
+ 6 M1            0.2 virginica   4.37
+ 7 M1            0.3 setosa      1.49
+ 8 M1            0.3 versicolor  2.34
+ 9 M1            0.3 virginica   4.43
+10 M1            0.4 setosa      1.55
+# ℹ 188 more rows</code></pre>
+</div>
+</div>
+<p>And now plot:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grid, <span class="fu">aes</span>(<span class="at">x=</span>Petal.Width, <span class="at">y=</span>pred, <span class="at">col=</span>Species ) ) <span class="sc">+</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> model) <span class="sc">+</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="pivot_and_line_plotting_files/figure-html/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center figure-img" style="width:4in;height:3in"></p>
+<p><img src="Prediction_and_Visualization_with_Models_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="fancy-plotting-with-spread_predictions" class="level3" data-number="15.5.3">
+<h3 data-number="15.5.3" class="anchored" data-anchor-id="fancy-plotting-with-spread_predictions"><span class="header-section-number">15.5.3</span> Fancy Plotting with spread_predictions</h3>
+<p>The <code>spread_predictions()</code> function can be used to make eahc model a separate columns:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>( Petal.Width, Species )</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>grid_spread <span class="ot">=</span> <span class="fu">spread_predictions</span>(grid, M0, M1)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>grid_spread</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 66 × 4
+   Petal.Width Species       M0    M1
+         &lt;dbl&gt; &lt;fct&gt;      &lt;dbl&gt; &lt;dbl&gt;
+ 1         0.1 setosa      1.31  1.38
+ 2         0.1 versicolor  3.01  1.97
+ 3         0.1 virginica   3.59  4.31
+ 4         0.2 setosa      1.42  1.44
+ 5         0.2 versicolor  3.11  2.16
+ 6         0.2 virginica   3.69  4.37
+ 7         0.3 setosa      1.52  1.49
+ 8         0.3 versicolor  3.21  2.34
+ 9         0.3 virginica   3.79  4.43
+10         0.4 setosa      1.62  1.55
+# ℹ 56 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grid_spread, <span class="fu">aes</span>(<span class="at">x=</span>Petal.Width)) <span class="sc">+</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>( <span class="sc">~</span> Species ) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>M0), <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lwd=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>M1, <span class="at">col=</span>Species), <span class="at">lwd=</span><span class="dv">1</span>, <span class="at">lty=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Prediction_and_Visualization_with_Models_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="handy-functions-recap" class="level2" data-number="15.6">
+<h2 data-number="15.6" class="anchored" data-anchor-id="handy-functions-recap"><span class="header-section-number">15.6</span> Handy Functions Recap</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 61%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th style="text-align: left;">Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>data_grid()</code></td>
+<td style="text-align: left;">Create a grid of input values for prediction</td>
+</tr>
+<tr class="even">
+<td><code>add_predictions()</code></td>
+<td style="text-align: left;">Add predicted values from a model to a dataset</td>
+</tr>
+<tr class="odd">
+<td><code>add_residuals()</code></td>
+<td style="text-align: left;">Add model residuals to original data</td>
+</tr>
+<tr class="even">
+<td><code>gather_predictions()</code></td>
+<td style="text-align: left;">Combine predictions from multiple models for plotting</td>
+</tr>
+<tr class="odd">
+<td><code>spread_predictions()</code></td>
+<td style="text-align: left;">Spread predictions into separate columns</td>
+</tr>
+<tr class="even">
+<td><code>seq_range()</code></td>
+<td style="text-align: left;">Create evenly spaced values over a variables range</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="final-thoughts" class="level2" data-number="15.7">
+<h2 data-number="15.7" class="anchored" data-anchor-id="final-thoughts"><span class="header-section-number">15.7</span> Final Thoughts</h2>
+<p>These techniques make model interpretation and communication much easier. Being able to <strong>visualize predictions and model trends</strong> can bring clarity, especially when dealing with interactions or nonlinearities.</p>
+<p>Practice using these tools and adapt them to your own datasets!</p>
 
 
 </section>
@@ -1028,8 +1222,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./prediction_and_plotting.html" class="pagination-link" aria-label="Prediction and Plotting">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Prediction and Plotting</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./manipulation_examples.html" class="pagination-link" aria-label="Basic Data Manipulation with tidyverse">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Basic Data Manipulation with tidyverse</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
