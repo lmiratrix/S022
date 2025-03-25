@@ -1,0 +1,149 @@
+---
+title: "Prediction and Visualization with Models"
+format: html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      out.width="0.5\\linewidth", 
+                      fig.align="center",
+                      warning = FALSE,
+                      message = FALSE)
+library( tidyverse )
+library(modelr)
+theme_set(theme_bw())
+```
+
+To make nice plots of the predictions from models that have complex curves and relationships, the easiest way is to
+use the model to predict values for different covariate combinations, store all of this in a dataframe, and then use `ggplot` to plot your results using `geom_line` which will give you nice smoothed curves through the points. This document highlights some useful methods for doing this. We need the tidyverse and the `modelr` package
+
+Prediction, and making plots from predictions, are foundational skills for data analysis, especially as models become more complex and interactions or non-linear terms are introduced.
+
+We will use the `iris` dataset, as it has some strong relationships that make the ideas behind these tools more salient. Here is the raw data:
+
+```{r}
+ggplot(iris, aes(x=Petal.Length, y=Petal.Width, col=Species)) +
+  geom_point()
+```
+
+Related reading: R for Data Science (1st Edition), Section 23.3 *(Sections 23.1 and 23.2 are optional but helpful)*
+
+## Fit a model
+
+We first fit a a model to describe how petal length can be predicted by petal width and species. Our model allows the length-width relationship to be different for the different species.
+
+```{r}
+M1 <- lm(Petal.Length ~ Petal.Width * Species, data=iris)
+summary( M1 )
+```
+
+## Predict with our model
+
+We often want to understand what our model is saying by predicting outcomes over combinations of input variables. We do this by first making a new dataset of the combinations of inputs we want to explore, and then we use our fit model to predict for all these combinations.
+
+### Generate a Prediction Grid
+
+`data_grid()` creates a grid of values over which we will predict:
+
+```{r}
+grid = iris %>%
+  data_grid( Petal.Width, Species )
+grid
+```
+
+You can also make the grid more by hand to control the number of points:
+
+```{r}
+grid2 = data_grid( iris, 
+                   Petal.Width = seq_range(Petal.Width, 9),
+                   .model = M1)
+grid2
+```
+
+The `.model = M1` argument tells `data_grid()` to include any additional things the model uses in the grid.
+
+### Add Predictions to the Grid
+
+This is easy, like so:
+
+```{r}
+grid <- grid %>% 
+  add_predictions(M1)
+head(grid)
+```
+
+### Plot Predicted Trends
+
+We can then plot our predictions for each of our species:
+
+```{r}
+ggplot(grid, aes(x=Petal.Width, y=pred, 
+                 col=Species, group=Species)) +
+  geom_line()
+```
+
+## Residuals and Diagnostics
+
+We can add `residuals` to our data for model diagnostics:
+
+```{r}
+iris <- add_residuals(iris, M1)
+ggplot(iris, aes(x=Petal.Width, y=resid, col=Species)) +
+  geom_jitter() +
+  geom_ref_line(h=0, col="orange", size=0.5)
+```
+
+## Multiple Models
+
+Let’s try multiple models and compare their predictions. We will have a simple model with no interactions, and a more complex one that allows curved relationships within each species.
+
+```{r}
+M0 <- lm( Petal.Length ~ Petal.Width + Species, data=iris )
+M2 <- lm( Petal.Length ~ Species *(Petal.Width + I(Petal.Width^2)), data=iris )
+
+grid = iris %>%
+  data_grid( Petal.Width, Species ) %>%
+  gather_predictions( M1, M0, M2 )
+grid
+```
+
+And now plot:
+
+```{r}
+ggplot(grid, aes(x=Petal.Width, y=pred, col=Species ) ) +
+  facet_wrap(~ model) +
+  geom_line()
+```
+
+### Optional: Fancy Plotting with spread_predictions
+
+The `spread_predictions()` function can be used to make eahc model a separate columns:
+
+```{r}
+grid <- iris %>%
+  data_grid( Petal.Width, Species )
+grid_spread = spread_predictions(grid, M0, M1)
+grid_spread
+
+ggplot(grid_spread, aes(x=Petal.Width)) +
+  facet_wrap( ~ Species ) +
+  geom_line(aes(y=M0), col="black", lwd=1) +
+  geom_line(aes(y=M1, col=Species), lwd=1, lty=1)
+```
+
+## Handy Functions Recap
+
+| Function | Use |
+|--------------------------------------------|:---------------------------|
+| `data_grid()` | Create a grid of input values for prediction |
+| `add_predictions()` | Add predicted values from a model to a dataset |
+| `add_residuals()` | Add model residuals to original data |
+| `gather_predictions()` | Combine predictions from multiple models for plotting |
+| `spread_predictions()` | Spread predictions into separate columns |
+| `seq_range()` | Create evenly spaced values over a variables range |
+
+## Final Thoughts
+
+These techniques make model interpretation and communication much easier. Being able to **visualize predictions and model trends** can bring clarity, especially when dealing with interactions or nonlinearities.
+
+Practice using these tools and adapt them to your own datasets!
