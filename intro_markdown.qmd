@@ -129,16 +129,17 @@ Code chunks have a number of different options you can put after the `r` in the 
 -   `eval = TRUE`, which means every time you knit the file, the code inside the R code chunk will get evaluated. This is the default.
 -   `echo = TRUE`, which means every time you knit the file, the code inside the R code chunk will be rendered, and you can see both the code itself and the results from evaluating the code.
 
-For class, you should keep `echo = TRUE`, so that we can see your code and be able to tell what went wrong, if something did. You can set `echo = FALSE` for code chunks that load and manipulate data in the setup of your analysis, if you don't want people to look at that part of your work.
 
 ````md
 ```{r eval = FALSE}`r ''`
-# The document will knit even if the code in this chunk has an error 
+# The document will knit even if the code in this chunk has an error.
 
 # For example, the "bad" code below doesn't prevent the document from knitting
 my_var <- !!198`123bx92
 ```
 ````
+
+For class, you should keep `echo = TRUE`, so that we can see your code and be able to tell what went wrong, if something did. You can set `echo = FALSE` for code chunks that load and manipulate data in the setup of your analysis, if you don't want people to look at that part of your work.
 
 Other code chunks options you may see in class are:
 
@@ -165,7 +166,7 @@ You can then add additional options **only** to relevant chunks using the chunk 
 
 Code results can also be inserted directly in the text of your R Markdown file. This is particularly useful when you are extracting and interpreting model parameters. You can extract the coefficient from the model and use inline code to report it. If the data or model change, *the text will also change* when you knit the document.
 
-To add inline code, enclose it in `` `r ` ``. For example, to report the mean reading score, you can use `` `r knitr::inline_expr('round(mean(dat$p7read))')` ``, which will produce the number `r round(mean(dat$p7read),2)` in your rendered document. Here we used two commands: `round` and `mean`. You can use more commands and write more complex inline code, depending on what you want to report.
+To add inline code, enclose it in `` `r ` ``. For example, to report the mean reading score, you can use `` `r knitr::inline_expr('round(mean(dat$p7read))')` ``, which will produce the number `r round(mean(dat$p7read),2)` in your rendered document. Here we used two commands: `round()` and `mean()`. You can use more commands and write more complex inline code, depending on what you want to report.
 
 ## Embedding plots
 
