@@ -14,6 +14,7 @@ library(modelr)
 theme_set(theme_bw())
 ```
 
+
 To make nice plots of the predictions from models that have complex curves and relationships, the easiest way is to use the model to predict values for different covariate combinations, store all of this in a dataframe, and then use `ggplot` to plot your results using `geom_line` which will give you nice smoothed curves through the points. This document highlights some useful methods for doing this. We need the tidyverse and the `modelr` package
 
 Prediction, and making plots from predictions, are foundational skills for data analysis, especially as models become more complex and interactions or non-linear terms are introduced.
@@ -154,7 +155,7 @@ ggplot(grid, aes(x=Petal.Width, y=pred, col=Species ) ) +
 
 ### Fancy Plotting with spread_predictions
 
-The `spread_predictions()` function can be used to make eahc model a separate columns:
+The `spread_predictions()` function can be used to make each model a separate column:
 
 ```{r}
 grid <- iris %>%
