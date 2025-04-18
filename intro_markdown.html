@@ -443,12 +443,16 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">5.1</span> Overview</a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><span class="header-section-number">5.2</span> Getting started</a></li>
-  <li><a href="#embedding-r-code" id="toc-embedding-r-code" class="nav-link" data-scroll-target="#embedding-r-code"><span class="header-section-number">5.3</span> Embedding R code</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">5.1</span> Overview</a>
   <ul class="collapse">
-  <li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks"><span class="header-section-number">5.3.1</span> Code chunks</a></li>
-  <li><a href="#inline-code" id="toc-inline-code" class="nav-link" data-scroll-target="#inline-code"><span class="header-section-number">5.3.2</span> Inline code</a></li>
+  <li><a href="#handy-resources" id="toc-handy-resources" class="nav-link" data-scroll-target="#handy-resources"><span class="header-section-number">5.1.1</span> Handy Resources:</a></li>
+  </ul></li>
+  <li><a href="#getting-started-formatting-your-document" id="toc-getting-started-formatting-your-document" class="nav-link" data-scroll-target="#getting-started-formatting-your-document"><span class="header-section-number">5.2</span> Getting started: Formatting Your Document</a></li>
+  <li><a href="#embedding-r-code" id="toc-embedding-r-code" class="nav-link" data-scroll-target="#embedding-r-code"><span class="header-section-number">5.3</span> Embedding R Code</a>
+  <ul class="collapse">
+  <li><a href="#formatting-individual-code-chunks" id="toc-formatting-individual-code-chunks" class="nav-link" data-scroll-target="#formatting-individual-code-chunks"><span class="header-section-number">5.3.1</span> Formatting Individual Code Chunks</a></li>
+  <li><a href="#setting-global-options-code-chunks" id="toc-setting-global-options-code-chunks" class="nav-link" data-scroll-target="#setting-global-options-code-chunks"><span class="header-section-number">5.3.2</span> Setting Global Options Code Chunks</a></li>
+  <li><a href="#inline-code" id="toc-inline-code" class="nav-link" data-scroll-target="#inline-code"><span class="header-section-number">5.3.3</span> Inline code</a></li>
   </ul></li>
   <li><a href="#embedding-plots" id="toc-embedding-plots" class="nav-link" data-scroll-target="#embedding-plots"><span class="header-section-number">5.4</span> Embedding plots</a></li>
   <li><a href="#embedding-tables" id="toc-embedding-tables" class="nav-link" data-scroll-target="#embedding-tables"><span class="header-section-number">5.5</span> Embedding tables</a></li>
@@ -486,9 +490,13 @@ window.Quarto = {
 <p>To get started with R Markdown, watch Miratrix’s video on RMarkdown. You can find it on <a href="https://canvas.harvard.edu/courses/118862/pages/week-1-intro-to-r">this page</a>, under the “Do it for Lab” tab.</p>
 <p>To use a markdown document, you generally open it and work inside of R Studio. To compile (or “knit”) the document—meaning have the computer run all the code in the document, and then generate a new document with the results of the code and all the formatting specified carried out—click on the button that says ‘Knit’. You can make a new document by saying “new markdown document” and then immediately “knit” it to see what it does.</p>
 <p>Other R packages, such as <code>Sweave</code> and <code>knitr</code>, allow you to do the same things, but R Markdown has the added advantage of being relatively simple to use.</p>
+<section id="handy-resources" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="handy-resources"><span class="header-section-number">5.1.1</span> Handy Resources:</h3>
+<p>When working with R Markdown, we highly recommend that you keep the <a href="https://rstudio.github.io/cheatsheets/rmarkdown.pdf">Posit Cheatsheet on R Markdown</a> close at hand—this is a great resource showing the various options and syntax you can use to customize your knitted document.</p>
 </section>
-<section id="getting-started" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">5.2</span> Getting started</h2>
+</section>
+<section id="getting-started-formatting-your-document" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="getting-started-formatting-your-document"><span class="header-section-number">5.2</span> Getting started: Formatting Your Document</h2>
 <p>Every R Markdown document starts with a header, called the YAML header. YAML headers look like this:</p>
 <pre><code>---
 title: "My perfect homework"
@@ -534,17 +542,26 @@ output: pdf_document
 <p>Regardless, to compile or knit the document, click on the button that says <code>Knit</code> or <code>Render</code>, or Shift + Ctrl/Cmd + K.</p>
 </section>
 <section id="embedding-r-code" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="embedding-r-code"><span class="header-section-number">5.3</span> Embedding R code</h2>
+<h2 data-number="5.3" class="anchored" data-anchor-id="embedding-r-code"><span class="header-section-number">5.3</span> Embedding R Code</h2>
 <p>The power of R Markdown is you can include R code and that code will get run and the output included in your report automatically. There are two main ways to embed R code in R Markdown, code chunks (this is the primary way) or inline (this is if you want to get fancy).</p>
-<section id="code-chunks" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="code-chunks"><span class="header-section-number">5.3.1</span> Code chunks</h3>
+<section id="formatting-individual-code-chunks" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="formatting-individual-code-chunks"><span class="header-section-number">5.3.1</span> Formatting Individual Code Chunks</h3>
 <p>To insert a code chunk click on <code>Insert</code> on the top right corner of your R Markdown file and select <code>R</code>. Or use keyboard shortcuts: Ctrl + Alt + I for PC and Cmd + Option + I for Mac.</p>
 <p>A code chunk starts with three backticks and the letter <code>r</code> in curly braces, and ends with three more backticks on their own line. In between these lines you put the R code.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="in"># YOUR CODE HERE</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Code chunks have a number of different options you can put after the <code>r</code> in the opening line. The most important ones for us are:</p>
 <ul>
 <li><code>eval = TRUE</code>, which means every time you knit the file, the code inside the R code chunk will get evaluated. This is the default.</li>
 <li><code>echo = TRUE</code>, which means every time you knit the file, the code inside the R code chunk will be rendered, and you can see both the code itself and the results from evaluating the code.</li>
 </ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval = FALSE}</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="in"># The document will knit even if the code in this chunk has an error.</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="in"># For example, the "bad" code below doesn't prevent the document from knitting</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="in">my_var &lt;- !!198`123bx92</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>For class, you should keep <code>echo = TRUE</code>, so that we can see your code and be able to tell what went wrong, if something did. You can set <code>echo = FALSE</code> for code chunks that load and manipulate data in the setup of your analysis, if you don’t want people to look at that part of your work.</p>
 <p>Other code chunks options you may see in class are:</p>
 <ul>
@@ -552,47 +569,48 @@ output: pdf_document
 <li><code>results = 'asis'</code>, which means results will not be reformatted when the file is compiled (useful if results return raw HTML).</li>
 <li><code>fig.height</code> and <code>fig.width</code>, which specify the height and width (in inches) of plots created by the chunk.</li>
 </ul>
-<p>Instead of specifying code chunks options every time, you can specify them globally in the setup chunk by using</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>, <span class="at">eval =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You can then add additional options only to relevant chunks. For example, you want to exclude specific chunks, you can re-set <code>echo = FALSE</code> and <code>eval = FALSE</code> for those specific chunks.</p>
+<p>Ultimately, the output of each code chunk is highly customizable. For granular information about how to format your chunk output exactly as desired, please take a look at <a href="https://bookdown.org/yihui/rmarkdown-cookbook/chunk-options.html">Ch. 11 of the R Markdown Cookbook by Xie, Dervieux, &amp; Riederer (2024)</a>.</p>
+</section>
+<section id="setting-global-options-code-chunks" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="setting-global-options-code-chunks"><span class="header-section-number">5.3.2</span> Setting Global Options Code Chunks</h3>
+<p>Instead of specifying code chunks options every time, you can specify them globally in the setup chunk by using the <code>knitr</code> package. The code below sets the new default for code chunks in your project. Note that, because this chunk uses <code>echo=FALSE</code> in its header, this setup code will be hidden in the final rendered document.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, echo=FALSE}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(echo = TRUE, eval = TRUE)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can then add additional options <strong>only</strong> to relevant chunks using the chunk headers. For example, if you want to exclude specific chunks, you can re-set <code>echo = FALSE</code> and <code>eval = FALSE</code> for those specific chunks.</p>
 <p><strong>Running code chunks:</strong> A good practice for writing your code is to run individual code chunks to make sure they are doing what you want them to do as you write them. You can do this by executing individual lines of code, or whole chunks. Go to <code>Run</code> in the upper right corner and select what chunks to execute, e.g.&nbsp;<code>Run Current Chunk</code>, <code>Run Next Chunk</code>, etc.</p>
 </section>
-<section id="inline-code" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="inline-code"><span class="header-section-number">5.3.2</span> Inline code</h3>
+<section id="inline-code" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="inline-code"><span class="header-section-number">5.3.3</span> Inline code</h3>
 <p>Code results can also be inserted directly in the text of your R Markdown file. This is particularly useful when you are extracting and interpreting model parameters. You can extract the coefficient from the model and use inline code to report it. If the data or model change, <em>the text will also change</em> when you knit the document.</p>
-<p>To add inline code, enclose it in <code>`r `</code>. For example, to report the mean reading score, you can use</p>
-<pre><code>-0.0443549</code></pre>
-<p>Which will produce -0.0443549. That’s a few too many decimals, let’s round it off, using</p>
-<pre><code>-0.04</code></pre>
-<p>which produces “-0.04.”</p>
-<p>Here we used two commands: <code>round</code> and <code>mean</code>. You can use more commands and write more complex inline code, depending on what you want to report.</p>
+<p>To add inline code, enclose it in <code>`r `</code>. For example, to report the mean reading score, you can use <code>`r round(mean(dat$p7read))`</code>, which will produce the number -0.04 in your rendered document. Here we used two commands: <code>round()</code> and <code>mean()</code>. You can use more commands and write more complex inline code, depending on what you want to report.</p>
 </section>
 </section>
 <section id="embedding-plots" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="embedding-plots"><span class="header-section-number">5.4</span> Embedding plots</h2>
-<p>Plots are easy to embed. For example,</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>male <span class="ot">&lt;-</span> <span class="fu">factor</span>(dat<span class="sc">$</span>male, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>))</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dat, <span class="fu">aes</span>(p7vrq, attain, <span class="at">colour=</span>male)) <span class="sc">+</span> </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Attainment as a function of verbal reasoning"</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Verbal reasoning quotient"</span>, </span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Educational attainment"</span>, <span class="at">colour=</span><span class="st">"Gender"</span>) <span class="sc">+</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">colour=</span><span class="st">"darkorchid3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Plots are easy to embed. For example, I use the chunk headings in the example below to control the width of the displayed output (75% of the full document width) using <code>out.width='75%'</code>. I also turn off pesky warnings and messages (since I know I can safely ignore them) to avoid cluttering the output using <code>message=FALSE</code> and <code>warnings=FALSE</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r out.width='75%', message=FALSE, warning=FALSE</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="in">dat$male &lt;- factor(dat$male, levels = c(0, 1), labels = c("Female", "Male"))</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(data=dat, aes(p7vrq, attain, colour=male)) + </span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() + </span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(title="Attainment as a function of verbal reasoning",</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="in">       x = "Verbal reasoning quotient", </span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="in">       y = "Educational attainment", colour="Gender") +</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_smooth(method="lm", formula = y ~ x, se=FALSE, colour="darkorchid3")</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center" data-warnings="false">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="intro_markdown_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+<p><img src="intro_markdown_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Girls are rendered as coral, boys are rendered in turquoise, and the line of best fit is drawn in <code>darkorchid3</code> (because why not). Just because you have a lot of colors and plotting characters to work with doesn’t mean you need to use them all. In the options, I specified <code>fig.width = 7</code> and <code>fig.height = 7</code>. Notice that this command draws on <code>dat</code>, which we loaded in a previous chunk. When knitting the document, code chunks get executed in order and the results persist throughout the R Markdown document.</p>
+<p>Girls are rendered as coral, boys are rendered in turquoise, and the line of best fit is drawn in <code>darkorchid3</code> (because why not). Just because you have a lot of colors and plotting characters to work with doesn’t mean you need to use them all. Notice that this command draws on <code>dat</code>, which we loaded in a previous chunk. When knitting the document, all code chunks with the default <code>eval=TRUE</code> option get executed in order and the results persist throughout the R Markdown document.</p>
 <p>For the purposes of class, we want to see both your plot code and the plot itself. It’s not uncommon to use wrong code to create a plot that looks correct (at least visually).</p>
 </section>
 <section id="embedding-tables" class="level2" data-number="5.5">

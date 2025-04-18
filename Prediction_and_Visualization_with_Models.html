@@ -414,22 +414,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#v1" id="toc-v1" class="nav-link active" data-scroll-target="#v1"><span class="header-section-number">17</span> V1</a></li>
-  <li><a href="#v2" id="toc-v2" class="nav-link" data-scroll-target="#v2"><span class="header-section-number">18</span> V2</a>
+  <li><a href="#fit-a-model" id="toc-fit-a-model" class="nav-link active" data-scroll-target="#fit-a-model"><span class="header-section-number">16.1</span> Fit a model</a></li>
+  <li><a href="#generate-a-prediction-grid" id="toc-generate-a-prediction-grid" class="nav-link" data-scroll-target="#generate-a-prediction-grid"><span class="header-section-number">16.2</span> Generate a Prediction Grid</a></li>
+  <li><a href="#add-predictions-to-the-grid" id="toc-add-predictions-to-the-grid" class="nav-link" data-scroll-target="#add-predictions-to-the-grid"><span class="header-section-number">16.3</span> Add Predictions to the Grid</a></li>
+  <li><a href="#plot-predicted-trends" id="toc-plot-predicted-trends" class="nav-link" data-scroll-target="#plot-predicted-trends"><span class="header-section-number">16.4</span> Plot Predicted Trends</a></li>
+  <li><a href="#extensions" id="toc-extensions" class="nav-link" data-scroll-target="#extensions"><span class="header-section-number">16.5</span> Extensions</a>
   <ul class="collapse">
-  <li><a href="#fit-a-model" id="toc-fit-a-model" class="nav-link" data-scroll-target="#fit-a-model"><span class="header-section-number">18.1</span> Fit a model</a></li>
-  <li><a href="#generate-a-prediction-grid" id="toc-generate-a-prediction-grid" class="nav-link" data-scroll-target="#generate-a-prediction-grid"><span class="header-section-number">18.2</span> Generate a Prediction Grid</a></li>
-  <li><a href="#add-predictions-to-the-grid" id="toc-add-predictions-to-the-grid" class="nav-link" data-scroll-target="#add-predictions-to-the-grid"><span class="header-section-number">18.3</span> Add Predictions to the Grid</a></li>
-  <li><a href="#plot-predicted-trends" id="toc-plot-predicted-trends" class="nav-link" data-scroll-target="#plot-predicted-trends"><span class="header-section-number">18.4</span> Plot Predicted Trends</a></li>
-  <li><a href="#extensions" id="toc-extensions" class="nav-link" data-scroll-target="#extensions"><span class="header-section-number">18.5</span> Extensions</a>
-  <ul class="collapse">
-  <li><a href="#residuals-and-diagnostics" id="toc-residuals-and-diagnostics" class="nav-link" data-scroll-target="#residuals-and-diagnostics"><span class="header-section-number">18.5.1</span> Residuals and Diagnostics</a></li>
-  <li><a href="#multiple-models" id="toc-multiple-models" class="nav-link" data-scroll-target="#multiple-models"><span class="header-section-number">18.5.2</span> Multiple Models</a></li>
-  <li><a href="#fancy-plotting-with-spread_predictions" id="toc-fancy-plotting-with-spread_predictions" class="nav-link" data-scroll-target="#fancy-plotting-with-spread_predictions"><span class="header-section-number">18.5.3</span> Fancy Plotting with spread_predictions</a></li>
+  <li><a href="#residuals-and-diagnostics" id="toc-residuals-and-diagnostics" class="nav-link" data-scroll-target="#residuals-and-diagnostics"><span class="header-section-number">16.5.1</span> Residuals and Diagnostics</a></li>
+  <li><a href="#multiple-models" id="toc-multiple-models" class="nav-link" data-scroll-target="#multiple-models"><span class="header-section-number">16.5.2</span> Multiple Models</a></li>
+  <li><a href="#fancy-plotting-with-spread_predictions" id="toc-fancy-plotting-with-spread_predictions" class="nav-link" data-scroll-target="#fancy-plotting-with-spread_predictions"><span class="header-section-number">16.5.3</span> Fancy Plotting with spread_predictions</a></li>
   </ul></li>
-  <li><a href="#handy-functions-recap" id="toc-handy-functions-recap" class="nav-link" data-scroll-target="#handy-functions-recap"><span class="header-section-number">18.6</span> Handy Functions Recap</a></li>
-  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts"><span class="header-section-number">18.7</span> Final Thoughts</a></li>
-  </ul></li>
+  <li><a href="#handy-functions-recap" id="toc-handy-functions-recap" class="nav-link" data-scroll-target="#handy-functions-recap"><span class="header-section-number">16.6</span> Handy Functions Recap</a></li>
+  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts"><span class="header-section-number">16.7</span> Final Thoughts</a></li>
   </ul>
 </nav>
     </div>
@@ -455,32 +451,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="v1" class="level1" data-number="17">
-<h1 data-number="17"><span class="header-section-number">17</span> V1</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup1, echo = FALSE}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(echo = TRUE, eval = TRUE)</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">rnorm( 10 )</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="v2" class="level1" data-number="18">
-<h1 data-number="18"><span class="header-section-number">18</span> V2</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>::: {.cell layout-align="center"}</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>::: {.cell-output .cell-output-stdout}</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="in"> [1]  1.27191954 -0.70171472  0.39740865  0.21899363 -0.09580071  0.63626747</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="in"> [7] -1.01855662  1.61608263  1.20292897 -1.07498749</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To make nice plots of the predictions from models that have complex curves and relationships, the easiest way is to use the model to predict values for different covariate combinations, store all of this in a dataframe, and then use <code>ggplot</code> to plot your results using <code>geom_line</code> which will give you nice smoothed curves through the points. This document highlights some useful methods for doing this. We need the tidyverse and the <code>modelr</code> package</p>
 <p>Prediction, and making plots from predictions, are foundational skills for data analysis, especially as models become more complex and interactions or non-linear terms are introduced.</p>
 <p>We will use the <code>iris</code> dataset, as it has some strong relationships that make the ideas behind these tools more salient. Here is the raw data:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Petal.Length, <span class="at">y=</span>Petal.Width, <span class="at">col=</span>Species)) <span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Petal.Length, <span class="at">y=</span>Petal.Width, <span class="at">col=</span>Species)) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -497,12 +473,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Make the vizualization, plotting our predictions vs.&nbsp;our grid values.</li>
 </ol>
 <p>Related reading: R for Data Science (1st Edition), Section 23.3 <em>(Sections 23.1 and 23.2 are optional but helpful)</em></p>
-<section id="fit-a-model" class="level2" data-number="18.1">
-<h2 data-number="18.1" class="anchored" data-anchor-id="fit-a-model"><span class="header-section-number">18.1</span> Fit a model</h2>
+<section id="fit-a-model" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="fit-a-model"><span class="header-section-number">16.1</span> Fit a model</h2>
 <p>We first fit a a model to describe how petal length can be predicted by petal width and species. Our model allows the length-width relationship to be different for the different species.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Petal.Width <span class="sc">*</span> Species, <span class="at">data=</span>iris)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>( M1 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Petal.Width <span class="sc">*</span> Species, <span class="at">data=</span>iris)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>( M1 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -529,15 +505,15 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="generate-a-prediction-grid" class="level2" data-number="18.2">
-<h2 data-number="18.2" class="anchored" data-anchor-id="generate-a-prediction-grid"><span class="header-section-number">18.2</span> Generate a Prediction Grid</h2>
+<section id="generate-a-prediction-grid" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="generate-a-prediction-grid"><span class="header-section-number">16.2</span> Generate a Prediction Grid</h2>
 <p>We often want to understand what our model is saying by predicting outcomes over combinations of input variables. We do this by first making a new dataset of the combinations of inputs we want to explore, and then we use our fit model to predict for all these combinations.</p>
 <p><code>data_grid()</code>, in the <code>modelr</code> package, is the tool for this. It will generate a simple dataframe with one row for each possible combination of variables you want. We will then predict for each of these rows.</p>
 <p>Here is a toy example: see how duplicates are removed:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>( modelr )</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>my.df <span class="ot">=</span> <span class="fu">data.frame</span>( <span class="at">A=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">B=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">20</span>), <span class="at">C=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>) )</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data_grid</span>( my.df, A, B )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>( modelr )</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>my.df <span class="ot">=</span> <span class="fu">data.frame</span>( <span class="at">A=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">B=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">20</span>), <span class="at">C=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>) )</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data_grid</span>( my.df, A, B )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 2
       A     B
@@ -550,9 +526,9 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>For our actual data we have:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">=</span> iris <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>( Petal.Width, Species )</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>grid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">=</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>( Petal.Width, Species )</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>grid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 66 × 2
    Petal.Width Species   
@@ -572,8 +548,8 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>You can also get “typical values” (usually the median or most commonly occurring) for things not on your grid using a modeling argument:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Petal.Width <span class="sc">*</span> Species, <span class="at">data=</span>iris)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data_grid</span>(iris, <span class="at">.model =</span> mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Petal.Width <span class="sc">*</span> Species, <span class="at">data=</span>iris)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data_grid</span>(iris, <span class="at">.model =</span> mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   Petal.Width Species   
@@ -582,7 +558,7 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 2         1.3 versicolor
 3         1.3 virginica </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data_grid</span>(iris, <span class="at">Petal.Width =</span> <span class="fu">seq_range</span>(Petal.Width, <span class="dv">9</span>), <span class="at">.model =</span> mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data_grid</span>(iris, <span class="at">Petal.Width =</span> <span class="fu">seq_range</span>(Petal.Width, <span class="dv">9</span>), <span class="at">.model =</span> mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 27 × 2
    Petal.Width Species   
@@ -602,51 +578,51 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>A tool that is also good is <code>seq_range()</code> that gives you a nice sequence of numbers over a range of values</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">rnorm</span>( <span class="dv">10000</span> )</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>( X, <span class="dv">5</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">rnorm</span>( <span class="dv">10000</span> )</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>( X, <span class="dv">5</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -4.07268859 -2.02184176  0.02900507  2.07985190  4.13069873</code></pre>
+<pre><code>[1] -4.0974935 -1.9968869  0.1037196  2.2043262  4.3049327</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># drop 5% of data on tails</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>( X, <span class="dv">5</span>, <span class="at">trim=</span><span class="fl">0.05</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># drop 5% of data on tails</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>( X, <span class="dv">5</span>, <span class="at">trim=</span><span class="fl">0.05</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.93709529 -0.95060642  0.03588244  1.02237131  2.00886018</code></pre>
+<pre><code>[1] -1.94111338 -0.96398387  0.01314565  0.99027516  1.96740467</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use pretty numbers</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>( X, <span class="dv">5</span>, <span class="at">trim=</span><span class="fl">0.05</span>, <span class="at">pretty=</span><span class="cn">TRUE</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use pretty numbers</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>( X, <span class="dv">5</span>, <span class="at">trim=</span><span class="fl">0.05</span>, <span class="at">pretty=</span><span class="cn">TRUE</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -2 -1  0  1  2  3</code></pre>
+<pre><code>[1] -2 -1  0  1  2</code></pre>
 </div>
 </div>
 <p>You can combine with <code>data_grid</code> to get a nice data frame of points to use for your “canonical points” for prediction or whatnot:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>my.df <span class="ot">=</span> <span class="fu">data.frame</span>( <span class="at">A=</span><span class="fu">rnorm</span>(<span class="dv">1000</span>), <span class="at">B=</span><span class="fu">rexp</span>(<span class="dv">1000</span>), <span class="at">C=</span><span class="fu">rnorm</span>(<span class="dv">1000</span>,<span class="at">mean=</span><span class="dv">5</span>) )</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data_grid</span>( my.df, </span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">A=</span><span class="fu">seq_range</span>(A,<span class="at">n=</span><span class="dv">3</span>),</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">B=</span><span class="fu">seq_range</span>(B,<span class="at">n=</span><span class="dv">3</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>my.df <span class="ot">=</span> <span class="fu">data.frame</span>( <span class="at">A=</span><span class="fu">rnorm</span>(<span class="dv">1000</span>), <span class="at">B=</span><span class="fu">rexp</span>(<span class="dv">1000</span>), <span class="at">C=</span><span class="fu">rnorm</span>(<span class="dv">1000</span>,<span class="at">mean=</span><span class="dv">5</span>) )</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data_grid</span>( my.df, </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">A=</span><span class="fu">seq_range</span>(A,<span class="at">n=</span><span class="dv">3</span>),</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">B=</span><span class="fu">seq_range</span>(B,<span class="at">n=</span><span class="dv">3</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 2
-       A       B
-   &lt;dbl&gt;   &lt;dbl&gt;
-1 -3.37  0.00106
-2 -3.37  3.75   
-3 -3.37  7.50   
-4 -0.172 0.00106
-5 -0.172 3.75   
-6 -0.172 7.50   
-7  3.03  0.00106
-8  3.03  3.75   
-9  3.03  7.50   </code></pre>
+       A        B
+   &lt;dbl&gt;    &lt;dbl&gt;
+1 -2.99  0.000112
+2 -2.99  3.89    
+3 -2.99  7.78    
+4  0.107 0.000112
+5  0.107 3.89    
+6  0.107 7.78    
+7  3.20  0.000112
+8  3.20  3.89    
+9  3.20  7.78    </code></pre>
 </div>
 </div>
 </section>
-<section id="add-predictions-to-the-grid" class="level2" data-number="18.3">
-<h2 data-number="18.3" class="anchored" data-anchor-id="add-predictions-to-the-grid"><span class="header-section-number">18.3</span> Add Predictions to the Grid</h2>
+<section id="add-predictions-to-the-grid" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="add-predictions-to-the-grid"><span class="header-section-number">16.3</span> Add Predictions to the Grid</h2>
 <p>This is easy, like so:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> grid <span class="sc">%&gt;%</span> </span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predictions</span>(M1)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(grid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> grid <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predictions</span>(M1)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(grid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   Petal.Width Species     pred
@@ -660,13 +636,13 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="plot-predicted-trends" class="level2" data-number="18.4">
-<h2 data-number="18.4" class="anchored" data-anchor-id="plot-predicted-trends"><span class="header-section-number">18.4</span> Plot Predicted Trends</h2>
+<section id="plot-predicted-trends" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="plot-predicted-trends"><span class="header-section-number">16.4</span> Plot Predicted Trends</h2>
 <p>We can then plot our predictions for each of our species:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grid, <span class="fu">aes</span>(<span class="at">x=</span>Petal.Width, <span class="at">y=</span>pred, </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">col=</span>Species, <span class="at">group=</span>Species)) <span class="sc">+</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grid, <span class="fu">aes</span>(<span class="at">x=</span>Petal.Width, <span class="at">y=</span>pred, </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">col=</span>Species, <span class="at">group=</span>Species)) <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -676,16 +652,16 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="extensions" class="level2" data-number="18.5">
-<h2 data-number="18.5" class="anchored" data-anchor-id="extensions"><span class="header-section-number">18.5</span> Extensions</h2>
-<section id="residuals-and-diagnostics" class="level3" data-number="18.5.1">
-<h3 data-number="18.5.1" class="anchored" data-anchor-id="residuals-and-diagnostics"><span class="header-section-number">18.5.1</span> Residuals and Diagnostics</h3>
+<section id="extensions" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="extensions"><span class="header-section-number">16.5</span> Extensions</h2>
+<section id="residuals-and-diagnostics" class="level3" data-number="16.5.1">
+<h3 data-number="16.5.1" class="anchored" data-anchor-id="residuals-and-diagnostics"><span class="header-section-number">16.5.1</span> Residuals and Diagnostics</h3>
 <p>We can add <code>residuals</code> to our data for model diagnostics:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>iris <span class="ot">&lt;-</span> <span class="fu">add_residuals</span>(iris, M1)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Petal.Width, <span class="at">y=</span>resid, <span class="at">col=</span>Species)) <span class="sc">+</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ref_line</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"orange"</span>, <span class="at">size=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>iris <span class="ot">&lt;-</span> <span class="fu">add_residuals</span>(iris, M1)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Petal.Width, <span class="at">y=</span>resid, <span class="at">col=</span>Species)) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ref_line</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"orange"</span>, <span class="at">size=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -695,17 +671,17 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="multiple-models" class="level3" data-number="18.5.2">
-<h3 data-number="18.5.2" class="anchored" data-anchor-id="multiple-models"><span class="header-section-number">18.5.2</span> Multiple Models</h3>
+<section id="multiple-models" class="level3" data-number="16.5.2">
+<h3 data-number="16.5.2" class="anchored" data-anchor-id="multiple-models"><span class="header-section-number">16.5.2</span> Multiple Models</h3>
 <p>Let’s try multiple models and compare their predictions. We will have a simple model with no interactions, and a more complex one that allows curved relationships within each species.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>M0 <span class="ot">&lt;-</span> <span class="fu">lm</span>( Petal.Length <span class="sc">~</span> Petal.Width <span class="sc">+</span> Species, <span class="at">data=</span>iris )</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fu">lm</span>( Petal.Length <span class="sc">~</span> Species <span class="sc">*</span>(Petal.Width <span class="sc">+</span> <span class="fu">I</span>(Petal.Width<span class="sc">^</span><span class="dv">2</span>)), <span class="at">data=</span>iris )</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">=</span> iris <span class="sc">%&gt;%</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>( Petal.Width, Species ) <span class="sc">%&gt;%</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather_predictions</span>( M1, M0, M2 )</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>grid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>M0 <span class="ot">&lt;-</span> <span class="fu">lm</span>( Petal.Length <span class="sc">~</span> Petal.Width <span class="sc">+</span> Species, <span class="at">data=</span>iris )</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fu">lm</span>( Petal.Length <span class="sc">~</span> Species <span class="sc">*</span>(Petal.Width <span class="sc">+</span> <span class="fu">I</span>(Petal.Width<span class="sc">^</span><span class="dv">2</span>)), <span class="at">data=</span>iris )</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">=</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>( Petal.Width, Species ) <span class="sc">%&gt;%</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather_predictions</span>( M1, M0, M2 )</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>grid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 198 × 4
    model Petal.Width Species     pred
@@ -725,9 +701,9 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>And now plot:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grid, <span class="fu">aes</span>(<span class="at">x=</span>Petal.Width, <span class="at">y=</span>pred, <span class="at">col=</span>Species ) ) <span class="sc">+</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> model) <span class="sc">+</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grid, <span class="fu">aes</span>(<span class="at">x=</span>Petal.Width, <span class="at">y=</span>pred, <span class="at">col=</span>Species ) ) <span class="sc">+</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> model) <span class="sc">+</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -737,14 +713,14 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="fancy-plotting-with-spread_predictions" class="level3" data-number="18.5.3">
-<h3 data-number="18.5.3" class="anchored" data-anchor-id="fancy-plotting-with-spread_predictions"><span class="header-section-number">18.5.3</span> Fancy Plotting with spread_predictions</h3>
+<section id="fancy-plotting-with-spread_predictions" class="level3" data-number="16.5.3">
+<h3 data-number="16.5.3" class="anchored" data-anchor-id="fancy-plotting-with-spread_predictions"><span class="header-section-number">16.5.3</span> Fancy Plotting with spread_predictions</h3>
 <p>The <code>spread_predictions()</code> function can be used to make each model a separate column:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>( Petal.Width, Species )</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>grid_spread <span class="ot">=</span> <span class="fu">spread_predictions</span>(grid, M0, M1)</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>grid_spread</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>( Petal.Width, Species )</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>grid_spread <span class="ot">=</span> <span class="fu">spread_predictions</span>(grid, M0, M1)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>grid_spread</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 66 × 4
    Petal.Width Species       M0    M1
@@ -761,10 +737,10 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 10         0.4 setosa      1.62  1.55
 # ℹ 56 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grid_spread, <span class="fu">aes</span>(<span class="at">x=</span>Petal.Width)) <span class="sc">+</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>( <span class="sc">~</span> Species ) <span class="sc">+</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>M0), <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lwd=</span><span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>M1, <span class="at">col=</span>Species), <span class="at">lwd=</span><span class="dv">1</span>, <span class="at">lty=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grid_spread, <span class="fu">aes</span>(<span class="at">x=</span>Petal.Width)) <span class="sc">+</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>( <span class="sc">~</span> Species ) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>M0), <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lwd=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>M1, <span class="at">col=</span>Species), <span class="at">lwd=</span><span class="dv">1</span>, <span class="at">lty=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -775,8 +751,8 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </section>
 </section>
-<section id="handy-functions-recap" class="level2" data-number="18.6">
-<h2 data-number="18.6" class="anchored" data-anchor-id="handy-functions-recap"><span class="header-section-number">18.6</span> Handy Functions Recap</h2>
+<section id="handy-functions-recap" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="handy-functions-recap"><span class="header-section-number">16.6</span> Handy Functions Recap</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 61%">
@@ -816,13 +792,12 @@ F-statistic: 681.9 on 5 and 144 DF,  p-value: &lt; 2.2e-16</code></pre>
 </tbody>
 </table>
 </section>
-<section id="final-thoughts" class="level2" data-number="18.7">
-<h2 data-number="18.7" class="anchored" data-anchor-id="final-thoughts"><span class="header-section-number">18.7</span> Final Thoughts</h2>
+<section id="final-thoughts" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="final-thoughts"><span class="header-section-number">16.7</span> Final Thoughts</h2>
 <p>These techniques make model interpretation and communication much easier. Being able to <strong>visualize predictions and model trends</strong> can bring clarity, especially when dealing with interactions or nonlinearities.</p>
 <p>Practice using these tools and adapt them to your own datasets!</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
