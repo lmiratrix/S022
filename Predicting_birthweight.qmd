@@ -45,13 +45,16 @@ theme_set( theme_classic() )
 
 ### Load in the birthweight data.
 
-We have two files: training and holdout. We keep our holdout set for our final validation after we pick our final models. This allows a fair comparison of all the methods at the end as we do not use the holdout set AT ALL for building our models.
+We have two files: training and holdout. We keep our holdout set for our final validation after we pick our final models. This allows a fair comparison of all the methods at the end as we do not use the holdout set AT ALL for building our models.  
+
 
 ```{r}
 # Load the data
 ca_training = read.csv( "data/lbw_training.csv" )
 ca_holdout = read.csv( "data/lbw_holdout.csv" )
 ```
+
+If you are pasting this code into your own computer, you can [download lbw_holdout.csv](data/lbw_holdout.csv) and [lbw_training.csv](data/lbw_training.csv) from the course website.
 
 Let's peek at our list of variables:
 
