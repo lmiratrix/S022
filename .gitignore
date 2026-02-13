@@ -54,3 +54,4 @@ book-output
 *.Rproj
 *.woff
 *.rmarkdown
+**/*.quarto_ipynb

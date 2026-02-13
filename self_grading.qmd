@@ -16,7 +16,7 @@ Then, for the next ready-for-class check-in you will be asked to enter your scor
 
 For reporting your score, **report total number of points, not percent correct.** For example, if there are two questions, with the first having 3 points and the second 2, you would report a score between 0 and 5.
 
-We grade miniassignments on completion, meaning you will get full credit if you (1) do the mini-assignment and (2) self-grade the miniassignment (regardless of the score you give yourself as long as your work shows reasonable effort).
+We primarily grade miniassignments on completion, meaning we will threshold your score to at least 90% if you (1) do the mini-assignment and (2) self-grade the miniassignment (regardless of the score you give yourself as long as your work shows reasonable effort).
 
 ## Acknowledgement:
 

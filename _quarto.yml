@@ -10,10 +10,10 @@ book:
     - self_assess.qmd
     - assignment_guidelines.qmd
     - self_grading.qmd
-    - project_organization.qmd
     - part: "Getting Started"
       chapters:
       - getting_started.qmd
+      - project_organization.qmd
       - resources_on_learning_R.qmd
       - style_guide.qmd
     - part: "On markdown"
