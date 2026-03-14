@@ -1,0 +1,194 @@
+---
+title: "Using mice to handle categorical data"
+author: "Miratrix"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r,include=FALSE}
+library(tidyverse)
+library( mice )
+knitr::opts_chunk$set(echo = TRUE,
+          fig.width = 5,
+          fig.height = 3,
+          out.width = "75%",
+           message = FALSE,
+          fig.align = "center")
+options(list(dplyr.summarise.inform = FALSE))
+theme_set( theme_classic() )
+```
+
+Non-continuous data is a bit tricky because we can't directly do mean imputation, since there is nothing to take a mean of.
+That said, all the ideas shown in the prior intro to missing data chapter can be extended to non-continuous (categorical) variables.
+
+We have a few options:
+
+ - Add a Missing category
+ - Do mean imputation on dummy variables
+ - Use mice to impute values.  This is probably the easiest option.
+
+We walk through these next, using the `nhanes` data (another built-in dataset in the mice package) for our illustration.
+In `nhanes`, one of the variables is an `age` variable that is coded as an ordered categorical variable (e.g. 20-39, 40-59, etc).
+Another is the binary `hyp` variable.
+To illustrate imputation, we are just going to delete some of the `age` data so we can try to impute it back.
+
+```{r}
+## load data and create some missing values for an ordered categorical
+## variable
+
+  data(nhanes2)
+  nhanes2$age[1:5] = NA
+  head(nhanes2) 
+```
+
+Ok, we have our data.
+Next we go through the way of handling it.
+
+## Adding a missing category
+
+Adding a missing category is a common approach for categorical variables, and it is easy to do.
+
+For example, for the `age` variable, we can simply add a new level called `"Missing"` to
+cover any `NA` observations, using `fct_explicit_na()` from the `forcats`
+package (loaded automatically with `tidyverse`):
+
+```{r}
+  nhanes2_cat <- nhanes2 %>%
+    mutate(age = fct_na_value_to_level(age, level="Missing"))
+  
+  levels(nhanes2_cat$age)
+  table(nhanes2_cat$age)
+```
+
+The `age` variable now has a "`Missing`" level, so it can
+be passed directly into a regression or other model.
+The same approach works for the binary `hyp` variable:
+```{r}
+  nhanes2_cat <- nhanes2_cat %>%
+    mutate(hyp = fct_na_value_to_level(hyp, level="Missing") )
+  
+  table(nhanes2_cat$hyp)
+```
+
+The appeal of this approach is its simplicity: no imputation model is required,
+and the `"Missing"` category can sometimes capture meaningful signal (e.g., if a
+certain type of respondent systematically skips a question).
+The downside is that it adds a category whose interpretation is not always clear,
+and if the data are not MCAR it could introduce bias in downstream analysis just like listwise deletion
+would.
+
+
+## Mean imputation on dummy variables
+
+A common approach is to convert a categorical variable into a set of dummy (0/1)
+variables and then do ordinary mean imputation on each dummy.
+
+This works especially naturally for a binary variable like `hyp`, which takes
+values `"yes"` and `"no"`.
+Converting `hyp` to a 0/1 dummy and then mean-imputing is equivalent to replacing
+each missing value with the sample proportion of `"yes"` responses among
+non-missing cases:
+```{r}
+  nhanes2_dum <- nhanes2 %>%
+    mutate(hyp_num = as.integer(hyp == "yes"))
+  
+  head(nhanes2_dum)
+  
+  hyp_mean <- mean(nhanes2_dum$hyp_num, na.rm = TRUE)
+  hyp_mean
+  
+  nhanes2_dum <- nhanes2_dum %>%
+    mutate(hyp_imp = if_else(is.na(hyp_num), hyp_mean, as.double(hyp_num)))
+  
+  head(nhanes2_dum)
+  summary(nhanes2_dum$hyp_imp)
+```
+
+The originally-missing `hyp` rows now have the value `r round(hyp_mean, 3)`,
+which is the proportion of hypertensive respondents in the observed data.
+
+For an ordered categorical variable like `age`, you would create a separate dummy
+for each level (dropping one to avoid perfect collinearity) and mean-impute each
+one.
+
+However, just as with continuous variables, mean imputation has well-known limitations: it attenuates relationships
+between variables and underestimates variance.
+For categorical variables, it also produces fractional imputed values (e.g., 0.4) that do not correspond to any valid category.
+E.g., what does it mean to say our first observation has 0.23 for "having hypertension"?
+
+
+## Using Mice to impute values
+
+`Mice` will automatically detect and handle non-continuous (e.g. dichotomous or categorical) variables on its own.
+That said, it will also allow you to specify the type of variable you are imputing yourself, if you want more control over the process.
+
+Imputing missing values is easy:
+```{r}
+  imp.cat <- mice(nhanes2, m = 1, print=FALSE)     
+  full.cat = mice::complete(imp.cat)        
+  head(full.cat)
+```
+
+We now have categorical values in our `age` column and `hyp` column, along with the continuous imputations for the other variables.
+
+The `mice` package uses a different model for each variable, and the model can depend on what kind of data we are imputing.
+We can check which imputation method `mice` used as so:
+
+```{r}
+  imp.cat$method
+```
+
+`mice` used the `polyreg` imputation method for the variable *age*, which means it treated it as an unordered categorical variable.
+We also see that a logistic regression was used for our binary variable `hyp`.
+But we know our *age* variable is an ordered variable: higher values categories signified older age.
+We might want to use a model that takes that ordering into account.
+
+One very important method often used is "polr" (Proportional odds model) which
+handles _ordered_ categories, instead of unordered.  This allows it to say some
+general range of categories is more or less likely, given the other variables.
+
+In general, the more structure you can impose (based on your domain knowledge)
+means better imputation.
+
+More broadly, to know what methods for imputation are available, see the various methods described under mice's help file (or check out the long but readable mice paper by @van2011mice (also see the Canvas site for the reference).
+
+
+We can manually force `mice` to treat *age* as an ordered as so:
+
+```{r}
+  imp.cat2 <- mice(nhanes2, 
+                   meth=c("polr","pmm","logreg","pmm"),
+                   m=1, print=FALSE)
+  head(mice::complete(imp.cat2, 1))
+  imp.cat2$method
+```
+
+
+### A coding trick to get the defaults
+
+As a coding tip, we can use mice with `maxit=0` to get what the defaults are first, and
+then we can easily change the ones we want, and run mice for real.
+This is useful if we have a lot of variables, and do not want to type in all the defaults:
+
+```{r}
+imp <- mice(nhanes2, maxit = 0 )
+imp$method
+mth = imp$method
+mth[1] = "polr"
+mth
+```
+
+And now run as before:
+```{r}
+imp <- mice( nhanes2, method=mth, print=FALSE )
+```
+
+Easy as pie!
+
+
+
+## References
+
+
+
+

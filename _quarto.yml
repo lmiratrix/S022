@@ -39,12 +39,18 @@ book:
       - intro_linear_regression.qmd
       - doing_things_over_and_over.qmd
       - iteration_explored.qmd
-      - demo_cluster_boot.qmd
+    - part: "On Missing Data"
+      chapters:
+      - intro_missing_data.qmd
+      - missing_categorical_data.qmd
     - part: "On Machine Learning"
       chapters:
       - Predicting_birthweight.qmd
       - test_train_and_CV.qmd
       - interpreting_lasso_models.qmd
+    - part: "On the Bootstrap"
+      chapters:
+      - demo_cluster_boot.qmd
     - part: "Extra Stuff"
       chapters:
       - clean_excel_files.qmd
